@@ -18,6 +18,7 @@ const ArticleList = (props) => {
           title={article.title}
           content={article.content}
           author={article.author}
+          category={article.category}
           publishedDate={article.publishedDate}
         />
       ))}

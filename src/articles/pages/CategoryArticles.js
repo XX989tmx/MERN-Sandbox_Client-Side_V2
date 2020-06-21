@@ -1,6 +1,7 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
-import ArticleList from '../components/ArticleList';
+import ArticleList from "../components/ArticleList";
 
 const ARTICLES = [
   {
@@ -29,10 +30,12 @@ const ARTICLES = [
   },
 ];
 
-const Articles = () => {
-
-  
-  return <ArticleList items={ARTICLES}/>;
+const CategoryArticles = (params) => {
+    const categoryId = useParams().categoryId;
+    const loadedArticles = ARTICLES.filter(
+      (article) => article.category === categoryId
+    );
+    return <ArticleList items={loadedArticles} />;
 };
 
-export default Articles;
+export default CategoryArticles;

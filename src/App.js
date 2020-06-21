@@ -11,6 +11,9 @@ import Users from "./users/pages/Users";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import AboutUs from "./statics/AboutUs";
 import ContactUs from "./statics/ContactUs";
+import UserArticles from "./articles/pages/UserArticles";
+import CategoryArticles from "./articles/pages/CategoryArticles";
+import NewArticle from "./articles/pages/NewArticle";
 // import Article1 from "./articles/pages/Article1";
 
 const App = () => {
@@ -25,6 +28,15 @@ const App = () => {
 
           <Route path="/users" exact>
             <Users />
+          </Route>
+          <Route path="/:uid/articles" exact>
+            <UserArticles />
+          </Route>
+          <Route path="/:cid/articles" exact>
+            <CategoryArticles />
+          </Route>
+          <Route path="/articles/new" exact>
+            <NewArticle />
           </Route>
 
           {/* <Route path="/articles/:aid" exact>

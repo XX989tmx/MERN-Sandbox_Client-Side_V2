@@ -17,6 +17,9 @@ const NavLinks = props => {
         <li>
           <NavLink to="/contact_us">Contact Us</NavLink>
         </li>
+        <li>
+          <NavLink to="/articles/new">Add Article</NavLink>
+        </li>
         {/* <li>
           <NavLinks>ADD ARTICLES</NavLinks>
         </li> */}

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
+import {Link} from 'react-router-dom';
+
 import Modal from "../../shared/components/UIElements/Modal";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
+import Map from '../../shared/components/UIElements/Map';
 
 const ArticleItem = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -26,6 +29,7 @@ const ArticleItem = (props) => {
       >
         <div className="map-container">
           <p>{props.content}</p>
+          {/* <Map center={props.coordinates} zoom={16}/> */}
         </div>
       </Modal>
       <li className="article-item">
@@ -37,11 +41,15 @@ const ArticleItem = (props) => {
             <h2>{props.title}</h2>
             <p>{props.content}</p>
             <p>
-            {/* 著者情報をonFloatでモーダルで表示させてもいい */}
-              Written by{" "}
-              <Button onClick={openModalHandler}>{props.author}</Button>
+              {/* 著者情報をonFloatでモーダルで表示させてもいい */}
+              Written by {/* <Button onClick={openModalHandler}> */}
+              <Link to="/:uid/articles">{props.author}</Link>
+              {/* </Button> */}
             </p>
             <p>publishedDate: {props.publishedDate}</p>
+            <Link to="/:cid/articles">
+              <p>Category: {props.category}</p>
+            </Link>
           </div>
           <div className="article-item__actions">
             <Button onClick={openModalHandler}>View This Article</Button>
