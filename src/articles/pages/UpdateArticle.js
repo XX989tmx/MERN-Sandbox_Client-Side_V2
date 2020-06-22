@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
@@ -39,17 +39,36 @@ const ARTICLES = [
 ];
 
 const UpdateArticle = (params) => {
+  const [isLoading, setIsLoading] = useState(true);
   const articleId = useParams().articleId;
+
+  
+
+  const [formState, inputHandler, setFormData] = useForm(
+    {
+      title: { value: "", isValid: false },
+      content: { value: "", isValid: false }
+    },
+    false
+  );
 
   const identifiedArticle = ARTICLES.find((a) => a.id === articleId);
 
-  const [formState, inputHandler] = useForm(
-    {
-      title: { value: identifiedArticle.title, isValid: true },
-      content: { value: identifiedArticle.content, isValid: true },
+  useEffect(() => {
+      setFormData({
+    title: {
+      value: identifiedArticle.title,
+      isValid: true,
     },
-    true
-  );
+    content: {
+      value: identifiedArticle.content,
+      isValid: true,
+    }
+  }, true);
+  setIsLoading(false);
+  }, [setFormData, identifiedArticle]);
+
+  
 
   const placeUpdateSubmitHandler = (event) => {
       event.preventDefault();
@@ -61,6 +80,14 @@ const UpdateArticle = (params) => {
     return (
       <div className="center">
         <h2>Could not find article!</h2>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className="center">
+        <h2>Loading...</h2>
       </div>
     );
   }
