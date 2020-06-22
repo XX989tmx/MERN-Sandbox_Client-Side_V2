@@ -14,6 +14,7 @@ import ContactUs from "./statics/ContactUs";
 import UserArticles from "./articles/pages/UserArticles";
 import CategoryArticles from "./articles/pages/CategoryArticles";
 import NewArticle from "./articles/pages/NewArticle";
+import UpdateArticle from "./articles/pages/UpdateArticle";
 // import Article1 from "./articles/pages/Article1";
 
 const App = () => {
@@ -29,14 +30,17 @@ const App = () => {
           <Route path="/users" exact>
             <Users />
           </Route>
-          <Route path="/:uid/articles" exact>
+          <Route path="/:userId/articles" exact>
             <UserArticles />
           </Route>
-          <Route path="/:cid/articles" exact>
+          <Route path="/:categoryId/articles" exact>
             <CategoryArticles />
           </Route>
           <Route path="/articles/new" exact>
             <NewArticle />
+          </Route>
+          <Route path="/articles/:articleId">
+            <UpdateArticle />
           </Route>
 
           {/* <Route path="/articles/:aid" exact>
