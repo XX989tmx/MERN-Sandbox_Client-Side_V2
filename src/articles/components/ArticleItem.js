@@ -43,7 +43,7 @@ const ArticleItem = (props) => {
             <p>
               {/* 著者情報をonFloatでモーダルで表示させてもいい */}
               Written by {/* <Button onClick={openModalHandler}> */}
-              <Link to="/:uid/articles">{props.author}</Link>
+              <Link to="/u1/articles">{props.author}</Link>
               {/* </Button> */}
             </p>
             <p>publishedDate: {props.publishedDate}</p>

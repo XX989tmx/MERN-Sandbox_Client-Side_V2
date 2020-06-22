@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
@@ -8,6 +8,7 @@ import {
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import "./ArticleForm.css";
+import Card from "../../shared/components/UIElements/Card";
 
 const ARTICLES = [
   {
@@ -15,7 +16,7 @@ const ARTICLES = [
     title: "BIOS",
     content:
       "BIOS (pronounced: /ˈbaɪɒs/, BY-oss; an acronym for Basic Input/Output System and also known as the System BIOS, ROM BIOS or PC BIOS) is firmware used to perform hardware initialization during the booting process (power-on startup), and to provide runtime services for operating systems and programs.[1] The BIOS firmware comes pre-installed on a personal computer's system board, and it is the first software to run when powered on. The name originates from the Basic Input/Output System used in the CP/M operating system in 1975.[2][3] The BIOS originally proprietary to the IBM PC has been reverse engineered by companies looking to create compatible systems. The interface of that original system serves as a de facto standard.The BIOS in modern PCs initializes and tests the system hardware components, and loads a boot loader from a mass memory device which then initializes an operating system. In the era of DOS, the BIOS provided a hardware abstraction layer for the keyboard, display, and other input/output (I/O) devices that standardized an interface to application programs and the operating system. More recent operating systems do not use the BIOS after loading, instead accessing the hardware components directly.Most BIOS implementations are specifically designed to work with a particular computer or motherboard model, by interfacing with various devices that make up the complementary system chipset. Originally, BIOS firmware was stored in a ROM chip on the PC motherboard. In modern computer systems, the BIOS contents are stored on flash memory so it can be rewritten without removing the chip from the motherboard. This allows easy, end-user updates to the BIOS firmware so new features can be added or bugs can be fixed, but it also creates a possibility for the computer to become infected with BIOS rootkits. Furthermore, a BIOS upgrade that fails can brick the motherboard permanently, unless the system includes some form of backup for this case.Unified Extensible Firmware Interface (UEFI) is a successor to the legacy PC BIOS, aiming to address its technical shortcomings.[4]",
-    author: " Wikipedia",
+    author: "u1",
     category: "computer",
     publishedDate: "a",
   },
@@ -24,7 +25,7 @@ const ARTICLES = [
     title: "Memory address",
     content:
       "In computing, a memory address is a reference to a specific memory location used at various levels by software and hardware. Memory addresses are fixed-length sequences of digits conventionally displayed and manipulated as unsigned integers.[1] Such numerical semantic bases itself upon features of CPU (such as the instruction pointer and incremental address registers), as well upon use of the memory like an array endorsed by various programming languages.",
-    author: "a",
+    author: "u2",
     category: "computer",
     publishedDate: "a",
   },
@@ -32,7 +33,7 @@ const ARTICLES = [
     id: "a3",
     title: "3",
     content: "a",
-    author: "a",
+    author: "u3",
     category: "computer",
     publishedDate: "a",
   },
@@ -42,12 +43,10 @@ const UpdateArticle = (params) => {
   const [isLoading, setIsLoading] = useState(true);
   const articleId = useParams().articleId;
 
-  
-
   const [formState, inputHandler, setFormData] = useForm(
     {
       title: { value: "", isValid: false },
-      content: { value: "", isValid: false }
+      content: { value: "", isValid: false },
     },
     false
   );
@@ -55,31 +54,36 @@ const UpdateArticle = (params) => {
   const identifiedArticle = ARTICLES.find((a) => a.id === articleId);
 
   useEffect(() => {
-      setFormData({
-    title: {
-      value: identifiedArticle.title,
-      isValid: true,
-    },
-    content: {
-      value: identifiedArticle.content,
-      isValid: true,
+    if (identifiedArticle) {
+      setFormData(
+        {
+          title: {
+            value: identifiedArticle.title,
+            isValid: true,
+          },
+          content: {
+            value: identifiedArticle.content,
+            isValid: true,
+          },
+        },
+        true
+      );
     }
-  }, true);
-  setIsLoading(false);
+
+    setIsLoading(false);
   }, [setFormData, identifiedArticle]);
 
-  
-
   const placeUpdateSubmitHandler = (event) => {
-      event.preventDefault();
-      console.log(formState.inputs);
-      
-  }
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
 
   if (!identifiedArticle) {
     return (
       <div className="center">
-        <h2>Could not find article!</h2>
+        <Card>
+          <h2>Could not find article!</h2>
+        </Card>
       </div>
     );
   }
