@@ -20,6 +20,9 @@ const NavLinks = props => {
         <li>
           <NavLink to="/articles/new">Add Article</NavLink>
         </li>
+        <li>
+          <NavLink to="/auth">Authenticate</NavLink>
+        </li>
         {/* <li>
           <NavLinks>ADD ARTICLES</NavLinks>
         </li> */}
