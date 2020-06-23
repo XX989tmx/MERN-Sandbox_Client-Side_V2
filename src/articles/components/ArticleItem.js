@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -6,8 +6,10 @@ import Modal from "../../shared/components/UIElements/Modal";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import Map from "../../shared/components/UIElements/Map";
+import { AuthContext } from '../../shared/context/auth-context';
 
 const ArticleItem = (props) => {
+  const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -86,10 +88,11 @@ const ArticleItem = (props) => {
           </div>
           <div className="article-item__actions">
             <Button onClick={openModalHandler}>View This Article</Button>
-            <Button to={`/articles/${props.id}`}>Edit This Article</Button>
-            <Button onClick={showDeleteWarningHandler}>
+            
+            {auth.isLoggedIn && <Button to={`/articles/${props.id}`}>Edit This Article</Button> }
+            {auth.isLoggedIn && <Button onClick={showDeleteWarningHandler}>
               Delete This Article
-            </Button>
+            </Button>}
           </div>
         </Card>
       </li>
