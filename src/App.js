@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,67 +16,95 @@ import CategoryArticles from "./articles/pages/CategoryArticles";
 import NewArticle from "./articles/pages/NewArticle";
 import UpdateArticle from "./articles/pages/UpdateArticle";
 import Auth from "./users/pages/Auth";
+import { AuthContext } from "./shared/context/auth-context";
 // import Article1 from "./articles/pages/Article1";
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
+
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <Switch>
+        <Route path="/users" exact>
+          <Users />
+        </Route>
+        <Route path="/articles" exact>
+          <Articles />
+        </Route>
+        <Route path="/:userId/articles" exact>
+          <UserArticles />
+        </Route>
+        <Route path="/:categoryId/articles" exact>
+          <CategoryArticles />
+        </Route>
+        <Route path="/articles/new" exact>
+          <NewArticle />
+        </Route>
+        <Route path="/articles/:articleId">
+          <UpdateArticle />
+        </Route>
+        <Route path="/about_us" exact>
+          <AboutUs />
+        </Route>
+
+        <Route path="/contact_us" exact>
+          <ContactUs />
+        </Route>
+
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/users" exact>
+          <Users />
+        </Route>
+        <Route path="/articles" exact>
+          <Articles />
+        </Route>
+        <Route path="/:userId/articles" exact>
+          <UserArticles />
+        </Route>
+        <Route path="/:categoryId/articles" exact>
+          <CategoryArticles />
+        </Route>
+        <Route path="/about_us" exact>
+          <AboutUs />
+        </Route>
+
+        <Route path="/contact_us" exact>
+          <ContactUs />
+        </Route>
+        <Route path="/auth">
+          <Auth />
+        </Route>
+        <Redirect to="/auth" />
+      </Switch>
+    );
+  }
+
   return (
-    <Router>
-      <MainNavigation />
-      <main>
-        <Switch>
-          <Route path="/articles" exact>
-            <Articles />
-          </Route>
-
-          <Route path="/users" exact>
-            <Users />
-          </Route>
-          <Route path="/:userId/articles" exact>
-            <UserArticles />
-          </Route>
-          <Route path="/:categoryId/articles" exact>
-            <CategoryArticles />
-          </Route>
-          <Route path="/articles/new" exact>
-            <NewArticle />
-          </Route>
-          <Route path="/articles/:articleId">
-            <UpdateArticle />
-          </Route>
-
-          <Route path="/auth">
-            <Auth />
-          </Route>
-
-
-          {/* <Route path="/articles/:aid" exact>
-            <UpdateArticle />
-          </Route>
-          <Route path="/articles/new" exact>
-            <NewArticle />
-          </Route>
-          <Route path="/:uid/articles" exact>
-            <UserArticles />
-          </Route>
-          <Route path="/categories" exact>
-            <Categories />
-          </Route>
-          <Route path="categories/:cateid/:aid" exact>
-            <CategoryArticle? />
-          </Route> */}
-
-          <Route path="/about_us" exact>
-            <AboutUs />
-          </Route>
-
-          <Route path="/contact_us" exact>
-            <ContactUs />
-          </Route>
-
-          <Redirect to="/" />
-        </Switch>
-      </main>
-    </Router>
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
+      <Router>
+        <MainNavigation />
+        <main>
+          {routes}
+        </main>
+      </Router>
+    </AuthContext.Provider>
   );
 };
 
