@@ -8,6 +8,8 @@ import Button from "../../shared/components/FormElements/Button";
 import Map from "../../shared/components/UIElements/Map";
 import { AuthContext } from '../../shared/context/auth-context';
 
+import './ArticleItem.css';
+
 const ArticleItem = (props) => {
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);

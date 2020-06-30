@@ -4,6 +4,8 @@ import ArticleItem from "./ArticleItem";
 import Button from "../../shared/components/FormElements/Button";
 import Card from "../../shared/components/UIElements/Card";
 
+import './ArticleList.css';
+
 const ArticleList = (props) => {
   if (props.items.length === 0) {
     return (
