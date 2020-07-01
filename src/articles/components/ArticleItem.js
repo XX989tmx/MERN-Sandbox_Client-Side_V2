@@ -74,6 +74,9 @@ const ArticleItem = (props) => {
         <img />
     </div> */}
         <Card className="article-item__contents">
+          <div className="article-item__image">
+            <img src={props.image} alt={props.title} />
+          </div>
           <div className="article-item__article_content">
             <h2>{props.title}</h2>
             <p>{props.content}</p>
@@ -90,11 +93,15 @@ const ArticleItem = (props) => {
           </div>
           <div className="article-item__actions">
             <Button onClick={openModalHandler}>View This Article</Button>
-            
-            {auth.isLoggedIn && <Button to={`/articles/${props.id}`}>Edit This Article</Button> }
-            {auth.isLoggedIn && <Button onClick={showDeleteWarningHandler}>
-              Delete This Article
-            </Button>}
+
+            {auth.isLoggedIn && (
+              <Button to={`/articles/${props.id}`}>Edit This Article</Button>
+            )}
+            {auth.isLoggedIn && (
+              <Button onClick={showDeleteWarningHandler}>
+                Delete This Article
+              </Button>
+            )}
           </div>
         </Card>
       </li>

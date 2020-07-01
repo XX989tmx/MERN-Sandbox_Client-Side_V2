@@ -24,6 +24,7 @@ const ArticleList = (props) => {
         <ArticleItem
           key={article.id}
           id={article.id}
+          image={article.image}
           title={article.title}
           content={article.content}
           author={article.author}
