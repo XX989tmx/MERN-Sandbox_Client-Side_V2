@@ -30,6 +30,7 @@ const ArticleList = (props) => {
           author={article.author}
           category={article.category}
           publishedDate={article.publishedDate}
+          onDelete={props.onDeleteArticle}
         />
       ))}
     </ul>

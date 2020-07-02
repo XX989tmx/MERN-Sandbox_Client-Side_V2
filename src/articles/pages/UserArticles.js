@@ -42,6 +42,12 @@ const UserArticles = () => {
     fetchArticles();
   }, [sendRequest, userId]);
 
+  const articleDeletedHandler = (deletedArticleId) => {
+    setLoadedArticles((prevArticles) =>
+      prevArticles.filter((article) => article.id !== deletedArticleId)
+    );
+  };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -50,7 +56,12 @@ const UserArticles = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedArticles && <ArticleList items={loadedArticles} />}
+      {!isLoading && loadedArticles && (
+        <ArticleList
+          items={loadedArticles}
+          onDeleteArticle={articleDeletedHandler}
+        />
+      )}
     </React.Fragment>
   );
 };
