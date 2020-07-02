@@ -14,6 +14,7 @@ import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { AuthContext } from "../../shared/context/auth-context";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
 const Auth = (params) => {
   const auth = useContext(AuthContext);
@@ -91,15 +92,10 @@ const Auth = (params) => {
           }
         );
 
-        
         auth.login(responseData.user.id);
-      } catch (err) {
-
-      }
+      } catch (err) {}
     }
   };
-
-  
 
   return (
     <React.Fragment>
@@ -120,6 +116,8 @@ const Auth = (params) => {
               onInput={inputHandler}
             />
           )}
+
+          {!isLoginMode && <ImageUpload center id="image" />}
 
           <Input
             element="input"
