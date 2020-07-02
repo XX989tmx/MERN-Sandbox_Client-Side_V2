@@ -45,7 +45,7 @@ const ArticleItem = (props) => {
 
   return (
     <React.Fragment>
-    <ErrorModal error={error} onClear={clearError}/>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showModal}
         onCancel={closeModalHandler}
@@ -85,7 +85,7 @@ const ArticleItem = (props) => {
         <img />
     </div> */}
         <Card className="article-item__contents">
-        {isLoading && <LoadingSpinner asOverlay/>}
+          {isLoading && <LoadingSpinner asOverlay />}
           <div className="article-item__image">
             <img src={props.image} alt={props.title} />
           </div>
@@ -106,10 +106,10 @@ const ArticleItem = (props) => {
           <div className="article-item__actions">
             <Button onClick={openModalHandler}>View This Article</Button>
 
-            {auth.isLoggedIn && (
+            {auth.userId === props.author && (
               <Button to={`/articles/${props.id}`}>Edit This Article</Button>
             )}
-            {auth.isLoggedIn && (
+            {auth.userId === props.author && (
               <Button onClick={showDeleteWarningHandler}>
                 Delete This Article
               </Button>
