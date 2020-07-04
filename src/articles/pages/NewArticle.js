@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import { useHistory} from 'react-router-dom';
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   VALIDATOR_REQUIRE,
@@ -12,7 +12,8 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { AuthContext } from '../../shared/context/auth-context';
+import { AuthContext } from "../../shared/context/auth-context";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
 const NewArticle = () => {
   const auth = useContext(AuthContext);
@@ -22,6 +23,7 @@ const NewArticle = () => {
       title: { value: "", isValid: false },
       content: { value: "", isValid: false },
       address: { value: "", isValid: false },
+      image: { value: null, isValid: false },
     },
     false
   );
@@ -31,30 +33,23 @@ const NewArticle = () => {
   const articleSubmitHandler = async (event) => {
     event.preventDefault();
     try {
-      await sendRequest(
-      "http://localhost:5000/api/articles",
-      "POST",
-      JSON.stringify({
-        title: formState.inputs.title.value,
-        content: formState.inputs.content.value,
-        address: formState.inputs.address.value,
-        author: auth.userId
-      }),
-      { 'Content-Type': 'application/json'}
-    );
-    history.push('/');
-    } catch (err) {
-      
-    }
+      const formData = new FormData();
+      formData.append("title", formState.inputs.title.value);
+      formData.append("content", formState.inputs.content.value);
+      formData.append("address", formState.inputs.address.value);
+      formData.append("author", auth.userId);
+      formData.append("image", formState.inputs.image.value);
 
-    
+      await sendRequest("http://localhost:5000/api/articles", "POST", formData);
+      history.push("/");
+    } catch (err) {}
   };
 
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       <form className="article-form" onSubmit={articleSubmitHandler}>
-      {isLoading && <LoadingSpinner asOverlay/>}
+        {isLoading && <LoadingSpinner asOverlay />}
         <Input
           id="title"
           element="input"
@@ -82,6 +77,11 @@ const NewArticle = () => {
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid address."
           onInput={inputHandler}
+        />
+        <ImageUpload
+          id="image"
+          onInput={inputHandler}
+          errorText="Please provide an image."
         />
         {/* <Input element="input" type="radio" label="radio" placeholder="radio" />
         <Input element="input" type="email" label="email" placeholder="email" />
