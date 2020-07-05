@@ -96,7 +96,8 @@ const UpdateArticle = (params) => {
       title: formState.inputs.title.value,
       content: formState.inputs.content.value
     }), {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + auth.token
     });
     history.push('/' + auth.userId + '/articles');
     } catch (err) {

@@ -8,13 +8,13 @@ import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import Map from "../../shared/components/UIElements/Map";
-import { AuthContext } from '../../shared/context/auth-context';
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import { AuthContext } from "../../shared/context/auth-context";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
-import './ArticleItem.css';
+import "./ArticleItem.css";
 
 const ArticleItem = (props) => {
-  const {isLoading, error, sendRequest, clearError} = useHttpClient();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -35,12 +35,16 @@ const ArticleItem = (props) => {
   const confirmDeleteHandler = async (params) => {
     setShowConfirmModal(false);
     try {
-      await sendRequest(`http://localhost:5000/api/articles/${props.id}`, 'DELETE');
+      await sendRequest(
+        `http://localhost:5000/api/articles/${props.id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       props.onDelete(props.id);
-    } catch (err) {
-      
-    }
-    
+    } catch (err) {}
   };
 
   return (
@@ -87,7 +91,10 @@ const ArticleItem = (props) => {
         <Card className="article-item__contents">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="article-item__image">
-            <img src={`http://localhost:5000/${props.image}`} alt={props.title} />
+            <img
+              src={`http://localhost:5000/${props.image}`}
+              alt={props.title}
+            />
           </div>
           <div className="article-item__article_content">
             <h2>{props.title}</h2>
