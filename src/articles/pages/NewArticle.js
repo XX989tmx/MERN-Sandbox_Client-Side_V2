@@ -40,7 +40,7 @@ const NewArticle = () => {
       formData.append("author", auth.userId);
       formData.append("image", formState.inputs.image.value);
 
-      await sendRequest("http://localhost:5000/api/articles", "POST", formData, {
+      await sendRequest(process.env.REACT_APP_BACKEND_URL + "/articles", "POST", formData, {
         Authorization: 'Bearer ' + auth.token
       });
       history.push("/");

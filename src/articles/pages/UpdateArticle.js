@@ -62,7 +62,9 @@ const UpdateArticle = (params) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const responseData = await sendRequest(`http://localhost:5000/api/articles/${articleId}`);
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/articles/${articleId}`
+        );
         setLoadedArticle(responseData.article);
 
         setFormData(
@@ -92,13 +94,18 @@ const UpdateArticle = (params) => {
   const articleUpdateSubmitHandler = async (event) => {
     event.preventDefault();
     try {
-      await sendRequest(`http://localhost:5000/api/articles/${articleId}`, 'PATCH', JSON.stringify({
-      title: formState.inputs.title.value,
-      content: formState.inputs.content.value
-    }), {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + auth.token
-    });
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/articles/${articleId}`,
+        "PATCH",
+        JSON.stringify({
+          title: formState.inputs.title.value,
+          content: formState.inputs.content.value,
+        }),
+        {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
+        }
+      );
     history.push('/' + auth.userId + '/articles');
     } catch (err) {
       
