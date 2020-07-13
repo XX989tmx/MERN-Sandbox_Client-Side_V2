@@ -41,7 +41,7 @@ const MainNavigation = () => {
         <h1>
           <Link to="/">Go Back To Top Page</Link>
         </h1>
-        <nav>
+        <nav >
           <NavLinks />
         </nav>
       </MainHeader>

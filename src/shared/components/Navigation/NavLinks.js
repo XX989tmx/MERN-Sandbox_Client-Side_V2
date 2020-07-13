@@ -9,7 +9,7 @@ const NavLinks = props => {
     const auth = useContext(AuthContext);
 
     return (
-      <ul>
+      <ul className="navlinks">
         <li>
           <NavLink to="/articles">ALL ARTICLES</NavLink>
         </li>
@@ -24,6 +24,12 @@ const NavLinks = props => {
         </li>
         <li>
           <NavLink to="/contact_us">Contact Us</NavLink>
+        </li>
+        <li>
+          <NavLink to="/download">Download</NavLink>
+        </li>
+        <li>
+          <NavLink to="/download">Download</NavLink>
         </li>
         {auth.isLoggedIn && (
           <li>

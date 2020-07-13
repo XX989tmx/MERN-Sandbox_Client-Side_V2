@@ -21,6 +21,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 // import Article1 from "./articles/pages/Article1";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import "./App.css";
+import Download from "./downloaders/pages/Download";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -93,6 +94,9 @@ const App = () => {
         </Route>
         <Route path="/about_us" exact>
           <AboutUs />
+        </Route>
+        <Route path="/download" exact>
+          <Download />
         </Route>
 
         <Route path="/contact_us" exact>

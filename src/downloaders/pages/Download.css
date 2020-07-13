@@ -1,0 +1,34 @@
+.download-container {
+    display: flex;
+}
+
+.download-main-section {
+  width: 600px;
+  height: 400px;
+  background-color: aqua;
+  /* display: flex; */
+}
+
+.download-link-lists {
+  
+  height: 200;
+  width: 100%;
+  height: 70px;
+}
+
+.download-link-items {
+        display: contents;
+}
+
+
+.download-link-item {
+    background-color: red;
+    list-style: none;
+
+}
+
+.download-side-section {
+  width: 370px;
+  height: 400px;
+  background-color: azure;
+}
