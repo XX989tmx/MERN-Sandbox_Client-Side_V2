@@ -23,6 +23,7 @@ header {
   height: 5rem;
   display: flex;
   align-items: center;
+  box-shadow: 0 2px 7px;
 }
 
 .center {

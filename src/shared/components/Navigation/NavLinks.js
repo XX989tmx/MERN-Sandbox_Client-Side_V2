@@ -28,9 +28,7 @@ const NavLinks = props => {
         <li>
           <NavLink to="/download">Download</NavLink>
         </li>
-        <li>
-          <NavLink to="/download">Download</NavLink>
-        </li>
+        
         {auth.isLoggedIn && (
           <li>
             <NavLink to="/articles/new">Add Article</NavLink>

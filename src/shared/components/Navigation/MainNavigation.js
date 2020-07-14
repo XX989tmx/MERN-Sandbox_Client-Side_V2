@@ -24,16 +24,18 @@ const MainNavigation = () => {
   return (
     <React.Fragment>
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
-      
-        <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-          <nav>
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      
+
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
+        <nav>
+          <NavLinks />
+        </nav>
+      </SideDrawer>
 
       <MainHeader>
-        <button onClick={openDrawerHandler}>
+        <button
+          className="main-navigation__menu-button"
+          onClick={openDrawerHandler}
+        >
           <span />
           <span />
           <span />
@@ -41,9 +43,30 @@ const MainNavigation = () => {
         <h1>
           <Link to="/">Go Back To Top Page</Link>
         </h1>
-        <nav >
+        <nav>
           <NavLinks />
         </nav>
+
+        <div id="search-input" class="ytd-searchbox-spt" slot="search-input">
+          <input
+            id="search"
+            autocapitalize="none"
+            autocomplete="off"
+            autocorrect="off"
+            name="search_query"
+            tabindex="0"
+            type="text"
+            spellcheck="false"
+            placeholder="Search"
+            aria-label="Search"
+            aria-haspopup="false"
+            role="combobox"
+            aria-autocomplete="list"
+            dir="ltr"
+            class="ytd-searchbox"
+          />
+        </div>
+        <span class="baseline_search_black_18dp">search</span>
       </MainHeader>
     </React.Fragment>
   );

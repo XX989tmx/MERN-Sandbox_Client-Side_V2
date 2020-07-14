@@ -96,6 +96,21 @@ const Download = (params) => {
     } catch (err) {}
   };
 
+  const mp4DownloadSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    try {
+      const res = await fetch(
+        "http://localhost:5000/api/download/mp4/sample-mp4-file.mp4"
+      );
+      const blob = await res.blob();
+      download(blob, "sampleMp4.mp4");
+      console.log(
+        "1 mp4 file was downloaded. download proceedure was successful"
+      );
+    } catch (err) {}
+  };
+
   return (
     <div className="download-container">
       <div className="download-main-section">
@@ -146,6 +161,16 @@ const Download = (params) => {
                 Zip File
                 <form>
                   <Button onClick={zipDownloadSubmitHandler}>
+                    DOWNLOAD RESOURCE
+                  </Button>
+                </form>
+              </div>
+            </li>
+            <li className="download-link-item">
+              <div>
+                Mp4 File
+                <form>
+                  <Button onClick={mp4DownloadSubmitHandler}>
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>

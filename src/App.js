@@ -69,9 +69,11 @@ const App = () => {
         <Route path="/about_us" exact>
           <AboutUs />
         </Route>
-
         <Route path="/contact_us" exact>
           <ContactUs />
+        </Route>
+        <Route path="/download" exact>
+          <Download />
         </Route>
 
         <Redirect to="/" />
