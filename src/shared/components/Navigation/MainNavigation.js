@@ -26,7 +26,7 @@ const MainNavigation = () => {
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
 
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-        <nav>
+        <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
       </SideDrawer>
@@ -43,7 +43,7 @@ const MainNavigation = () => {
         <h1>
           <Link to="/">Go Back To Top Page</Link>
         </h1>
-        <nav>
+        <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
 

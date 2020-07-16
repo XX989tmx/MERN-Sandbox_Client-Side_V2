@@ -5,8 +5,8 @@
 }
 
 .download-main-section {
-  width: 600px;
-  height: 400px;
+  width: 810px;
+  height: 100%;
   background-color: aqua;
   /* display: flex; */
   border: solid 1px;
@@ -21,7 +21,8 @@
 
 .download-link-items {
         display: contents;
-        
+            
+
 }
 
 
@@ -29,11 +30,14 @@
     background-color: red;
     list-style: none;
     border: solid 1px;
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .download-side-section {
-  width: 370px;
-  height: 400px;
+  width: 280px;
+  height: 900px;
   background-color: azure;
   border: solid 1px;
 }
