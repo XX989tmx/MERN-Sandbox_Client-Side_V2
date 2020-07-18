@@ -28,7 +28,17 @@ const NavLinks = props => {
         <li>
           <NavLink to="/download">Download</NavLink>
         </li>
-        
+        <li>
+          <NavLink to="/crypto_converter">crypto_converter</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/videos/main">video Main</NavLink>
+        </li>
+        <li>
+          <NavLink to="/videos/item">ideo item</NavLink>
+        </li>
+
         {auth.isLoggedIn && (
           <li>
             <NavLink to="/articles/new">Add Article</NavLink>

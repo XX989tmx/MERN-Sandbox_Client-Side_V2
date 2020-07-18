@@ -1,3 +1,17 @@
+.post-form-area {
+  height: 400px;
+  border: solid 1px;
+}
+
+.result-data-area {
+    height: 100px;
+}
+
+.crypto-get-area {
+  height: 400px;
+  border: solid 1px;
+}
+
 .container {
   display: flex;
   height: 2000px;
@@ -17,6 +31,8 @@
   border: solid 1px;
 }
 
-.iframe {
-  z-index: 9;
+.back-to-top {
+  top: 2000px;
+  left: 1300px;
+  position: absolute;
 }

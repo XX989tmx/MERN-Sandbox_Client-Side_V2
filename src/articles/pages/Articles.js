@@ -34,7 +34,16 @@ const ARTICLES = [
 const Articles = () => {
 
   
-  return <ArticleList items={ARTICLES}/>;
+  return (
+    <div className="container">
+      <div className="main-container">
+        <div className="post-form-area">
+          <ArticleList items={ARTICLES}/>
+        </div>
+      </div>
+      <div className="side-container"></div>
+    </div>
+  );
 };
 
 export default Articles;

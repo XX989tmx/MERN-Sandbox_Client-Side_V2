@@ -40,8 +40,8 @@ const MainNavigation = () => {
           <span />
           <span />
         </button>
-        <h1>
-          <Link to="/">Go Back To Top Page</Link>
+        <h1 >
+          <Link to="/" className="home-link">Go Back To Top Page</Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />

@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  height: 2000px;
+  border: solid 1px;
+}
+
+.main-container {
+  width: 810px;
+  height: 100%;
+  border: solid 1px;
+}
+
+.side-container {
+  width: 280px;
+  height: 900px;
+  background-color: azure;
+  border: solid 1px;
+}
+
+.to-top {
+  z-index: 5;
+  position: fixed;
+  top: 300px;
+}

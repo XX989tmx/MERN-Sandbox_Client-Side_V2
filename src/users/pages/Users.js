@@ -35,7 +35,17 @@ const Users = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
+      {!isLoading && loadedUsers && 
+      <div className="container">
+      <div className="main-container">
+        <div className="post-form-area">
+          <UsersList items={loadedUsers} />
+        </div>
+      </div>
+      <div className="side-container"></div>
+    </div>
+      
+      }
     </React.Fragment>
   );
 };

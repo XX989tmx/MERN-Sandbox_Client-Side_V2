@@ -22,6 +22,9 @@ import { useAuth } from "./shared/hooks/auth-hook";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import "./App.css";
 import Download from "./downloaders/pages/Download";
+import CryptoConverter from "./crypto-converters/pages/CryptoConverter";
+import VideoMainPage from "./videos/pages/VideoMainPage";
+import VideoItemPage from "./videos/pages/VideoItemPage";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -75,6 +78,16 @@ const App = () => {
         <Route path="/download" exact>
           <Download />
         </Route>
+        <Route path="/crypto_converter" exact>
+          <CryptoConverter />
+        </Route>
+
+        <Route path="/videos/main" exact>
+          <VideoMainPage />
+        </Route>
+        <Route path="/videos/item" exact>
+          <VideoItemPage />
+        </Route>
 
         <Redirect to="/" />
       </Switch>
@@ -99,6 +112,17 @@ const App = () => {
         </Route>
         <Route path="/download" exact>
           <Download />
+        </Route>
+
+        <Route path="/crypto_converter" exact>
+          <CryptoConverter />
+        </Route>
+
+        <Route path="/videos/main" exact>
+          <VideoMainPage />
+        </Route>
+        <Route path="/videos/item" exact>
+          <VideoItemPage />
         </Route>
 
         <Route path="/contact_us" exact>
