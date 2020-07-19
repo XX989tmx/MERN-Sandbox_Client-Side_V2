@@ -6,12 +6,16 @@ import "./Download.css";
 import { BrowserRouter } from "react-router-dom";
 import download from "downloadjs";
 
+import catImage from '../../images/sampleImages/sample.jpg';
+import samplePdf from '../../pdf/Git-Cheatsheet.pdf';
+
 const Download = (params) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   // downloaded or not
   const [IsDownloaded, setIsDownloaded] = useState(false);
   const [IsPdfDownloaded, setIsPdfDownloaded] = useState(false);
+  const [IsXlsxDownloaded, setIsXlsxDownloaded] = useState(false);
   const [IsImageDownloaded, setIsImageDownloaded] = useState(false);
   const [IsTxtDownloaded, setIsTxtDownloaded] = useState(false);
   const [IsZipDownloaded, setIsZipDownloaded] = useState(false);
@@ -20,10 +24,11 @@ const Download = (params) => {
   // checkbox
   const [IsChecked, setIsChecked] = useState(false);
   const [IsPdfChecked, setIsPdfChecked] = useState(false);
+  const [IsXlsxChecked, setIsXlsxChecked] = useState(false);
   const [IsImageChecked, setIsImageChecked] = useState(false);
   const [IsTxtChecked, setIsTxtChecked] = useState(false);
   const [IsZipChecked, setIsZipChecked] = useState(false);
-  const [IsMp4Checked, setMp4IsChecked] = useState(false);
+  const [IsMp4Checked, setIsMp4Checked] = useState(false);
 
   // download Count: general
   const [DownloadedCount, setDownloadedCount] = useState(0);
@@ -138,6 +143,31 @@ const Download = (params) => {
         "1 excel file was downloaded. download proceedure was successful"
       );
     } catch (err) {}
+
+    const checkIsXlsxDownloaded = (params) => {
+      setIsXlsxChecked(true);
+      setIsXlsxDownloaded(true);
+      setErrorMessage(
+        "you have downloaded 1 Xlsx file. Dont forget to register our news letter too"
+      );
+    };
+    checkIsXlsxDownloaded();
+
+    const downloadedCounter = (params) => {
+      downloadedCount += 1;
+      setDownloadedCount((prev) => (prev += 1));
+    };
+    downloadedCounter();
+
+    const limitDownloadTimeHandler = (params) => {
+      if (DownloadedCount >= 3) {
+        setDisableDownload(true);
+        setErrorMessage(
+          "You reached daily download limit!! Please try again it later..."
+        );
+      }
+    };
+    limitDownloadTimeHandler();
   };
 
   const imageDownloadSubmitHandler = async (event) => {
@@ -153,6 +183,31 @@ const Download = (params) => {
         "1 jpeg file was downloaded. download proceedure was successful"
       );
     } catch (err) {}
+
+    const checkIsImageDownloaded = (params) => {
+      setIsImageChecked(true);
+      setIsImageDownloaded(true);
+      setErrorMessage(
+        "you have downloaded 1 Image file. Dont forget to register our news letter too"
+      );
+    };
+    checkIsImageDownloaded();
+
+    const downloadedCounter = (params) => {
+      downloadedCount += 1;
+      setDownloadedCount((prev) => (prev += 1));
+    };
+    downloadedCounter();
+
+    const limitDownloadTimeHandler = (params) => {
+      if (DownloadedCount >= 3) {
+        setDisableDownload(true);
+        setErrorMessage(
+          "You reached daily download limit!! Please try again it later..."
+        );
+      }
+    };
+    limitDownloadTimeHandler();
   };
 
   const txtDownloadSubmitHandler = async (event) => {
@@ -168,6 +223,31 @@ const Download = (params) => {
         "1 txt file was downloaded. download proceedure was successful"
       );
     } catch (err) {}
+
+    const checkIsTxtDownloaded = (params) => {
+      setIsTxtChecked(true);
+      setIsTxtDownloaded(true);
+      setErrorMessage(
+        "you have downloaded 1 Txt file. Dont forget to register our news letter too"
+      );
+    };
+    checkIsTxtDownloaded();
+
+    const downloadedCounter = (params) => {
+      downloadedCount += 1;
+      setDownloadedCount((prev) => (prev += 1));
+    };
+    downloadedCounter();
+
+    const limitDownloadTimeHandler = (params) => {
+      if (DownloadedCount >= 3) {
+        setDisableDownload(true);
+        setErrorMessage(
+          "You reached daily download limit!! Please try again it later..."
+        );
+      }
+    };
+    limitDownloadTimeHandler();
   };
 
   const mp4DownloadSubmitHandler = async (event) => {
@@ -183,7 +263,48 @@ const Download = (params) => {
         "1 mp4 file was downloaded. download proceedure was successful"
       );
     } catch (err) {}
+
+    const checkIsMp4Downloaded = (params) => {
+      setIsMp4Checked(true);
+      setIsMp4Downloaded(true);
+      setErrorMessage(
+        "you have downloaded 1 Mp4 file. Dont forget to register our news letter too"
+      );
+    };
+    checkIsMp4Downloaded();
+
+    const downloadedCounter = (params) => {
+      downloadedCount += 1;
+      setDownloadedCount((prev) => (prev += 1));
+    };
+    downloadedCounter();
+
+    const limitDownloadTimeHandler = (params) => {
+      if (DownloadedCount >= 3) {
+        setDisableDownload(true);
+        setErrorMessage(
+          "You reached daily download limit!! Please try again it later...your can download again at xh:xm:xs later"
+        );
+      }
+    };
+    limitDownloadTimeHandler();
   };
+
+  const showPleaseLoginModalHandler = (params) => {};
+
+  // const setLockOutTimer = (params) => {
+  //   const lockedOutTime = new Date().getSeconds();
+  //   const unlockTime = lockedOutTime + 60 * 60 * 24;
+
+  //   const getCurrentTime = (params) => {
+  //     const currentTime = new Date();
+  //     if (unlockTime === currentTime) {
+  //       setDownloadedCount(0);
+  //       setDisableDownload(false);
+  //     }
+  //   }
+
+  // }
 
   // const limitDownloadTimeHandler = (params) => {
   //   if (DownloadedCount > 3) {
@@ -226,6 +347,7 @@ const Download = (params) => {
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>
+                
               </div>
             </li>
             <li className="download-link-item">
@@ -235,7 +357,7 @@ const Download = (params) => {
                   type="checkbox"
                   value=""
                   id="defaultCheck1"
-                  checked={IsChecked}
+                  checked={IsImageChecked}
                 ></input>
                 Image File
                 <form>
@@ -246,6 +368,10 @@ const Download = (params) => {
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>
+                <img
+                  src="https://storage.googleapis.com/sample_test_image_bucket/2020-06-10%20147.jpg"
+                  className="image-preview"
+                />
               </div>
             </li>
             <li className="download-link-item">
@@ -255,7 +381,7 @@ const Download = (params) => {
                   type="checkbox"
                   value=""
                   id="defaultCheck1"
-                  checked={IsChecked}
+                  checked={IsXlsxChecked}
                 ></input>
                 Excel File
                 <form>
@@ -275,7 +401,7 @@ const Download = (params) => {
                   type="checkbox"
                   value=""
                   id="defaultCheck1"
-                  checked={IsChecked}
+                  checked={IsTxtChecked}
                 ></input>
                 Txt File
                 <form>
@@ -286,6 +412,12 @@ const Download = (params) => {
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>
+                <a
+                  href="https://storage.googleapis.com/sample_test_image_bucket/sampleTxt%20(10).txt"
+                  target="_blank"
+                >
+                  Preview Txt file
+                </a>
               </div>
             </li>
             <li className="download-link-item">
@@ -315,7 +447,7 @@ const Download = (params) => {
                   type="checkbox"
                   value=""
                   id="defaultCheck1"
-                  checked={IsChecked}
+                  checked={IsMp4Checked}
                 ></input>
                 Mp4 File
                 <form>
@@ -326,6 +458,14 @@ const Download = (params) => {
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>
+                <iframe
+                  src="https://player.vimeo.com/video/439287536"
+                  width="600"
+                  height="400"
+                  frameborder="0"
+                  allow="autoplay; fullscreen"
+                  allowfullscreen
+                ></iframe>
               </div>
             </li>
           </ul>
@@ -340,6 +480,7 @@ const Download = (params) => {
 
         <h3>you have downloaded this file : {DownloadedCount} times</h3>
         <h1>{ErrorMessage}</h1>
+        <img src="https://storage.googleapis.com/sample_test_image_bucket/download-2.jpg" />
       </div>
     </div>
   );

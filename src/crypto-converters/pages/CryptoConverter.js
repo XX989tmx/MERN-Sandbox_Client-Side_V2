@@ -137,6 +137,7 @@ const CryptoConverter = () => {
         </div>
       </div>
       <div className="side-container">components: sidebar</div>
+      
     </div>
   );
 };
