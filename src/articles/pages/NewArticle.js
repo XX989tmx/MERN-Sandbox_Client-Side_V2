@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -28,6 +28,8 @@ const NewArticle = () => {
     false
   );
 
+  // const [submitCount, setSubmitCount] = useState(0);
+
   const history = useHistory();
 
   const articleSubmitHandler = async (event) => {
@@ -45,7 +47,10 @@ const NewArticle = () => {
       });
       history.push("/");
     } catch (err) {}
+
+    // setSubmitCount(prev => prev+=1);
   };
+
 
   return (
     <React.Fragment>

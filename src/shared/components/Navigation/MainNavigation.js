@@ -19,6 +19,29 @@ const MainNavigation = () => {
         setDrawerIsOpen(false);
     };
 
+    //   // articleを検索する
+    // const searchQueryArticle = (params) => {
+    //   const response = fetch("http://localhost:5000/api/articles/search?search_query={user_input_value}", 'POST');
+    //   // backendでreq.queryでクエリを受け取りparseし変数に代入し、それをキーにして、データベース検索かけ、結果をJSON形式でresとして返す.
+    //   // 当然、対応するRouteも作る事
+    //   const result = response.sort();
+    //   setSerchResult(result);
+    //   // divにresult stateをおき、検索結果とする　
+    // };
+
+    // // Crypto Converterページの情報を検索
+    // const searchQueryCrypto = (params) => {
+    //   const response = fetch(
+    //     "http://localhost:5000/api/get_external_api/crypto_currency/search?search_query={user_input_value}",
+    //     "POST"
+    //   );
+    //   // backendでreq.queryでクエリを受け取りparseし変数に代入し、それをキーにして、データベース検索かけ、結果をJSON形式でresとして返す
+    //   // 当然、対応するRouteも作る事
+    //   const result = response.sort();
+    //   setSerchResult(result);
+    //   // divにresult stateをおき、検索結果とする
+    // };
+
 
 
   return (
@@ -65,6 +88,7 @@ const MainNavigation = () => {
             dir="ltr"
             class="ytd-searchbox"
           />
+          <submit>search</submit>
         </div>
         <span class="baseline_search_black_18dp">search</span>
       </MainHeader>

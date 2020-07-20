@@ -5,6 +5,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./Download.css";
 import { BrowserRouter } from "react-router-dom";
 import download from "downloadjs";
+import { Document, Page } from "react-pdf";
 
 import catImage from '../../images/sampleImages/sample.jpg';
 import samplePdf from '../../pdf/Git-Cheatsheet.pdf';
@@ -347,7 +348,9 @@ const Download = (params) => {
                     DOWNLOAD RESOURCE
                   </Button>
                 </form>
-                
+                {/* <Document file="https://storage.googleapis.com/sample_test_image_bucket/2020-06-10%20147.jpg">
+                  <Page />
+                </Document> */}
               </div>
             </li>
             <li className="download-link-item">
