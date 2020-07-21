@@ -3,6 +3,8 @@ import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 
 import {useHttpClient} from "../../shared/hooks/http-hook";
+import { useForm } from "../../shared/hooks/form-hook";
+import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 
 import "./CryptoConverter.css";
 import GetCryptoData from "../components/GetCryptoData";
@@ -20,15 +22,32 @@ const CryptoConverter = () => {
   const [Minutes, setMinutes] = useState();
   const [Seconds, setSeconds] = useState();
 
+  const [formState, inputHandler] = useForm(
+    {
+      currency: { value: "", isValid: false },
+      value: { value: "", isValid: false }
+    },
+    false
+  );
+
   // const converterSubmitHandler = async (event) => {
   //   event.preventDefault();
   //   try {
-  //     const responseData = await sendRequest(
+
+  //     const formData = new FormData();
+  //     formData.append("currency", formState.inputs.currency.value);
+  //     formData.append("value", formState.inputs.value.value);
+  //     console.log(formData);
+
+  //     const response = await fetch(
   //       "http://localhost:5000/api/get_external_api/get_value_basedon_currency",
-  //       "POST"
+  //       "POST",
+  //       formData
   //     );
-  //     const responseData = await response.json();
+  //     const responseData = response.json();
+      
   //     setCryptoPostData(responseData.value_based_on_your_currency);
+  //     console.log(responseData.value_based_on_your_currency);
   //   } catch (error) {}
   // };
 
@@ -104,14 +123,36 @@ const CryptoConverter = () => {
     <div className="container">
       <div className="main-container">
         <div className="post-form-area">
-          <form className="center">
-            <input id="currency" type="text" label="Currency" />
-            <input id="value" type="text" label="Value" />
-            <Button>submit</Button>
+          <form className="center" >
+            {/* <input id="currency" type="text" label="Currency" />
+            <input id="value" type="text" label="Value" /> */}
+            <Input
+              id="currency"
+              element="input"
+              label="Currency"
+              placeholder="Currency"
+              // autoFocus="true"
+              errorText="Please enter a valid currency."
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="value"
+              element="input"
+              label="Value"
+              placeholder="Value"
+              errorText="Please enter a valid value."
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Button type="submit" disabled={!formState.isValid}>
+              Convert
+            </Button>
           </form>
 
           <div className="result-data-area">
             components: result data result data
+            {/* {cryptoPostData} */}
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
@@ -137,7 +178,6 @@ const CryptoConverter = () => {
         </div>
       </div>
       <div className="side-container">components: sidebar</div>
-      
     </div>
   );
 };
