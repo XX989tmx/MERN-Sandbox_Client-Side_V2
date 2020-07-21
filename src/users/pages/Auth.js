@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 
+import { useParams, useHistory } from "react-router-dom";
+
 import "./Auth.css";
 import Card from "../../shared/components/UIElements/Card";
 import Input from "../../shared/components/FormElements/Input";
@@ -20,6 +22,8 @@ const Auth = (params) => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const history = useHistory();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -84,6 +88,8 @@ const Auth = (params) => {
           }
         );
         auth.login(responseData.userId, responseData.token);
+
+        history.push(`/articles/new`);
       } catch (err) {}
     } else {
       try {
@@ -100,6 +106,8 @@ const Auth = (params) => {
         );
 
         auth.login(responseData.userId, responseData.token);
+
+        history.push(`/articles/new`);
       } catch (err) {}
     }
   };
