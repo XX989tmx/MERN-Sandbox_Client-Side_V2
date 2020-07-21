@@ -372,7 +372,7 @@ const Download = (params) => {
                   </Button>
                 </form>
                 <img
-                  src="https://storage.googleapis.com/sample_test_image_bucket/2020-06-10%20147.jpg"
+                  src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
                   className="image-preview"
                 />
               </div>
@@ -483,7 +483,7 @@ const Download = (params) => {
 
         <h3>you have downloaded this file : {DownloadedCount} times</h3>
         <h1>{ErrorMessage}</h1>
-        <img src="https://storage.googleapis.com/sample_test_image_bucket/download-2.jpg" />
+        <img src="https://storage.googleapis.com/sample_test_image_bucket/images/download-2.jpg" />
       </div>
     </div>
   );

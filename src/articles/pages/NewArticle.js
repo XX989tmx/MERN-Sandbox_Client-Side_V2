@@ -45,7 +45,7 @@ const NewArticle = () => {
       await sendRequest(process.env.REACT_APP_BACKEND_URL + "/articles", "POST", formData, {
         Authorization: 'Bearer ' + auth.token
       });
-      history.push("/");
+        history.push(`/${auth.userId}/articles`);
     } catch (err) {}
 
     // setSubmitCount(prev => prev+=1);

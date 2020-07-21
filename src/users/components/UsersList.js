@@ -18,6 +18,7 @@ const UsersList = (props) => {
 
   return (
     <ul className="users-list">
+    
       {props.items.map((user) => (
         <UserItem
           key={user.id}
@@ -27,6 +28,7 @@ const UsersList = (props) => {
           articleCount={user.articles.length}
         />
       ))}
+    
     </ul>
   );
 };

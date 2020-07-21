@@ -20,6 +20,7 @@ const ArticleList = (props) => {
 
   return (
     <ul>
+    
       {props.items.map((article) => (
         <ArticleItem
           key={article.id}
@@ -33,7 +34,8 @@ const ArticleList = (props) => {
           onDelete={props.onDeleteArticle}
         />
       ))}
-    </ul>
+      
+    </ul> 
   );
 };
 

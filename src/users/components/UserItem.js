@@ -8,6 +8,7 @@ import './UserItem.css';
 const UserItem = (props) => {
   return (
     <li className="user-item center">
+    
       <Card className="user-item__content">
         <Link to={`/${props.id}/articles`}>
           <div className="user-item__image">
@@ -25,6 +26,7 @@ const UserItem = (props) => {
           </div>
         </Link>
       </Card>
+    
     </li>
   );
 };

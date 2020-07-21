@@ -85,9 +85,10 @@ const ArticleItem = (props) => {
         </p>
       </Modal>
       <li className="article-item">
-        {/* <div className="article-item__image">
+      {/* <div className="article-item__image">
         <img />
     </div> */}
+      
         <Card className="article-item__contents">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="article-item__image">
@@ -123,6 +124,7 @@ const ArticleItem = (props) => {
             )}
           </div>
         </Card>
+      
       </li>
     </React.Fragment>
   );
