@@ -25,6 +25,7 @@ import Download from "./downloaders/pages/Download";
 import CryptoConverter from "./crypto-converters/pages/CryptoConverter";
 import VideoMainPage from "./videos/pages/VideoMainPage";
 import VideoItemPage from "./videos/pages/VideoItemPage";
+import UserDetailInfo from "./users/pages/UserDetailInfo";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -87,6 +88,10 @@ const App = () => {
         </Route>
         <Route path="/videos/item" exact>
           <VideoItemPage />
+        </Route>
+
+        <Route path="/:userId/user_detail_info/create" exact>
+          <UserDetailInfo />
         </Route>
 
         <Redirect to="/" />
