@@ -16,6 +16,7 @@ const UserDetailInfo = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const userId = useParams().userId;
   console.log(userId);
+  const history = useHistory();
 
   const [formState, inputHandler] = useForm(
     {
@@ -65,7 +66,7 @@ const UserDetailInfo = () => {
       
       console.log(responseData);
       console.log(`your country is ${responseData.country}`);
-
+        history.push("/" + auth.userId + "/articles");
     } catch (error) {
       console.log(error);
     }
