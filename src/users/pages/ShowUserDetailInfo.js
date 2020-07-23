@@ -16,13 +16,16 @@ const ShowUserDetailInfo = () => {
   const [nameOfResidence, setNameOfResidence] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
 
+  const [exsistingUserDetailInfo, setExsistingUserDetailInfo] = useState();
+
   useEffect(() => {
     const fetchUserDetailInfo = async () => {
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/api/users/${userId}/user_detail_info/show`
         );
-        console.log(responseData.country);
+        console.log(responseData);
+        
         setCountry(responseData.country);
         setZipcode(responseData.zip_code);
         setTodoufuken(responseData.todoufuken);

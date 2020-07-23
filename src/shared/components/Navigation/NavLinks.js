@@ -49,6 +49,11 @@ const NavLinks = props => {
             show_user_detail_info
           </NavLink>
         </li>
+        <li>
+          <NavLink to={`/${auth.userId}/user_detail_info/update`}>
+            update_user_detail_info
+          </NavLink>
+        </li>
 
         {auth.isLoggedIn && (
           <li>
