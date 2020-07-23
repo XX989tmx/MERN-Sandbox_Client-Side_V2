@@ -66,7 +66,7 @@ const UserDetailInfo = () => {
       
       console.log(responseData);
       console.log(`your country is ${responseData.country}`);
-        history.push("/" + auth.userId + "/articles");
+        history.push("/" + auth.userId + "/user_detail_info/show");
     } catch (error) {
       console.log(error);
     }
@@ -95,7 +95,7 @@ const UserDetailInfo = () => {
           label="country"
           type="text"
           validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
+          onInput={inputHandler} 
         />
         <Input
           id="zip_code"
