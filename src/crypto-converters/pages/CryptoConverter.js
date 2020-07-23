@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 
-import {useHttpClient} from "../../shared/hooks/http-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 import { useForm } from "../../shared/hooks/form-hook";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 
@@ -14,7 +14,7 @@ const CryptoConverter = () => {
   const [Timer, setTimer] = useState(false);
 
   const [cryptoPostData, setCryptoPostData] = useState();
-   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [Month, setMonth] = useState();
   const [Day, setDay] = useState();
@@ -25,7 +25,7 @@ const CryptoConverter = () => {
   const [formState, inputHandler] = useForm(
     {
       currency: { value: "", isValid: false },
-      value: { value: "", isValid: false }
+      value: { value: "", isValid: false },
     },
     false
   );
@@ -45,7 +45,7 @@ const CryptoConverter = () => {
   //       formData
   //     );
   //     const responseData = response.json();
-      
+
   //     setCryptoPostData(responseData.value_based_on_your_currency);
   //     console.log(responseData.value_based_on_your_currency);
   //   } catch (error) {}
@@ -67,6 +67,7 @@ const CryptoConverter = () => {
 
   // }, 1000);
 
+  // get request for getting crypto data
   useEffect(() => {
     const getRequestForCryptoData = async (params) => {
       try {
@@ -88,19 +89,26 @@ const CryptoConverter = () => {
     setTimer((prevMode) => !prevMode);
   };
 
-  //    const getRequestForCryptoDataSubmitHandler = async (event) => {
-  //       event.preventDefault();
+  // post request for sending currency & value input and get converted result
+  const cryptoConvertionSubmitHandler = async (event) => {
+    event.preventDefault();
 
-  //       try {
-  //         const response = await fetch(
-  //           "http://localhost:5000/api/get_external_api/crypto_currency"
-  //         );
-  //         const responseData = await response.json();
-  //         setCryptoData(responseData);
+    try {
+      const responseData = await sendRequest(
+        "http://localhost:5000/api/get_external_api/get_value_basedon_currency",
+        "POST",
+        JSON.stringify({
+          currency: formState.inputs.currency.value,
+          value: formState.inputs.value.value,
+        }),
+        { "Content-Type": "application/json" }
+      );
 
-  //         console.log(responseData.exchange_rate);
-  //       } catch (error) {}
-  //     };
+      setCryptoPostData(responseData.value_based_on_your_currency);
+
+      console.log(responseData.value_based_on_your_currency);
+    } catch (error) {}
+  };
 
   const goBackToTop = (event) => {
     event.preventDefault();
@@ -113,7 +121,6 @@ const CryptoConverter = () => {
   };
 
   const promptTimer = () => {
-    
     setTimeout(() => {
       window.prompt("please sign up");
     }, 5000);
@@ -123,14 +130,14 @@ const CryptoConverter = () => {
     <div className="container">
       <div className="main-container">
         <div className="post-form-area">
-          <form className="center" >
+          <form className="center" onSubmit={cryptoConvertionSubmitHandler}>
             {/* <input id="currency" type="text" label="Currency" />
             <input id="value" type="text" label="Value" /> */}
             <Input
               id="currency"
               element="input"
               label="Currency"
-              placeholder="Currency"
+              placeholder="Your Currency"
               // autoFocus="true"
               errorText="Please enter a valid currency."
               validators={[VALIDATOR_REQUIRE()]}
@@ -140,7 +147,7 @@ const CryptoConverter = () => {
               id="value"
               element="input"
               label="Value"
-              placeholder="Value"
+              placeholder="Value  $"
               errorText="Please enter a valid value."
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
@@ -152,7 +159,8 @@ const CryptoConverter = () => {
 
           <div className="result-data-area">
             components: result data result data
-            {/* {cryptoPostData} */}
+            <p>Your input value is worth :</p>
+            <h1>{cryptoPostData} BTC</h1>
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
