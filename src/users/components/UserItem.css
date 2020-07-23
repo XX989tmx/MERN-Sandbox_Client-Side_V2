@@ -1,4 +1,16 @@
-.user-item {
+
+
+/* For mobile phones: */
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .user-item {
     width: 300px;
 height: 300px;
 list-style: none;
@@ -15,5 +27,6 @@ word-wrap: break-word;
 
 .erase-underline-text-decoration {
     text-decoration: none;
+}
 }
 

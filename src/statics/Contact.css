@@ -1,4 +1,16 @@
-.container {
+
+
+/* For mobile phones: */
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .container {
   display: flex;
   height: 2000px;
   border: solid 1px;
@@ -21,4 +33,5 @@
   z-index: 5;
   position: fixed;
   top: 300px;
+}
 }

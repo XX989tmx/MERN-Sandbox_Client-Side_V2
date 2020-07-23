@@ -1,4 +1,16 @@
-.form-control {
+
+
+/* For mobile phones: */
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .form-control {
   margin: 1rem 0;
 }
 
@@ -38,4 +50,5 @@
 .form-control--invalid textarea {
   border-color: red;
   background: #ffd1d1;
+}
 }

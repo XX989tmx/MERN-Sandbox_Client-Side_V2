@@ -1,4 +1,16 @@
-.download-container {
+
+
+/* For mobile phones: */
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .download-container {
     display: flex;
     height: 2000px;
     border: solid 1px;
@@ -42,6 +54,7 @@
   border: solid 1px;
 }
 
-.image-preview {
+/* .image-preview {
   
+} */
 }
