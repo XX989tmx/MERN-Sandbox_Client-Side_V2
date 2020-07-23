@@ -111,6 +111,7 @@ const UpdateUserDetailInfos = () => {
           Authorization: "Bearer " + auth.token,
         }
       );
+      history.push(`/${auth.userId}/user_detail_info/show`);
     } catch (error) {}
   };
 
