@@ -29,6 +29,7 @@ import UserDetailInfo from "./users/pages/UserDetailInfo";
 import ShowUserDetailInfo from "./users/pages/ShowUserDetailInfo";
 import UpdateUserDetailInfos from "./users/pages/UpdateUserDetailInfos";
 import FindArticleByTag from "./articles/pages/FindArticleByTag";
+import FindArticleByCategory from "./articles/pages/FindArticleByCategory";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -102,8 +103,11 @@ const App = () => {
         <Route path="/:userId/user_detail_info/update" exact>
           <UpdateUserDetailInfos />
         </Route>
-        <Route path="/get_article_by_tags/:tags">
+        <Route path="/get_article_by_tags/:tags" exact>
           <FindArticleByTag />
+        </Route>
+        <Route path="/get_article_by_categories/:categories" exact>
+          <FindArticleByCategory />
         </Route>
 
         <Redirect to="/" />

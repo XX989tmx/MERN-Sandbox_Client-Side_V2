@@ -22,6 +22,7 @@ const FindArticleByTag = () => {
           `http://localhost:5000/api/articles/get_article_by_tags/${tags}`
         );
         console.log(responseData);
+        console.log('tag based sorting done.');
         console.log(responseData.tagMatchedArticles);
         console.log(responseData.tagMatchedArticles[0].title);
         console.log(responseData.tagMatchedArticles[0].content);

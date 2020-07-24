@@ -116,9 +116,9 @@ const ArticleItem = (props) => {
             <Link to="/:cid/articles">
               {/* <p>Category: {props.category}</p> */}
             </Link>
-            {/* <Link to={`/articles/${props.categories}`}> */}
-            <p>Category: {props.categories}</p>
-            {/* </Link> */}
+            <Link to={`/get_article_by_categories/${props.categories}`}>
+              <p>Category: {props.categories}</p>
+            </Link>
             <Link to={`/get_article_by_tags/${props.tags}`}>
               <p>Tag: {props.tags}</p>
             </Link>

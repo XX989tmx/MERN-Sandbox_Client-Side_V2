@@ -5,7 +5,7 @@ const FindArticleByTagItems = (props) => {
     <div>
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <h4>{props.tags}</h4>
+      <h4>tags : {props.tags}</h4>
       <p>{props.date_created}</p>
     </div>
   );
