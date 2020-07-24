@@ -9,6 +9,7 @@ const FindArticleByCategory = () => {
     const categories = useParams().categories;
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [CategorySortedArticle, setCategorySortedArticle] = useState([]);
+    const [CountByCategory, setCountByCategory] = useState();
 
     useEffect(() => {
       const getArticlesByCategories = async () => {
@@ -18,6 +19,9 @@ const FindArticleByCategory = () => {
         console.log(responseData);
         console.log('category based sorting done');
         setCategorySortedArticle(responseData.categoryMatchedArticles);
+        console.log(responseData.countByCategory);
+        console.log('extracting count done');
+            setCountByCategory(responseData.countByCategory);
       };
       getArticlesByCategories();
     }, [sendRequest]);
@@ -25,6 +29,7 @@ const FindArticleByCategory = () => {
 
     return (
       <div>
+        <h5>{CountByCategory} related articles found.</h5>
         <FindArticleByCategoryList items={CategorySortedArticle} />
       </div>
     );

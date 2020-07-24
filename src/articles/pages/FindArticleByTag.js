@@ -14,6 +14,7 @@ const FindArticleByTag = () => {
   const [articleTitle, setArticleTitle] = useState();
   const [ArticleContent, setArticleContent] = useState();
   const [Articletags, setArticletags] = useState();
+  const [CountByTag, setCountByTag] = useState();
 
   useEffect(() => {
     const getArticlesByTags = async (params) => {
@@ -22,7 +23,7 @@ const FindArticleByTag = () => {
           `http://localhost:5000/api/articles/get_article_by_tags/${tags}`
         );
         console.log(responseData);
-        console.log('tag based sorting done.');
+        console.log("tag based sorting done.");
         console.log(responseData.tagMatchedArticles);
         console.log(responseData.tagMatchedArticles[0].title);
         console.log(responseData.tagMatchedArticles[0].content);
@@ -31,6 +32,9 @@ const FindArticleByTag = () => {
         setArticletags(responseData.tagMatchedArticles[0].tags);
         setTagSortedArticle(responseData.tagMatchedArticles);
         console.log(tagSortedArticle.title);
+
+        console.log(responseData.countByTag);
+        setCountByTag(responseData.countByTag);
       } catch (error) {}
     };
     getArticlesByTags();
@@ -43,7 +47,8 @@ const FindArticleByTag = () => {
         <h5>{articleTitle}</h5>
         <h6>{ArticleContent}</h6>
       </div> */}
-      <FindArticleByTagList items={tagSortedArticle} />
+      <h4>{CountByTag} related article found</h4>
+      <FindArticleByTagList items={tagSortedArticle}  />
     </div>
   );
 };

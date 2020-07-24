@@ -10,8 +10,9 @@ const FindArticleByTagList = (props) => {
           content={item.content}
           tags={item.tags}
           date_created={item.date_created}
+          
         />
-      ))}
+      )) } 
     </div>
   );
 };
