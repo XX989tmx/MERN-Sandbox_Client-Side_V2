@@ -47,6 +47,12 @@ const ArticleItem = (props) => {
     } catch (err) {}
   };
 
+  const getArticleByTags = (params) => {
+    sendRequest(
+      `http://localhost:5000/api/articles/get_article_by_tags/:tags`
+    );
+  }
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -85,10 +91,10 @@ const ArticleItem = (props) => {
         </p>
       </Modal>
       <li className="article-item">
-      {/* <div className="article-item__image">
+        {/* <div className="article-item__image">
         <img />
     </div> */}
-      
+
         <Card className="article-item__contents">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="article-item__image">
@@ -106,10 +112,17 @@ const ArticleItem = (props) => {
               <Link to="/u1/articles">{props.author}</Link>
               {/* </Button> */}
             </p>
-            <p>publishedDate: {props.publishedDate}</p>
+            {/* <p>publishedDate: {props.publishedDate}</p> */}
             <Link to="/:cid/articles">
-              <p>Category: {props.category}</p>
+              {/* <p>Category: {props.category}</p> */}
             </Link>
+            {/* <Link to={`/articles/${props.categories}`}> */}
+            <p>Category: {props.categories}</p>
+            {/* </Link> */}
+            <Link to={`/get_article_by_tags/${props.tags}`}>
+              <p>Tag: {props.tags}</p>
+            </Link>
+            <p>Date Created: {props.date_created}</p>
           </div>
           <div className="article-item__actions">
             <Button onClick={openModalHandler}>View This Article</Button>
@@ -124,7 +137,6 @@ const ArticleItem = (props) => {
             )}
           </div>
         </Card>
-      
       </li>
     </React.Fragment>
   );

@@ -29,8 +29,11 @@ const ArticleList = (props) => {
           title={article.title}
           content={article.content}
           author={article.author}
-          category={article.category}
-          publishedDate={article.publishedDate}
+          // category={article.category}
+          categories={article.categories}
+          tags={article.tags}
+          date_created={article.date_created}
+          // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
         />
       ))}
