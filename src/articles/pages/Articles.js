@@ -1,5 +1,7 @@
-import React from 'react';
-
+import React, { useContext, useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 import ArticleList from '../components/ArticleList';
 
 const ARTICLES = [
@@ -32,13 +34,32 @@ const ARTICLES = [
 ];
 
 const Articles = () => {
+  const [AllArticles, setAllArticles] = useState([]);
+  const [ArticleCount, setArticleCount] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  useEffect(() => {
+    const allArticles = async (params) => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/articles/all`
+        );
+        console.log(responseData);
+        setAllArticles(responseData.articles);
+        console.log(responseData.count);
+        setArticleCount(responseData.count);
+      } catch (error) {}
+    };
+    allArticles();
+  }, [sendRequest]);
 
   
   return (
     <div className="container">
       <div className="main-container">
         <div className="post-form-area">
-          <ArticleList items={ARTICLES}/>
+          <h5>{ArticleCount} articles</h5>
+          <ArticleList items={AllArticles} />
         </div>
       </div>
       <div className="side-container"></div>
