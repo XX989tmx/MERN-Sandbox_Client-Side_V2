@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
-import ArticleList from '../components/ArticleList';
+import ArticleList from "../components/ArticleList";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const ARTICLES = [
   {
@@ -53,17 +54,25 @@ const Articles = () => {
     allArticles();
   }, [sendRequest]);
 
-  
   return (
-    <div className="container">
-      <div className="main-container">
-        <div className="post-form-area">
-          <h5>{ArticleCount} articles</h5>
-          <ArticleList items={AllArticles} />
+    <React.Fragment>
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
         </div>
-      </div>
-      <div className="side-container"></div>
-    </div>
+      )}
+      {!isLoading && AllArticles && (
+        <div className="container">
+          <div className="main-container">
+            <div className="post-form-area">
+              <h5>{ArticleCount} articles</h5>
+              <ArticleList items={AllArticles} />
+            </div>
+          </div>
+          <div className="side-container"></div>
+        </div>
+      )}
+    </React.Fragment>
   );
 };
 
