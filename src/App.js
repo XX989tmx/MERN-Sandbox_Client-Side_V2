@@ -90,9 +90,12 @@ const App = () => {
         <Route path="/videos/main" exact>
           <VideoMainPage />
         </Route>
-        <Route path="/videos/item" exact>
+        <Route path="/videos/:videoId" exact>
           <VideoItemPage />
         </Route>
+        {/* <Route path="/videos/item" exact>
+          <VideoItemPage />
+        </Route> */}
 
         <Route path="/:userId/user_detail_info/create" exact>
           <UserDetailInfo />
@@ -142,9 +145,12 @@ const App = () => {
         <Route path="/videos/main" exact>
           <VideoMainPage />
         </Route>
-        <Route path="/videos/item" exact>
+        <Route path="/videos/:videoId" exact>
           <VideoItemPage />
         </Route>
+        {/* <Route path="/videos/item" exact>
+          <VideoItemPage />
+        </Route> */}
 
         <Route path="/contact_us" exact>
           <ContactUs />
