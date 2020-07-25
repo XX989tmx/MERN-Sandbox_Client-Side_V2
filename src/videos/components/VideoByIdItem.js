@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const VideoItems = (props) => {
+const VideoByIdItem = (props) => {
     return (
-    
       <div>
-        <Link to={`/videos/${props.id}`}><p>{props.title}</p>
+        <p>{props.title}</p>
         <p>{props.description}</p>
         <iframe
           src={props.src}
@@ -14,9 +12,12 @@ const VideoItems = (props) => {
           frameborder="0"
           allow="autoplay; fullscreen"
           allowfullscreen
-        ></iframe></Link>
+        ></iframe>
+
         <p>{props.tags}</p>
-        <Link to={'/'}><p>{props.categories}</p></Link>
+
+        <p>{props.categories}</p>
+
         <p>{props.persons}</p>
         <p>{props.id}</p>
         <p>{props.date_created}</p>
@@ -24,4 +25,4 @@ const VideoItems = (props) => {
     );
 }
 
-export default VideoItems;
+export default VideoByIdItem;
