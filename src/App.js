@@ -32,6 +32,7 @@ import FindArticleByTag from "./articles/pages/FindArticleByTag";
 import FindArticleByCategory from "./articles/pages/FindArticleByCategory";
 import FindVideoByTags from "./videos/pages/FindVideoByTags";
 import FindVideoByCategory from "./videos/pages/FindVideoByCategory";
+import GetSpecificArticleById from "./articles/pages/GetSpecificArticleById";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -119,6 +120,9 @@ const App = () => {
         </Route>
         <Route path="/get_article_by_categories/:categories" exact>
           <FindArticleByCategory />
+        </Route>
+        <Route path="/get_specific_article_by_id/:articleId" exact>
+          <GetSpecificArticleById />
         </Route>
 
         <Redirect to="/" />

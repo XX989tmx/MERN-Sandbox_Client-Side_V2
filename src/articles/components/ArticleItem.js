@@ -104,8 +104,11 @@ const ArticleItem = (props) => {
             />
           </div>
           <div className="article-item__article_content">
-            <h2>{props.title}</h2>
+            <Link to={`/get_specific_article_by_id/${props.id}`}>
+              <h2>{props.title}</h2>
+            </Link>
             <p>{props.content}</p>
+            <p>{props.id}</p>
             <p>
               {/* 著者情報をonFloatでモーダルで表示させてもいい */}
               Written by {/* <Button onClick={openModalHandler}> */}
