@@ -19,7 +19,7 @@ const VideoItems = (props) => {
         <Link to={`/videos/get_video_by_tags/${props.tags}`}>
           <p>{props.tags}</p>
         </Link>
-        <Link to={'/'}>
+        <Link to={`/videos/get_video_by_categories/${props.categories}`}>
           <p>{props.categories}</p>
         </Link>
         <p>{props.persons}</p>

@@ -31,6 +31,7 @@ import UpdateUserDetailInfos from "./users/pages/UpdateUserDetailInfos";
 import FindArticleByTag from "./articles/pages/FindArticleByTag";
 import FindArticleByCategory from "./articles/pages/FindArticleByCategory";
 import FindVideoByTags from "./videos/pages/FindVideoByTags";
+import FindVideoByCategory from "./videos/pages/FindVideoByCategory";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -96,6 +97,9 @@ const App = () => {
         </Route>
         <Route path="/videos/get_video_by_tags/:tags" exact>
           <FindVideoByTags />
+        </Route>
+        <Route path="/videos/get_video_by_categories/:categories" exact>
+          <FindVideoByCategory />
         </Route>
         {/* <Route path="/videos/item" exact>
           <VideoItemPage />
