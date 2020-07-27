@@ -6,13 +6,17 @@ const FindArticleByTagList = (props) => {
     <div>
       {props.items.map((item) => (
         <FindArticleByTagItems
+          key={item.id}
+          id={item.id}
+          image={item.image}
           title={item.title}
           content={item.content}
+          author={item.author}
           tags={item.tags}
+          categories={item.categories}
           date_created={item.date_created}
-          
         />
-      )) } 
+      ))}
     </div>
   );
 };

@@ -1,16 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FindArticleByTagItems = (props) => {
   return (
     <div>
-      {/* <h1>
+      <Link to={`/get_specific_article_by_id/${props.id}`}>
+        <div>
+          {/* <h1>
         {props.countByTag} 
         {props.tags} Related articles found.
       </h1> */}
-      <h1>{props.title}</h1>
-      <p>{props.content}</p>
-      <h4>tags : {props.tags}</h4>
-      <p>{props.date_created}</p>
+          <p>{props.id}</p>
+          <img src={props.image} />
+          <h1>{props.title}</h1>
+          <p>{props.content}</p>
+          <p>{props.author}</p>
+          <Link to={`/get_article_by_categories/${props.categories}`}>
+            <h4>categories : {props.categories}</h4>
+          </Link>
+          <Link to={`/get_article_by_tags/${props.tags}`}>
+            <h4>tags : {props.tags}</h4>
+          </Link>
+          <p>{props.date_created}</p>
+        </div>
+      </Link>
     </div>
   );
 };
