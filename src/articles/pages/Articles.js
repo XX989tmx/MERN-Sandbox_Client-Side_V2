@@ -72,6 +72,8 @@ const Articles = () => {
   const getArticleBySearchQuery = async (event) => {
     event.preventDefault();
     try {
+      var sort = 'oldest'
+      var latest = 'latest'
       var query = formState.inputs.query.value;
       const responseData = await sendRequest(
         `http://localhost:5000/api/articles/all?q=${query}`
