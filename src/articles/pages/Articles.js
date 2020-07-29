@@ -4,6 +4,13 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import ArticleList from "../components/ArticleList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import Input from '../../shared/components/FormElements/Input';
+import { useForm } from "../../shared/hooks/form-hook";
+import Button from "../../shared/components/FormElements/Button";
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH,
+} from "../../shared/util/validators";
 
 const ARTICLES = [
   {
@@ -38,6 +45,14 @@ const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
   const [ArticleCount, setArticleCount] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [formState, inputHandler] = useForm(
+    {
+      
+      query: { value: "", isValid: false },
+    },
+    false
+  );
+  const [SearchedArticle, setSearchedArticle] = useState();
 
   useEffect(() => {
     const allArticles = async (params) => {
@@ -54,6 +69,18 @@ const Articles = () => {
     allArticles();
   }, [sendRequest]);
 
+  const getArticleBySearchQuery = async (event) => {
+    event.preventDefault();
+    try {
+      var query = formState.inputs.query.value;
+      const responseData = await sendRequest(
+        `http://localhost:5000/api/articles/all?q=${query}`
+      );
+      console.log(responseData.articles);
+      setSearchedArticle(responseData.articles);
+    } catch (error) {}
+  };
+
   return (
     <React.Fragment>
       {isLoading && (
@@ -65,8 +92,22 @@ const Articles = () => {
         <div className="container">
           <div className="main-container">
             <div className="post-form-area">
+              <form onSubmit={getArticleBySearchQuery}>
+                <Input
+                  id="query"
+                  element="input"
+                  label="query"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  onInput={inputHandler}
+                />
+                <Button>Search</Button>
+              </form>
               <h5>{ArticleCount} articles</h5>
-              <ArticleList items={AllArticles} />
+              {SearchedArticle ? (
+                <ArticleList items={SearchedArticle} />
+              ) : (
+                <ArticleList items={AllArticles} />
+              )}
             </div>
           </div>
           <div className="side-container"></div>
