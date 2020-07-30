@@ -4,7 +4,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import ArticleList from "../components/ArticleList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
-import Input from '../../shared/components/FormElements/Input';
+import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
 import Button from "../../shared/components/FormElements/Button";
 import {
@@ -47,7 +47,6 @@ const Articles = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
-      
       query: { value: "", isValid: false },
     },
     false
@@ -72,8 +71,8 @@ const Articles = () => {
   const getArticleBySearchQuery = async (event) => {
     event.preventDefault();
     try {
-      var sort = 'oldest'
-      var latest = 'latest'
+      var sort = "oldest";
+      var latest = "latest";
       var query = formState.inputs.query.value;
       const responseData = await sendRequest(
         `http://localhost:5000/api/articles/all?q=${query}`
@@ -104,6 +103,118 @@ const Articles = () => {
                 />
                 <Button>Search</Button>
               </form>
+
+              <label>
+                Sort Article
+                <select name="sort">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="highest rating">highest rating</option>
+                  <option value="lowest rating">lowest rating</option>
+                  <option value="oldest">oldest</option>
+                  <option value="latest">latest</option>
+                  <option value="Most viewed">Most viewed</option>
+                  <option value="Least viewed">Least viewed</option>
+                  <option value="Highest Favorite Count">
+                    Highest Favorite Count
+                  </option>
+                  <option value="Lowest Favorite Count">
+                    Lowest Favorite Count
+                  </option>
+                  {/* <option value="Highest Cited">Highest Cited</option>
+                  <option value="Lowest Cited">Lowest Cited</option> */}
+                  <option value="stock">stock</option>
+                  <option value="Free Shipment">Free Shipment</option>
+                </select>
+              </label>
+
+              <label>
+                price sort
+                <select name="price">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="500~1000">500~1000</option>
+                  <option value="1000~2000">1000~2000</option>
+                  <option value="2000~5000">2000~5000</option>
+                  <option value="5000~10000">5000~10000</option>
+                  <option value="10000~">10000~</option>
+                </select>
+              </label>
+
+              <label>
+                downloadable
+                <select name="downloadable">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="Downloadable">Downloadable</option>
+                  <option value="Web Only">Web Only</option>
+                </select>
+              </label>
+
+              <label>
+                Format
+                <select name="Format">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="PDF">PDF</option>
+                  <option value="EPUB">EPUB</option>
+                  <option value="WEB">WEB</option>
+                </select>
+              </label>
+
+              <label>
+                Category
+                <select name="Category">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="politics">politics</option>
+                  <option value="science">science</option>
+                  <option value="education">education</option>
+                  <option value="literature">literature</option>
+                  <option value="investment">investment</option>
+                  <option value="technology">technology</option>
+                  <option value="business">business</option>
+                </select>
+              </label>
+
+              <label>
+                Tag
+                <select name="Tag">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="politics">politics</option>
+                  <option value="science">science</option>
+                  <option value="education">education</option>
+                  <option value="literature">literature</option>
+                  <option value="investment">investment</option>
+                  <option value="technology">technology</option>
+                  <option value="business">business</option>
+                </select>
+              </label>
+
+              <label>
+                date
+                <select name="date">
+                  <option value="default" selected>
+                    sort
+                  </option>
+                  <option value="last 30 days">last 30 days</option>
+                  <option value="last 6 month">last 6 month</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="2015">2015</option>
+                </select>
+              </label>
+
               <h5>{ArticleCount} articles</h5>
               {SearchedArticle ? (
                 <ArticleList items={SearchedArticle} />
