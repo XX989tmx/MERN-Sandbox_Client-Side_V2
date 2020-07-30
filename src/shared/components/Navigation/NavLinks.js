@@ -55,6 +55,12 @@ const NavLinks = props => {
           </NavLink>
         </li>
 
+        <li>
+          <NavLink to={`/videos/new`}>
+            New Video
+          </NavLink>
+        </li>
+
         {auth.isLoggedIn && (
           <li>
             <NavLink to="/articles/new">Add Article</NavLink>

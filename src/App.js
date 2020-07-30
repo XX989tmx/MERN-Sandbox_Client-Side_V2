@@ -33,6 +33,7 @@ import FindArticleByCategory from "./articles/pages/FindArticleByCategory";
 import FindVideoByTags from "./videos/pages/FindVideoByTags";
 import FindVideoByCategory from "./videos/pages/FindVideoByCategory";
 import GetSpecificArticleById from "./articles/pages/GetSpecificArticleById";
+import NewVideo from "./videos/pages/NewVideo";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -89,7 +90,9 @@ const App = () => {
         <Route path="/crypto_converter" exact>
           <CryptoConverter />
         </Route>
-
+        <Route path="/videos/new" exact>
+          <NewVideo />
+        </Route>
         <Route path="/videos/main" exact>
           <VideoMainPage />
         </Route>
