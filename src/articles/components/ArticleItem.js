@@ -125,6 +125,7 @@ const ArticleItem = (props) => {
             <Link to={`/get_article_by_tags/${props.tags}`}>
               <p>Tag: {props.tags}</p>
             </Link>
+            <h4>price: {props.price}</h4>
             <p>Date Created: {props.date_created}</p>
           </div>
           <div className="article-item__actions">

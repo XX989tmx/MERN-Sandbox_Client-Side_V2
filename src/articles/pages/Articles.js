@@ -112,6 +112,21 @@ const Articles = () => {
       } catch (error) {}
     }
 
+    const sortByPrice = async(params) => {
+      console.log("selected");
+      try {
+        var price = document.getElementById("price");
+        var priceValue = price.value;
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/articles/all?price=${priceValue}`
+        );
+        console.log(responseData);
+        setAllArticles(responseData.articles);
+        console.log(responseData.count);
+        setArticleCount(responseData.count);
+      } catch (error) {}
+    }
+
   
 
   return (
@@ -163,14 +178,15 @@ const Articles = () => {
 
               <label>
                 price sort
-                <select name="price">
+                <select name="price" id="price" onChange={sortByPrice}>
                   <option value="default" selected>
                     sort
                   </option>
-                  <option value="500~1000">500~1000</option>
-                  <option value="1000~2000">1000~2000</option>
-                  <option value="2000~5000">2000~5000</option>
-                  <option value="5000~10000">5000~10000</option>
+                  <option value="0~499">~499</option>
+                  <option value="500~999">500~999</option>
+                  <option value="1000~1999">1000~1999</option>
+                  <option value="2000~4999">2000~4999</option>
+                  <option value="5000~9999">5000~9999</option>
                   <option value="10000~">10000~</option>
                 </select>
               </label>

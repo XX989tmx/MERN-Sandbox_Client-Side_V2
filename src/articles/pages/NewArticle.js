@@ -25,7 +25,9 @@ const NewArticle = () => {
       address: { value: "", isValid: false },
       image: { value: null, isValid: false },
       address: { value: "", isValid: false },
-      address: { value: "", isValid: false },
+      categories: { value: "", isValid: false },
+      tags: { value: "", isValid: false },
+      price: { value: null, isValid: false },
     },
     false
   );
@@ -45,6 +47,7 @@ const NewArticle = () => {
       formData.append("image", formState.inputs.image.value);
       formData.append("categories", formState.inputs.categories.value);
       formData.append("tags", formState.inputs.tags.value);
+      formData.append("price", formState.inputs.price.value);
 
       await sendRequest(process.env.REACT_APP_BACKEND_URL + "/articles", "POST", formData, {
         Authorization: 'Bearer ' + auth.token
@@ -103,6 +106,15 @@ const NewArticle = () => {
           element="input"
           label="tags"
           placeholder="tags"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid address."
+          onInput={inputHandler}
+        />
+        <Input
+          id="price"
+          element="input"
+          label="price"
+          placeholder="price"
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid address."
           onInput={inputHandler}

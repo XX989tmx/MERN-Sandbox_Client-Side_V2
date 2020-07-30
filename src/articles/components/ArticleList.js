@@ -33,6 +33,7 @@ const ArticleList = (props) => {
           categories={article.categories}
           tags={article.tags}
           date_created={article.date_created}
+          price={article.price}
           // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
         />
