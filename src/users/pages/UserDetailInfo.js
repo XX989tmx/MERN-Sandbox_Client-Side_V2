@@ -95,7 +95,7 @@ const UserDetailInfo = () => {
           label="country"
           type="text"
           validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler} 
+          onInput={inputHandler}
         />
         <Input
           id="zip_code"
@@ -145,8 +145,10 @@ const UserDetailInfo = () => {
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
         />
-        
-        <Button type="submit">submit</Button>
+
+        <Button type="submit" disabled={!formState.isValid}>
+          submit
+        </Button>
       </form>
     </div>
   );
