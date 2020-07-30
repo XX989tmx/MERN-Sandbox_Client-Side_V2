@@ -97,6 +97,21 @@ const Articles = () => {
       } catch (error) {}
     };
 
+    const sortByTag = async(params) => {
+      console.log("selected");
+      try {
+        var tags = document.getElementById("tags");
+        var tagsValue = tags.value;
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/articles/all?tags=${tagsValue}`
+        );
+        console.log(responseData);
+        setAllArticles(responseData.articles);
+        console.log(responseData.count);
+        setArticleCount(responseData.count);
+      } catch (error) {}
+    }
+
   
 
   return (
@@ -193,9 +208,7 @@ const Articles = () => {
                   <option value="default" selected>
                     sort
                   </option>
-                  <option value="politics" >
-                    politics
-                  </option>
+                  <option value="politics">politics</option>
                   <option value="science">science</option>
                   <option value="education">education</option>
                   <option value="literature">literature</option>
@@ -207,7 +220,7 @@ const Articles = () => {
 
               <label>
                 Tag
-                <select name="Tag">
+                <select name="Tag" id="tags" onChange={sortByTag}>
                   <option value="default" selected>
                     sort
                   </option>
