@@ -82,6 +82,23 @@ const Articles = () => {
     } catch (error) {}
   };
 
+  const sortByCategory = async(params) => {
+    console.log('selected');
+    try {
+      var categories = document.getElementById('categories');
+      var categoriesValue = categories.value;
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/articles/all?categories=${categoriesValue}`
+        );
+        console.log(responseData);
+        setAllArticles(responseData.articles);
+        console.log(responseData.count);
+        setArticleCount(responseData.count);
+      } catch (error) {}
+    };
+
+  
+
   return (
     <React.Fragment>
       {isLoading && (
@@ -168,11 +185,17 @@ const Articles = () => {
 
               <label>
                 Category
-                <select name="Category">
+                <select
+                  name="Category"
+                  id="categories"
+                  onChange={sortByCategory}
+                >
                   <option value="default" selected>
                     sort
                   </option>
-                  <option value="politics">politics</option>
+                  <option value="politics" >
+                    politics
+                  </option>
                   <option value="science">science</option>
                   <option value="education">education</option>
                   <option value="literature">literature</option>
