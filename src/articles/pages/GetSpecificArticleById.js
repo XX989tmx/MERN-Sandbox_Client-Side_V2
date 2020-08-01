@@ -12,7 +12,8 @@ useEffect(() => {
   const getArticleById = async (params) => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/articles/get_specific_article_by_id/${articleId}`
+        process.env
+          .REACT_APP_BACKEND_URL + `/articles/get_specific_article_by_id/${articleId}`
       );
       console.log(responseData);
       setArticle(responseData.article);

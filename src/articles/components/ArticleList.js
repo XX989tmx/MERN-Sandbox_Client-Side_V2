@@ -36,6 +36,7 @@ const ArticleList = (props) => {
           price={article.price}
           // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
+          
         />
       ))}
       

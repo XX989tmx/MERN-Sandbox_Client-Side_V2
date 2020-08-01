@@ -49,7 +49,8 @@ const ArticleItem = (props) => {
 
   const getArticleByTags = (params) => {
     sendRequest(
-      `http://localhost:5000/api/articles/get_article_by_tags/:tags`
+      process.env
+        .REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/:tags`
     );
   }
 
@@ -101,6 +102,7 @@ const ArticleItem = (props) => {
             <img
               src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
               alt={props.title}
+              style={{ width: "300px", height: "230px" }}
             />
           </div>
           <div className="article-item__article_content">

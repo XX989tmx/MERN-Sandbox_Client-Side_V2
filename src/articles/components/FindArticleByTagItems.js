@@ -11,7 +11,10 @@ const FindArticleByTagItems = (props) => {
         {props.tags} Related articles found.
       </h1> */}
           <p>{props.id}</p>
-          <img src={props.image} />
+          <img
+            src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+            style={{ width: "300px", height: "230px" }}
+          />
           <h1>{props.title}</h1>
           <p>{props.content}</p>
           <p>{props.author}</p>

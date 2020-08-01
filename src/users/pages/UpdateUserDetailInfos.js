@@ -40,7 +40,8 @@ const UpdateUserDetailInfos = () => {
     const fetchUserDetailInfo = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/users/${userId}/user_detail_info/show`
+          process.env
+            .REACT_APP_BACKEND_URL + `/users/${userId}/user_detail_info/show`
         );
         console.log(responseData.country);
         //   setLoadedArticle(responseData.article);
@@ -95,7 +96,8 @@ const UpdateUserDetailInfos = () => {
 
     try {
       await sendRequest(
-        `http://localhost:5000/api/users/${userId}/user_detail_info/update`,
+        process.env
+          .REACT_APP_BACKEND_URL + `/users/${userId}/user_detail_info/update`,
         "PATCH",
         JSON.stringify({
           country: formState.inputs.country.value,

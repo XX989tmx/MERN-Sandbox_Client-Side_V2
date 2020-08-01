@@ -21,7 +21,8 @@ const FindArticleByTag = () => {
     const getArticlesByTags = async (params) => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/articles/get_article_by_tags/${tags}`
+          process.env
+            .REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/${tags}`
         );
         console.log(responseData);
         console.log("tag based sorting done.");

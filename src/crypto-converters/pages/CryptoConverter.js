@@ -72,7 +72,7 @@ const CryptoConverter = () => {
     const getRequestForCryptoData = async (params) => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/get_external_api/crypto_currency"
+          process.env.REACT_APP_BACKEND_URL + "/get_external_api/crypto_currency"
         );
         const responseData = await response.json();
         setCryptoData(responseData.exchange_rate);
@@ -95,7 +95,7 @@ const CryptoConverter = () => {
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/get_external_api/get_value_basedon_currency",
+        process.env.REACT_APP_BACKEND_URL + "/get_external_api/get_value_basedon_currency",
         "POST",
         JSON.stringify({
           currency: formState.inputs.currency.value,

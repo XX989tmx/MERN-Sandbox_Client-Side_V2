@@ -13,7 +13,8 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
       const getVideoByTags = async (params) => {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/api/videos/get_video_by_tags/${tags}`
+            process.env
+              .REACT_APP_BACKEND_URL + `/videos/get_video_by_tags/${tags}`
           );
          console.log(responseData);
          setTagSortedVideos(responseData.tagMatchedVideos);

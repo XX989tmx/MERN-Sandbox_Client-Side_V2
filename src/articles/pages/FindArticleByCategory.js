@@ -15,7 +15,8 @@ const FindArticleByCategory = () => {
   useEffect(() => {
     const getArticlesByCategories = async () => {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/articles/get_article_by_categories/${categories}`
+        process.env
+          .REACT_APP_BACKEND_URL + `/articles/get_article_by_categories/${categories}`
       );
       console.log(responseData);
       console.log("category based sorting done");

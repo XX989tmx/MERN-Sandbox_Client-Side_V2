@@ -13,7 +13,8 @@ const FindVideoByCategory = () => {
       const getVideoByCategories = async (params) => {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/api/videos/get_video_by_categories/${categories}`
+            process.env
+              .REACT_APP_BACKEND_URL + `/videos/get_video_by_categories/${categories}`
           );
           console.log(responseData);
           setCategorySortedVideos(responseData.categoryMatchedVideos);

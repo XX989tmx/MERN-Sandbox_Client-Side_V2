@@ -47,7 +47,8 @@ const UserDetailInfo = () => {
         // console.log(formData.values());
 
       const responseData = await sendRequest(
-        `http://localhost:5000/api/users/${userId}/user_detail_info/create`,
+        process.env
+          .REACT_APP_BACKEND_URL + `/users/${userId}/user_detail_info/create`,
         "POST",
         JSON.stringify({
           country: formState.inputs.country.value,

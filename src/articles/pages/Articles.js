@@ -57,7 +57,8 @@ const Articles = () => {
     const allArticles = async (params) => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/articles/all`
+          process.env
+            .REACT_APP_BACKEND_URL + `/articles/all`
         );
         console.log(responseData);
         setAllArticles(responseData.articles);
@@ -75,7 +76,7 @@ const Articles = () => {
       var latest = "latest";
       var query = formState.inputs.query.value;
       const responseData = await sendRequest(
-        `http://localhost:5000/api/articles/all?q=${query}`
+        process.env.REACT_APP_BACKEND_URL + `/articles/all?q=${query}`
       );
       console.log(responseData.articles);
       setSearchedArticle(responseData.articles);
@@ -88,7 +89,8 @@ const Articles = () => {
       var categories = document.getElementById('categories');
       var categoriesValue = categories.value;
         const responseData = await sendRequest(
-          `http://localhost:5000/api/articles/all?categories=${categoriesValue}`
+          process.env
+            .REACT_APP_BACKEND_URL + `/articles/all?categories=${categoriesValue}`
         );
         console.log(responseData);
         setAllArticles(responseData.articles);
@@ -103,7 +105,8 @@ const Articles = () => {
         var tags = document.getElementById("tags");
         var tagsValue = tags.value;
         const responseData = await sendRequest(
-          `http://localhost:5000/api/articles/all?tags=${tagsValue}`
+          process.env
+            .REACT_APP_BACKEND_URL + `/articles/all?tags=${tagsValue}`
         );
         console.log(responseData);
         setAllArticles(responseData.articles);
@@ -118,7 +121,8 @@ const Articles = () => {
         var price = document.getElementById("price");
         var priceValue = price.value;
         const responseData = await sendRequest(
-          `http://localhost:5000/api/articles/all?price=${priceValue}`
+          process.env
+            .REACT_APP_BACKEND_URL + `/articles/all?price=${priceValue}`
         );
         console.log(responseData);
         setAllArticles(responseData.articles);

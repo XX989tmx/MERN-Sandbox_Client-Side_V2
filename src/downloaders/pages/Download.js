@@ -56,7 +56,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/pdf/sample.pdf"
+        process.env.REACT_APP_BACKEND_URL + "/download/pdf/sample.pdf"
       );
       const blob = await res.blob();
       download(blob, "samplePdf.pdf");
@@ -96,7 +96,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/zip/sampleFolder.zip"
+        process.env.REACT_APP_BACKEND_URL + "/download/zip/sampleFolder.zip"
       );
       const blob = await res.blob();
       download(blob, "sampleFolder.zip");
@@ -136,7 +136,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/xlsx/sample.xlsx"
+        process.env.REACT_APP_BACKEND_URL + "/download/xlsx/sample.xlsx"
       );
       const blob = await res.blob();
       download(blob, "sampleXlsx.xlsx");
@@ -176,7 +176,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/images/sample.jpg"
+        process.env.REACT_APP_BACKEND_URL + "/download/images/sample.jpg"
       );
       const blob = await res.blob();
       download(blob, "sampleImage.jpg");
@@ -216,7 +216,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/txt/sample.txt"
+        process.env.REACT_APP_BACKEND_URL + "/download/txt/sample.txt"
       );
       const blob = await res.blob();
       download(blob, "sampleTxt.txt");
@@ -256,7 +256,7 @@ const Download = (params) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/download/mp4/sample-mp4-file.mp4"
+        process.env.REACT_APP_BACKEND_URL + "/download/mp4/sample-mp4-file.mp4"
       );
       const blob = await res.blob();
       download(blob, "sampleMp4.mp4");
@@ -374,6 +374,7 @@ const Download = (params) => {
                 <img
                   src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
                   className="image-preview"
+                  
                 />
               </div>
             </li>

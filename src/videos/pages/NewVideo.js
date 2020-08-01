@@ -41,7 +41,8 @@ const NewVideo = () => {
             // formData.append("categories", formState.inputs.categories.value);
             
             const responseData = await sendRequest(
-              `http://localhost:5000/api/videos/new`,
+              process.env
+                .REACT_APP_BACKEND_URL + `/videos/new`,
               "POST",
               JSON.stringify({
                 title: formState.inputs.title.value,

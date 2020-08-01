@@ -16,7 +16,8 @@ const VideoItemPage = () => {
     const getVideoById = async (params) => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/videos/${videoId}`
+          process.env
+            .REACT_APP_BACKEND_URL + `/videos/${videoId}`
         );
         console.log(responseData);
             setVideoById(responseData.video);
