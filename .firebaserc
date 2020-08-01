@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "mern-production-app"
+    "default": "mern-sandbox",
+    "prod": "mern-sandbox"
   }
 }
