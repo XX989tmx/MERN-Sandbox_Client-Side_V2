@@ -24,7 +24,7 @@ const NewArticle = () => {
       content: { value: "", isValid: false },
       address: { value: "", isValid: false },
       image: { value: null, isValid: false },
-      address: { value: "", isValid: false },
+      // address: { value: "", isValid: false },
       categories: { value: "", isValid: false },
       tags: { value: "", isValid: false },
       price: { value: null, isValid: false },
