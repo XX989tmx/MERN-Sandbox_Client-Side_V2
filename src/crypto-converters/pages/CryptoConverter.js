@@ -226,7 +226,292 @@ const CryptoConverter = () => {
             </div>
 
             <div>
-              <h4>
+              <table>
+                <tr>
+                  <th scope="col">Flag</th>
+                  <th scope="col">Exchange Code</th>
+                  <th scope="col">Currency name</th>
+                  <th scope="col">Value equal to 1 BTC</th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇯🇵</span>
+                  </th>
+                  <th scope="row">JPY</th>
+                  <th scope="row">Japansease Yen</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_JPY}
+                    {LastValue.last_JPY}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇺🇸</span>
+                  </th>
+                  <th scope="row">USD</th>
+                  <th scope="row">US Dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_USD}
+                    {LastValue.last_USD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇦🇺</span>
+                  </th>
+                  <th scope="row">AUD</th>
+                  <th scope="row">Australian dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_AUD}
+                    {LastValue.last_AUD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇧🇷</span>
+                  </th>
+                  <th scope="row">BRL</th>
+                  <th scope="row">Brazilian Real</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_BRL}
+                    {LastValue.last_BRL}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇨🇦</span>
+                  </th>
+                  <th scope="row">CAD</th>
+                  <th scope="row">Canadian Dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_CAD}
+                    {LastValue.last_CAD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇨🇭</span>
+                  </th>
+                  <th scope="row">CHF</th>
+                  <th scope="row">Swiss franc</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_CHF}
+                    {LastValue.last_CHF}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇨🇱</span>
+                  </th>
+                  <th scope="row">CLP</th>
+                  <th scope="row">Chilean Peso</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_CLP}
+                    {LastValue.last_CLP}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇨🇱</span>
+                  </th>
+                  <th scope="row">CNY</th>
+                  <th scope="row">Renminbi</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_CNY}
+                    {LastValue.last_CNY}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇩🇰</span>
+                  </th>
+                  <th scope="row">DKK</th>
+                  <th scope="row">Danish krone</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_DKK}
+                    {LastValue.last_DKK}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇪🇺</span>
+                  </th>
+                  <th scope="row">EUR</th>
+                  <th scope="row">Euro</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_EUR}
+                    {LastValue.last_EUR}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇬🇧</span>
+                  </th>
+                  <th scope="row">GBP</th>
+                  <th scope="row">British pound sterling</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_GBP}
+                    {LastValue.last_GBP}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇭🇰</span>
+                  </th>
+                  <th scope="row">HKD</th>
+                  <th scope="row">Hong Kong Dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_HKD}
+                    {LastValue.last_HKD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇮🇳</span>
+                  </th>
+                  <th scope="row">INR</th>
+                  <th scope="row">Indian rupee</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_INR}
+                    {LastValue.last_INR}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇮🇸</span>
+                  </th>
+                  <th scope="row">ISK</th>
+                  <th scope="row">Icelandic króna</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_ISK}
+                    {LastValue.last_ISK}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇰🇷</span>
+                  </th>
+                  <th scope="row">KRW</th>
+                  <th scope="row">South Korean Won</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_KRW}
+                    {LastValue.last_KRW}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇳🇿</span>
+                  </th>
+                  <th scope="row">NZD</th>
+                  <th scope="row">New Zealand dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_NZD}
+                    {LastValue.last_NZD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇵🇱</span>
+                  </th>
+                  <th scope="row">PLN</th>
+                  <th scope="row">Polish zloty</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_PLN}
+                    {LastValue.last_PLN}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇷🇺</span>
+                  </th>
+                  <th scope="row">RUB</th>
+                  <th scope="row">Russian ruble</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_RUB}
+                    {LastValue.last_RUB}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇸🇪</span>
+                  </th>
+                  <th scope="row">SEK</th>
+                  <th scope="row">Swedish krona</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_SEK}
+                    {LastValue.last_SEK}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇸🇬</span>
+                  </th>
+                  <th scope="row">SGD</th>
+                  <th scope="row">Singapore dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_SGD}
+                    {LastValue.last_SGD}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇹🇭</span>
+                  </th>
+                  <th scope="row">THB</th>
+                  <th scope="row">Thai Baht</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_THB}
+                    {LastValue.last_THB}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇹🇷</span>
+                  </th>
+                  <th scope="row">TRY</th>
+                  <th scope="row">Turkish Lira</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_TRY}
+                    {LastValue.last_TRY}
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="col">
+                    <span>🇹🇼</span>
+                  </th>
+                  <th scope="row">TWD</th>
+                  <th scope="row">New Taiwan dollar</th>
+                  <th scope="row">
+                    {CurrencySymbol.symbol_TWD}
+                    {LastValue.last_TWD}
+                  </th>
+                </tr>
+              </table>
+
+              {/* <h4>
                 <span>🇯🇵</span> Japansease Yen:
                 {CurrencySymbol.symbol_JPY}
                 {LastValue.last_JPY}
@@ -319,7 +604,7 @@ const CryptoConverter = () => {
               <h4>
                 <span>🇹🇼</span> New Taiwan dollar: {CurrencySymbol.symbol_TWD}
                 {LastValue.last_TWD}
-              </h4>
+              </h4> */}
             </div>
           </div>
         </div>
