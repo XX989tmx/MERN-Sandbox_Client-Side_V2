@@ -199,10 +199,10 @@ const CryptoConverter = () => {
             </Button>
           </form>
 
-          <div className="result-data-area">
+          <div className="result-data-area center">
             components: result data result data
             <p>Your input value is worth :</p>
-            <h1>{cryptoPostData} BTC</h1>
+            <h1 className="center">{cryptoPostData} BTC</h1>
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
@@ -210,7 +210,7 @@ const CryptoConverter = () => {
 
         <div className="crypto-get-area">
           <div className="crypto-get-area">
-            <div>
+            <div className="center">
               components: GET Req for crypto & data pulled from backend
               <p>{cryptoData}</p>
               <GetCryptoData props={cryptoData} />
@@ -226,7 +226,7 @@ const CryptoConverter = () => {
             </div>
 
             <div>
-              <table>
+              <table className="currency-crypto-table">
                 <tr>
                   <th scope="col">Flag</th>
                   <th scope="col">Exchange Code</th>

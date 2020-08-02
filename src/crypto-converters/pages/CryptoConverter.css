@@ -48,4 +48,12 @@
   left: 1300px;
   position: absolute;
 }
+
+.result-data-area {
+  margin: auto;
+}
+
+.currency-crypto-table {
+  margin: auto;
+}
 }
