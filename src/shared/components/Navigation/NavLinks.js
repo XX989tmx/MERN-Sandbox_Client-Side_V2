@@ -31,6 +31,11 @@ const NavLinks = props => {
         <li>
           <NavLink to="/crypto_converter">crypto_converter</NavLink>
         </li>
+        <li>
+          <NavLink to="/crypto_converter/historical_data">
+            Historical Data
+          </NavLink>
+        </li>
 
         <li>
           <NavLink to="/videos/main">video Main</NavLink>
@@ -56,9 +61,7 @@ const NavLinks = props => {
         </li>
 
         <li>
-          <NavLink to={`/videos/new`}>
-            New Video
-          </NavLink>
+          <NavLink to={`/videos/new`}>New Video</NavLink>
         </li>
 
         {auth.isLoggedIn && (
