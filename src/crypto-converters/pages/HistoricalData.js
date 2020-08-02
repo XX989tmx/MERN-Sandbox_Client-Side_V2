@@ -26,8 +26,8 @@ const HistoricalData = () => {
     event.preventDefault();
 
     try {
-        var startDateValue = formState.inputs.startDate.value;
-        var endDateValue = formState.inputs.endDate.value;
+      var startDateValue = formState.inputs.startDate.value;
+      var endDateValue = formState.inputs.endDate.value;
 
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
@@ -39,6 +39,146 @@ const HistoricalData = () => {
       console.log(responseData.historicalPriceData);
       setHistoricalPriceData(responseData.historicalPriceData);
     } catch (error) {}
+  };
+
+  const getHistoricalDataBasedOnYear = async (event) => {
+    event.preventDefault();
+    var historicalDataBasedOnYears = document.getElementById(
+      "historicalDataBasedOnYear"
+    );
+    var historicalDataBasedOnYearsValue = historicalDataBasedOnYears.value;
+    switch (historicalDataBasedOnYearsValue) {
+      case "2020":
+        try {
+          var startDateValue = "2020-01-01";
+          var endDateValue = "2020-08-01";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2019":
+        try {
+          var startDateValue = "2019-01-01";
+          var endDateValue = "2019-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2018":
+        try {
+          var startDateValue = "2018-01-01";
+          var endDateValue = "2018-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2017":
+        try {
+          var startDateValue = "2017-01-01";
+          var endDateValue = "2017-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2016":
+        try {
+          var startDateValue = "2016-01-01";
+          var endDateValue = "2016-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2015":
+        try {
+          var startDateValue = "2015-01-01";
+          var endDateValue = "2015-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2014":
+        try {
+          var startDateValue = "2014-01-01";
+          var endDateValue = "2014-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      case "2013":
+        try {
+          var startDateValue = "2013-01-01";
+          var endDateValue = "2013-12-31";
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/get_external_api/crypto_currency/historical_data?start=${startDateValue}&end=${endDateValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.dateStringArray);
+          setDateStringArray(responseData.dateStringArray);
+          console.log(responseData.historicalPriceData);
+          setHistoricalPriceData(responseData.historicalPriceData);
+        } catch (error) {}
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -63,6 +203,30 @@ const HistoricalData = () => {
         />
         <button>get data 2020 7/1 - 7/31</button>
       </form>
+      <select
+        name="choice"
+        id="historicalDataBasedOnYear"
+        onChange={getHistoricalDataBasedOnYear}
+      >
+        <option value="first" selected>
+          Year
+        </option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+      </select>
+      <select name="choice" id="historicalDataBasedOnMonth">
+        <option value="first" selected>
+          Month
+        </option>
+        <option value="second">Second Value</option>
+        <option value="third">Third Value</option>
+      </select>
       <HistoricalDataList
         dateStringArray={DateStringArray}
         historicalPriceData={HistoricalPriceData}
