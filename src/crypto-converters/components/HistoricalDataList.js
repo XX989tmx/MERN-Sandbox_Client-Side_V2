@@ -1,5 +1,7 @@
 import React from 'react';
 
+import name from './HistoricalDataList.css';
+
 const HistoricalDataList = (props) => {
     var dateStrings = props.dateStringArray.map((value, i) => {
         return <p>{value}</p>
@@ -11,12 +13,12 @@ const HistoricalDataList = (props) => {
 
 
     return (
-      <div>
+      <div className="historicalData-container">
         
-        <ul>
+        <ul className="dateStringList">
           <li>{dateStrings}</li>
         </ul>
-        <ul>
+        <ul className="historicalPriceList">
           <li>{historicalPriceDataValues}</li>
         </ul>
       </div>
