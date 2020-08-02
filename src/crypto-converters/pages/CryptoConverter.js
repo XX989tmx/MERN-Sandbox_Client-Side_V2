@@ -14,6 +14,8 @@ const CryptoConverter = () => {
   const [Timer, setTimer] = useState(false);
 
   const [cryptoPostData, setCryptoPostData] = useState();
+  const [LastValue, setLastValue] = useState({});
+  const [CurrencySymbol, setCurrencySymbol] = useState({});
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [Month, setMonth] = useState();
@@ -24,7 +26,7 @@ const CryptoConverter = () => {
 
   const [formState, inputHandler] = useForm(
     {
-      currency: { value: "", isValid: false },
+      // currency: { value: "", isValid: false },
       value: { value: "", isValid: false },
     },
     false
@@ -72,10 +74,16 @@ const CryptoConverter = () => {
     const getRequestForCryptoData = async (params) => {
       try {
         const response = await fetch(
-          process.env.REACT_APP_BACKEND_URL + "/get_external_api/crypto_currency"
+          process.env.REACT_APP_BACKEND_URL +
+            "/get_external_api/crypto_currency"
         );
         const responseData = await response.json();
         setCryptoData(responseData.exchange_rate);
+        setLastValue(responseData.lastValueOfEveryCurrency);
+        setCurrencySymbol(responseData.currencySymbolOfEveryCurrency);
+        console.log(responseData.lastValueOfEveryCurrency);
+        console.log(responseData.lastValueOfEveryCurrency.last_JPY);
+        console.log(responseData.currencySymbolOfEveryCurrency);
       } catch (error) {}
     };
     getRequestForCryptoData();
@@ -94,11 +102,14 @@ const CryptoConverter = () => {
     event.preventDefault();
 
     try {
+      var currency = document.getElementById("currency");
+      var currencyValue = currency.value;
       const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/get_external_api/get_value_basedon_currency",
+        process.env.REACT_APP_BACKEND_URL +
+          "/get_external_api/get_value_basedon_currency",
         "POST",
         JSON.stringify({
-          currency: formState.inputs.currency.value,
+          currency: currencyValue,
           value: formState.inputs.value.value,
         }),
         { "Content-Type": "application/json" }
@@ -133,7 +144,8 @@ const CryptoConverter = () => {
           <form className="center" onSubmit={cryptoConvertionSubmitHandler}>
             {/* <input id="currency" type="text" label="Currency" />
             <input id="value" type="text" label="Value" /> */}
-            <Input
+
+            {/* <Input
               id="currency"
               element="input"
               label="Currency"
@@ -142,7 +154,37 @@ const CryptoConverter = () => {
               errorText="Please enter a valid currency."
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
-            />
+            /> */}
+
+            <select name="currency" id="currency">
+              <option value="first" selected>
+                choose your currency
+              </option>
+              <option value="JPY">JPY</option>
+              <option value="USD">USD</option>
+              <option value="AUD">AUD</option>
+              <option value="BRL">BRL</option>
+              <option value="CAD">CAD</option>
+              <option value="CHF">CHF</option>
+              <option value="CLP">CLP</option>
+              <option value="CNY">CNY</option>
+              <option value="DKK">DKK</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">EUR</option>
+              <option value="HKD">HKD</option>
+              <option value="INR">INR</option>
+              <option value="ISK">INR</option>
+              <option value="KRW">KRW</option>
+              <option value="NZD">NZD</option>
+              <option value="PLN">PLN</option>
+              <option value="RUB">RUB</option>
+              <option value="SEK">SEK</option>
+              <option value="SGD">SGD</option>
+              <option value="THB">THB</option>
+              <option value="TRY">TRY</option>
+              <option value="TWD">TWD</option>
+            </select>
+
             <Input
               id="value"
               element="input"
@@ -173,7 +215,7 @@ const CryptoConverter = () => {
               <p>{cryptoData}</p>
               <GetCryptoData props={cryptoData} />
               <form>
-                <Button onClick={getRequesthandler}>Get Data</Button>
+                <Button onClick={getRequesthandler}>Get Latest Data</Button>
               </form>
               <button draggable="true" onClick={goBackToTop}>
                 back to previous page
@@ -181,6 +223,103 @@ const CryptoConverter = () => {
               <div className="back-to-top">
                 <button onClick={goBackToTop}>goBackToTop</button>
               </div>
+            </div>
+
+            <div>
+              <h4>
+                <span>🇯🇵</span> Japansease Yen:
+                {CurrencySymbol.symbol_JPY}
+                {LastValue.last_JPY}
+              </h4>
+              <h4>
+                <span>🇺🇸</span> US Dollar: {CurrencySymbol.symbol_USD}
+                {LastValue.last_USD}
+              </h4>
+              <h4>
+                <span>🇦🇺</span> Australian dollar: {CurrencySymbol.symbol_AUD}
+                {LastValue.last_AUD}
+              </h4>
+              <h4>
+                <span>🇧🇷</span> Brazilian Real: {CurrencySymbol.symbol_BRL}
+                {LastValue.last_BRL}
+              </h4>
+              <h4>
+                <span>🇨🇦</span> Canadian Dollar: {CurrencySymbol.symbol_CAD}
+                {LastValue.last_CAD}
+              </h4>
+              <h4>
+                <span>🇨🇭</span> Swiss franc: {CurrencySymbol.symbol_CHF}
+                {LastValue.last_CHF}
+              </h4>
+              <h4>
+                <span>🇨🇱</span> Chilean Peso: {CurrencySymbol.symbol_CLP}
+                {LastValue.last_CLP}
+              </h4>
+              <h4>
+                <span>🇨🇳</span> Renminbi: {CurrencySymbol.symbol_CNY}
+                {LastValue.last_CNY}
+              </h4>
+              <h4>
+                <span>🇩🇰</span> Danish krone: {CurrencySymbol.symbol_DKK}
+                {LastValue.last_DKK}
+              </h4>
+              <h4>
+                <span>🇪🇺</span> Euro: {CurrencySymbol.symbol_EUR}
+                {LastValue.last_EUR}
+              </h4>
+              <h4>
+                <span>🇬🇧</span> British pound sterling:{" "}
+                {CurrencySymbol.symbol_GBP}
+                {LastValue.last_GBP}
+              </h4>
+              <h4>
+                <span>🇭🇰</span> Hong Kong Dollar: {CurrencySymbol.symbol_HKD}
+                {LastValue.last_HKD}
+              </h4>
+              <h4>
+                <span>🇮🇳</span> Indian rupee: {CurrencySymbol.symbol_INR}
+                {LastValue.last_INR}
+              </h4>
+              <h4>
+                <span>🇮🇸</span> Icelandic króna: {CurrencySymbol.symbol_ISK}
+                {LastValue.last_ISK}
+              </h4>
+              <h4>
+                <span>🇰🇷</span> South Korean Won: {CurrencySymbol.symbol_KRW}
+                {LastValue.last_KRW}
+              </h4>
+              <h4>
+                <span>🇳🇿</span> New Zealand dollar: {CurrencySymbol.symbol_NZD}
+                {LastValue.last_NZD}
+              </h4>
+              <h4>
+                <span>🇵🇱</span> Polish zloty: {CurrencySymbol.symbol_PLN}
+                {LastValue.last_PLN}
+              </h4>
+              <h4>
+                <span>🇷🇺</span> Russian ruble: {CurrencySymbol.symbol_RUB}
+                {LastValue.last_RUB}
+              </h4>
+              <h4>
+                <span>🇸🇪</span> Swedish krona: {CurrencySymbol.symbol_SEK}
+                {LastValue.last_SEK}
+              </h4>
+              <h4>
+                <span>🇸🇬</span> Singapore dollar: {CurrencySymbol.symbol_SGD}
+                {LastValue.last_SGD}
+              </h4>
+              <h4>
+                <span>🇹🇭</span> Thai Baht: {CurrencySymbol.symbol_THB}
+                {LastValue.last_THB}
+              </h4>
+              <h4>
+                <span>🇹🇷</span> Turkish Lira: {CurrencySymbol.symbol_TRY}
+                {LastValue.last_TRY}
+              </h4>
+              <h4>
+                <span>🇹🇼</span> New Taiwan dollar: {CurrencySymbol.symbol_TWD}
+                {LastValue.last_TWD}
+              </h4>
             </div>
           </div>
         </div>
