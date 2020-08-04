@@ -213,8 +213,63 @@ const CryptoConverter = () => {
           </div>
 
           <div>
-            <h3>fcasRating: {fcasRating}</h3>
-            <h3>fcasScore: {fcasScore}</h3>
+            {(fcasRating === "Attractive" && (
+              <div>
+                <h3>
+                  fcasRating:
+                  <span style={{ backgroundColor: "#73EFBB" }}>
+                    {fcasRating}
+                  </span>
+                </h3>
+                <h3>fcasScore: {fcasScore}</h3>
+              </div>
+            )) ||
+              (fcasRating === "Superb" && (
+                <div>
+                  <h3>
+                    fcasRating:
+                    <span style={{ backgroundColor: "#00E685" }}>
+                      {fcasRating}
+                    </span>
+                  </h3>
+                  <h3>fcasScore: {fcasScore}</h3>
+                </div>
+              )) ||
+              (fcasRating === "Basic" && (
+                <div>
+                  <h3>
+                    fcasRating:
+                    <span style={{ backgroundColor: "#BFEFDB" }}>
+                      {fcasRating}
+                    </span>
+                  </h3>
+                  <h3>fcasScore: {fcasScore}</h3>
+                </div>
+              )) ||
+              (fcasRating === "Caution" && (
+                <div>
+                  <h3>
+                    fcasRating:
+                    <span style={{ backgroundColor: "#FFAC70" }}>
+                      {fcasRating}
+                    </span>
+                  </h3>
+                  <h3>fcasScore: {fcasScore}</h3>
+                </div>
+              )) ||
+              (fcasRating === "Fragile" && (
+                <div>
+                  <h3>
+                    fcasRating:
+                    <span style={{ backgroundColor: "#FF4D4D" }}>
+                      {fcasRating}
+                    </span>
+                  </h3>
+                  <h3>fcasScore: {fcasScore}</h3>
+                </div>
+              ))}
+            {/* <h3>fcasRating: {fcasRating}</h3>
+            <h3>fcasScore: {fcasScore}</h3> */}
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
