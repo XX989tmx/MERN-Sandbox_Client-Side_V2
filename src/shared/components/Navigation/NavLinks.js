@@ -36,6 +36,9 @@ const NavLinks = props => {
             Historical Data
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/crypto_converter/fcasRating">FcasRating</NavLink>
+        </li>
 
         <li>
           <NavLink to="/videos/main">video Main</NavLink>

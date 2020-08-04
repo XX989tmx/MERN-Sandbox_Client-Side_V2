@@ -1,0 +1,71 @@
+import React, { useState, useCallback, useEffect } from "react";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import { useForm } from "../../shared/hooks/form-hook";
+import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
+import FcasRatingItem from "../components/FcasRatingItem";
+
+const FcasRating = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [formState, inputHandler] = useForm(
+    {
+      // currency: { value: "", isValid: false },
+      CryptoCode: { value: "", isValid: false },
+    },
+    false
+  );
+  const [FcasRatingInfo, setFcasRatingInfo] = useState({});
+
+  const getFcasRating = async (event) => {
+    event.preventDefault();
+    try {
+      var cryptoCode = formState.inputs.cryptoCode.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/get_external_api/crypto_currency/health_index?cryptoCode=${cryptoCode}`
+      );
+      console.log(responseData);
+      console.log(responseData.fcasRating);
+      setFcasRatingInfo(responseData);
+    } catch (error) {}
+  };
+
+  return (
+    <div>
+      <div className="center">
+        <form onSubmit={getFcasRating}>
+          <Input
+            id="cryptoCode"
+            element="input"
+            label="cryptoCode"
+            placeholder="currency code eg BTC"
+            validators={[VALIDATOR_REQUIRE()]}
+            onInput={inputHandler}
+          />
+          <Button>Get Fcas Score</Button>
+        </form>
+        <div>
+          <button>open currency code list modal</button>
+          <button>download all currency code list</button>
+        </div>
+      </div>
+
+      <div>
+        <FcasRatingItem
+          symbol={FcasRatingInfo.symbol}
+          name={FcasRatingInfo.name}
+          fcasRating={FcasRatingInfo.fcasRating}
+          fcasScore={FcasRatingInfo.fcasScore}
+          developlerScore={FcasRatingInfo.developlerScore}
+          marketMaturityScore={FcasRatingInfo.marketMaturityScore}
+          utilityScore={FcasRatingInfo.utilityScore}
+          lastRefreshed={FcasRatingInfo.lastRefreshed}
+          timezone={FcasRatingInfo.timezone}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default FcasRating;
