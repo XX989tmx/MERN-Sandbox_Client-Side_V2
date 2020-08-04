@@ -24,6 +24,9 @@ const CryptoConverter = () => {
   const [Minutes, setMinutes] = useState();
   const [Seconds, setSeconds] = useState();
 
+  const [fcasScore, setFcasScore] = useState();
+  const [fcasRating, setFcasRating] = useState();
+
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
@@ -84,6 +87,10 @@ const CryptoConverter = () => {
         console.log(responseData.lastValueOfEveryCurrency);
         console.log(responseData.lastValueOfEveryCurrency.last_JPY);
         console.log(responseData.currencySymbolOfEveryCurrency);
+        console.log(responseData.fcasRating);
+        console.log(responseData.fcasScore);
+        setFcasScore(responseData.fcasScore);
+        setFcasRating(responseData.fcasRating);
       } catch (error) {}
     };
     getRequestForCryptoData();
@@ -203,6 +210,11 @@ const CryptoConverter = () => {
             components: result data result data
             <p>Your input value is worth :</p>
             <h1 className="center">{cryptoPostData} BTC</h1>
+          </div>
+
+          <div>
+            <h3>fcasRating: {fcasRating}</h3>
+            <h3>fcasScore: {fcasScore}</h3>
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
