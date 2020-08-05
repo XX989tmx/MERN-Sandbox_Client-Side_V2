@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const FindVideoByTags = () => {
 const tags = useParams().tags;
@@ -21,24 +22,31 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
          console.log(responseData.countByTag);
          setVideoCount(responseData.countByTag);
         } catch (error) {}
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
       };
       getVideoByTags();
     }, [sendRequest]);
 
     return (
-      <div className="container">
-        <div className="main-container">
-          <div>
-            <p>
-              videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild
-              component作り使う
-            </p>
-            <VideoList items={tagSortedVideos} />
+      <React.Fragment>
+        {isLoading && (
+          <div className="center">
+            <LoadingSpinner />
           </div>
-        </div>
-        <div className="side-container"></div>
-      </div>
+        )}
+        {!isLoading && tagSortedVideos && <div className="container">
+          <div className="main-container">
+            <div>
+              <p>
+                videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild
+                component作り使う
+              </p>
+              <VideoList items={tagSortedVideos} />
+            </div>
+          </div>
+          <div className="side-container"></div>
+        </div>}
+      </React.Fragment>
     );
 }
 

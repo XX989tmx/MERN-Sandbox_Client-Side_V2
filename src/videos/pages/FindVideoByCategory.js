@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const FindVideoByCategory = () => {
     const categories = useParams().categories;
@@ -22,20 +23,29 @@ const FindVideoByCategory = () => {
           setCategoryVideoCount(responseData.countByCategory);
           console.log(responseData.countByCategory);
         } catch (error) {}
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
       };
       getVideoByCategories();
     }, [sendRequest]);
 
     return (
-      <div className="container">
-        <div className="main-container">
-          <div>
-            <VideoList items={CategorySortedVideos} />
+      <React.Fragment>
+        {isLoading && (
+          <div className="center">
+            <LoadingSpinner />
           </div>
-        </div>
-        <div className="side-container"></div>
-      </div>
+        )}
+        {!isLoading && CategorySortedVideos && (
+          <div className="container">
+            <div className="main-container">
+              <div>
+                <VideoList items={CategorySortedVideos} />
+              </div>
+            </div>
+            <div className="side-container"></div>
+          </div>
+        )}
+      </React.Fragment>
     );
 }
 

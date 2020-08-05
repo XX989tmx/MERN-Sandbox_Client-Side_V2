@@ -6,6 +6,7 @@ import VideoLinkItemList from "../components/VideoLinkItemList";
 import VideoList from "../components/VideoList";
 import VideoItems from "../components/VideoItems";
 import VideoByIdItem from "../components/VideoByIdItem";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const VideoItemPage = () => {
   const videoId = useParams().videoId;
@@ -24,41 +25,48 @@ const VideoItemPage = () => {
             console.log(responseData.video);
             console.log(responseData.video.title);
       } catch (error) {}
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     };
     getVideoById();
   }, [sendRequest]);
 
   return (
-    <div className="container">
-      <div className="main-container">
-        <div>
-          <p>
-            個別のビデオ表示のためには2通りの可能性。1videoItem child
-            componentに渡して表示、2個別のビデオ表示用のchild
-            componentを作り、それに渡す（youtubeの個別表示ページのようなレイアウト）
-          </p>
-          <VideoByIdItem
-            title={VideoById.title}
-            description={VideoById.description}
-            src={VideoById.src}
-            tags={VideoById.tags}
-            categories={VideoById.categories}
-            persons={VideoById.persons}
-            id={VideoById.id}
-            date_created={VideoById.date_created}
-          />
+    <React.Fragment>
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && VideoById && <div className="container">
+        <div className="main-container">
+          <div>
+            <p>
+              個別のビデオ表示のためには2通りの可能性。1videoItem child
+              componentに渡して表示、2個別のビデオ表示用のchild
+              componentを作り、それに渡す（youtubeの個別表示ページのようなレイアウト）
+            </p>
+            <VideoByIdItem
+              title={VideoById.title}
+              description={VideoById.description}
+              src={VideoById.src}
+              tags={VideoById.tags}
+              categories={VideoById.categories}
+              persons={VideoById.persons}
+              id={VideoById.id}
+              date_created={VideoById.date_created}
+            />
 
-          {/* <VideoList items={VideoById} /> */}
-          {/* each video item page. place video player box component & video link item
+            {/* <VideoList items={VideoById} /> */}
+            {/* each video item page. place video player box component & video link item
       List&video link item. */}
-          {/* <VideoPlayerBox></VideoPlayerBox>
+            {/* <VideoPlayerBox></VideoPlayerBox>
         
             <VideoLinkItemList></VideoLinkItemList> */}
+          </div>
         </div>
-      </div>
-      <div className="side-container"></div>
-    </div>
+        <div className="side-container"></div>
+      </div>}
+    </React.Fragment>
   );
 };
 

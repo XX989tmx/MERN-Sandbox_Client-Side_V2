@@ -3,6 +3,7 @@ import VideoLinkItem from '../components/VideoLinkItem';
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const VideoMainPage = () => {
 
@@ -29,15 +30,22 @@ const VideoMainPage = () => {
 
 
     return (
-      <div className="container">
-        <div className="main-container">
-          <div>
-            list every Video link items here
-            <VideoList items={AllVideos} />
+      <React.Fragment>
+        {isLoading && (
+          <div className="center">
+            <LoadingSpinner />
           </div>
-        </div>
-        <div className="side-container"></div>
-      </div>
+        )}
+        {!isLoading && AllVideos && <div className="container">
+          <div className="main-container">
+            <div>
+              list every Video link items here
+              <VideoList items={AllVideos} />
+            </div>
+          </div>
+          <div className="side-container"></div>
+        </div>}
+      </React.Fragment>
     );
 }
 
