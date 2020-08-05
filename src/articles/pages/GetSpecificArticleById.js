@@ -18,6 +18,7 @@ useEffect(() => {
       console.log(responseData);
       setArticle(responseData.article);
     } catch (error) {}
+    window.scrollTo(0, 0);
   };
   getArticleById();
 }, [sendRequest]);
