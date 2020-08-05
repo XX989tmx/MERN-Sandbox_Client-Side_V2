@@ -8,6 +8,7 @@ import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 
 import "./CryptoConverter.css";
 import GetCryptoData from "../components/GetCryptoData";
+import ExchangeRateItem from "../components/ExchangeRateItem";
 
 const CryptoConverter = () => {
   const [cryptoData, setCryptoData] = useState();
@@ -223,9 +224,7 @@ const CryptoConverter = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <Button type="submit" >
-              Convert
-            </Button>
+            <Button type="submit">Convert</Button>
           </form>
 
           <div className="result-data-area center">
@@ -317,13 +316,24 @@ const CryptoConverter = () => {
           </form>
         </div>
         <div>
-          <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
+          <ExchangeRateItem
+            FromCurrencyCode={ExchangeRate.FromCurrencyCode}
+            FromCurrencyName={ExchangeRate.FromCurrencyName}
+            ToCurrencyCode={ExchangeRate.ToCurrencyCode}
+            ToCurrencyName={ExchangeRate.ToCurrencyName}
+            ExchangeRate={ExchangeRate.ExchangeRate}
+            LastRefreshed={ExchangeRate.LastRefreshed}
+            TimeZone={ExchangeRate.TimeZone}
+            BidPrice={ExchangeRate.BidPrice}
+            AskPrice={ExchangeRate.AskPrice}
+          />
+          {/* <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
           <h3>
             {ExchangeRate.ExchangeRate}{" "}
             <span>{ExchangeRate.ToCurrencyName}</span>
           </h3>
 
-          <p>last updated at: {ExchangeRate.LastRefreshed}</p>
+          <p>last updated at: {ExchangeRate.LastRefreshed}</p> */}
         </div>
 
         <div className="crypto-get-area">
