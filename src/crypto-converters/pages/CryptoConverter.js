@@ -296,7 +296,7 @@ const CryptoConverter = () => {
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
         </div>
 
-        <div>
+        <div className="center">
           <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
             <Input
               id="FromCurrency"
@@ -315,7 +315,7 @@ const CryptoConverter = () => {
             <Button>get exchange rate</Button>
           </form>
         </div>
-        <div>
+        <div className="center">
           <ExchangeRateItem
             FromCurrencyCode={ExchangeRate.FromCurrencyCode}
             FromCurrencyName={ExchangeRate.FromCurrencyName}
@@ -345,11 +345,7 @@ const CryptoConverter = () => {
               <form>
                 <Button onClick={getRequesthandler}>Get Latest Data</Button>
               </form>
-              <button
-                
-                draggable="true"
-                onClick={goBackToTop}
-              >
+              <button draggable="true" onClick={goBackToTop}>
                 back to top page
               </button>
               <div className="back-to-top">
