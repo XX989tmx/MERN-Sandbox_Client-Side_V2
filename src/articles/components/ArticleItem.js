@@ -106,7 +106,10 @@ const ArticleItem = (props) => {
             />
           </div>
           <div className="article-item__article_content">
-            <Link to={`/get_specific_article_by_id/${props.id}`}>
+            <Link
+              to={`/get_specific_article_by_id/${props.id}`}
+              style={{ textDecoration: "none" }}
+            >
               <h2>{props.title}</h2>
             </Link>
             <p>{props.content}</p>
@@ -114,17 +117,25 @@ const ArticleItem = (props) => {
             <p>
               {/* 著者情報をonFloatでモーダルで表示させてもいい */}
               Written by {/* <Button onClick={openModalHandler}> */}
-              <Link to="/u1/articles">{props.author}</Link>
+              <Link to="/u1/articles" style={{ textDecoration: "none" }}>
+                {props.author}
+              </Link>
               {/* </Button> */}
             </p>
             {/* <p>publishedDate: {props.publishedDate}</p> */}
             <Link to="/:cid/articles">
               {/* <p>Category: {props.category}</p> */}
             </Link>
-            <Link to={`/get_article_by_categories/${props.categories}`}>
+            <Link
+              to={`/get_article_by_categories/${props.categories}`}
+              style={{ textDecoration: "none" }}
+            >
               <p>Category: {props.categories}</p>
             </Link>
-            <Link to={`/get_article_by_tags/${props.tags}`}>
+            <Link
+              to={`/get_article_by_tags/${props.tags}`}
+              style={{ textDecoration: "none" }}
+            >
               <p>Tag: {props.tags}</p>
             </Link>
             <h4>price: {props.price}</h4>
@@ -134,7 +145,12 @@ const ArticleItem = (props) => {
             <Button onClick={openModalHandler}>View This Article</Button>
 
             {auth.userId === props.author && (
-              <Button to={`/articles/${props.id}`}>Edit This Article</Button>
+              <Button
+                to={`/articles/${props.id}`}
+                
+              >
+                Edit This Article
+              </Button>
             )}
             {auth.userId === props.author && (
               <Button onClick={showDeleteWarningHandler}>

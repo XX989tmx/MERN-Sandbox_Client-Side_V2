@@ -9,7 +9,7 @@ const UserItem = (props) => {
   return (
     <li className="user-item center card-box">
       <Card className="user-item__content">
-        <Link to={`/${props.id}/articles`}>
+        <Link to={`/${props.id}/articles`} style={{ textDecoration: "none" }}>
           <div className="user-item__image">
             <Avatar
               image={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
