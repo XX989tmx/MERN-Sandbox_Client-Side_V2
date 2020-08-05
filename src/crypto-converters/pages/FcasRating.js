@@ -5,6 +5,7 @@ import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import FcasRatingItem from "../components/FcasRatingItem";
+import download from "downloadjs";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -31,6 +32,22 @@ const FcasRating = () => {
     } catch (error) {}
   };
 
+  const currencyListDownloader = async(event) => {
+      event.preventDefault();
+
+      try {
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL +
+            "/download/csv/digital_currency_list.csv"
+        );
+        const blob = await res.blob();
+        download(blob, "digital_currency_list.csv");
+        console.log(
+          "1 csv file was downloaded. download was successful"
+        );
+      } catch (err) {}
+  }
+
   return (
     <div>
       <div className="center">
@@ -46,8 +63,12 @@ const FcasRating = () => {
           <Button>Get Fcas Score</Button>
         </form>
         <div>
-          <button>open currency code list modal</button>
-          <button>download all currency code list</button>
+          
+            <button>open currency code list modal</button>
+            <button onClick={currencyListDownloader}>
+              download all currency code list
+            </button>
+          
         </div>
       </div>
 
