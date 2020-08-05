@@ -81,6 +81,13 @@ header {
   padding: 0.4rem 1.8rem;
 }
 
+a {
+  color: black;
+}
+a:hover {
+   color: #373737
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
