@@ -345,7 +345,11 @@ const CryptoConverter = () => {
               <form>
                 <Button onClick={getRequesthandler}>Get Latest Data</Button>
               </form>
-              <button draggable="true" onClick={goBackToTop}>
+              <button
+                
+                draggable="true"
+                onClick={goBackToTop}
+              >
                 back to previous page
               </button>
               <div className="back-to-top">
@@ -737,9 +741,7 @@ const CryptoConverter = () => {
           </div>
         </div>
       </div>
-      <div className="side-container">
-      {/* components: sidebar */}
-      </div>
+      <div className="side-container">{/* components: sidebar */}</div>
     </div>
   );
 };
