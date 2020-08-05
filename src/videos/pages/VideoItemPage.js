@@ -24,6 +24,7 @@ const VideoItemPage = () => {
             console.log(responseData.video);
             console.log(responseData.video.title);
       } catch (error) {}
+      window.scrollTo(0, 0);
     };
     getVideoById();
   }, [sendRequest]);

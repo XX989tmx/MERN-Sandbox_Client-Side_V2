@@ -21,6 +21,7 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
          console.log(responseData.countByTag);
          setVideoCount(responseData.countByTag);
         } catch (error) {}
+        window.scrollTo(0, 0);
       };
       getVideoByTags();
     }, [sendRequest]);

@@ -22,6 +22,7 @@ const FindVideoByCategory = () => {
           setCategoryVideoCount(responseData.countByCategory);
           console.log(responseData.countByCategory);
         } catch (error) {}
+        window.scrollTo(0, 0);
       };
       getVideoByCategories();
     }, [sendRequest]);
