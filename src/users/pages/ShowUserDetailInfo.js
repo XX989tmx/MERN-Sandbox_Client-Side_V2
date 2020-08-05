@@ -42,7 +42,7 @@ const ShowUserDetailInfo = () => {
   return (
     <div className="container">
       <div className="main-container">
-        <div>
+        <div >
           <h1>{country}</h1>
           <h1>{zipcode}</h1>
           <h1>{todoufuken}</h1>

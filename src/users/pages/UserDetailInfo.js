@@ -89,7 +89,7 @@ const UserDetailInfo = () => {
   return (
     <div className="container">
       <div className="main-container">
-        <div>
+        <div className="card-box">
           user_detail_info
           <form onSubmit={userDetailInfoSubmitHandler}>
             <Input

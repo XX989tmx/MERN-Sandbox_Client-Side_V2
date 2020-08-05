@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FindArticleByTagItems = (props) => {
   return (
-    <div>
+    <div className="card-box">
       <Link to={`/get_specific_article_by_id/${props.id}`}>
         <div>
           {/* <h1>

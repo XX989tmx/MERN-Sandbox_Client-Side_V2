@@ -64,7 +64,10 @@ const NewArticle = () => {
       <ErrorModal error={error} onClear={clearError} />
       <div className="container">
         <div className="main-container">
-          <form className="article-form" onSubmit={articleSubmitHandler}>
+          <form
+            className="article-form card-box"
+            onSubmit={articleSubmitHandler}
+          >
             {isLoading && <LoadingSpinner asOverlay />}
             <Input
               id="title"

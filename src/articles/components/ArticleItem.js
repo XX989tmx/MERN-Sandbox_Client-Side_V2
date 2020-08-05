@@ -91,7 +91,7 @@ const ArticleItem = (props) => {
           can't be undone thereafter.
         </p>
       </Modal>
-      <li className="article-item">
+      <li className="article-item card-box">
         {/* <div className="article-item__image">
         <img />
     </div> */}

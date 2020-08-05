@@ -120,7 +120,7 @@ const UpdateUserDetailInfos = () => {
   return (
     <div className="container">
       <div className="main-container">
-        <div>
+        <div className="card-box">
           updateUserDetailInfo
           <form onSubmit={UpdateUserDetailSubmitHandler}>
             <Input

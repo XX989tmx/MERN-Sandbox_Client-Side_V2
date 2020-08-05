@@ -67,7 +67,7 @@ const NewVideo = () => {
       <div className="container">
         <div className="main-container">
           <div>
-            <form onSubmit={newVideoSubmitHandler}>
+            <form onSubmit={newVideoSubmitHandler} className="card-box">
               <Input
                 id="title"
                 element="input"
