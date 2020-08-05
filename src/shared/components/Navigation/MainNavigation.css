@@ -28,7 +28,7 @@
   text-decoration: none;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   /* For tablets: */
    .main-navigation__menu-button {
   width: 3rem;
@@ -59,7 +59,7 @@
 }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   /* For desktop: */
   .main-navigation__menu-button {
   width: 3rem;

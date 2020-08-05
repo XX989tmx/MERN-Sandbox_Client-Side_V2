@@ -23,7 +23,7 @@ flex-direction: row; */
     text-decoration: none;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   /* For tablets: */
   .navlinks {
     display: flex;
@@ -48,7 +48,7 @@ flex-direction: row;
 }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   /* For desktop: */
   .navlinks {
     display: flex;

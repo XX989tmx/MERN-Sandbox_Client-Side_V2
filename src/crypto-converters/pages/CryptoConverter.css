@@ -3,12 +3,12 @@
 /* For mobile phones: */
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   /* For tablets: */
   
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   /* For desktop: */
   .post-form-area {
   height: 400px;
