@@ -29,9 +29,14 @@ const VideoMainPage = () => {
 
 
     return (
-      <div>
-        list every Video link items here
-        <VideoList items={AllVideos} />
+      <div className="container">
+        <div className="main-container">
+          <div>
+            list every Video link items here
+            <VideoList items={AllVideos} />
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }

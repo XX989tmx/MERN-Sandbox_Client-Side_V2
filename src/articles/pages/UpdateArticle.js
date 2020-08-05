@@ -135,34 +135,41 @@ const UpdateArticle = (params) => {
 
   return (
     <React.Fragment>
-    <ErrorModal error={error} onClear={clearError}/>
-      {!isLoading && loadedArticle && <form onSubmit={articleUpdateSubmitHandler}>
-        <Input
-          id="title"
-          element="input"
-          type="text"
-          label="Title"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid title."
-          onInput={inputHandler}
-          initialValue={loadedArticle.title}
-          initialValid={true}
-        />
-        <Input
-          id="content"
-          element="textarea"
-          // type="text"
-          label="content"
-          validators={[VALIDATOR_MINLENGTH(5)]} 
-          errorText="Please enter a valid content (at least 5 characters)."
-          onInput={inputHandler}
-          initialValue={loadedArticle.content}
-          initialValid={true}
-        />
-        <Button type="submit" disabled={!formState.isValid}>
-          UPDATE ARTICLE
-        </Button>
-      </form>}
+      <ErrorModal error={error} onClear={clearError} />
+      {!isLoading && loadedArticle && (
+        <div className="container">
+          <div className="main-container">
+            <form onSubmit={articleUpdateSubmitHandler}>
+              <Input
+                id="title"
+                element="input"
+                type="text"
+                label="Title"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid title."
+                onInput={inputHandler}
+                initialValue={loadedArticle.title}
+                initialValid={true}
+              />
+              <Input
+                id="content"
+                element="textarea"
+                // type="text"
+                label="content"
+                validators={[VALIDATOR_MINLENGTH(5)]}
+                errorText="Please enter a valid content (at least 5 characters)."
+                onInput={inputHandler}
+                initialValue={loadedArticle.content}
+                initialValid={true}
+              />
+              <Button type="submit" disabled={!formState.isValid}>
+                UPDATE ARTICLE
+              </Button>
+            </form>
+          </div>
+          <div className="side-container"></div>
+        </div>
+      )}
     </React.Fragment>
   );
 };

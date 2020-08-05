@@ -24,18 +24,23 @@ useEffect(() => {
 
 
     return (
-      <div>
-        <ArticleItem
-          key={Article.id}
-          id={Article.id}
-          image={Article.image}
-          title={Article.title}
-          content={Article.content}
-          author={Article.author}
-          categories={Article.categories}
-          tags={Article.tags}
-          date_created={Article.date_created} 
-        />
+      <div className="container">
+        <div className="main-container">
+          <div>
+            <ArticleItem
+              key={Article.id}
+              id={Article.id}
+              image={Article.image}
+              title={Article.title}
+              content={Article.content}
+              author={Article.author}
+              categories={Article.categories}
+              tags={Article.tags}
+              date_created={Article.date_created}
+            />
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }

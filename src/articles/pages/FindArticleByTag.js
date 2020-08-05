@@ -49,15 +49,22 @@ const FindArticleByTag = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && tagSortedArticle &&<div>
-        {/* <div>
+      {!isLoading && tagSortedArticle && (
+        <div className="container">
+          <div className="main-container">
+            <div>
+              {/* <div>
         <h3>{Articletags}related articles:</h3>
         <h5>{articleTitle}</h5>
         <h6>{ArticleContent}</h6>
       </div> */}
-        <h4>{CountByTag} related article found</h4>
-        <FindArticleByTagList items={tagSortedArticle} />
-      </div>}
+              <h4>{CountByTag} related article found</h4>
+              <FindArticleByTagList items={tagSortedArticle} />
+            </div>
+          </div>
+          <div className="side-container"></div>
+        </div>
+      )}
     </React.Fragment>
   );
 };

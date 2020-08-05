@@ -26,9 +26,17 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
     }, [sendRequest]);
 
     return (
-      <div>
-      <p>videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild component作り使う</p>
-        <VideoList items={tagSortedVideos} />
+      <div className="container">
+        <div className="main-container">
+          <div>
+            <p>
+              videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild
+              component作り使う
+            </p>
+            <VideoList items={tagSortedVideos} />
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }

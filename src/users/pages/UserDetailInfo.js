@@ -87,70 +87,75 @@ const UserDetailInfo = () => {
   
 
   return (
-    <div>
-      user_detail_info
-      <form onSubmit={userDetailInfoSubmitHandler}>
-        <Input
-          id="country"
-          element="input"
-          label="country"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="zip_code"
-          element="input"
-          label="zip_code"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="todoufuken"
-          element="input"
-          label="todoufuken"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="shichousonku"
-          element="input"
-          label="shichousonku"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="banchi"
-          element="input"
-          label="banchi"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="name_of_residence"
-          element="input"
-          label="name_of_residence"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
-        <Input
-          id="phone_number"
-          element="input"
-          label="phone_number"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-        />
+    <div className="container">
+      <div className="main-container">
+        <div>
+          user_detail_info
+          <form onSubmit={userDetailInfoSubmitHandler}>
+            <Input
+              id="country"
+              element="input"
+              label="country"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="zip_code"
+              element="input"
+              label="zip_code"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="todoufuken"
+              element="input"
+              label="todoufuken"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="shichousonku"
+              element="input"
+              label="shichousonku"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="banchi"
+              element="input"
+              label="banchi"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="name_of_residence"
+              element="input"
+              label="name_of_residence"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="phone_number"
+              element="input"
+              label="phone_number"
+              type="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
 
-        <Button type="submit" disabled={!formState.isValid}>
-          submit
-        </Button>
-      </form>
+            <Button type="submit" disabled={!formState.isValid}>
+              submit
+            </Button>
+          </form>
+        </div>
+      </div>
+      <div className="side-container"></div>
     </div>
   );
 };

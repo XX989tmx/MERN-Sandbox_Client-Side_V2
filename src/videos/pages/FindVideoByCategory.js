@@ -27,8 +27,13 @@ const FindVideoByCategory = () => {
     }, [sendRequest]);
 
     return (
-      <div>
-        <VideoList items={CategorySortedVideos} />
+      <div className="container">
+        <div className="main-container">
+          <div>
+            <VideoList items={CategorySortedVideos} />
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }

@@ -40,14 +40,19 @@ const ShowUserDetailInfo = () => {
   }, [sendRequest]);
 
   return (
-    <div>
-      <h1>{country}</h1>
-      <h1>{zipcode}</h1>
-      <h1>{todoufuken}</h1>
-      <h1>{shichousonku}</h1>
-      <h1>{banchi}</h1>
-      <h1>{nameOfResidence}</h1>
-      <h1>{phoneNumber}</h1>
+    <div className="container">
+      <div className="main-container">
+        <div>
+          <h1>{country}</h1>
+          <h1>{zipcode}</h1>
+          <h1>{todoufuken}</h1>
+          <h1>{shichousonku}</h1>
+          <h1>{banchi}</h1>
+          <h1>{nameOfResidence}</h1>
+          <h1>{phoneNumber}</h1>
+        </div>
+      </div>
+      <div className="side-container"></div>
     </div>
   );
 };

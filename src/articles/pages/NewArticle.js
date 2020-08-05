@@ -62,69 +62,71 @@ const NewArticle = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <form className="article-form" onSubmit={articleSubmitHandler}>
-        {isLoading && <LoadingSpinner asOverlay />}
-        <Input
-          id="title"
-          element="input"
-          type="text"
-          label="Title"
-          placeholder="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid title."
-          onInput={inputHandler}
-        />
-        <Input
-          id="content"
-          element="textarea"
-          label="content"
-          placeholder="Write your content here"
-          validators={[VALIDATOR_MINLENGTH(5)]}
-          errorText="Please enter a valid content (at least 5 characters)."
-          onInput={inputHandler}
-        />
-        <Input
-          id="address"
-          element="input"
-          label="Address"
-          placeholder="Address"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
-          onInput={inputHandler}
-        />
-        <Input
-          id="categories"
-          element="input"
-          label="categories"
-          placeholder="categories"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
-          onInput={inputHandler}
-        />
-        <Input
-          id="tags"
-          element="input"
-          label="tags"
-          placeholder="tags"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
-          onInput={inputHandler}
-        />
-        <Input
-          id="price"
-          element="input"
-          label="price"
-          placeholder="price"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
-          onInput={inputHandler}
-        />
-        <ImageUpload
-          id="image"
-          onInput={inputHandler}
-          errorText="Please provide an image."
-        />
-        {/* <Input element="input" type="radio" label="radio" placeholder="radio" />
+      <div className="container">
+        <div className="main-container">
+          <form className="article-form" onSubmit={articleSubmitHandler}>
+            {isLoading && <LoadingSpinner asOverlay />}
+            <Input
+              id="title"
+              element="input"
+              type="text"
+              label="Title"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid title."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content"
+              element="textarea"
+              label="content"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="address"
+              element="input"
+              label="Address"
+              placeholder="Address"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="categories"
+              element="input"
+              label="categories"
+              placeholder="categories"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="tags"
+              element="input"
+              label="tags"
+              placeholder="tags"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="price"
+              element="input"
+              label="price"
+              placeholder="price"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <ImageUpload
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+            {/* <Input element="input" type="radio" label="radio" placeholder="radio" />
         <Input element="input" type="email" label="email" placeholder="email" />
         <Input
           element="input"
@@ -138,10 +140,13 @@ const NewArticle = () => {
           label="checkbox"
           placeholder="checkbox"
         /> */}
-        <Button type="submit" disabled={!formState.isValid}>
-          ADD ARTICLE
-        </Button>
-      </form>
+            <Button type="submit" disabled={!formState.isValid}>
+              ADD ARTICLE
+            </Button>
+          </form>
+        </div>
+        <div className="side-container"></div>
+      </div>
     </React.Fragment>
   );
 };

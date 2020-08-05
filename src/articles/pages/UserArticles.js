@@ -57,10 +57,15 @@ const UserArticles = () => {
         </div>
       )}
       {!isLoading && loadedArticles && (
-        <ArticleList
-          items={loadedArticles}
-          onDeleteArticle={articleDeletedHandler}
-        />
+        <div className="container">
+          <div className="main-container">
+            <ArticleList
+              items={loadedArticles}
+              onDeleteArticle={articleDeletedHandler}
+            />
+          </div>
+          <div className="side-container"></div>
+        </div>
       )}
     </React.Fragment>
   );

@@ -7,6 +7,8 @@ import Button from "../../shared/components/FormElements/Button";
 import FcasRatingItem from "../components/FcasRatingItem";
 import download from "downloadjs";
 
+import './FcasRating.css';
+
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
@@ -49,42 +51,45 @@ const FcasRating = () => {
   }
 
   return (
-    <div>
-      <div className="center">
-        <form onSubmit={getFcasRating}>
-          <Input
-            id="cryptoCode"
-            element="input"
-            label="cryptoCode"
-            placeholder="currency code eg BTC"
-            validators={[VALIDATOR_REQUIRE()]}
-            onInput={inputHandler}
-          />
-          <Button>Get Fcas Score</Button>
-        </form>
+    <div className="container">
+      <div className="main-container">
         <div>
-          
-            <button>open currency code list modal</button>
-            <button onClick={currencyListDownloader}>
-              download all currency code list
-            </button>
-          
+          <div className="center">
+            <form onSubmit={getFcasRating}>
+              <Input
+                id="cryptoCode"
+                element="input"
+                label="cryptoCode"
+                placeholder="currency code eg BTC"
+                validators={[VALIDATOR_REQUIRE()]}
+                onInput={inputHandler}
+              />
+              <Button>Get Fcas Score</Button>
+            </form>
+            <div>
+              <button>open currency code list modal</button>
+              <button onClick={currencyListDownloader}>
+                download all currency code list
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <FcasRatingItem
+              symbol={FcasRatingInfo.symbol}
+              name={FcasRatingInfo.name}
+              fcasRating={FcasRatingInfo.fcasRating}
+              fcasScore={FcasRatingInfo.fcasScore}
+              developlerScore={FcasRatingInfo.developlerScore}
+              marketMaturityScore={FcasRatingInfo.marketMaturityScore}
+              utilityScore={FcasRatingInfo.utilityScore}
+              lastRefreshed={FcasRatingInfo.lastRefreshed}
+              timezone={FcasRatingInfo.timezone}
+            />
+          </div>
         </div>
       </div>
-
-      <div>
-        <FcasRatingItem
-          symbol={FcasRatingInfo.symbol}
-          name={FcasRatingInfo.name}
-          fcasRating={FcasRatingInfo.fcasRating}
-          fcasScore={FcasRatingInfo.fcasScore}
-          developlerScore={FcasRatingInfo.developlerScore}
-          marketMaturityScore={FcasRatingInfo.marketMaturityScore}
-          utilityScore={FcasRatingInfo.utilityScore}
-          lastRefreshed={FcasRatingInfo.lastRefreshed}
-          timezone={FcasRatingInfo.timezone}
-        />
-      </div>
+      <div className="side-container"></div>
     </div>
   );
 };

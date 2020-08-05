@@ -64,66 +64,71 @@ const NewVideo = () => {
     };
 
     return (
-      <div>
-        <form onSubmit={newVideoSubmitHandler}>
-          <Input
-            id="title"
-            element="input"
-            label="title"
-            placeholder="title"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Input
-            id="description"
-            element="input"
-            label="description"
-            placeholder="description"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Input
-            id="persons"
-            element="input"
-            label="persons"
-            placeholder="persons"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Input
-            id="src"
-            element="input"
-            label="src"
-            placeholder="src(emmbded video url)"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Input
-            id="tags"
-            element="input"
-            label="tags"
-            placeholder="tags"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Input
-            id="categories"
-            element="input"
-            label="categories"
-            placeholder="categories"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <Button type="submit" disabled={!formState.isValid}>
-            ADD NEW VIDEO
-          </Button>
-        </form>
+      <div className="container">
+        <div className="main-container">
+          <div>
+            <form onSubmit={newVideoSubmitHandler}>
+              <Input
+                id="title"
+                element="input"
+                label="title"
+                placeholder="title"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="description"
+                element="input"
+                label="description"
+                placeholder="description"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="persons"
+                element="input"
+                label="persons"
+                placeholder="persons"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="src"
+                element="input"
+                label="src"
+                placeholder="src(emmbded video url)"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="tags"
+                element="input"
+                label="tags"
+                placeholder="tags"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="categories"
+                element="input"
+                label="categories"
+                placeholder="categories"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Button type="submit" disabled={!formState.isValid}>
+                ADD NEW VIDEO
+              </Button>
+            </form>
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }

@@ -35,10 +35,17 @@ const FindArticleByCategory = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && CategorySortedArticle && <div>
-        <h5>{CountByCategory} related articles found.</h5>
-        <FindArticleByCategoryList items={CategorySortedArticle} />
-      </div>}
+      {!isLoading && CategorySortedArticle && (
+        <div className="container">
+          <div className="main-container">
+            <div>
+              <h5>{CountByCategory} related articles found.</h5>
+              <FindArticleByCategoryList items={CategorySortedArticle} />
+            </div>
+          </div>
+          <div className="side-container"></div>
+        </div>
+      )}
     </React.Fragment>
   );
 };
