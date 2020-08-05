@@ -27,12 +27,14 @@ const CryptoConverter = () => {
   const [fcasScore, setFcasScore] = useState();
   const [fcasRating, setFcasRating] = useState();
 
+  const [ExchangeRate, setExchangeRate] = useState({});
+
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
       value: { value: "", isValid: false },
-      FromCurrency: { value: "", isValid: false },
-      ToCurrency: { value: "", isValid: false },
+      // FromCurrency: { value: "", isValid: false },
+      // ToCurrency: { value: "", isValid: false },
     },
     false
   );
@@ -157,6 +159,8 @@ const CryptoConverter = () => {
           `/get_external_api/crypto_currency/exchange_rate?FromCurrency=${FromCurrency}&ToCurrency=${ToCurrency}`
       );
       console.log(responseData);
+      console.log(responseData.ExchangeRate);
+      setExchangeRate(responseData);
     } catch (error) {
       
     }
@@ -219,7 +223,7 @@ const CryptoConverter = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <Button type="submit" disabled={!formState.isValid}>
+            <Button type="submit" >
               Convert
             </Button>
           </form>
@@ -311,6 +315,15 @@ const CryptoConverter = () => {
             />
             <Button>get exchange rate</Button>
           </form>
+        </div>
+        <div>
+          <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
+          <h3>
+            {ExchangeRate.ExchangeRate}{" "}
+            <span>{ExchangeRate.ToCurrencyName}</span>
+          </h3>
+
+          <p>last updated at: {ExchangeRate.LastRefreshed}</p>
         </div>
 
         <div className="crypto-get-area">
