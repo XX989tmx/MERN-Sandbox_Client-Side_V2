@@ -31,6 +31,8 @@ const CryptoConverter = () => {
     {
       // currency: { value: "", isValid: false },
       value: { value: "", isValid: false },
+      FromCurrency: { value: "", isValid: false },
+      ToCurrency: { value: "", isValid: false },
     },
     false
   );
@@ -143,6 +145,22 @@ const CryptoConverter = () => {
       window.prompt("please sign up");
     }, 5000);
   };
+
+  const getExchangeRateBothCurrencyAndCryptoHandler = async(event) => {
+    event.preventDefault();
+
+    try {
+      var FromCurrency = formState.inputs.FromCurrency.value;
+      var ToCurrency = formState.inputs.ToCurrency.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/get_external_api/crypto_currency/exchange_rate?FromCurrency=${FromCurrency}&ToCurrency=${ToCurrency}`
+      );
+      console.log(responseData);
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div className="container">
@@ -273,6 +291,26 @@ const CryptoConverter = () => {
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
+        </div>
+
+        <div>
+          <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
+            <Input
+              id="FromCurrency"
+              element="input"
+              label="FromCurrency"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Input
+              id="ToCurrency"
+              element="input"
+              label="ToCurrency"
+              validators={[VALIDATOR_REQUIRE()]}
+              onInput={inputHandler}
+            />
+            <Button>get exchange rate</Button>
+          </form>
         </div>
 
         <div className="crypto-get-area">
