@@ -350,7 +350,7 @@ const CryptoConverter = () => {
                 draggable="true"
                 onClick={goBackToTop}
               >
-                back to previous page
+                back to top page
               </button>
               <div className="back-to-top">
                 <button onClick={goBackToTop}>goBackToTop</button>

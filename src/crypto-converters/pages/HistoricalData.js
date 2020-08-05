@@ -10,6 +10,7 @@ import {
 } from "../../shared/util/validators";
 
 import './HIstoricalData.css';
+import Button from "../../shared/components/FormElements/Button";
 
 const HistoricalData = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -603,7 +604,8 @@ const HistoricalData = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <button>get data 2020 7/1 - 7/31</button>
+            <Button>get data 2020 7/1 - 7/31</Button>
+            {/* <button>get data 2020 7/1 - 7/31</button> */}
           </form>
           <select
             name="choice"
