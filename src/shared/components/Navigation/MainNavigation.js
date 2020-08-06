@@ -49,7 +49,7 @@ const MainNavigation = () => {
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
 
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-        <nav className="main-navigation__header-nav">
+        <nav className="main-navigation__drawer-nav">
           <NavLinks />
         </nav>
       </SideDrawer>
@@ -72,7 +72,7 @@ const MainNavigation = () => {
           <NavLinks />
         </nav>
 
-        <div id="search-input" class="ytd-searchbox-spt" slot="search-input">
+        {/* <div id="search-input" class="ytd-searchbox-spt" slot="search-input">
           <input
             id="search"
             autocapitalize="none"
@@ -92,7 +92,7 @@ const MainNavigation = () => {
           />
           <submit>search</submit>
         </div>
-        <span class="baseline_search_black_18dp">search</span>
+        <span class="baseline_search_black_18dp">search</span> */}
       </MainHeader>
     </React.Fragment>
   );

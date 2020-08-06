@@ -1,16 +1,7 @@
 
 
 /* For mobile phones: */
-
-
-@media only screen and (min-width: 768px) {
-  /* For tablets: */
-  
-}
-
-@media only screen and (min-width: 1024px) {
-  /* For desktop: */
-  .side-drawer {
+.side-drawer {
   position: fixed;
   left: 0;
   top: 0;
@@ -20,4 +11,13 @@
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktop: */
+  
 }
