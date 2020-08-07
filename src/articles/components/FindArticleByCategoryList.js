@@ -3,7 +3,7 @@ import FindArticleByCategoryItems from "./FindArticleByCategoryItems";
 
 const FindArticleByCategoryList = (props) => {
   return (
-    <div>
+    <ul>
       {props.items.map((item) => (
         <FindArticleByCategoryItems
           key={item.id}
@@ -18,7 +18,7 @@ const FindArticleByCategoryList = (props) => {
           date_created={item.date_created}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 

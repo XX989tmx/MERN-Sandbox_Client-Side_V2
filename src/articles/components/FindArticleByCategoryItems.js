@@ -1,41 +1,146 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import Card from "../../shared/components/UIElements/Card";
+import Button from "../../shared/components/FormElements/Button";
+import { AuthContext } from "../../shared/context/auth-context";
+import Modal from "../../shared/components/UIElements/Modal";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const FindArticleByCategoryItems = (props) => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const auth = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const openModalHandler = (params) => {
+    setShowModal(true);
+  };
+  const closeModalHandler = (params) => {
+    setShowModal(false);
+  };
+
+  const showDeleteWarningHandler = (params) => {
+    setShowConfirmModal(true);
+  };
+  const cancelDeleteWarningHandler = (params) => {
+    setShowConfirmModal(false);
+  };
+  const confirmDeleteHandler = async (params) => {
+    setShowConfirmModal(false);
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/articles/${props.id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
+  };
   return (
-    <div className="card-box">
-      <Link
-        to={`/get_specific_article_by_id/${props.id}`}
-        style={{ textDecoration: "none" }}
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      <Modal
+        show={showModal}
+        onCancel={closeModalHandler}
+        header={props.title}
+        contentClass="article-item__modal-content"
+        footerClass="article-item__modal-actions"
+        footer={
+          <Button btnBlack onClick={closeModalHandler}>
+            CLOSE
+          </Button>
+        }
       >
-        <div>
-          <p>{props.id}</p>
-          <div className="article-item__image">
-          <img
-            src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
-            style={{ width: "300px", height: "230px" }}
-          /></div>
-          
-          <h2>{props.title}</h2>
+        <div className="map-container">
           <p>{props.content}</p>
-          <p>{props.author}</p>
-          <Link
-            to={`/get_article_by_categories/${props.categories}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div><p className="categoryArea">Category : {props.categories}</p></div>
-          </Link>
-          <Link
-            to={`/get_article_by_tags/${props.tags}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div><p className="tag-area">Tags: {props.tags}</p></div>
-          </Link>
-          <h4>price: {props.price}</h4>
-          <p>Date Created: {props.date_created}</p>
+          {/* <Map center={props.coordinates} zoom={16}/> */}
         </div>
-      </Link>
-    </div>
+      </Modal>
+      <Modal
+        show={showConfirmModal}
+        onCancel={cancelDeleteWarningHandler}
+        header="Are you sure?"
+        footerClass="article-item__modal-actions"
+        footer={
+          <React.Fragment>
+            <Button inverse onClick={cancelDeleteWarningHandler}>
+              CANCEL
+            </Button>
+            <Button danger onClick={confirmDeleteHandler}>
+              DELETE
+            </Button>
+          </React.Fragment>
+        }
+      >
+        <p>
+          Do you want to proceed and delete this place? Please note that it
+          can't be undone thereafter.
+        </p>
+      </Modal>
+      {isLoading && <LoadingSpinner asOverlay />}
+      <li className="article-item ">
+        <Card className="article-item__contents">
+          <Link
+            to={`/get_specific_article_by_id/${props.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className="article-item__image">
+              <img
+                src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                style={{ width: "300px", height: "230px" }}
+              />
+            </div>
+            <div className="article-item__article_content">
+              <h2>{props.title}</h2>
+              <p>{props.content}</p>
+              <p>{props.id}</p>
+              <p>{props.author}</p>
+              <Link
+                to={`/get_article_by_categories/${props.categories}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div>
+                  <p className="categoryArea">Category : {props.categories}</p>
+                </div>
+              </Link>
+              <Link
+                to={`/get_article_by_tags/${props.tags}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div>
+                  <p className="tag-area">Tags: {props.tags}</p>
+                </div>
+              </Link>
+              <h4>price: {props.price}</h4>
+              <p>Date Created: {props.date_created}</p>
+            </div>
+          </Link>{" "}
+          <div className="article-item__actions">
+            <Button btnBlack onClick={openModalHandler}>
+              View This Article
+            </Button>
+
+            {auth.userId === props.author && (
+              <Button btnBlackInverse to={`/articles/${props.id}`}>
+                Edit This Article
+              </Button>
+            )}
+            {auth.userId === props.author && (
+              <Button danger onClick={showDeleteWarningHandler}>
+                Delete This Article
+              </Button>
+            )}
+
+            {auth.isLoggedIn && <Button btnGreen>Buy This Article</Button>}
+            {auth.isLoggedIn && <Button btnGreen>Download This Article</Button>}
+          </div>
+        </Card>
+      </li>
+    </React.Fragment>
   );
 };
 
