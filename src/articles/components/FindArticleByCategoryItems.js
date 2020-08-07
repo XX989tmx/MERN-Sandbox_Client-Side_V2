@@ -21,13 +21,13 @@ const FindArticleByCategoryItems = (props) => {
             to={`/get_article_by_categories/${props.categories}`}
             style={{ textDecoration: "none" }}
           >
-            <h4>category : {props.categories}</h4>
+            <div><p className="categoryArea">Category : {props.categories}</p></div>
           </Link>
           <Link
             to={`/get_article_by_tags/${props.tags}`}
             style={{ textDecoration: "none" }}
           >
-            <h4>tags: {props.tags}</h4>
+            <div><p className="tag-area">Tags: {props.tags}</p></div>
           </Link>
           <p>{props.date_created}</p>
         </div>
