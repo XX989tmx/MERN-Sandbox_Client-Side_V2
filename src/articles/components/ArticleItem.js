@@ -133,13 +133,17 @@ const ArticleItem = (props) => {
               to={`/get_article_by_categories/${props.categories}`}
               style={{ textDecoration: "none" }}
             >
-              <p>Category: {props.categories}</p>
+              <div>
+                <p className="categoryArea">Category: {props.categories}</p>
+              </div>
             </Link>
             <Link
               to={`/get_article_by_tags/${props.tags}`}
               style={{ textDecoration: "none" }}
             >
-              <p>Tag: {props.tags}</p>
+              <div>
+                <p className="tag-area">Tag: {props.tags}</p>
+              </div>
             </Link>
             <h4>price: {props.price}</h4>
             <p>Date Created: {props.date_created}</p>

@@ -1,12 +1,44 @@
 /* For mobile phones: */
+.tag-area {
+  font: inherit;
+  font-weight: bold;
+  padding: 1px;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: #282c34;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+}
 
+.tag-area:hover,
+.tag-area:active {
+  border: 1px solid #50555f;
+  background-color: #50555f;
+}
+
+.categoryArea {
+  font: inherit;
+  font-weight: bold;
+  padding: 1px;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: #282c34;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.categoryArea:hover,
+.categoryArea:active {
+  border: 1px solid #50555f;
+  background-color: #50555f;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  
 }
