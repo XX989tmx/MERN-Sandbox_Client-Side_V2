@@ -35,6 +35,10 @@
   background-color: #50555f;
 }
 
+.article-item {
+  list-style: none;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
 }
