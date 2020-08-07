@@ -1,52 +1,58 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Button.css";
 
 const Button = (props) => {
-    if (props.href) {
-        return (
-          <a
-            href={props.href}
-            className={`button button--${props.size || "default"} ${
-              props.inverse && "button--inverse"
-            } ${props.danger && "button--danger"} ${
-              props.primary && "button--primary"
-            } ${props.btnBlack && "button--btnBlack"}`}
-          >
-            {props.children}
-          </a>
-        );
-    }
-    if (props.to) {
-        return (
-          <Link
-            to={props.to}
-            exact={props.exact}
-            className={`button button--${props.size || "default"} ${
-              props.inverse && "button--inverse"
-            } ${props.danger && "button--danger"} ${
-              props.primary && "button--primary"
-            } ${props.btnBlack && "button--btnBlack"}`}
-          >
-            {props.children}
-          </Link>
-        );
-    }
+  if (props.href) {
     return (
-      <button
-        className={`button button--${props.size || "default"} ${
+      <a
+        href={props.href}
+        className={` button--${props.size || "default"} ${
           props.inverse && "button--inverse"
         } ${props.danger && "button--danger"} ${
           props.primary && "button--primary"
-        } ${props.btnBlack && "button--btnBlack"}`}
-        type={props.type}
-        onClick={props.onClick}
-        disabled={props.disabled}
+        } ${props.btnBlack && "button--btnBlack"} ${
+          props.btnBlackInverse && "button--btnBlack__inverse"
+        }`}
       >
         {props.children}
-      </button>
+      </a>
     );
+  }
+  if (props.to) {
+    return (
+      <Link
+        to={props.to}
+        exact={props.exact}
+        className={` button--${props.size || "default"} ${
+          props.inverse && "button--inverse"
+        } ${props.danger && "button--danger"} ${
+          props.primary && "button--primary"
+        } ${props.btnBlack && "button--btnBlack"} ${
+          props.btnBlackInverse && "button--btnBlack__inverse"
+        }`}
+      >
+        {props.children}
+      </Link>
+    );
+  }
+  return (
+    <button
+      className={` button--${props.size || "default"} ${
+        props.inverse && "button--inverse"
+      } ${props.danger && "button--danger"} ${
+        props.primary && "button--primary"
+      } ${props.btnBlack && "button--btnBlack"} ${
+        props.btnBlackInverse && "button--btnBlack__inverse"
+      }`}
+      type={props.type}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;

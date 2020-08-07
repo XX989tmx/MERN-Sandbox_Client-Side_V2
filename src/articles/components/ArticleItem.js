@@ -49,10 +49,9 @@ const ArticleItem = (props) => {
 
   const getArticleByTags = (params) => {
     sendRequest(
-      process.env
-        .REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/:tags`
+      process.env.REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/:tags`
     );
-  }
+  };
 
   return (
     <React.Fragment>
@@ -151,7 +150,7 @@ const ArticleItem = (props) => {
             </Button>
 
             {auth.userId === props.author && (
-              <Button btnBlack to={`/articles/${props.id}`}>
+              <Button btnBlackInverse to={`/articles/${props.id}`}>
                 Edit This Article
               </Button>
             )}
