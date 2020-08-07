@@ -94,60 +94,59 @@ const ArticleItem = (props) => {
           can't be undone thereafter.
         </p>
       </Modal>
+      {isLoading && <LoadingSpinner asOverlay />}
       <li className="article-item ">
         {/* <div className="article-item__image">
         <img />
     </div> */}
 
         <Card className="article-item__contents">
-          {isLoading && <LoadingSpinner asOverlay />}
-          <div className="article-item__image">
-            <img
-              src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
-              alt={props.title}
-              style={{ width: "300px", height: "230px" }}
-            />
-          </div>
-          <div className="article-item__article_content">
-            <Link
-              to={`/get_specific_article_by_id/${props.id}`}
-              style={{ textDecoration: "none" }}
-            >
+          <Link
+            to={`/get_specific_article_by_id/${props.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className="article-item__image">
+              <img
+                src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                alt={props.title}
+                style={{ width: "300px", height: "230px" }}
+              />
+            </div>
+            <div className="article-item__article_content">
               <h2>{props.title}</h2>
-            </Link>
-            <p>{props.content}</p>
-            <p>{props.id}</p>
-            <p>
-              {/* 著者情報をonFloatでモーダルで表示させてもいい */}
-              Written by {/* <Button onClick={openModalHandler}> */}
-              <Link to="/u1/articles" style={{ textDecoration: "none" }}>
-                {props.author}
+
+              <p>{props.content}</p>
+              <p>{props.id}</p>
+              <p>
+                {/* 著者情報をonFloatでモーダルで表示させてもいい */}
+                Written by {/* <Button onClick={openModalHandler}> */}
+                <Link to="/u1/articles" style={{ textDecoration: "none" }}>
+                  {props.author}
+                </Link>
+                {/* </Button> */}
+              </p>
+              {/* <p>publishedDate: {props.publishedDate}</p> */}
+
+              <Link
+                to={`/get_article_by_categories/${props.categories}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div>
+                  <p className="categoryArea">Category: {props.categories}</p>
+                </div>
               </Link>
-              {/* </Button> */}
-            </p>
-            {/* <p>publishedDate: {props.publishedDate}</p> */}
-            <Link to="/:cid/articles">
-              {/* <p>Category: {props.category}</p> */}
-            </Link>
-            <Link
-              to={`/get_article_by_categories/${props.categories}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div>
-                <p className="categoryArea">Category: {props.categories}</p>
-              </div>
-            </Link>
-            <Link
-              to={`/get_article_by_tags/${props.tags}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div>
-                <p className="tag-area">Tag: {props.tags}</p>
-              </div>
-            </Link>
-            <h4>price: {props.price}</h4>
-            <p>Date Created: {props.date_created}</p>
-          </div>
+              <Link
+                to={`/get_article_by_tags/${props.tags}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div>
+                  <p className="tag-area">Tag: {props.tags}</p>
+                </div>
+              </Link>
+              <h4>price: {props.price}</h4>
+              <p>Date Created: {props.date_created}</p>
+            </div>
+          </Link>
           <div className="article-item__actions">
             <Button btnBlack onClick={openModalHandler}>
               View This Article

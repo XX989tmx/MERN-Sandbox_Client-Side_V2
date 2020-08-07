@@ -10,10 +10,12 @@ const FindArticleByCategoryItems = (props) => {
       >
         <div>
           <p>{props.id}</p>
+          <div className="article-item__image">
           <img
             src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
             style={{ width: "300px", height: "230px" }}
-          />
+          /></div>
+          
           <h2>{props.title}</h2>
           <p>{props.content}</p>
           <p>{props.author}</p>
