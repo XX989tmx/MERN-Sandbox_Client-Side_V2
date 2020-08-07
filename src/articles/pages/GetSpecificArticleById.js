@@ -44,6 +44,7 @@ useEffect(() => {
                 author={Article.author}
                 categories={Article.categories}
                 tags={Article.tags}
+                price={Article.price}
                 date_created={Article.date_created}
               />
             </div>
