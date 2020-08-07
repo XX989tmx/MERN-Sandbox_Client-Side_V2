@@ -45,7 +45,7 @@ const Auth = (params) => {
         {
           ...formState.inputs,
           name: undefined,
-          image: undefined
+          image: undefined,
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
       );
@@ -59,8 +59,8 @@ const Auth = (params) => {
           },
           image: {
             value: null,
-            isValid: false
-          }
+            isValid: false,
+          },
         },
         false
       );
@@ -72,7 +72,6 @@ const Auth = (params) => {
     event.preventDefault();
 
     console.log(formState.inputs);
-    
 
     if (isLoginMode) {
       try {
@@ -163,7 +162,7 @@ const Auth = (params) => {
             {isLoginMode ? "LOGIN" : "SIGNUP"}
           </Button>
         </form>
-        <Button  inverse onClick={switchModeHandler}>
+        <Button btnBlackInverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
       </Card>
