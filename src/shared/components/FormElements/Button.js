@@ -14,7 +14,7 @@ const Button = (props) => {
           props.primary && "button--primary"
         } ${props.btnBlack && "button--btnBlack"} ${
           props.btnBlackInverse && "button--btnBlack__inverse"
-        }`}
+        } ${props.btnGreen && "button--green"}`}
       >
         {props.children}
       </a>
@@ -31,7 +31,7 @@ const Button = (props) => {
           props.primary && "button--primary"
         } ${props.btnBlack && "button--btnBlack"} ${
           props.btnBlackInverse && "button--btnBlack__inverse"
-        }`}
+        } ${props.btnGreen && "button--green"}`}
       >
         {props.children}
       </Link>
@@ -45,7 +45,7 @@ const Button = (props) => {
         props.primary && "button--primary"
       } ${props.btnBlack && "button--btnBlack"} ${
         props.btnBlackInverse && "button--btnBlack__inverse"
-      }`}
+      } ${props.btnGreen && "button--green"}`}
       type={props.type}
       onClick={props.onClick}
       disabled={props.disabled}

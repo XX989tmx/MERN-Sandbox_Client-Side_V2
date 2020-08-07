@@ -7,6 +7,7 @@
   color: white;
   padding: 0.4rem 1.8rem;
   margin-right: 1rem;
+  margin-top: 8px;
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
@@ -28,6 +29,7 @@
   color: black;
   padding: 0.4rem 1.8rem;
   margin-right: 1rem;
+  margin-top: 8px;
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
@@ -52,6 +54,7 @@
   color: red;
   padding: 0.4rem 1.8rem;
   margin-right: 1rem;
+  margin-top: 8px;
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
@@ -67,6 +70,37 @@
   border-color: red;
   color: white;
 }
+
+.button--green {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid green;
+  background: transparent;
+  color: green;
+  padding: 0.4rem 1.8rem;
+  margin-right: 1rem;
+  margin-top: 8px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.button--green:focus {
+   outline: none;
+}
+
+.button--green:hover {
+  border: 1px solid rgb(18, 199, 18);
+  color: rgb(18, 199, 18);
+}
+
+.button--green:active {
+  border: 1px solid rgb(18, 199, 18);
+  background-color:rgb(18, 199, 18);
+  color: white;
+}
+
+
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */

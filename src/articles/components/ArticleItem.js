@@ -160,8 +160,8 @@ const ArticleItem = (props) => {
               </Button>
             )}
 
-            {auth.isLoggedIn && <Button>Buy This Article</Button>}
-            {auth.isLoggedIn && <Button>Download This Article</Button>}
+            {auth.isLoggedIn && <Button btnGreen>Buy This Article</Button>}
+            {auth.isLoggedIn && <Button btnGreen>Download This Article</Button>}
           </div>
         </Card>
       </li>
