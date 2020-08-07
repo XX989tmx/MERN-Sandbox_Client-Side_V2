@@ -3,7 +3,7 @@ import FindArticleByTagItems from "./FindArticleByTagItems";
 
 const FindArticleByTagList = (props) => {
   return (
-    <div>
+    <ul>
       {props.items.map((item) => (
         <FindArticleByTagItems
           key={item.id}
@@ -18,7 +18,7 @@ const FindArticleByTagList = (props) => {
           date_created={item.date_created}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
