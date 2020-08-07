@@ -37,6 +37,7 @@ const FindArticleByTagItems = (props) => {
               <p className="tag-area">Tags : {props.tags}</p>
             </div>
           </Link>
+          <h4>price: {props.price}</h4>
           <p>{props.date_created}</p>
         </div>
       </Link>
