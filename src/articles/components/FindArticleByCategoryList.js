@@ -13,6 +13,7 @@ const FindArticleByCategoryList = (props) => {
           content={item.content}
           author={item.author}
           tags={item.tags}
+          price={item.price}
           categories={item.categories}
           date_created={item.date_created}
         />

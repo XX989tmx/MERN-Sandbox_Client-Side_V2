@@ -14,7 +14,7 @@ const FindArticleByCategoryItems = (props) => {
             src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
             style={{ width: "300px", height: "230px" }}
           />
-          <h1>{props.title}</h1>
+          <h2>{props.title}</h2>
           <p>{props.content}</p>
           <p>{props.author}</p>
           <Link
@@ -29,7 +29,8 @@ const FindArticleByCategoryItems = (props) => {
           >
             <div><p className="tag-area">Tags: {props.tags}</p></div>
           </Link>
-          <p>{props.date_created}</p>
+          <h4>price: {props.price}</h4>
+          <p>Date Created: {props.date_created}</p>
         </div>
       </Link>
     </div>

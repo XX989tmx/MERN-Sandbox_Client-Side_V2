@@ -19,6 +19,7 @@ const FindArticleByCategory = () => {
           .REACT_APP_BACKEND_URL + `/articles/get_article_by_categories/${categories}`
       );
       console.log(responseData);
+      console.log(responseData.categoryMatchedArticles[0].price);
       console.log("category based sorting done");
       setCategorySortedArticle(responseData.categoryMatchedArticles);
       console.log(responseData.countByCategory);
