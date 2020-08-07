@@ -604,7 +604,7 @@ const HistoricalData = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <Button>get data 2020 7/1 - 7/31</Button>
+            <Button btnBlack>get data 2020 7/1 - 7/31</Button>
             {/* <button>get data 2020 7/1 - 7/31</button> */}
           </form>
           <select

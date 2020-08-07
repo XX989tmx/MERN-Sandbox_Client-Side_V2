@@ -63,7 +63,11 @@ const ArticleItem = (props) => {
         header={props.title}
         contentClass="article-item__modal-content"
         footerClass="article-item__modal-actions"
-        footer={<Button onClick={closeModalHandler}>CLOSE</Button>}
+        footer={
+          <Button btnBlack onClick={closeModalHandler}>
+            CLOSE
+          </Button>
+        }
       >
         <div className="map-container">
           <p>{props.content}</p>
@@ -142,13 +146,17 @@ const ArticleItem = (props) => {
             <p>Date Created: {props.date_created}</p>
           </div>
           <div className="article-item__actions">
-            <Button onClick={openModalHandler}>View This Article</Button>
+            <Button btnBlack onClick={openModalHandler}>
+              View This Article
+            </Button>
 
             {auth.userId === props.author && (
-              <Button to={`/articles/${props.id}`}>Edit This Article</Button>
+              <Button btnBlack to={`/articles/${props.id}`}>
+                Edit This Article
+              </Button>
             )}
             {auth.userId === props.author && (
-              <Button onClick={showDeleteWarningHandler}>
+              <Button danger onClick={showDeleteWarningHandler}>
                 Delete This Article
               </Button>
             )}

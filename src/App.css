@@ -72,15 +72,7 @@ main {
   
 }
 
-.btn-black {
-  
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid black;
-  background-color: #282c34;
-  color: white;
-  padding: 0.4rem 1.8rem;
-}
+
 
 a {
   color: black;

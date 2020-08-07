@@ -162,7 +162,7 @@ const UpdateArticle = (params) => {
                 initialValue={loadedArticle.content}
                 initialValid={true}
               />
-              <Button type="submit" disabled={!formState.isValid}>
+              <Button btnBlack type="submit" disabled={!formState.isValid}>
                 UPDATE ARTICLE
               </Button>
             </form>

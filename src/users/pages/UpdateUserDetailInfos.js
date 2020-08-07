@@ -195,7 +195,7 @@ const UpdateUserDetailInfos = () => {
               initialValue={LoadedPhoneNumber}
               initialValid={true}
             />
-            <Button type="submit">submit</Button>
+            <Button btnBlack type="submit">submit</Button>
           </form>
         </div>
       </div>

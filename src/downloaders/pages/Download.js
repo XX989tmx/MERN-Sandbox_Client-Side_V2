@@ -342,6 +342,7 @@ const Download = (params) => {
                 PDF File
                 <form>
                   <Button
+                    btnBlack
                     onClick={pdfDownloadSubmitHandler}
                     disabled={disableDownload}
                   >
@@ -365,6 +366,7 @@ const Download = (params) => {
                 Image File
                 <form>
                   <Button
+                    btnBlack
                     onClick={imageDownloadSubmitHandler}
                     disabled={disableDownload}
                   >
@@ -374,7 +376,6 @@ const Download = (params) => {
                 <img
                   src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
                   className="image-preview"
-                  
                 />
               </div>
             </li>
@@ -390,6 +391,7 @@ const Download = (params) => {
                 Excel File
                 <form>
                   <Button
+                    btnBlack
                     onClick={xlsxDownloadSubmitHandler}
                     disabled={disableDownload}
                   >
@@ -410,6 +412,7 @@ const Download = (params) => {
                 Txt File
                 <form>
                   <Button
+                    btnBlack
                     onClick={txtDownloadSubmitHandler}
                     disabled={disableDownload}
                   >
@@ -436,6 +439,7 @@ const Download = (params) => {
                 Zip File
                 <form>
                   <Button
+                    btnBlack
                     onClick={zipDownloadSubmitHandler}
                     disabled={disableDownload}
                   >
@@ -455,7 +459,7 @@ const Download = (params) => {
                 ></input>
                 Mp4 File
                 <form>
-                  <Button
+                  <Button btnBlack
                     onClick={mp4DownloadSubmitHandler}
                     disabled={disableDownload}
                   >

@@ -152,7 +152,7 @@ const Articles = () => {
                   validators={[VALIDATOR_REQUIRE()]}
                   onInput={inputHandler}
                 />
-                <Button>Search</Button>
+                <Button btnBlack>Search</Button>
               </form>
 
               <label>

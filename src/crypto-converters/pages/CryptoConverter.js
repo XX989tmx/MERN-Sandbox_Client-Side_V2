@@ -224,7 +224,9 @@ const CryptoConverter = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <Button type="submit">Convert</Button>
+            <Button btnBlack type="submit">
+              Convert
+            </Button>
           </form>
 
           <div className="result-data-area center">
@@ -312,7 +314,7 @@ const CryptoConverter = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
-            <Button>get exchange rate</Button>
+            <Button btnBlack>get exchange rate</Button>
           </form>
         </div>
         <div className="center">
@@ -343,7 +345,9 @@ const CryptoConverter = () => {
               <p>{cryptoData}</p>
               <GetCryptoData props={cryptoData} />
               <form>
-                <Button onClick={getRequesthandler}>Get Latest Data</Button>
+                <Button btnBlack onClick={getRequesthandler}>
+                  Get Latest Data
+                </Button>
               </form>
               <button draggable="true" onClick={goBackToTop}>
                 back to top page

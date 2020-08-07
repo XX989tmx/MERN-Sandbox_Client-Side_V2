@@ -64,13 +64,11 @@ const FcasRating = () => {
                 validators={[VALIDATOR_REQUIRE()]}
                 onInput={inputHandler}
               />
-              <Button>Get Fcas Score</Button>
+              <Button btnBlack>Get Fcas Score</Button>
             </form>
             <div>
-              <button>
-                open currency code list modal
-              </button>
-              <button  onClick={currencyListDownloader}>
+              <button>open currency code list modal</button>
+              <button onClick={currencyListDownloader}>
                 download all currency code list
               </button>
             </div>

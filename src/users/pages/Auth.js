@@ -159,11 +159,11 @@ const Auth = (params) => {
             errorText="Please enter a valid password, at least 6 characters."
             onInput={inputHandler}
           />
-          <Button type="submit" disabled={!formState.isValid}>
+          <Button btnBlack type="submit" disabled={!formState.isValid}>
             {isLoginMode ? "LOGIN" : "SIGNUP"}
           </Button>
         </form>
-        <Button inverse onClick={switchModeHandler}>
+        <Button  inverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
       </Card>

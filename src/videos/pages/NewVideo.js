@@ -122,7 +122,7 @@ const NewVideo = () => {
                 errorText="Please enter a valid address."
                 onInput={inputHandler}
               />
-              <Button type="submit" disabled={!formState.isValid}>
+              <Button btnBlack type="submit" disabled={!formState.isValid}>
                 ADD NEW VIDEO
               </Button>
             </form>

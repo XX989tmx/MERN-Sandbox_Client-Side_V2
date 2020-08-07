@@ -143,7 +143,7 @@ const NewArticle = () => {
           label="checkbox"
           placeholder="checkbox"
         /> */}
-            <Button type="submit" disabled={!formState.isValid}>
+            <Button btnBlack type="submit" disabled={!formState.isValid}>
               ADD ARTICLE
             </Button>
           </form>

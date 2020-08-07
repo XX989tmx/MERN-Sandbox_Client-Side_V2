@@ -149,7 +149,7 @@ const UserDetailInfo = () => {
               onInput={inputHandler}
             />
 
-            <Button type="submit" disabled={!formState.isValid}>
+            <Button btnBlack type="submit" disabled={!formState.isValid}>
               submit
             </Button>
           </form>
