@@ -10,7 +10,7 @@ const ArticleList = (props) => {
   if (props.items.length === 0) {
     return (
       <div>
-        <Card>
+        <Card style={{ background: 'rgb(248,248,248)',textAlign: 'center'}}>
           <h2>No Articles Found. Maybe Create One?</h2>
           <Button to="/articles/new">Write Article</Button>
         </Card>

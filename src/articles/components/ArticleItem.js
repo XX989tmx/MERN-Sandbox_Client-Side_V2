@@ -91,7 +91,7 @@ const ArticleItem = (props) => {
           can't be undone thereafter.
         </p>
       </Modal>
-      <li className="article-item card-box">
+      <li className="article-item ">
         {/* <div className="article-item__image">
         <img />
     </div> */}
@@ -145,12 +145,7 @@ const ArticleItem = (props) => {
             <Button onClick={openModalHandler}>View This Article</Button>
 
             {auth.userId === props.author && (
-              <Button
-                to={`/articles/${props.id}`}
-                
-              >
-                Edit This Article
-              </Button>
+              <Button to={`/articles/${props.id}`}>Edit This Article</Button>
             )}
             {auth.userId === props.author && (
               <Button onClick={showDeleteWarningHandler}>
