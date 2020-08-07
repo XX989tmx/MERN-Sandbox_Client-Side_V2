@@ -12,6 +12,8 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
+import './Articles.css';
+
 const ARTICLES = [
   {
     id: "a1",
@@ -57,8 +59,7 @@ const Articles = () => {
     const allArticles = async (params) => {
       try {
         const responseData = await sendRequest(
-          process.env
-            .REACT_APP_BACKEND_URL + `/articles/all`
+          process.env.REACT_APP_BACKEND_URL + `/articles/all`
         );
         console.log(responseData);
         setAllArticles(responseData.articles);
@@ -83,55 +84,51 @@ const Articles = () => {
     } catch (error) {}
   };
 
-  const sortByCategory = async(params) => {
-    console.log('selected');
+  const sortByCategory = async (params) => {
+    console.log("selected");
     try {
-      var categories = document.getElementById('categories');
+      var categories = document.getElementById("categories");
       var categoriesValue = categories.value;
-        const responseData = await sendRequest(
-          process.env
-            .REACT_APP_BACKEND_URL + `/articles/all?categories=${categoriesValue}`
-        );
-        console.log(responseData);
-        setAllArticles(responseData.articles);
-        console.log(responseData.count);
-        setArticleCount(responseData.count);
-      } catch (error) {}
-    };
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/all?categories=${categoriesValue}`
+      );
+      console.log(responseData);
+      setAllArticles(responseData.articles);
+      console.log(responseData.count);
+      setArticleCount(responseData.count);
+    } catch (error) {}
+  };
 
-    const sortByTag = async(params) => {
-      console.log("selected");
-      try {
-        var tags = document.getElementById("tags");
-        var tagsValue = tags.value;
-        const responseData = await sendRequest(
-          process.env
-            .REACT_APP_BACKEND_URL + `/articles/all?tags=${tagsValue}`
-        );
-        console.log(responseData);
-        setAllArticles(responseData.articles);
-        console.log(responseData.count);
-        setArticleCount(responseData.count);
-      } catch (error) {}
-    }
+  const sortByTag = async (params) => {
+    console.log("selected");
+    try {
+      var tags = document.getElementById("tags");
+      var tagsValue = tags.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/articles/all?tags=${tagsValue}`
+      );
+      console.log(responseData);
+      setAllArticles(responseData.articles);
+      console.log(responseData.count);
+      setArticleCount(responseData.count);
+    } catch (error) {}
+  };
 
-    const sortByPrice = async(params) => {
-      console.log("selected");
-      try {
-        var price = document.getElementById("price");
-        var priceValue = price.value;
-        const responseData = await sendRequest(
-          process.env
-            .REACT_APP_BACKEND_URL + `/articles/all?price=${priceValue}`
-        );
-        console.log(responseData);
-        setAllArticles(responseData.articles);
-        console.log(responseData.count);
-        setArticleCount(responseData.count);
-      } catch (error) {}
-    }
-
-  
+  const sortByPrice = async (params) => {
+    console.log("selected");
+    try {
+      var price = document.getElementById("price");
+      var priceValue = price.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/articles/all?price=${priceValue}`
+      );
+      console.log(responseData);
+      setAllArticles(responseData.articles);
+      console.log(responseData.count);
+      setArticleCount(responseData.count);
+    } catch (error) {}
+  };
 
   return (
     <React.Fragment>
@@ -144,132 +141,149 @@ const Articles = () => {
         <div className="container">
           <div className="main-container">
             <div className="post-form-area">
-              <form onSubmit={getArticleBySearchQuery}>
-                <Input
-                  id="query"
-                  element="input"
-                  label="query"
-                  validators={[VALIDATOR_REQUIRE()]}
-                  onInput={inputHandler}
-                />
-                <Button btnBlack>Search</Button>
-              </form>
-
-              <label>
-                Sort Article
-                <select name="sort">
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="highest rating">highest rating</option>
-                  <option value="lowest rating">lowest rating</option>
-                  <option value="oldest">oldest</option>
-                  <option value="latest">latest</option>
-                  <option value="Most viewed">Most viewed</option>
-                  <option value="Least viewed">Least viewed</option>
-                  <option value="Highest Favorite Count">
-                    Highest Favorite Count
-                  </option>
-                  <option value="Lowest Favorite Count">
-                    Lowest Favorite Count
-                  </option>
-                  {/* <option value="Highest Cited">Highest Cited</option>
+              <div className="search-box-container center">
+                <form onSubmit={getArticleBySearchQuery}>
+                  <Input
+                    id="query"
+                    element="input"
+                    label="query"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    onInput={inputHandler}
+                  />
+                  <Button btnBlack>Search</Button>
+                </form>
+              </div>
+              <div className="sort-selector-container center">
+                <span className="selector-item">
+                  <label>
+                    Sort Article
+                    <select name="sort">
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="highest rating">highest rating</option>
+                      <option value="lowest rating">lowest rating</option>
+                      <option value="oldest">oldest</option>
+                      <option value="latest">latest</option>
+                      <option value="Most viewed">Most viewed</option>
+                      <option value="Least viewed">Least viewed</option>
+                      <option value="Highest Favorite Count">
+                        Highest Favorite Count
+                      </option>
+                      <option value="Lowest Favorite Count">
+                        Lowest Favorite Count
+                      </option>
+                      {/* <option value="Highest Cited">Highest Cited</option>
                   <option value="Lowest Cited">Lowest Cited</option> */}
-                  <option value="stock">stock</option>
-                  <option value="Free Shipment">Free Shipment</option>
-                </select>
-              </label>
+                      <option value="stock">stock</option>
+                      <option value="Free Shipment">Free Shipment</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                price sort
-                <select name="price" id="price" onChange={sortByPrice}>
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="0~499">~499</option>
-                  <option value="500~999">500~999</option>
-                  <option value="1000~1999">1000~1999</option>
-                  <option value="2000~4999">2000~4999</option>
-                  <option value="5000~9999">5000~9999</option>
-                  <option value="10000~">10000~</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    price sort
+                    <select name="price" id="price" onChange={sortByPrice}>
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="0~499">~499</option>
+                      <option value="500~999">500~999</option>
+                      <option value="1000~1999">1000~1999</option>
+                      <option value="2000~4999">2000~4999</option>
+                      <option value="5000~9999">5000~9999</option>
+                      <option value="10000~">10000~</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                downloadable
-                <select name="downloadable">
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="Downloadable">Downloadable</option>
-                  <option value="Web Only">Web Only</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    downloadable
+                    <select name="downloadable">
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="Downloadable">Downloadable</option>
+                      <option value="Web Only">Web Only</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                Format
-                <select name="Format">
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="PDF">PDF</option>
-                  <option value="EPUB">EPUB</option>
-                  <option value="WEB">WEB</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    Format
+                    <select name="Format">
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="PDF">PDF</option>
+                      <option value="EPUB">EPUB</option>
+                      <option value="WEB">WEB</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                Category
-                <select
-                  name="Category"
-                  id="categories"
-                  onChange={sortByCategory}
-                >
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="politics">politics</option>
-                  <option value="science">science</option>
-                  <option value="education">education</option>
-                  <option value="literature">literature</option>
-                  <option value="investment">investment</option>
-                  <option value="technology">technology</option>
-                  <option value="business">business</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    Category
+                    <select
+                      name="Category"
+                      id="categories"
+                      onChange={sortByCategory}
+                    >
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="politics">politics</option>
+                      <option value="science">science</option>
+                      <option value="education">education</option>
+                      <option value="literature">literature</option>
+                      <option value="investment">investment</option>
+                      <option value="technology">technology</option>
+                      <option value="business">business</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                Tag
-                <select name="Tag" id="tags" onChange={sortByTag}>
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="politics">politics</option>
-                  <option value="science">science</option>
-                  <option value="education">education</option>
-                  <option value="literature">literature</option>
-                  <option value="investment">investment</option>
-                  <option value="technology">technology</option>
-                  <option value="business">business</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    Tag
+                    <select name="Tag" id="tags" onChange={sortByTag}>
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="politics">politics</option>
+                      <option value="science">science</option>
+                      <option value="education">education</option>
+                      <option value="literature">literature</option>
+                      <option value="investment">investment</option>
+                      <option value="technology">technology</option>
+                      <option value="business">business</option>
+                    </select>
+                  </label>
+                </span>
 
-              <label>
-                date
-                <select name="date">
-                  <option value="default" selected>
-                    sort
-                  </option>
-                  <option value="last 30 days">last 30 days</option>
-                  <option value="last 6 month">last 6 month</option>
-                  <option value="2020">2020</option>
-                  <option value="2019">2019</option>
-                  <option value="2018">2018</option>
-                  <option value="2017">2017</option>
-                  <option value="2016">2016</option>
-                  <option value="2015">2015</option>
-                </select>
-              </label>
+                <span className="selector-item">
+                  <label>
+                    date
+                    <select name="date">
+                      <option value="default" selected>
+                        sort
+                      </option>
+                      <option value="last 30 days">last 30 days</option>
+                      <option value="last 6 month">last 6 month</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                    </select>
+                  </label>
+                </span>
+              </div>
 
               <h5>{ArticleCount} articles</h5>
               {SearchedArticle ? (

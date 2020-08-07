@@ -1,5 +1,28 @@
 /* For mobile phones: */
+.search-box-container {
+padding: 20px;
 
+}
+
+.sort-selector-container {
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.selector-item {
+  margin-right: 20px;
+  /* margin-top: 15px; */
+  
+  font-weight: 400;
+}
+
+.selector-item:hover {
+  background: whitesmoke;
+}
+
+/* .selector-item:focus {
+  outline: none;
+} */
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
