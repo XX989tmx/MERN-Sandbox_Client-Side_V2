@@ -4,6 +4,7 @@ import ArticleList from "../components/ArticleList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 // const ARTICLES = [
 //   {
 //     id: "a1",
@@ -63,6 +64,7 @@ const UserArticles = () => {
               items={loadedArticles}
               onDeleteArticle={articleDeletedHandler}
             />
+            <MoveToTopButton />
           </div>
           <div className="side-container"></div>
         </div>

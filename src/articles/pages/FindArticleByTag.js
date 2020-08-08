@@ -5,6 +5,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import FindArticleByTagList from "../components/FindArticleByTagList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const FindArticleByTag = () => {
   const auth = useContext(AuthContext);
@@ -60,6 +61,7 @@ const FindArticleByTag = () => {
       </div> */}
               <h4>{CountByTag} related article found</h4>
               <FindArticleByTagList items={tagSortedArticle} />
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>

@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ArticleItem from "../components/ArticleItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const GetSpecificArticleById = () => {
 const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -47,6 +48,7 @@ useEffect(() => {
                 price={Article.price}
                 date_created={Article.date_created}
               />
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>
