@@ -13,6 +13,7 @@ import {
 } from "../../shared/util/validators";
 
 import './Articles.css';
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const ARTICLES = [
   {
@@ -291,6 +292,7 @@ const Articles = () => {
               ) : (
                 <ArticleList items={AllArticles} />
               )}
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>

@@ -1,0 +1,21 @@
+.move-to-top-button {
+  cursor: pointer;
+  background: rgba(255, 0, 0, 0.699);
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  z-index: 5;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  box-shadow: 2px 2px 16px rgb(177, 174, 174);
+  
+}
+
+.move-to-top-button:focus {
+outline: none;
+}
+
+.move-to-top-button:hover {
+background: rgba(255, 103, 103, 0.89);
+}

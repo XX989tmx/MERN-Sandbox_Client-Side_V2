@@ -4,6 +4,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import FindArticleByCategoryList from "../components/FindArticleByCategoryList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const FindArticleByCategory = () => {
   const auth = useContext(AuthContext);
@@ -42,6 +43,7 @@ const FindArticleByCategory = () => {
             <div>
               <h5>{CountByCategory} related articles found.</h5>
               <FindArticleByCategoryList items={CategorySortedArticle} />
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>
