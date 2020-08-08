@@ -7,6 +7,7 @@ import VideoList from "../components/VideoList";
 import VideoItems from "../components/VideoItems";
 import VideoByIdItem from "../components/VideoByIdItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const VideoItemPage = () => {
   const videoId = useParams().videoId;
@@ -55,6 +56,7 @@ const VideoItemPage = () => {
               id={VideoById.id}
               date_created={VideoById.date_created}
             />
+            <MoveToTopButton />
 
             {/* <VideoList items={VideoById} /> */}
             {/* each video item page. place video player box component & video link item

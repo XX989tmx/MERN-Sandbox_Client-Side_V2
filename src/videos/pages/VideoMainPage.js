@@ -4,6 +4,7 @@ import VideoLinkItem from '../components/VideoLinkItem';
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const VideoMainPage = () => {
 
@@ -41,6 +42,7 @@ const VideoMainPage = () => {
             <div>
               list every Video link items here
               <VideoList items={AllVideos} />
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>

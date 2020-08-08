@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const FindVideoByCategory = () => {
     const categories = useParams().categories;
@@ -40,6 +41,7 @@ const FindVideoByCategory = () => {
             <div className="main-container">
               <div>
                 <VideoList items={CategorySortedVideos} />
+                <MoveToTopButton />
               </div>
             </div>
             <div className="side-container"></div>

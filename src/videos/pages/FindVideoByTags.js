@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const FindVideoByTags = () => {
 const tags = useParams().tags;
@@ -42,6 +43,7 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
                 component作り使う
               </p>
               <VideoList items={tagSortedVideos} />
+              <MoveToTopButton />
             </div>
           </div>
           <div className="side-container"></div>
