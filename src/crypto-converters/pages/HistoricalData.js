@@ -11,6 +11,7 @@ import {
 
 import './HIstoricalData.css';
 import Button from "../../shared/components/FormElements/Button";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const HistoricalData = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -661,6 +662,7 @@ const HistoricalData = () => {
             dateStringArray={DateStringArray}
             historicalPriceData={HistoricalPriceData}
           />
+          <MoveToTopButton />
         </div>
       </div>
       <div className="side-container"></div>

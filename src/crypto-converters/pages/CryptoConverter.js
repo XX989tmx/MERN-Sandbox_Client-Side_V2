@@ -9,6 +9,7 @@ import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import "./CryptoConverter.css";
 import GetCryptoData from "../components/GetCryptoData";
 import ExchangeRateItem from "../components/ExchangeRateItem";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const CryptoConverter = () => {
   const [cryptoData, setCryptoData] = useState();
@@ -740,6 +741,7 @@ const CryptoConverter = () => {
             </div>
           </div>
         </div>
+        <MoveToTopButton />
       </div>
       <div className="side-container">{/* components: sidebar */}</div>
     </div>

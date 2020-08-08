@@ -8,6 +8,7 @@ import FcasRatingItem from "../components/FcasRatingItem";
 import download from "downloadjs";
 
 import './FcasRating.css';
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -87,6 +88,7 @@ const FcasRating = () => {
               timezone={FcasRatingInfo.timezone}
             />
           </div>
+          <MoveToTopButton />
         </div>
       </div>
       <div className="side-container"></div>
