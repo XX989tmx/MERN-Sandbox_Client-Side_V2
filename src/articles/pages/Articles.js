@@ -131,6 +131,38 @@ const Articles = () => {
     } catch (error) {}
   };
 
+  const sortArticleMainHandler = async (event) => {
+    event.preventDefault();
+    let sortArticleField = document.getElementById("sortArticleMain");
+    let sortArticleFieldValue = sortArticleField.value;
+    switch (sortArticleFieldValue) {
+      case "HighestToCheapest":
+        try {
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/price_sort?q=${sortArticleFieldValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.results);
+          setAllArticles(responseData.results);
+        } catch (error) {}
+        break;
+      case "CheapestToHighest":
+        try {
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/price_sort?q=${sortArticleFieldValue}`
+          );
+          console.log(responseData);
+          console.log(responseData.results.id);
+          setAllArticles(responseData.results);
+        } catch (error) {}
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <React.Fragment>
       {isLoading && (
@@ -158,11 +190,20 @@ const Articles = () => {
                 <span className="selector-item">
                   <label>
                     Sort Article
-                    <select name="sort">
+                    <select
+                      name="sort"
+                      id="sortArticleMain"
+                      onChange={sortArticleMainHandler}
+                    >
                       <option value="default" selected>
                         sort
                       </option>
-                      <option value="highest rating">highest rating</option>
+                      <option value="HighestToCheapest">
+                        From Highest Price
+                      </option>
+                      <option value="CheapestToHighest">
+                        From Lowest Price
+                      </option>
                       <option value="lowest rating">lowest rating</option>
                       <option value="oldest">oldest</option>
                       <option value="latest">latest</option>

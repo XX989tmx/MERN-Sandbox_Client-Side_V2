@@ -47,11 +47,11 @@ const ArticleItem = (props) => {
     } catch (err) {}
   };
 
-  const getArticleByTags = (params) => {
-    sendRequest(
-      process.env.REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/:tags`
-    );
-  };
+  // const getArticleByTags = (params) => {
+  //   sendRequest(
+  //     process.env.REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/:tags`
+  //   );
+  // };
 
   return (
     <React.Fragment>
