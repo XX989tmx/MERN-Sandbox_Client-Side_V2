@@ -12,7 +12,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
-import './Articles.css';
+import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const ARTICLES = [
@@ -158,6 +158,28 @@ const Articles = () => {
           setAllArticles(responseData.results);
         } catch (error) {}
         break;
+      case "FromOldest":
+        try {
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/date_sort?date=FromOldest`
+          );
+          console.log(responseData);
+          console.log(responseData.results);
+          setAllArticles(responseData.results);
+        } catch (error) {}
+        break;
+      case "FromLatest":
+        try {
+          const responseData = await sendRequest(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/date_sort?date=FromLatest`
+          );
+          console.log(responseData);
+          console.log(responseData.results);
+          setAllArticles(responseData.results);
+        } catch (error) {}
+        break;
       default:
         break;
     }
@@ -205,8 +227,8 @@ const Articles = () => {
                         From Lowest Price
                       </option>
                       <option value="lowest rating">lowest rating</option>
-                      <option value="oldest">oldest</option>
-                      <option value="latest">latest</option>
+                      <option value="FromOldest">From Oldest</option>
+                      <option value="FromLatest">From Latest</option>
                       <option value="Most viewed">Most viewed</option>
                       <option value="Least viewed">Least viewed</option>
                       <option value="Highest Favorite Count">
