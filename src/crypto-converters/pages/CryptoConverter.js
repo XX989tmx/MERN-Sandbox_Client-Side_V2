@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import { Link } from "react-router-dom";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { useForm } from "../../shared/hooks/form-hook";
@@ -172,6 +173,7 @@ const CryptoConverter = () => {
     <div className="container">
       <div className="main-container">
         <div className="post-form-area">
+          <h3 className="center">Currency To Bitcoin Converter</h3>
           <form className="center" onSubmit={cryptoConvertionSubmitHandler}>
             {/* <input id="currency" type="text" label="Currency" />
             <input id="value" type="text" label="Value" /> */}
@@ -297,14 +299,35 @@ const CryptoConverter = () => {
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
+
+          <div>
+            <Link to="/crypto_converter/fcasRating">
+              See Other Crypto's FCAS Rating
+            </Link>
+          </div>
+          <div>
+            <Link to="/crypto_converter/historical_data">
+              See Bitcoin's Historical Price Data
+            </Link>
+          </div>
         </div>
 
-        <div className="center">
+        <div className="center" style={{ marginTop: "60px" }}>
+          <h3>Currency Exchange Rate Converter</h3>
+          <p>
+            check Crypto Currency's Currency Code List, 'show list on Modal with
+            onClick. make this p tag to button??'
+          </p>
+          <p>
+            check Fiat Currency's Currency Code List, 'show list on Modal with
+            onClick. make this p tag to button??'
+          </p>
           <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
             <Input
               id="FromCurrency"
               element="input"
               label="FromCurrency"
+              placeholder="Input Currency Code eg. CNY(Both Crypto Code and Fiat Code is available)"
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
@@ -312,6 +335,7 @@ const CryptoConverter = () => {
               id="ToCurrency"
               element="input"
               label="ToCurrency"
+              placeholder="Input Currency Code eg. BTC(Both Crypto Code and Fiat Code is available)"
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />

@@ -587,7 +587,7 @@ const HistoricalData = () => {
     <div className="container">
       <div className="main-container">
         <div>
-          get historical data
+          <h3>Bitcoin's Historical Price Data</h3>
           <form onSubmit={getHistoricalDataSubmitHandler}>
             <Input
               id="startDate"
