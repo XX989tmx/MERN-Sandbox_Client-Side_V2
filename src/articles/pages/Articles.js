@@ -56,6 +56,8 @@ const Articles = () => {
   );
   const [SearchedArticle, setSearchedArticle] = useState();
 
+  const [query, setQuery] = useState();
+
   useEffect(() => {
     const allArticles = async (params) => {
       try {
@@ -76,9 +78,10 @@ const Articles = () => {
     try {
       var sort = "oldest";
       var latest = "latest";
-      var query = formState.inputs.query.value;
+      // var query = formState.inputs.query.value;
+      const queryValue = event.target.value;
       const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + `/articles/all?q=${query}`
+        process.env.REACT_APP_BACKEND_URL + `/articles/all?q=${queryValue}`
       );
       console.log(responseData.articles);
       setSearchedArticle(responseData.articles);
@@ -185,182 +188,205 @@ const Articles = () => {
     }
   };
 
+  const changeHandler = (event) => {
+    const queryValue = event.target.value;
+    setQuery(queryValue);
+  }
+
+  const submitHandler = async(event) => {
+    event.preventDefault();
+    try {
+      var sort = "oldest";
+      var latest = "latest";
+      // var query = formState.inputs.query.value;
+      const queryValue = event.target.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/all?q=${event.target.value}`
+      );
+      console.log(responseData.articles);
+      setSearchedArticle(responseData.articles);
+    } catch (error) {}
+  }
+
   return (
     <React.Fragment>
-      {isLoading && (
+      {/* {isLoading && (
         <div className="center">
           <LoadingSpinner />
         </div>
-      )}
-      {!isLoading && AllArticles && (
-        <div className="container">
-          <div className="main-container">
-            <div className="post-form-area">
-              <div className="search-box-container center">
-                <form onSubmit={getArticleBySearchQuery}>
-                  <Input
-                    id="query"
-                    element="input"
-                    label="query"
-                    validators={[VALIDATOR_REQUIRE()]}
-                    onInput={inputHandler}
-                  />
-                  <Button btnBlack>Search</Button>
-                </form>
-              </div>
-              <div className="sort-selector-container center">
-                <span className="selector-item">
-                  <label>
-                    Sort Article
-                    <select
-                      name="sort"
-                      id="sortArticleMain"
-                      onChange={sortArticleMainHandler}
-                    >
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="HighestToCheapest">
-                        From Highest Price
-                      </option>
-                      <option value="CheapestToHighest">
-                        From Lowest Price
-                      </option>
-                      <option value="lowest rating">lowest rating</option>
-                      <option value="FromOldest">From Oldest</option>
-                      <option value="FromLatest">From Latest</option>
-                      <option value="Most viewed">Most viewed</option>
-                      <option value="Least viewed">Least viewed</option>
-                      <option value="Highest Favorite Count">
-                        Highest Favorite Count
-                      </option>
-                      <option value="Lowest Favorite Count">
-                        Lowest Favorite Count
-                      </option>
-                      {/* <option value="Highest Cited">Highest Cited</option>
-                  <option value="Lowest Cited">Lowest Cited</option> */}
-                      <option value="stock">stock</option>
-                      <option value="Free Shipment">Free Shipment</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    price sort
-                    <select name="price" id="price" onChange={sortByPrice}>
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="0~499">~499</option>
-                      <option value="500~999">500~999</option>
-                      <option value="1000~1999">1000~1999</option>
-                      <option value="2000~4999">2000~4999</option>
-                      <option value="5000~9999">5000~9999</option>
-                      <option value="10000~">10000~</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    downloadable
-                    <select name="downloadable">
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="Downloadable">Downloadable</option>
-                      <option value="Web Only">Web Only</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    Format
-                    <select name="Format">
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="PDF">PDF</option>
-                      <option value="EPUB">EPUB</option>
-                      <option value="WEB">WEB</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    Category
-                    <select
-                      name="Category"
-                      id="categories"
-                      onChange={sortByCategory}
-                    >
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="politics">politics</option>
-                      <option value="science">science</option>
-                      <option value="education">education</option>
-                      <option value="literature">literature</option>
-                      <option value="investment">investment</option>
-                      <option value="technology">technology</option>
-                      <option value="business">business</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    Tag
-                    <select name="Tag" id="tags" onChange={sortByTag}>
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="politics">politics</option>
-                      <option value="science">science</option>
-                      <option value="education">education</option>
-                      <option value="literature">literature</option>
-                      <option value="investment">investment</option>
-                      <option value="technology">technology</option>
-                      <option value="business">business</option>
-                    </select>
-                  </label>
-                </span>
-
-                <span className="selector-item">
-                  <label>
-                    date
-                    <select name="date">
-                      <option value="default" selected>
-                        sort
-                      </option>
-                      <option value="last 30 days">last 30 days</option>
-                      <option value="last 6 month">last 6 month</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                    </select>
-                  </label>
-                </span>
-              </div>
-
-              <h5>{ArticleCount} articles</h5>
-              {SearchedArticle ? (
-                <ArticleList items={SearchedArticle} />
-              ) : (
-                <ArticleList items={AllArticles} />
-              )}
-              <MoveToTopButton />
+      )} */}
+      {/* {!isLoading && AllArticles && ( */}
+      <div className="container">
+        <div className="main-container">
+          <div className="post-form-area">
+            <div className="search-box-container center">
+              <form onChange={getArticleBySearchQuery}>
+                <Input
+                  id="query"
+                  element="input"
+                  label="query"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  onInput={inputHandler}
+                />
+                <Button btnBlack>Search</Button>
+              </form>
+              <form onChange={submitHandler}>
+                <input type="text" value={query} onChange={changeHandler} />
+                <h3>{query}</h3>
+              </form>
             </div>
+            <div className="sort-selector-container center">
+              <span className="selector-item">
+                <label>
+                  Sort Article
+                  <select
+                    name="sort"
+                    id="sortArticleMain"
+                    onChange={sortArticleMainHandler}
+                  >
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="HighestToCheapest">
+                      From Highest Price
+                    </option>
+                    <option value="CheapestToHighest">From Lowest Price</option>
+                    <option value="lowest rating">lowest rating</option>
+                    <option value="FromOldest">From Oldest</option>
+                    <option value="FromLatest">From Latest</option>
+                    <option value="Most viewed">Most viewed</option>
+                    <option value="Least viewed">Least viewed</option>
+                    <option value="Highest Favorite Count">
+                      Highest Favorite Count
+                    </option>
+                    <option value="Lowest Favorite Count">
+                      Lowest Favorite Count
+                    </option>
+                    {/* <option value="Highest Cited">Highest Cited</option>
+                  <option value="Lowest Cited">Lowest Cited</option> */}
+                    <option value="stock">stock</option>
+                    <option value="Free Shipment">Free Shipment</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  price sort
+                  <select name="price" id="price" onChange={sortByPrice}>
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="0~499">~499</option>
+                    <option value="500~999">500~999</option>
+                    <option value="1000~1999">1000~1999</option>
+                    <option value="2000~4999">2000~4999</option>
+                    <option value="5000~9999">5000~9999</option>
+                    <option value="10000~">10000~</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  downloadable
+                  <select name="downloadable">
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="Downloadable">Downloadable</option>
+                    <option value="Web Only">Web Only</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  Format
+                  <select name="Format">
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="PDF">PDF</option>
+                    <option value="EPUB">EPUB</option>
+                    <option value="WEB">WEB</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  Category
+                  <select
+                    name="Category"
+                    id="categories"
+                    onChange={sortByCategory}
+                  >
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="politics">politics</option>
+                    <option value="science">science</option>
+                    <option value="education">education</option>
+                    <option value="literature">literature</option>
+                    <option value="investment">investment</option>
+                    <option value="technology">technology</option>
+                    <option value="business">business</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  Tag
+                  <select name="Tag" id="tags" onChange={sortByTag}>
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="politics">politics</option>
+                    <option value="science">science</option>
+                    <option value="education">education</option>
+                    <option value="literature">literature</option>
+                    <option value="investment">investment</option>
+                    <option value="technology">technology</option>
+                    <option value="business">business</option>
+                  </select>
+                </label>
+              </span>
+
+              <span className="selector-item">
+                <label>
+                  date
+                  <select name="date">
+                    <option value="default" selected>
+                      sort
+                    </option>
+                    <option value="last 30 days">last 30 days</option>
+                    <option value="last 6 month">last 6 month</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                  </select>
+                </label>
+              </span>
+            </div>
+
+            <h5>{ArticleCount} articles</h5>
+            {SearchedArticle ? (
+              <ArticleList items={SearchedArticle} />
+            ) : (
+              <ArticleList items={AllArticles} />
+            )}
+            <MoveToTopButton />
           </div>
-          <div className="side-container"></div>
         </div>
-      )}
+        <div className="side-container"></div>
+      </div>
+      {/* )} */}
     </React.Fragment>
   );
 };
