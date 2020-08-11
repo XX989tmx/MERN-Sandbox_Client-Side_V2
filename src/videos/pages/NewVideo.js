@@ -50,6 +50,7 @@ const NewVideo = () => {
                 persons: formState.inputs.persons.value,
                 src: formState.inputs.src.value,
                 tags: formState.inputs.tags.value,
+                userId: auth.userId,
                 categories: formState.inputs.categories.value,
               }),
               { "Content-Type": "application/json" }
