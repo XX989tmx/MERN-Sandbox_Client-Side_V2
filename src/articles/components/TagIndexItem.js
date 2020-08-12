@@ -1,15 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+
+import "./TagIndexItem.css";
 
 const TagIndexItem = (props) => {
-    return (
-      <Link to={`/get_article_by_tags/${props.tagName}`}>
-        <li>
+  return (
+    <Link to={`/get_article_by_tags/${props.tagName}`}>
+      <li className="list-item">
+        <div className="item-area">
           {props.tagName}
           <span class="badge">{props.count}</span>
-        </li>
-      </Link>
-    );
-}
+        </div>
+      </li>
+    </Link>
+  );
+};
 
 export default TagIndexItem;

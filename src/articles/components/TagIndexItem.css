@@ -1,0 +1,22 @@
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 100px;
+  margin-left: 20px;
+  
+  display: inline;
+}
+
+.list-item {
+   list-style: none;
+   text-decoration: none;
+   font-size: 22px;
+}
+
+.item-area {
+  height: 40px;
+  width: 100%;
+  text-decoration: none;
+  padding: 10px;
+  list-style: none;
+}
