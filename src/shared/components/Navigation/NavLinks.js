@@ -20,6 +20,9 @@ const NavLinks = props => {
           <NavLink to={`/${auth.userId}/articles`}>MY ARTICLES</NavLink>
         </li>
         <li>
+          <NavLink to="/articles/tagIndex">Tag Index</NavLink>
+        </li>
+        <li>
           <NavLink to="/about_us">About Us</NavLink>
         </li>
         <li>
