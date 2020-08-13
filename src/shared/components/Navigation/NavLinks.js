@@ -23,6 +23,9 @@ const NavLinks = props => {
           <NavLink to="/articles/tagIndex">Tag Index</NavLink>
         </li>
         <li>
+          <NavLink to="/articles/categoryIndex">Category Index</NavLink>
+        </li>
+        <li>
           <NavLink to="/about_us">About Us</NavLink>
         </li>
         <li>

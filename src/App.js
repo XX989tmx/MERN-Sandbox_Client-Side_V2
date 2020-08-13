@@ -37,6 +37,7 @@ import NewVideo from "./videos/pages/NewVideo";
 import HistoricalData from "./crypto-converters/pages/HistoricalData";
 import FcasRating from "./crypto-converters/pages/FcasRating";
 import TagIndex from "./articles/pages/TagIndex";
+import CategoryIndex from "./articles/pages/CategoryIndex";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -80,6 +81,9 @@ const App = () => {
         </Route>
         <Route path="/articles/tagIndex" exact>
           <TagIndex />
+        </Route>
+        <Route path="/articles/categoryIndex" exact>
+          <CategoryIndex />
         </Route>
         <Route path="/articles/:articleId">
           <UpdateArticle />
