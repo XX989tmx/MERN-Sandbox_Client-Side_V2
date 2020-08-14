@@ -120,8 +120,12 @@ const ArticleItem = (props) => {
               <span>
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
                 Written by {/* <Button onClick={openModalHandler}> */}
-                <Link to="/u1/articles" style={{ textDecoration: "none" }}>
-                  {props.author}
+                <Link
+                  to={`/${props.authorId}/articles`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <p>{props.authorName}</p>
+                  <p>contact:{props.authorEmail}</p>
                 </Link>
                 {/* </Button> */}
               </span>

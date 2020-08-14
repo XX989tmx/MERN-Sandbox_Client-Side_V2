@@ -20,7 +20,6 @@ const ArticleList = (props) => {
 
   return (
     <ul>
-    
       {props.items.map((article) => (
         <ArticleItem
           key={article.id}
@@ -28,7 +27,9 @@ const ArticleList = (props) => {
           image={article.image}
           title={article.title}
           content={article.content}
-          author={article.author}
+          authorName={article.author.name}
+          authorId={article.author._id}
+          authorEmail={article.author.email}
           // category={article.category}
           categories={article.categories}
           tags={article.tags}
@@ -36,11 +37,9 @@ const ArticleList = (props) => {
           price={article.price}
           // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
-          
         />
       ))}
-      
-    </ul> 
+    </ul>
   );
 };
 
