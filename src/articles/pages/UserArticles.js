@@ -28,6 +28,7 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 const UserArticles = () => {
   const [loadedArticles, setLoadedArticles] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [ArticleAuthor, setArticleAuthor] = useState({});
 
   const userId = useParams().userId;
 
@@ -38,6 +39,7 @@ const UserArticles = () => {
           `${process.env.REACT_APP_BACKEND_URL}/articles/user/${userId}`
         );
         setLoadedArticles(responseData.articles);
+        setArticleAuthor(responseData.articles[0].author);
       } catch (err) {}
     };
     fetchArticles();
@@ -60,6 +62,7 @@ const UserArticles = () => {
       {!isLoading && loadedArticles && (
         <div className="container">
           <div className="main-container">
+            <h3 className="center">{new String(ArticleAuthor.name).toUpperCase()}'s Articles</h3>
             <ArticleList
               items={loadedArticles}
               onDeleteArticle={articleDeletedHandler}
