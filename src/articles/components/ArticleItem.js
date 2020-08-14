@@ -109,22 +109,22 @@ const ArticleItem = (props) => {
               <img
                 src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
                 alt={props.title}
-                style={{ width: "300px", height: "230px" }}
+                style={{ width: "200px", height: "130px" }}
               />
             </div>
             <div className="article-item__article_content">
               <h2>{props.title}</h2>
 
               <p>{props.content}</p>
-              <p>{props.id}</p>
-              <p>
+              {/* <p>{props.id}</p> */}
+              <span>
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
                 Written by {/* <Button onClick={openModalHandler}> */}
                 <Link to="/u1/articles" style={{ textDecoration: "none" }}>
                   {props.author}
                 </Link>
                 {/* </Button> */}
-              </p>
+              </span>
               {/* <p>publishedDate: {props.publishedDate}</p> */}
 
               <Link
@@ -143,8 +143,15 @@ const ArticleItem = (props) => {
                   <p className="tag-area">Tag: {props.tags}</p>
                 </div>
               </Link>
-              <h4>price: {props.price}</h4>
-              <p>Date Created: {props.date_created}</p>
+              <h4>
+                price:{" "}
+                <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+                  {props.price}
+                </span>
+              </h4>
+              <p style={{ fontSize: "14px", color: "grey" }}>
+                Date Created: {new Date(props.date_created).toDateString()}
+              </p>
             </div>
           </Link>
           <div className="article-item__actions">

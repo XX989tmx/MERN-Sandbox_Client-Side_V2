@@ -91,13 +91,13 @@ const FindArticleByCategoryItems = (props) => {
             <div className="article-item__image">
               <img
                 src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
-                style={{ width: "300px", height: "230px" }}
+                style={{ width: "200px", height: "130px" }}
               />
             </div>
             <div className="article-item__article_content">
               <h2>{props.title}</h2>
               <p>{props.content}</p>
-              <p>{props.id}</p>
+              {/* <p>{props.id}</p> */}
               <p>{props.author}</p>
               <Link
                 to={`/get_article_by_categories/${props.categories}`}
@@ -115,8 +115,15 @@ const FindArticleByCategoryItems = (props) => {
                   <p className="tag-area">Tags: {props.tags}</p>
                 </div>
               </Link>
-              <h4>price: {props.price}</h4>
-              <p>Date Created: {props.date_created}</p>
+              <h4>
+                price:{" "}
+                <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+                  {props.price}
+                </span>
+              </h4>
+              <p style={{ fontSize: "14px", color: "grey" }}>
+                Date Created: {new Date(props.date_created).toDateString()}
+              </p>
             </div>
           </Link>{" "}
           <div className="article-item__actions">
