@@ -104,7 +104,12 @@ const FindArticleByTagItems = (props) => {
               <h2>{props.title}</h2>
               <p>{props.content}</p>
               {/* <p>{props.id}</p> */}
-              <p>{props.author}</p>
+              <Link
+                  to={`/${props.authorId}/articles`}
+                  style={{ textDecoration: "none" }}
+                >
+              <p>{props.authorName}</p></Link>
+              <p>{props.authorEmail}</p>
               <Link
                 to={`/get_article_by_categories/${props.categories}`}
                 style={{ textDecoration: "none" }}

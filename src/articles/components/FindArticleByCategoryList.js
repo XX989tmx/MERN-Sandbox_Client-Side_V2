@@ -11,7 +11,9 @@ const FindArticleByCategoryList = (props) => {
           image={item.image}
           title={item.title}
           content={item.content}
-          author={item.author}
+          authorName={item.author.name}
+          authorEmail={item.author.email}
+          authorId={item.author._id}
           tags={item.tags}
           price={item.price}
           categories={item.categories}

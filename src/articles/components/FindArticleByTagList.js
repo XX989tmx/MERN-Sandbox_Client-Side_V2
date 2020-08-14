@@ -11,7 +11,9 @@ const FindArticleByTagList = (props) => {
           image={item.image}
           title={item.title}
           content={item.content}
-          author={item.author}
+          authorName={item.author.name}
+          authorId={item.author._id}
+          authorEmail={item.author.email}
           tags={item.tags}
           categories={item.categories}
           price={item.price}
