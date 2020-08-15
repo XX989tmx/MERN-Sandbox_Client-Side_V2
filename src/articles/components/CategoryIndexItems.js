@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const CategoryIndexItems = (props) => {
     return (
       <Link to={`/get_article_by_categories/${props.categoryName}`}>
-        <li>
-          <div>
+        <li className="list-item">
+          <div className="item-area">
             {props.categoryName}
             <span class="badge">{props.count}</span>
           </div>

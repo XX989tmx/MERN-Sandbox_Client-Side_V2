@@ -25,7 +25,7 @@
 .side-container {
   width: 280px;
   height: 900px;
-  background-color: azure;
+  /* background-color: azure; */
   border: solid 1px;
 }
 

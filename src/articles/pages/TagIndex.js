@@ -24,8 +24,13 @@ const TagIndex = () => {
   }, [sendRequest]);
 
   return (
-    <div>
-      <TagIndexList TagIndexData={TagIndexData} />
+    <div className="container">
+      <div className="main-container">
+        <div>
+          <TagIndexList TagIndexData={TagIndexData} />
+        </div>
+      </div>
+      <div className="side-container"></div>
     </div>
   );
 };

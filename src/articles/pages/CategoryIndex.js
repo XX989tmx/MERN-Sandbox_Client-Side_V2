@@ -23,8 +23,13 @@ useEffect(() => {
 }, [sendRequest]);
 
     return (
-      <div>
-        <CategoryIndexList CategoryIndexData={CategoryIndexData} />
+      <div className="container">
+        <div className="main-container">
+          <div>
+            <CategoryIndexList CategoryIndexData={CategoryIndexData} />
+          </div>
+        </div>
+        <div className="side-container"></div>
       </div>
     );
 }
