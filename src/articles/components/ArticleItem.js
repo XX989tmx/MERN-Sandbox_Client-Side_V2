@@ -106,10 +106,10 @@ const ArticleItem = (props) => {
             style={{ textDecoration: "none" }}
           >
             <div className="article-item__image center">
-              <img
+              <img className="article-item-image-item"
                 src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
                 alt={props.title}
-                style={{ width: "200px", height: "130px" }}
+                style={{ width: "200px", height: "130px"}}
               />
             </div>
             <div className="article-item__article_content">

@@ -56,6 +56,20 @@
   
 }
 
+.article-item:hover {
+  box-shadow: 4px 5px 18px grey;
+  background-color: whitesmoke;
+}
+
+.article-item-image-item {
+  box-shadow: 4px 5px 10px grey; 
+}
+.article-item-image-item:hover {
+  box-shadow: 5px 6px 14px grey;
+ transform: rotate(10deg) translateX(10px);
+ 
+}
+
 /* .article-item Button {
   padding: 2px;
 } */
