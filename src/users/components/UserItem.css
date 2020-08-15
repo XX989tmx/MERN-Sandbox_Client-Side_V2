@@ -1,7 +1,26 @@
 
 
 /* For mobile phones: */
+.user-item {
+    width: 300px;
+height: 300px;
+list-style: none;
+margin-top: 20px;
+padding-top: 20px;
+text-align: center;
+word-wrap: break-word;
 
+}
+
+
+
+.li a {
+    text-decoration: none;
+}
+
+.erase-underline-text-decoration {
+    text-decoration: none;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */

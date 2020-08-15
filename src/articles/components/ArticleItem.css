@@ -15,6 +15,7 @@
 .tag-area:active {
   border: 1px solid #50555f;
   background-color: #50555f;
+  box-shadow: 1px 2px 9px grey;
 }
 
 .categoryArea {
@@ -33,6 +34,7 @@
 .categoryArea:active {
   border: 1px solid #50555f;
   background-color: #50555f;
+  box-shadow: 1px 2px 9px grey;
 }
 
 .article-item {
