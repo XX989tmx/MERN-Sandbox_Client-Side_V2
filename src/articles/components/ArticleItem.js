@@ -148,7 +148,7 @@ const ArticleItem = (props) => {
           <React.Fragment>
             <Button btnBlackInverse>Free Plan</Button>
             <Button btnBlackInverse>Standard Plan</Button>
-            <Button btnGreen>Premium Plan</Button>
+            <Button btnPremium>Premium Plan</Button>
             <Button btnBlack onClick={closeSubscriptionRequestHandler}>
               CLOSE
             </Button>
