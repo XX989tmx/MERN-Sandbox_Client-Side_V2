@@ -19,7 +19,7 @@ const ArticleList = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="article-item-list ">
       {props.items.map((article) => (
         <ArticleItem
           key={article.id}

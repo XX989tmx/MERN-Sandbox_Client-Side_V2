@@ -244,6 +244,7 @@ const Articles = () => {
                     name="sort"
                     id="sortArticleMain"
                     onChange={sortArticleMainHandler}
+                    className="selector"
                   >
                     <option value="default" selected>
                       sort
@@ -274,7 +275,12 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   price sort
-                  <select name="price" id="price" onChange={sortByPrice}>
+                  <select
+                    className="selector"
+                    name="price"
+                    id="price"
+                    onChange={sortByPrice}
+                  >
                     <option value="default" selected>
                       sort
                     </option>
@@ -291,7 +297,7 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   downloadable
-                  <select name="downloadable">
+                  <select className="selector" name="downloadable">
                     <option value="default" selected>
                       sort
                     </option>
@@ -304,7 +310,7 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   Format
-                  <select name="Format">
+                  <select className="selector" name="Format">
                     <option value="default" selected>
                       sort
                     </option>
@@ -319,6 +325,7 @@ const Articles = () => {
                 <label>
                   Category
                   <select
+                    className="selector"
                     name="Category"
                     id="categories"
                     onChange={sortByCategory}
@@ -340,7 +347,12 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   Tag
-                  <select name="Tag" id="tags" onChange={sortByTag}>
+                  <select
+                    className="selector"
+                    name="Tag"
+                    id="tags"
+                    onChange={sortByTag}
+                  >
                     <option value="default" selected>
                       sort
                     </option>
@@ -358,7 +370,7 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   date
-                  <select name="date">
+                  <select className="selector" name="date">
                     <option value="default" selected>
                       sort
                     </option>

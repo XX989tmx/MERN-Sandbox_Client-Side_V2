@@ -215,6 +215,7 @@ a:hover {
   /* For desktop: */
 
   .container {
+  
   display: flex;
   height: 2000px;
   border: solid 1px;
@@ -223,13 +224,13 @@ a:hover {
 .main-container {
   width: 810px;
   height: 100%;
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 
 .side-container {
   width: 280px;
   height: 900px;
-  background-color: azure;
+  /* background-color: azure; */
   border: solid 1px;
 }
 

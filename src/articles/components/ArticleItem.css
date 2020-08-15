@@ -39,6 +39,27 @@
   list-style: none;
 }
 
+.author-info {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  
+}
+
+.contact-info {
+ display: block;
+ font-style: italic;
+}
+
+.article-item {
+  margin: 20px 55px 20px 20px;
+  
+}
+
+/* .article-item Button {
+  padding: 2px;
+} */
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
 }

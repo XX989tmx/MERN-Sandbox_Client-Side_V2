@@ -105,7 +105,7 @@ const ArticleItem = (props) => {
             to={`/get_specific_article_by_id/${props.id}`}
             style={{ textDecoration: "none" }}
           >
-            <div className="article-item__image">
+            <div className="article-item__image center">
               <img
                 src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
                 alt={props.title}
@@ -119,13 +119,17 @@ const ArticleItem = (props) => {
               {/* <p>{props.id}</p> */}
               <span>
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
-                Written by {/* <Button onClick={openModalHandler}> */}
+                {/* <Button onClick={openModalHandler}> */}
                 <Link
                   to={`/${props.authorId}/articles`}
                   style={{ textDecoration: "none" }}
                 >
-                  <p>{props.authorName}</p>
-                  <p>contact:{props.authorEmail}</p>
+                  <span className="author-info">
+                    author: {props.authorName}
+                  </span>
+                  <span className="contact-info">
+                    contact: {props.authorEmail}
+                  </span>
                 </Link>
                 {/* </Button> */}
               </span>
