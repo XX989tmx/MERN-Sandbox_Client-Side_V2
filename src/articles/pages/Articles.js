@@ -386,6 +386,9 @@ const Articles = () => {
                 </label>
               </span>
             </div>
+            <p style={{ color: "grey", textAlign: "left" }}>
+              if something does not work, please reload the page.
+            </p>
 
             <h5>{ArticleCount} articles</h5>
             {SearchedArticle ? (

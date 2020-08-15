@@ -605,6 +605,9 @@ const HistoricalData = () => {
               validators={[VALIDATOR_REQUIRE()]}
               onInput={inputHandler}
             />
+            <p style={{ color: "grey" }}>
+              if something does not work, please reload the page.
+            </p>
             <Button btnBlack>get data 2020 7/1 - 7/31</Button>
             {/* <button>get data 2020 7/1 - 7/31</button> */}
           </form>

@@ -36,18 +36,20 @@ const Users = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedUsers && 
-      <div className="container">
-      <div className="main-container">
-        <div className="post-form-area">
-          <UsersList items={loadedUsers} />
-          <MoveToTopButton />
+      {!isLoading && loadedUsers && (
+        <div className="container">
+          <div className="main-container">
+            <div className="post-form-area">
+              <p style={{ color: "grey", textAlign: "left" }}>
+                if something does not work, please reload the page.
+              </p>
+              <UsersList items={loadedUsers} />
+              <MoveToTopButton />
+            </div>
+          </div>
+          <div className="side-container"></div>
         </div>
-      </div>
-      <div className="side-container"></div>
-    </div>
-      
-      }
+      )}
     </React.Fragment>
   );
 };

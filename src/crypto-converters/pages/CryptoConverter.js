@@ -299,7 +299,7 @@ const CryptoConverter = () => {
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
-
+            <p style={{color:'grey'}}>if something does not work, please reload the page.</p>
           <div>
             <Link to="/crypto_converter/fcasRating">
               See Other Crypto's FCAS Rating

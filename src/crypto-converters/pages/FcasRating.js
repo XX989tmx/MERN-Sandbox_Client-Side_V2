@@ -65,6 +65,9 @@ const FcasRating = () => {
                 validators={[VALIDATOR_REQUIRE()]}
                 onInput={inputHandler}
               />
+              <p style={{ color: "grey", textAlign:'left' }}>
+                if something does not work, please reload the page.
+              </p>
               <Button btnBlack>Get Fcas Score</Button>
             </form>
             <div>
