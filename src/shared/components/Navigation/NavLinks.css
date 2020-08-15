@@ -13,14 +13,14 @@
 }
 
 .navlinks li {
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .navlinks a {
   text-decoration: none;
   color: black;
   border: 1px solid transparent;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 .navlinks a:hover,
