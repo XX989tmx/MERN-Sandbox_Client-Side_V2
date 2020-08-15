@@ -19,6 +19,7 @@ const ArticleItem = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [BuyModal, setBuyModal] = useState(false);
+  const [SubscriptionRequestModal, setSubscriptionRequestModal] = useState(false);
 
   const openModalHandler = (params) => {
     setShowModal(true);
@@ -32,6 +33,14 @@ const ArticleItem = (props) => {
   };
   const closeBuyModalHandler = (params) => {
     setBuyModal(false);
+  };
+
+  const openSubscriptionRequestHandler = (params) => {
+    setSubscriptionRequestModal(true);
+  };
+
+  const closeSubscriptionRequestHandler = (params) => {
+    setSubscriptionRequestModal(false);
   };
 
   const showDeleteWarningHandler = (params) => {
@@ -131,6 +140,39 @@ const ArticleItem = (props) => {
           </h4>
         </div>
       </Modal>
+      <Modal
+        show={SubscriptionRequestModal}
+        onCancel={closeSubscriptionRequestHandler}
+        header="Join Our Subscription Plan"
+        footer={
+          <React.Fragment>
+            <Button btnBlackInverse>Free Plan</Button>
+            <Button btnBlackInverse>Standard Plan</Button>
+            <Button btnGreen>Premium Plan</Button>
+            <Button btnBlack onClick={closeSubscriptionRequestHandler}>
+              CLOSE
+            </Button>
+          </React.Fragment>
+        }
+        headerClass="modal__header-subscription"
+      >
+        <div>
+          <p>To Download article, Join Our Subscription Plan.</p>
+
+          <ul>
+            <li>Free Plan: 3 articles per Day</li>
+            <span>Check</span>
+            <li>Standard Plan:15 articles per Day </li>
+            <span>Check</span>
+            <li>Premium Plan: Unlimited Download</li>
+            <span>Check</span>
+          </ul>
+
+          <p>
+            Check Detail information. link to subscription plan explanation page
+          </p>
+        </div>
+      </Modal>
       {isLoading && <LoadingSpinner asOverlay />}
       <li className="article-item ">
         {/* <div className="article-item__image">
@@ -221,7 +263,11 @@ const ArticleItem = (props) => {
                 Buy This Article
               </Button>
             )}
-            {auth.isLoggedIn && <Button btnGreen>Download This Article</Button>}
+            {auth.isLoggedIn && (
+              <Button btnGreen onClick={openSubscriptionRequestHandler}>
+                Download This Article
+              </Button>
+            )}
           </div>
         </Card>
       </li>

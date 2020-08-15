@@ -20,6 +20,11 @@
   background: rgb(5, 71, 5);
 }
 
+.modal__header-subscription {
+  background: black;
+  color: gold;
+}
+
 .modal__header h2 {
   margin: 0.5rem;
 }
