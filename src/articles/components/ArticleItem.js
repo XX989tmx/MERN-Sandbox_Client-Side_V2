@@ -18,12 +18,20 @@ const ArticleItem = (props) => {
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [BuyModal, setBuyModal] = useState(false);
 
   const openModalHandler = (params) => {
     setShowModal(true);
   };
   const closeModalHandler = (params) => {
     setShowModal(false);
+  };
+
+  const openBuyModalHandler = (params) => {
+    setBuyModal(true);
+  };
+  const closeBuyModalHandler = (params) => {
+    setBuyModal(false);
   };
 
   const showDeleteWarningHandler = (params) => {
@@ -94,6 +102,35 @@ const ArticleItem = (props) => {
           can't be undone thereafter.
         </p>
       </Modal>
+      <Modal
+        show={BuyModal}
+        onCancel={closeBuyModalHandler}
+        header="Checkout Confirmation"
+        footer={
+          <React.Fragment>
+            <Button btnGreen>Proceed To Checkout</Button>{" "}
+            <Button btnBlackInverse onClick={closeBuyModalHandler}>
+              CLOSE
+            </Button>
+          </React.Fragment>
+        }
+        headerClass="modal__header-green"
+      >
+        <div>
+          <p>
+            To continue to checkout, you need to <Link to={"/auth"}>login</Link>{" "}
+            or <Link to={"/auth"}>sign up</Link> if you did not create account
+            yet. .{" "}
+          </p>
+          <h3>Do you proceed to checkout??</h3>
+          <h4>
+            price:{" "}
+            <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+              {props.price}
+            </span>
+          </h4>
+        </div>
+      </Modal>
       {isLoading && <LoadingSpinner asOverlay />}
       <li className="article-item ">
         {/* <div className="article-item__image">
@@ -106,10 +143,11 @@ const ArticleItem = (props) => {
             style={{ textDecoration: "none" }}
           >
             <div className="article-item__image center">
-              <img className="article-item-image-item"
+              <img
+                className="article-item-image-item"
                 src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
                 alt={props.title}
-                style={{ width: "200px", height: "130px"}}
+                style={{ width: "200px", height: "130px" }}
               />
             </div>
             <div className="article-item__article_content">
@@ -178,7 +216,11 @@ const ArticleItem = (props) => {
               </Button>
             )}
 
-            {auth.isLoggedIn && <Button btnGreen>Buy This Article</Button>}
+            {auth.isLoggedIn && (
+              <Button btnGreen onClick={openBuyModalHandler}>
+                Buy This Article
+              </Button>
+            )}
             {auth.isLoggedIn && <Button btnGreen>Download This Article</Button>}
           </div>
         </Card>

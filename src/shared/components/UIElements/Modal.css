@@ -16,6 +16,10 @@
   color: white;
 }
 
+.modal__header-green {
+  background: rgb(5, 71, 5);
+}
+
 .modal__header h2 {
   margin: 0.5rem;
 }
