@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../../shared/components/UIElements/Modal";
 import Card from "../../shared/components/UIElements/Card";
@@ -17,6 +17,21 @@ const FindArticleByTagItems = (props) => {
   const [SubscriptionRequestModal, setSubscriptionRequestModal] = useState(
     false
   );
+  const [Sunday, setSunday] = useState();
+  const [DiscountedAmount, setDiscountedAmount] = useState();
+
+  useEffect(() => {
+    const onLoad = (params) => {
+      if (new Date(Date.now()).toDateString().split(" ")[0] === "Sun") {
+        let discountPrice = props.price * 0.9;
+        let normalPrice = props.price;
+        let discountAmount = normalPrice - discountPrice;
+        setDiscountedAmount(discountAmount);
+        setSunday(true);
+      }
+    };
+    onLoad();
+  }, []);
 
   const openModalHandler = (params) => {
     setShowModal(true);
@@ -126,8 +141,21 @@ const FindArticleByTagItems = (props) => {
           <h4>
             price:{" "}
             <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
-              {props.price}
+              {Sunday
+                ? new Number(props.price * 0.9).toFixed(0)
+                : new Number(props.price).toFixed(0)}
             </span>
+            {Sunday && (
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "rgb(201, 30, 30)",
+                }}
+              >
+                (-{new Number(DiscountedAmount).toFixed(0)} Saved)
+              </span>
+            )}
           </h4>
         </div>
       </Modal>
@@ -213,8 +241,21 @@ const FindArticleByTagItems = (props) => {
               <h4>
                 price:{" "}
                 <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
-                  {props.price}
+                  {Sunday
+                    ? new Number(props.price * 0.9).toFixed(0)
+                    : new Number(props.price).toFixed(0)}
                 </span>
+                {Sunday && (
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      color: "rgb(201, 30, 30)",
+                    }}
+                  >
+                    (-{new Number(DiscountedAmount).toFixed(0)} Saved)
+                  </span>
+                )}
               </h4>
               <p style={{ fontSize: "14px", color: "grey" }}>
                 {new Date(props.date_created).toDateString()}
