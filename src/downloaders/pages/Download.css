@@ -1,20 +1,27 @@
 
 
 /* For mobile phones: */
-
+.download-container {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
+  .download-container {
+    width: 769px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .download-container {
-    display: flex;
-    height: 2000px;
-    border: solid 1px;
-}
+.download-container {
+    width: 980px;
+    margin: auto;
+  }
 
 .download-main-section {
   width: 810px;

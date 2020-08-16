@@ -6,6 +6,8 @@ import FindArticleByCategoryList from "../components/FindArticleByCategoryList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './FindArticleByCategory.css';
+
 const FindArticleByCategory = () => {
   const auth = useContext(AuthContext);
   const categories = useParams().categories;
@@ -38,7 +40,7 @@ const FindArticleByCategory = () => {
         </div>
       )}
       {!isLoading && CategorySortedArticle && (
-        <div className="container">
+        <div className="findArticleByCategory-container">
           <div className="main-container">
             <div>
               <h5>{CountByCategory} related articles found.</h5>
@@ -46,7 +48,7 @@ const FindArticleByCategory = () => {
               <MoveToTopButton />
             </div>
           </div>
-          <div className="side-container"></div>
+          {/* <div className="side-container"></div> */}
         </div>
       )}
     </React.Fragment>

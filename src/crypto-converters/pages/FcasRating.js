@@ -52,7 +52,7 @@ const FcasRating = () => {
   }
 
   return (
-    <div className="container">
+    <div className="fcasRating-container">
       <div className="main-container">
         <div>
           <div className="center">
@@ -94,7 +94,7 @@ const FcasRating = () => {
           <MoveToTopButton />
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

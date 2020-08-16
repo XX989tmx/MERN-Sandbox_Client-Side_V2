@@ -5,6 +5,8 @@ import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './FindVideoByTags.css';
+
 const FindVideoByTags = () => {
 const tags = useParams().tags;
 const [tagSortedVideos, setTagSortedVideos] = useState([]);
@@ -35,19 +37,19 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
             <LoadingSpinner />
           </div>
         )}
-        {!isLoading && tagSortedVideos && <div className="container">
-          <div className="main-container">
+        {!isLoading && tagSortedVideos && <div className="findVideoByTags-container">
+          
             <div>
-              <p>
+              {/* <p>
                 videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild
                 component作り使う
-              </p>
+              </p> */}
               <VideoList items={tagSortedVideos} />
               <MoveToTopButton />
             </div>
           </div>
-          <div className="side-container"></div>
-        </div>}
+          
+        }
       </React.Fragment>
     );
 }

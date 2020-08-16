@@ -14,6 +14,8 @@ import {useHttpClient} from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import "./ArticleForm.css";
 
+import './UpdateArticle.css';
+
 
 // const ARTICLES = [
 //   {
@@ -137,7 +139,7 @@ const UpdateArticle = (params) => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {!isLoading && loadedArticle && (
-        <div className="container">
+        <div className="updateArticle-container">
           <div className="main-container">
             <form onSubmit={articleUpdateSubmitHandler}>
               <Input
@@ -167,7 +169,7 @@ const UpdateArticle = (params) => {
               </Button>
             </form>
           </div>
-          <div className="side-container"></div>
+          {/* <div className="side-container"></div> */}
         </div>
       )}
     </React.Fragment>

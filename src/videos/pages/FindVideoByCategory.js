@@ -5,6 +5,8 @@ import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './FindVideoByCategory.css';
+
 const FindVideoByCategory = () => {
     const categories = useParams().categories;
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -37,14 +39,14 @@ const FindVideoByCategory = () => {
           </div>
         )}
         {!isLoading && CategorySortedVideos && (
-          <div className="container">
-            <div className="main-container">
+          <div className="findVideoByCategory-container">
+            {/* <div className="main-container"> */}
               <div>
                 <VideoList items={CategorySortedVideos} />
                 <MoveToTopButton />
               </div>
-            </div>
-            <div className="side-container"></div>
+            {/* </div> */}
+            {/* <div className="side-container"></div> */}
           </div>
         )}
       </React.Fragment>

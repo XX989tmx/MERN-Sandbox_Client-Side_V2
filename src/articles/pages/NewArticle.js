@@ -15,6 +15,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
+import './NewArticle.css';
+
 const NewArticle = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -62,7 +64,7 @@ const NewArticle = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <div className="container">
+      <div className="new-article-container">
         <div className="main-container">
           <form
             className="article-form card-box"
@@ -148,7 +150,7 @@ const NewArticle = () => {
             </Button>
           </form>
         </div>
-        <div className="side-container"></div>
+        {/* <div className="side-container"></div> */}
       </div>
     </React.Fragment>
   );

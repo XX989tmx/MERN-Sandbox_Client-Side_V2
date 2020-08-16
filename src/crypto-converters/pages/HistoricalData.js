@@ -584,7 +584,7 @@ const HistoricalData = () => {
   }
 
   return (
-    <div className="container">
+    <div className="historicalData-container">
       <div className="main-container">
         <div>
           <h3>Bitcoin's Historical Price Data</h3>
@@ -668,7 +668,7 @@ const HistoricalData = () => {
           <MoveToTopButton />
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

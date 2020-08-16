@@ -5,6 +5,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import './UserArticles.css';
 // const ARTICLES = [
 //   {
 //     id: "a1",
@@ -60,7 +61,7 @@ const UserArticles = () => {
         </div>
       )}
       {!isLoading && loadedArticles && (
-        <div className="container">
+        <div className="user-articles-container">
           <div className="main-container">
             <h3 className="center">{new String(ArticleAuthor.name).toUpperCase()}'s Articles</h3>
             <ArticleList
@@ -69,7 +70,7 @@ const UserArticles = () => {
             />
             <MoveToTopButton />
           </div>
-          <div className="side-container"></div>
+          {/* <div className="side-container"></div> */}
         </div>
       )}
     </React.Fragment>

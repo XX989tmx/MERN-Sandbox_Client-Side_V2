@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import TagIndexList from "../components/TagIndexList";
 
+import './TagIndex.css';
+
 const TagIndex = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [TagIndexData, setTagIndexData] = useState([]);
@@ -24,13 +26,13 @@ const TagIndex = () => {
   }, [sendRequest]);
 
   return (
-    <div className="container">
+    <div className="tag-index-container">
       <div className="main-container">
         <div>
           <TagIndexList TagIndexData={TagIndexData} />
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

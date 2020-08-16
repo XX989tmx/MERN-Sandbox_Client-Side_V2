@@ -11,6 +11,8 @@ import { AuthContext } from "../../shared/context/auth-context";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
+import './UserDetailInfo.css';
+
 const UserDetailInfo = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -87,7 +89,7 @@ const UserDetailInfo = () => {
   
 
   return (
-    <div className="container">
+    <div className="userDetailInfo-container">
       <div className="main-container">
         <div className="card-box">
           user_detail_info
@@ -155,7 +157,7 @@ const UserDetailInfo = () => {
           </form>
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

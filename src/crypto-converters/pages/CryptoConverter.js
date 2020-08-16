@@ -170,7 +170,7 @@ const CryptoConverter = () => {
   }
 
   return (
-    <div className="container">
+    <div className="cryptoConverter-container">
       <div className="main-container">
         <div className="post-form-area">
           <h3 className="center">Currency To Bitcoin Converter</h3>
@@ -767,7 +767,7 @@ const CryptoConverter = () => {
         </div>
         <MoveToTopButton />
       </div>
-      <div className="side-container">{/* components: sidebar */}</div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

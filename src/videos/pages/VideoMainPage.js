@@ -6,6 +6,8 @@ import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './VideoMainPage.css';
+
 const VideoMainPage = () => {
 
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -37,16 +39,18 @@ const VideoMainPage = () => {
             <LoadingSpinner />
           </div>
         )}
-        {!isLoading && AllVideos && <div className="container">
-          <div className="main-container">
-            <div>
-              list every Video link items here
-              <VideoList items={AllVideos} />
-              <MoveToTopButton />
+        {!isLoading && AllVideos && (
+          
+            <div className="video-main-container">
+              <div>
+                list every Video link items here
+                <VideoList items={AllVideos} />
+                <MoveToTopButton />
+              </div>
             </div>
-          </div>
-          <div className="side-container"></div>
-        </div>}
+        
+          
+        )}
       </React.Fragment>
     );
 }

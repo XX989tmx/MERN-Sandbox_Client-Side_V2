@@ -1,0 +1,6 @@
+.video-list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    list-style: none;
+}

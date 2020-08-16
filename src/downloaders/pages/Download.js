@@ -459,7 +459,8 @@ const Download = (params) => {
                 ></input>
                 Mp4 File
                 <form>
-                  <Button btnBlack
+                  <Button
+                    btnBlack
                     onClick={mp4DownloadSubmitHandler}
                     disabled={disableDownload}
                   >

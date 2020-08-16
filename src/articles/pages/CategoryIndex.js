@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import CategoryIndexList from '../components/CategoryIndexList';
 
+import './CategoryIndex.css';
+
 const CategoryIndex = () => {
 const { isLoading, error, sendRequest, clearError } = useHttpClient();
 const [CategoryIndexData, setCategoryIndexData] = useState([]);
@@ -23,13 +25,13 @@ useEffect(() => {
 }, [sendRequest]);
 
     return (
-      <div className="container">
+      <div className="category-index-container">
         <div className="main-container">
           <div>
             <CategoryIndexList CategoryIndexData={CategoryIndexData} />
           </div>
         </div>
-        <div className="side-container"></div>
+        {/* <div className="side-container"></div> */}
       </div>
     );
 }

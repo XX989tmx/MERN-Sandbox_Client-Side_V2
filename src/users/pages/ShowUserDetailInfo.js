@@ -4,6 +4,8 @@ import { useParams, useHistory } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
+import './showUserDetailInfo.css';
+
 const ShowUserDetailInfo = () => {
   const auth = useContext(AuthContext);
   const userId = useParams().userId;
@@ -40,7 +42,7 @@ const ShowUserDetailInfo = () => {
   }, [sendRequest]);
 
   return (
-    <div className="container">
+    <div className="showUserDetailInfo-container">
       <div className="main-container">
         <div >
           <h1>{country}</h1>
@@ -52,7 +54,7 @@ const ShowUserDetailInfo = () => {
           <h1>{phoneNumber}</h1>
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

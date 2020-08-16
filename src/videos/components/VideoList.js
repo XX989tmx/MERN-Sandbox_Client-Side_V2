@@ -1,9 +1,11 @@
 import React from "react";
 import VideoItems from "./VideoItems";
 
+import './VideoList.css';
+
 const VideoList = (props) => {
   return (
-    <div>
+    <ul className="video-list">
       {props.items.map((video) => (
         <VideoItems
           key={video.id}
@@ -17,7 +19,7 @@ const VideoList = (props) => {
           date_created={video.date_created}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 

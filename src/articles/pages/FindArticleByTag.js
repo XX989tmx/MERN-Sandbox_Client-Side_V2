@@ -7,6 +7,8 @@ import FindArticleByTagList from "../components/FindArticleByTagList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './FindArticleByTag.css';
+
 const FindArticleByTag = () => {
   const auth = useContext(AuthContext);
   const userId = useParams().userId;
@@ -51,7 +53,7 @@ const FindArticleByTag = () => {
         </div>
       )}
       {!isLoading && tagSortedArticle && (
-        <div className="container">
+        <div className="findArticleByTag-container">
           <div className="main-container">
             <div>
               {/* <div>
@@ -64,7 +66,7 @@ const FindArticleByTag = () => {
               <MoveToTopButton />
             </div>
           </div>
-          <div className="side-container"></div>
+          {/* <div className="side-container"></div> */}
         </div>
       )}
     </React.Fragment>

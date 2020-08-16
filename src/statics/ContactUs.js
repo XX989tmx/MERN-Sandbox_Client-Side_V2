@@ -9,7 +9,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="container">
+    <div className="contactUs-container">
       <div className="main-container">
         <a href="http://localhost:3000/contact_us#para1">para1</a>
         <a href="http://localhost:3000/contact_us#para2">para2</a>
@@ -129,11 +129,11 @@ const ContactUs = () => {
         <p></p>
         <p></p>
       </div>
-      <div className="side-container">
+      {/* <div className="side-container">
         <div className="to-top">
           <button onClick={goBackToTop}>goBackToTop</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

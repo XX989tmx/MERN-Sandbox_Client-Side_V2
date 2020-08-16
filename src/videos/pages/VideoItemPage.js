@@ -9,6 +9,8 @@ import VideoByIdItem from "../components/VideoByIdItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './VideoItemPage.css';
+
 const VideoItemPage = () => {
   const videoId = useParams().videoId;
   const [VideoById, setVideoById] = useState({});
@@ -38,14 +40,14 @@ const VideoItemPage = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && VideoById && <div className="container">
-        <div className="main-container">
+      {!isLoading && VideoById && <div className="video-item-page-container">
+        <div>
           <div>
-            <p>
+            {/* <p>
               個別のビデオ表示のためには2通りの可能性。1videoItem child
               componentに渡して表示、2個別のビデオ表示用のchild
               componentを作り、それに渡す（youtubeの個別表示ページのようなレイアウト）
-            </p>
+            </p> */}
             <VideoByIdItem
               title={VideoById.title}
               description={VideoById.description}
@@ -66,7 +68,7 @@ const VideoItemPage = () => {
             <VideoLinkItemList></VideoLinkItemList> */}
           </div>
         </div>
-        <div className="side-container"></div>
+        
       </div>}
     </React.Fragment>
   );

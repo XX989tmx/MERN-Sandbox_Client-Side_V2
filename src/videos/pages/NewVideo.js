@@ -10,6 +10,8 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
+import './NewVideo.css';
+
 
 const NewVideo = () => {
     const auth = useContext(AuthContext);
@@ -65,7 +67,7 @@ const NewVideo = () => {
     };
 
     return (
-      <div className="container">
+      <div className="new-video-container">
         <div className="main-container">
           <div>
             <form onSubmit={newVideoSubmitHandler} className="card-box">
@@ -129,7 +131,7 @@ const NewVideo = () => {
             </form>
           </div>
         </div>
-        <div className="side-container"></div>
+        {/* <div className="side-container"></div> */}
       </div>
     );
 }

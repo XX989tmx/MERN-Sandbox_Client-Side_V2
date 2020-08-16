@@ -8,6 +8,8 @@ import Input from "../../shared/components/FormElements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import Button from "../../shared/components/FormElements/Button";
 
+import './UpdateUserDetailInfo.css';
+
 const UpdateUserDetailInfos = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -118,7 +120,7 @@ const UpdateUserDetailInfos = () => {
   };
 
   return (
-    <div className="container">
+    <div className="updateUserDetailInfo-container">
       <div className="main-container">
         <div className="card-box">
           updateUserDetailInfo
@@ -199,7 +201,7 @@ const UpdateUserDetailInfos = () => {
           </form>
         </div>
       </div>
-      <div className="side-container"></div>
+      {/* <div className="side-container"></div> */}
     </div>
   );
 };

@@ -1,37 +1,21 @@
-
-
-/* For mobile phones: */
-
+.contactUs-container {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
+  .contactUs-container {
+    width: 769px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .container {
-  display: flex;
-  height: 2000px;
-  border: solid 1px;
-}
-
-.main-container {
-  width: 810px;
-  height: 100%;
-  border: solid 1px;
-}
-
-.side-container {
-  width: 280px;
-  height: 900px;
-  /* background-color: azure; */
-  border: solid 1px;
-}
-
-.to-top {
-  z-index: 5;
-  position: fixed;
-  top: 300px;
-}
+  .contactUs-container {
+    width: 980px;
+    margin: auto;
+  }
 }

@@ -5,6 +5,8 @@ import ArticleItem from "../components/ArticleItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './GetSpecificArticleById.css';
+
 const GetSpecificArticleById = () => {
 const { isLoading, error, sendRequest, clearError } = useHttpClient();
 const articleId = useParams().articleId;
@@ -39,7 +41,7 @@ useEffect(() => {
           </div>
         )}
         {!isLoading && Article && (
-          <div className="container">
+          <div className="getSpecificArticleById-container">
             <div className="main-container">
               <div>
                 <ArticleItem
@@ -59,7 +61,7 @@ useEffect(() => {
                 <MoveToTopButton />
               </div>
             </div>
-            <div className="side-container"></div>
+            {/* <div className="side-container"></div> */}
           </div>
         )}
       </React.Fragment>

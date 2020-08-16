@@ -1,5 +1,9 @@
 
-
+/* main */
+/* mainの下のDivはContainerにし、それぞれ、各Pageの機能ごとに設定。article, CryptoConverter,Video,。各Pageでクラスを指定し、付属のCSSファイルで設定してもいいし、containerクラスの定義は、すべてApp.cssでやってもいい。いずれにせよ、Containerは機能で命名仕分け、必要に応じて、与える。　各ContainerクラスのWidthは、mobile,tablet,pcごとに指定。widthの設定はmainに対してはせず、各Pageごとにやるほうがいい。 */
+/* container */
+/* container-video */
+/* container-article */
 
 
 
@@ -241,7 +245,7 @@ a:hover {
 }
 
   main {
-  width: 980px;
+  width: 100%;
   height: 100%;
   margin: auto;
   background-color: #ffffff;

@@ -1,25 +1,26 @@
 import React from 'react';
 
+import './VideoByIdItem.css';
+
 const VideoByIdItem = (props) => {
     return (
       <div>
-        <p>{props.title}</p>
-        <p>{props.description}</p>
         <iframe
           src={props.src}
-          width="600"
-          height="400"
+          width="100%"
+          height="900px"
           frameborder="0"
           allow="autoplay; fullscreen"
           allowfullscreen
         ></iframe>
+        <h2>{props.title}</h2>
+        <p>{props.description}</p>
+        <span className="videoById-tag">{props.tags}</span>
 
-        <p>{props.tags}</p>
+        <span className="videoById-category">{props.categories}</span>
 
-        <p>{props.categories}</p>
-
-        <p>{props.persons}</p>
-        <p>{props.id}</p>
+        <span className="videoById-persons">{props.persons}</span>
+        {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
       </div>
     );

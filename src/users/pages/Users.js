@@ -6,6 +6,8 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
+import './Users.css';
+
 const Users = () => {
   const {isLoading, error, sendRequest, clearError} = useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState();
@@ -37,7 +39,7 @@ const Users = () => {
         </div>
       )}
       {!isLoading && loadedUsers && (
-        <div className="container">
+        <div className="users-container">
           <div className="main-container">
             <div className="post-form-area">
               <p style={{ color: "grey", textAlign: "left" }}>
@@ -47,7 +49,7 @@ const Users = () => {
               <MoveToTopButton />
             </div>
           </div>
-          <div className="side-container"></div>
+          {/* <div className="side-container"></div> */}
         </div>
       )}
     </React.Fragment>

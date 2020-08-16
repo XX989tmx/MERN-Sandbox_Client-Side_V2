@@ -1,12 +1,13 @@
-.aboutUs-container {
+.user-articles-container {
   width: 100%;
   margin: auto;
   height: 100vh;
+  /* display: flex; */
 }
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  .aboutUs-container {
+  .user-articles-container {
     width: 769px;
     margin: auto;
   }
@@ -14,7 +15,7 @@
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .aboutUs-container {
+  .user-articles-container {
     width: 980px;
     margin: auto;
   }
