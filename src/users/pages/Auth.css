@@ -1,12 +1,21 @@
-/* For mobile phones: */
-
+.auth-container {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
+  .auth-container {
+    width: 769px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  
+  .auth-container {
+    width: 980px;
+    margin: auto;
+  }
 }
