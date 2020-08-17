@@ -1,0 +1,102 @@
+.flex-training-container {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+  background-color: grey;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.wrapper1 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 50%;
+  height: 100vh;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.wrapper2 {
+  width: 50%;
+  height: 100vh;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.wrapper-children {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: 1px solid black;
+  background-color: rgb(253, 237, 142);
+}
+
+.wrapper-children-1 {
+  margin: auto;
+  width: 32%;
+  height: 47%;
+  border: 1px solid black;
+  background-color: rgb(220, 240, 209);
+}
+
+.wrapper-grandchildren {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+  border: 1px solid black;
+  background-color: rgb(146, 253, 244);
+}
+
+.wrapper-grandchildren1 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+  border: 1px solid black;
+  background-color: rgb(252, 246, 164);
+}
+
+.wrapper-grandchildren2 {
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: rgb(118, 245, 34);
+}
+
+.wrapper-children-page-faker {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  width: 32%;
+  height: 47%;
+  border: 1px solid black;
+  background-color: rgb(220, 240, 209);
+}
+.wrapper-children-page-faker-header {
+  
+  height: 9%;
+  width: 100%;
+  background-color: rgb(233, 233, 233);
+  border: 1px solid black;
+}
+.wrapper-children-page-faker-main {
+  height: 69%;
+  background-color: rgb(233, 233, 233);
+  border: 1px solid black;
+  width: 100%;
+}
+.wrapper-children-page-faker-footer {
+  height: 20%;
+  background-color: rgb(233, 233, 233);
+  border: 1px solid black;
+  width: 100%;
+}

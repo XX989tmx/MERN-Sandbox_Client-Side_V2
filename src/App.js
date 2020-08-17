@@ -38,6 +38,7 @@ import HistoricalData from "./crypto-converters/pages/HistoricalData";
 import FcasRating from "./crypto-converters/pages/FcasRating";
 import TagIndex from "./articles/pages/TagIndex";
 import CategoryIndex from "./articles/pages/CategoryIndex";
+import FlexTraining from "./statics/FlexTraining";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -144,6 +145,10 @@ const App = () => {
           <GetSpecificArticleById />
         </Route>
 
+        <Route path="/flex_training" exact>
+          <FlexTraining />
+        </Route>
+
         <Redirect to="/" />
       </Switch>
     );
@@ -185,7 +190,9 @@ const App = () => {
         {/* <Route path="/videos/item" exact>
           <VideoItemPage />
         </Route> */}
-
+        <Route path="/flex_training" exact>
+          <FlexTraining />
+        </Route>
         <Route path="/contact_us" exact>
           <ContactUs />
         </Route>
