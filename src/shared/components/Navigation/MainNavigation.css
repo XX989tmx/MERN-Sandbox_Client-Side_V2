@@ -37,6 +37,159 @@
   height: 100%;
 }
 
+.nav-modal-area {
+  display: flex;
+  flex-direction: row;
+  
+  position: absolute;
+  top: 60px;
+  right: 17%;
+  width: 900px;
+  height: 500px;
+  background-color: red;
+}
+
+.article-nav-modal {
+  
+  /* position: absolute;
+  top: 60px;
+  right: 560px; */
+  list-style: none;
+  width: 150px;
+  height: 500px;
+  background-color: red;
+  z-index: 10;
+}
+.downloads-nav-modal {
+  /* position: absolute;
+  top: 60px;
+  right: 360px; */
+  width: 150px;
+  height: 500px;
+  background-color: red;
+  z-index: 10;
+}
+.crypto-converter-nav-modal {
+  /* position: absolute;
+  top: 60px;
+  right: 200px; */
+  width: 150px;
+  height: 500px;
+  background-color: red;
+  z-index: 10;
+}
+.videos-nav-modal {
+  /* position: absolute; */
+  /* top: 60px;
+  right: 150px; */
+  width: 150px;
+  height: 500px;
+  background-color: red;
+  z-index: 10;
+}
+.settings-and-information-modal {
+  /* position: absolute;
+  top: 60px;
+  right: 90px; */
+  width: 150px;
+  height: 500px;
+  background-color: red;
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+
+.nav-items {
+  padding: 15px;
+  margin-left: 20px;
+  list-style: none;
+}
+
+.article-nav-modal-list {
+  list-style: none;
+  
+  
+}
+.downloads-nav-modal-list {
+  list-style: none;
+}
+.crypto-converter-nav-modal-list {
+  list-style: none;
+}
+.videos-nav-modal-list {
+  list-style: none;
+}
+.settings-and-information-nav-modal-list {
+  list-style: none;
+}
+
+.article-nav-modal-list li  {
+  
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.downloads-nav-modal-list li  {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  
+}
+.crypto-converter-nav-modal-list li  {
+  
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.videos-nav-modal-list li  {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  
+}
+.settings-and-information-nav-modal-list li  {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  
+}
+
+.article-nav-modal-list li a {
+  text-decoration: none;
+  
+}
+.downloads-nav-modal-list li a {
+  text-decoration: none;
+  
+}
+.crypto-converter-nav-modal-list li a {
+  text-decoration: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.videos-nav-modal-list li a {
+  text-decoration: none;
+  
+}
+.settings-and-information-nav-modal-list li a {
+  text-decoration: none;
+  
+}
+
+.authentication {
+  list-style: none;
+}
+
+.authentication a {
+  text-decoration: none;
+}
+.logout {
+  list-style: none;
+}
+.logout a {
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
 
