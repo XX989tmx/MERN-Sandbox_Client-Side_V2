@@ -135,10 +135,10 @@ const CryptoConverter = () => {
     } catch (error) {}
   };
 
-  const goBackToTop = (event) => {
-    event.preventDefault();
-    window.scrollTo(0, 0);
-  };
+  // const goBackToTop = (event) => {
+  //   event.preventDefault();
+  //   window.scrollTo(0, 0);
+  // };
 
   const openNewWindowByClick = (event) => {
     event.preventDefault();
@@ -233,7 +233,7 @@ const CryptoConverter = () => {
           </form>
 
           <div className="result-data-area center">
-            components: result data result data
+            {/* components: result data result data */}
             <p>Your input value is worth :</p>
             <h1 className="center">{cryptoPostData} BTC</h1>
           </div>
@@ -299,13 +299,15 @@ const CryptoConverter = () => {
           </div>
 
           <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
-            <p style={{color:'grey'}}>if something does not work, please reload the page.</p>
-          <div>
+          <p style={{ color: "grey" }}>
+            if something does not work, please reload the page.
+          </p>
+          <div style={{ marginLeft: "10px" }}>
             <Link to="/crypto_converter/fcasRating">
               See Other Crypto's FCAS Rating
             </Link>
           </div>
-          <div>
+          <div style={{ marginLeft: "10px" }}>
             <Link to="/crypto_converter/historical_data">
               See Bitcoin's Historical Price Data
             </Link>
@@ -313,15 +315,17 @@ const CryptoConverter = () => {
         </div>
 
         <div className="center" style={{ marginTop: "60px" }}>
-          <h3>Currency Exchange Rate Converter</h3>
-          <p>
+          <h3 style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+            Currency Exchange Rate Converter
+          </h3>
+          {/* <p>
             check Crypto Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
           </p>
           <p>
             check Fiat Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
-          </p>
+          </p> */}
           <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
             <Input
               id="FromCurrency"
@@ -366,7 +370,7 @@ const CryptoConverter = () => {
         <div className="crypto-get-area">
           <div className="crypto-get-area">
             <div className="center">
-              components: GET Req for crypto & data pulled from backend
+              {/* components: GET Req for crypto & data pulled from backend */}
               <p>{cryptoData}</p>
               <GetCryptoData props={cryptoData} />
               <form>
@@ -374,15 +378,15 @@ const CryptoConverter = () => {
                   Get Latest Data
                 </Button>
               </form>
-              <button draggable="true" onClick={goBackToTop}>
+              {/* <button draggable="true" onClick={goBackToTop}>
                 back to top page
-              </button>
-              <div className="back-to-top">
+              </button> */}
+              {/* <div className="back-to-top">
                 <button onClick={goBackToTop}>goBackToTop</button>
-              </div>
+              </div> */}
             </div>
 
-            <div>
+            <div className="currency-crypto-table-area">
               <table className="currency-crypto-table">
                 <tr>
                   <th scope="col">Flag</th>
