@@ -140,7 +140,7 @@ const MainNavigation = () => {
                   <NavLink to="/download">Download</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/flex_training">Flex_Training</NavLink>
+                  <NavLink to="/flex_training">Flex Training</NavLink>
                 </li>
               </ul>
             </div>
@@ -148,7 +148,7 @@ const MainNavigation = () => {
             <div className="crypto-converter-nav-modal">
               <ul className="crypto-converter-nav-modal-list">
                 <li>
-                  <NavLink to="/crypto_converter">crypto_converter</NavLink>
+                  <NavLink to="/crypto_converter">Crypto Converter</NavLink>
                 </li>
                 <li>
                   <NavLink to="/crypto_converter/historical_data">
@@ -169,10 +169,10 @@ const MainNavigation = () => {
                   <NavLink to={`/videos/new`}>New Video</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/videos/main">video Main</NavLink>
+                  <NavLink to="/videos/main">Video Main</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/videos/item">ideo item</NavLink>
+                  <NavLink to="/videos/item">Video Item</NavLink>
                 </li>
               </ul>
             </div>
@@ -180,17 +180,17 @@ const MainNavigation = () => {
               <ul className="settings-and-information-nav-modal-list">
                 <li>
                   <NavLink to={`/${auth.userId}/user_detail_info/create`}>
-                    user_detail_info
+                    User Detail Information
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to={`/${auth.userId}/user_detail_info/show`}>
-                    show_user_detail_info
+                    Show User Detail Info
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to={`/${auth.userId}/user_detail_info/update`}>
-                    update_user_detail_info
+                    Update User Detail Info
                   </NavLink>
                 </li>
                 <li>
@@ -205,7 +205,7 @@ const MainNavigation = () => {
         )}
 
         {!auth.isLoggedIn && (
-          <li className="authentication">
+          <li className="authentication-button">
             <NavLink to="/auth">Authenticate</NavLink>
           </li>
         )}
@@ -214,7 +214,9 @@ const MainNavigation = () => {
         </li> */}
         {auth.isLoggedIn && (
           <li className="logout">
-            <button onClick={auth.logout}>LOGOUT</button>
+            <button className="logout-button" onClick={auth.logout}>
+              LOGOUT
+            </button>
           </li>
         )}
 

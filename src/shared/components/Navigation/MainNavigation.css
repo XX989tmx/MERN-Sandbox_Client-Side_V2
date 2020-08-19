@@ -40,24 +40,23 @@
 .nav-modal-area {
   display: flex;
   flex-direction: row;
-  
+
   position: absolute;
   top: 60px;
   right: 17%;
   width: 900px;
   height: 500px;
-  background-color: red;
+  background-color: black;
 }
 
 .article-nav-modal {
-  
   /* position: absolute;
   top: 60px;
   right: 560px; */
   list-style: none;
   width: 150px;
   height: 500px;
-  background-color: red;
+  background-color: black;
   z-index: 10;
 }
 .downloads-nav-modal {
@@ -66,7 +65,7 @@
   right: 360px; */
   width: 150px;
   height: 500px;
-  background-color: red;
+  background-color: black;
   z-index: 10;
 }
 .crypto-converter-nav-modal {
@@ -75,7 +74,7 @@
   right: 200px; */
   width: 150px;
   height: 500px;
-  background-color: red;
+  background-color: black;
   z-index: 10;
 }
 .videos-nav-modal {
@@ -84,7 +83,7 @@
   right: 150px; */
   width: 150px;
   height: 500px;
-  background-color: red;
+  background-color: black;
   z-index: 10;
 }
 .settings-and-information-modal {
@@ -93,7 +92,7 @@
   right: 90px; */
   width: 150px;
   height: 500px;
-  background-color: red;
+  background-color: black;
   z-index: 10;
 }
 
@@ -101,93 +100,148 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+.nav-list li {
+  padding: 12px;
+  border: solid 1px black;
+  cursor: pointer;
 }
 
 .nav-items {
   padding: 15px;
   margin-left: 20px;
   list-style: none;
+  background-color: black;
+}
+.nav-items:hover {
+  color: gold;
+  background-color: #444343;
+  box-shadow: 2px 4px grey 10px;
 }
 
 .article-nav-modal-list {
   list-style: none;
-  
-  
+  font-size: 16px;
 }
 .downloads-nav-modal-list {
   list-style: none;
+  font-size: 16px;
 }
 .crypto-converter-nav-modal-list {
   list-style: none;
+  font-size: 16px;
 }
 .videos-nav-modal-list {
   list-style: none;
+  font-size: 16px;
 }
 .settings-and-information-nav-modal-list {
   list-style: none;
+  font-size: 16px;
 }
 
-.article-nav-modal-list li  {
-  
+.article-nav-modal-list li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.downloads-nav-modal-list li {
   padding-top: 6px;
   padding-bottom: 6px;
 }
-.downloads-nav-modal-list li  {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  
-}
-.crypto-converter-nav-modal-list li  {
-  
+.crypto-converter-nav-modal-list li {
   padding-top: 6px;
   padding-bottom: 6px;
 }
-.videos-nav-modal-list li  {
+.videos-nav-modal-list li {
   padding-top: 6px;
   padding-bottom: 6px;
-  
 }
-.settings-and-information-nav-modal-list li  {
+.settings-and-information-nav-modal-list li {
   padding-top: 6px;
   padding-bottom: 6px;
-  
 }
 
 .article-nav-modal-list li a {
   text-decoration: none;
-  
+  color: #fff;
+}
+.article-nav-modal-list li a:hover {
+  text-decoration: none;
+  color: gold;
 }
 .downloads-nav-modal-list li a {
   text-decoration: none;
-  
+  color: #fff;
+}
+.downloads-nav-modal-list li a:hover {
+  text-decoration: none;
+  color: gold;
 }
 .crypto-converter-nav-modal-list li a {
   text-decoration: none;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  color: #fff;
+}
+.crypto-converter-nav-modal-list li a:hover {
+  text-decoration: none;
+  color: gold;
 }
 .videos-nav-modal-list li a {
   text-decoration: none;
-  
+  color: #fff;
+}
+.videos-nav-modal-list li a:hover {
+  text-decoration: none;
+  color: gold;
 }
 .settings-and-information-nav-modal-list li a {
   text-decoration: none;
-  
+  color: #fff;
 }
-
-.authentication {
-  list-style: none;
-}
-
-.authentication a {
+.settings-and-information-nav-modal-list li a:hover {
   text-decoration: none;
+  color: gold;
+}
+
+.authentication-button {
+  list-style: none;
+  padding: 10px;
+  background-color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.authentication-button a {
+  text-decoration: none;
+  color: gold;
+}
+.authentication-button a:hover {
+  color: gold;
+}
+
+.authentication-button:hover {
+  background-color: rgb(70, 69, 69);
+  border: 1px solid black;
 }
 .logout {
   list-style: none;
+  padding: 10px;
+  /* background-color: black;
+  border: 1px solid black; */
+  cursor: pointer;
 }
-.logout a {
+.logout li a {
   text-decoration: none;
+  color: white;
+}
+.logout-button {
+  padding: 10px;
+  font: inherit;
+  border: 1px black solid;
+  background-color: red;
+  color: black;cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
