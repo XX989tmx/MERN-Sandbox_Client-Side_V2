@@ -225,11 +225,13 @@ const Articles = () => {
                 <Input
                   id="query"
                   element="input"
-                  label="query"
+                  label="SEARCH"
+                  placeholder="Search"
                   validators={[VALIDATOR_REQUIRE()]}
                   onInput={inputHandler}
+                  autoFocus
                 />
-                <Button btnBlack>Search</Button>
+                {/* <Button btnBlack>Search</Button> */}
               </form>
               <form onChange={submitHandler}>
                 <input type="text" value={query} onChange={changeHandler} />
