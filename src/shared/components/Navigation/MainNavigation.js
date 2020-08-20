@@ -139,9 +139,9 @@ const MainNavigation = () => {
                 <li>
                   <NavLink to="/download">Download</NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/flex_training">Flex Training</NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
 
