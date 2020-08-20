@@ -18,6 +18,7 @@ const FindArticleByTagList = (props) => {
           categories={item.categories}
           price={item.price}
           date_created={item.date_created}
+          downloadable={item.downloadable}
         />
       ))}
     </ul>

@@ -35,6 +35,7 @@ const ArticleList = (props) => {
           tags={article.tags}
           date_created={article.date_created}
           price={article.price}
+          downloadable={article.downloadable}
           // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
         />

@@ -257,6 +257,15 @@ const FindArticleByTagItems = (props) => {
                   </span>
                 )}
               </h4>
+              {props.downloadable ? (
+                <span style={{ color: "green", border: "1px solid green" }}>
+                  Downloadable
+                </span>
+              ) : (
+                <span style={{ color: "red", border: "1px solid red" }}>
+                  Not Downloadable
+                </span>
+              )}
               <p style={{ fontSize: "14px", color: "grey" }}>
                 {new Date(props.date_created).toDateString()}
               </p>

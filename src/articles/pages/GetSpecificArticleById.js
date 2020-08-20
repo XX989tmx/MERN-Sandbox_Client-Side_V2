@@ -57,6 +57,7 @@ useEffect(() => {
                   tags={Article.tags}
                   price={Article.price}
                   date_created={Article.date_created}
+                  downloadable={Article.downloadable}
                 />
                 <MoveToTopButton />
               </div>

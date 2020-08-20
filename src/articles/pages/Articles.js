@@ -134,8 +134,8 @@ const Articles = () => {
     } catch (error) {}
   };
 
-  const sortArticleMainHandler = async (event) => {
-    event.preventDefault();
+  const sortArticleMainHandler = async (params) => {
+    // event.preventDefault();
     let sortArticleField = document.getElementById("sortArticleMain");
     let sortArticleFieldValue = sortArticleField.value;
     switch (sortArticleFieldValue) {
@@ -209,6 +209,20 @@ const Articles = () => {
     } catch (error) {}
   }
 
+  const DownloadableHandler = async (params) => {
+  try {var downloadable = document.getElementById("downloadable");
+       var downloadableValue = downloadable.value;
+    const responseData = await sendRequest(
+      process.env.REACT_APP_BACKEND_URL +
+        `/articles/downloadable?downloadable=${downloadableValue}`
+    );
+    console.log(responseData.articles);
+    setAllArticles(responseData.articles);
+  } catch (error) {
+    
+  }
+  };
+
   return (
     <React.Fragment>
       {/* {isLoading && (
@@ -225,6 +239,7 @@ const Articles = () => {
                 <Input
                   id="query"
                   element="input"
+                  // type="search"
                   label="SEARCH"
                   placeholder="Search"
                   validators={[VALIDATOR_REQUIRE()]}
@@ -299,12 +314,17 @@ const Articles = () => {
               <span className="selector-item">
                 <label>
                   downloadable
-                  <select className="selector" name="downloadable">
+                  <select
+                    className="selector"
+                    name="downloadable"
+                    id="downloadable"
+                    onChange={DownloadableHandler}
+                  >
                     <option value="default" selected>
                       sort
                     </option>
                     <option value="Downloadable">Downloadable</option>
-                    <option value="Web Only">Web Only</option>
+                    <option value="WebOnly">Web Only</option>
                   </select>
                 </label>
               </span>
@@ -390,7 +410,8 @@ const Articles = () => {
             </div>
             <p style={{ color: "grey", textAlign: "left" }}>
               if something does not work, please reload the page.
-            </p><hr/>
+            </p>
+            <hr />
 
             <h5>{ArticleCount} articles</h5>
             {SearchedArticle ? (

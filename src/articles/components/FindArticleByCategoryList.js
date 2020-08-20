@@ -18,6 +18,7 @@ const FindArticleByCategoryList = (props) => {
           price={item.price}
           categories={item.categories}
           date_created={item.date_created}
+          downloadable={item.downloadable}
         />
       ))}
     </ul>

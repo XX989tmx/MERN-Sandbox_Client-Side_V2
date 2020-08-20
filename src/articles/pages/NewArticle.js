@@ -30,6 +30,7 @@ const NewArticle = () => {
       categories: { value: "", isValid: false },
       tags: { value: "", isValid: false },
       price: { value: null, isValid: false },
+      downloadable: { value: null, isValid: false },
     },
     false
   );
@@ -50,7 +51,7 @@ const NewArticle = () => {
       formData.append("categories", formState.inputs.categories.value);
       formData.append("tags", formState.inputs.tags.value);
       formData.append("price", formState.inputs.price.value);
-
+formData.append("downloadable", formState.inputs.downloadable.value);
       await sendRequest(process.env.REACT_APP_BACKEND_URL + "/articles", "POST", formData, {
         Authorization: 'Bearer ' + auth.token
       });
@@ -122,6 +123,15 @@ const NewArticle = () => {
               element="input"
               label="price"
               placeholder="price"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="downloadable"
+              element="input"
+              label="downloadable"
+              placeholder="downloadable"
               validators={[VALIDATOR_REQUIRE()]}
               errorText="Please enter a valid address."
               onInput={inputHandler}
