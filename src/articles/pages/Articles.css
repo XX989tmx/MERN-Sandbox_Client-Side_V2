@@ -1,8 +1,12 @@
 /* For mobile phones: */
-.container {
+.articles-container {
   width: 100%;
-  margin: auto;
+  margin: auto;height: 100vh ;border: 1px solid black;padding-left: 10px; padding-right: 10px;
 }
+
+/* .main-wrapper {
+  height: 1200px;
+} */
 
 .search-box-container {
 padding: 20px;
@@ -41,16 +45,17 @@ padding: 20px;
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  .container {
+  .articles-container {
   width: 769px;
-  margin: auto;
+  margin: auto;height: 100vh;border: 1px solid black;padding-left: 10px; padding-right: 10px;
 }
+
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .container {
+  .articles-container {
   width: 980px;
-  margin: auto;
+  margin: auto;height: 100vh;border: 1px solid black;padding-left: 10px; padding-right: 10px;
 }
 }

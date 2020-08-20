@@ -217,8 +217,8 @@ const Articles = () => {
         </div>
       )} */}
       {/* {!isLoading && AllArticles && ( */}
-      <div className="container">
-        <div className="main-container">
+      <div className="articles-container">
+        <div className="main-wrapper">
           <div className="post-form-area">
             <div className="search-box-container center">
               <form onChange={getArticleBySearchQuery}>
@@ -390,7 +390,7 @@ const Articles = () => {
             </div>
             <p style={{ color: "grey", textAlign: "left" }}>
               if something does not work, please reload the page.
-            </p>
+            </p><hr/>
 
             <h5>{ArticleCount} articles</h5>
             {SearchedArticle ? (

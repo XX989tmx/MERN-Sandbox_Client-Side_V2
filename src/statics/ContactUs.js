@@ -17,7 +17,7 @@ const ContactUs = () => {
 
         <div className="post-form-area">
           <h1 className="center">ContactUs</h1>
-        </div>
+        </div><hr/>
 
         <h1 id="para1">para1</h1>
         <p>
@@ -45,7 +45,7 @@ const ContactUs = () => {
           Continually orchestrate sustainable bandwidth via efficient
           technologies. Professionally facilitate innovative schemas and go
           forward strategic theme areas. Collaboratively.
-        </p>
+        </p><hr/>
 
         <h1 id="para2">para2</h1>
         <p>
@@ -82,7 +82,7 @@ const ContactUs = () => {
           visionary leadership. Appropriately actualize standards compliant
           e-markets whereas front-end materials. Distinctively enhance optimal
           imperatives after just in time e-markets.
-        </p>
+        </p><hr/>
 
         <h1 id="para3">para3</h1>
         <p>

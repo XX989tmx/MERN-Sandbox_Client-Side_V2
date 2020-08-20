@@ -660,7 +660,7 @@ const HistoricalData = () => {
             <option value="10-2019">10-2019</option>
             <option value="11-2019">11-2019</option>
             <option value="12-2019">12-2019</option>
-          </select>
+          </select><hr/>
           <HistoricalDataList
             dateStringArray={DateStringArray}
             historicalPriceData={HistoricalPriceData}

@@ -312,7 +312,7 @@ const CryptoConverter = () => {
               See Bitcoin's Historical Price Data
             </Link>
           </div>
-        </div>
+        </div><hr/>
 
         <div className="center" style={{ marginTop: "60px" }}>
           <h3 style={{ paddingTop: "10px", paddingBottom: "10px" }}>
@@ -384,7 +384,7 @@ const CryptoConverter = () => {
               {/* <div className="back-to-top">
                 <button onClick={goBackToTop}>goBackToTop</button>
               </div> */}
-            </div>
+            </div><hr/>
 
             <div className="currency-crypto-table-area">
               <table className="currency-crypto-table">
