@@ -17,6 +17,7 @@ const VideoList = (props) => {
           tags={video.tags}
           categories={video.categories}
           date_created={video.date_created}
+          duration={video.duration}
         />
       ))}
     </ul>

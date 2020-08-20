@@ -24,6 +24,7 @@ const NewVideo = () => {
         src: { value: null, isValid: false },
         tags: { value: "", isValid: false },
         categories: { value: "", isValid: false },
+        duration: { value: "", isValid: false },
       },
       false
     );
@@ -43,8 +44,7 @@ const NewVideo = () => {
             // formData.append("categories", formState.inputs.categories.value);
             
             const responseData = await sendRequest(
-              process.env
-                .REACT_APP_BACKEND_URL + `/videos/new`,
+              process.env.REACT_APP_BACKEND_URL + `/videos/new`,
               "POST",
               JSON.stringify({
                 title: formState.inputs.title.value,
@@ -54,6 +54,7 @@ const NewVideo = () => {
                 tags: formState.inputs.tags.value,
                 userId: auth.userId,
                 categories: formState.inputs.categories.value,
+                duration: formState.inputs.duration.value,
               }),
               { "Content-Type": "application/json" }
             );
@@ -121,6 +122,15 @@ const NewVideo = () => {
                 element="input"
                 label="categories"
                 placeholder="categories"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="duration"
+                element="input"
+                label="duration"
+                placeholder="duration"
                 validators={[VALIDATOR_REQUIRE()]}
                 errorText="Please enter a valid address."
                 onInput={inputHandler}

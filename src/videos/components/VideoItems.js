@@ -7,17 +7,21 @@ const VideoItems = (props) => {
   return (
     <li className="video-item-container center">
       <Link to={`/videos/${props.id}`} style={{ textDecoration: "none" }}>
-        <div>
+        <div className="video-image-box">
           <img
             src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
-            alt="" style={{width:'270px', height:'160px'}}
-          />
+            alt=""
+            style={{ width: "270px", height: "160px" }}
+          /><span className="duration">{props.duration}</span>
         </div>
         <div>
           <h4>{props.title}</h4>
           <p>{props.description}</p>
+          
           <span className="videoItem-persons">{props.persons}</span>
-          <span className="video-item-date">{new Date(props.date_created).toDateString()}</span>
+          <span className="video-item-date">
+            {new Date(props.date_created).toDateString()}
+          </span>
         </div>
         {/* <iframe
             src={props.src}
