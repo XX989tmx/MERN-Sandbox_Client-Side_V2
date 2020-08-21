@@ -7,8 +7,8 @@ const VideoByIdItem = (props) => {
       <div>
         <iframe
           src={props.src}
-          width="100%"
-          height="900px"
+          width="1082px"
+          height="610px"
           frameborder="0"
           allow="autoplay; fullscreen"
           allowfullscreen
