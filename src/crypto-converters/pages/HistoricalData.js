@@ -12,6 +12,7 @@ import {
 import './HIstoricalData.css';
 import Button from "../../shared/components/FormElements/Button";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const HistoricalData = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -584,92 +585,96 @@ const HistoricalData = () => {
   }
 
   return (
-    <div className="historicalData-container">
-      <div className="main-container">
-        <div>
-          <h3>Bitcoin's Historical Price Data</h3>
-          <form onSubmit={getHistoricalDataSubmitHandler}>
-            <Input
-              id="startDate"
-              element="input"
-              label="startDate"
-              placeholder="eg 2020-07-01 *USE THIS FORMAT"
-              validators={[VALIDATOR_REQUIRE()]}
-              onInput={inputHandler}
+    <React.Fragment>
+      <div className="historicalData-container">
+        <div className="main-container">
+          <div>
+            <h3>Bitcoin's Historical Price Data</h3>
+            <form onSubmit={getHistoricalDataSubmitHandler}>
+              <Input
+                id="startDate"
+                element="input"
+                label="startDate"
+                placeholder="eg 2020-07-01 *USE THIS FORMAT"
+                validators={[VALIDATOR_REQUIRE()]}
+                onInput={inputHandler}
+              />
+              <Input
+                id="endDate"
+                element="input"
+                label="endDate"
+                placeholder="eg 2020-07-31 *USE THIS FORMAT"
+                validators={[VALIDATOR_REQUIRE()]}
+                onInput={inputHandler}
+              />
+              <p style={{ color: "grey" }}>
+                if something does not work, please reload the page.
+              </p>
+              <Button btnBlack>get data 2020 7/1 - 7/31</Button>
+              {/* <button>get data 2020 7/1 - 7/31</button> */}
+            </form>
+            <select
+              name="choice"
+              id="historicalDataBasedOnYear"
+              onChange={getHistoricalDataBasedOnYear}
+            >
+              <option value="first" selected>
+                Year
+              </option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+            </select>
+            <select
+              name="choice"
+              id="historicalDataBasedOnMonth"
+              onChange={getHistoricalDataBasedOnMonth}
+            >
+              <option value="first" selected>
+                Month
+              </option>
+              <option value="01-2020">01-2020</option>
+              <option value="02-2020">02-2020</option>
+              <option value="03-2020">03-2020</option>
+              <option value="04-2020">04-2020</option>
+              <option value="05-2020">05-2020</option>
+              <option value="06-2020">06-2020</option>
+              <option value="07-2020">07-2020</option>
+              <option value="08-2020">08-2020</option>
+              <option value="09-2020">09-2020</option>
+              <option value="10-2020">10-2020</option>
+              <option value="11-2020">11-2020</option>
+              <option value="12-2020">12-2020</option>
+              <option value="01-2019">01-2019</option>
+              <option value="02-2019">02-2019</option>
+              <option value="03-2019">03-2019</option>
+              <option value="04-2019">04-2019</option>
+              <option value="05-2019">05-2019</option>
+              <option value="06-2019">06-2019</option>
+              <option value="07-2019">07-2019</option>
+              <option value="08-2019">08-2019</option>
+              <option value="09-2019">09-2019</option>
+              <option value="10-2019">10-2019</option>
+              <option value="11-2019">11-2019</option>
+              <option value="12-2019">12-2019</option>
+            </select>
+            <hr />
+            <HistoricalDataList
+              dateStringArray={DateStringArray}
+              historicalPriceData={HistoricalPriceData}
             />
-            <Input
-              id="endDate"
-              element="input"
-              label="endDate"
-              placeholder="eg 2020-07-31 *USE THIS FORMAT"
-              validators={[VALIDATOR_REQUIRE()]}
-              onInput={inputHandler}
-            />
-            <p style={{ color: "grey" }}>
-              if something does not work, please reload the page.
-            </p>
-            <Button btnBlack>get data 2020 7/1 - 7/31</Button>
-            {/* <button>get data 2020 7/1 - 7/31</button> */}
-          </form>
-          <select
-            name="choice"
-            id="historicalDataBasedOnYear"
-            onChange={getHistoricalDataBasedOnYear}
-          >
-            <option value="first" selected>
-              Year
-            </option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-          </select>
-          <select
-            name="choice"
-            id="historicalDataBasedOnMonth"
-            onChange={getHistoricalDataBasedOnMonth}
-          >
-            <option value="first" selected>
-              Month
-            </option>
-            <option value="01-2020">01-2020</option>
-            <option value="02-2020">02-2020</option>
-            <option value="03-2020">03-2020</option>
-            <option value="04-2020">04-2020</option>
-            <option value="05-2020">05-2020</option>
-            <option value="06-2020">06-2020</option>
-            <option value="07-2020">07-2020</option>
-            <option value="08-2020">08-2020</option>
-            <option value="09-2020">09-2020</option>
-            <option value="10-2020">10-2020</option>
-            <option value="11-2020">11-2020</option>
-            <option value="12-2020">12-2020</option>
-            <option value="01-2019">01-2019</option>
-            <option value="02-2019">02-2019</option>
-            <option value="03-2019">03-2019</option>
-            <option value="04-2019">04-2019</option>
-            <option value="05-2019">05-2019</option>
-            <option value="06-2019">06-2019</option>
-            <option value="07-2019">07-2019</option>
-            <option value="08-2019">08-2019</option>
-            <option value="09-2019">09-2019</option>
-            <option value="10-2019">10-2019</option>
-            <option value="11-2019">11-2019</option>
-            <option value="12-2019">12-2019</option>
-          </select><hr/>
-          <HistoricalDataList
-            dateStringArray={DateStringArray}
-            historicalPriceData={HistoricalPriceData}
-          />
-          <MoveToTopButton />
+            <MoveToTopButton />
+          </div>
         </div>
+        {/* <div className="side-container"></div> */}
       </div>
-      {/* <div className="side-container"></div> */}
-    </div>
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 

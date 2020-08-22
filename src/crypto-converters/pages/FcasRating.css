@@ -1,7 +1,8 @@
 .fcasRating-container {
   width: 100%;
   margin: auto;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
   border: solid 1px;
   padding: 20px;
 }

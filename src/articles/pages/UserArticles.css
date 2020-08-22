@@ -1,8 +1,9 @@
 .user-articles-container {
   width: 100%;
   margin: auto;
-  height: 100vh;
+  /* height: 100vh; */
   /* display: flex; */
+  min-height: 100vh;
 }
 
 @media only screen and (min-width: 768px) {

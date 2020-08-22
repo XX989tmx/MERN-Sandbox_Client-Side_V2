@@ -4,7 +4,8 @@
 .download-container {
   width: 100%;
   margin: auto;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
   display: flex;
 }
 
@@ -12,7 +13,7 @@
   /* For tablets: */
   .download-container {
     width: 769px;
-    margin: auto;
+    margin: auto; min-height: 100vh;
   }
 }
 
@@ -20,12 +21,13 @@
   /* For desktop: */
 .download-container {
     width: 980px;
-    margin: auto;
+    margin: auto; min-height: 100vh;
   }
 
 .download-main-section {
   width: 810px;
   height: 100%;
+   
   background-color: aqua;
   /* display: flex; */
   border: solid 1px;

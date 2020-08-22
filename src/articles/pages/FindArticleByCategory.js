@@ -6,7 +6,8 @@ import FindArticleByCategoryList from "../components/FindArticleByCategoryList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
-import './FindArticleByCategory.css';
+import "./FindArticleByCategory.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const FindArticleByCategory = () => {
   const auth = useContext(AuthContext);
@@ -18,8 +19,8 @@ const FindArticleByCategory = () => {
   useEffect(() => {
     const getArticlesByCategories = async () => {
       const responseData = await sendRequest(
-        process.env
-          .REACT_APP_BACKEND_URL + `/articles/get_article_by_categories/${categories}`
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/get_article_by_categories/${categories}`
       );
       console.log(responseData);
       console.log(responseData.categoryMatchedArticles[0].price);
@@ -51,6 +52,7 @@ const FindArticleByCategory = () => {
           {/* <div className="side-container"></div> */}
         </div>
       )}
+      {!isLoading && CategorySortedArticle && <FooterMainNavigation />}
     </React.Fragment>
   );
 };

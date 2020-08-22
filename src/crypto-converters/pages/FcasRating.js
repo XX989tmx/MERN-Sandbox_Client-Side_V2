@@ -9,6 +9,7 @@ import download from "downloadjs";
 
 import './FcasRating.css';
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -52,50 +53,53 @@ const FcasRating = () => {
   }
 
   return (
-    <div className="fcasRating-container">
-      <div className="main-container">
-        <div>
-          <div className="center">
-            <form onSubmit={getFcasRating}>
-              <Input
-                id="cryptoCode"
-                element="input"
-                label="cryptoCode"
-                placeholder="currency code eg BTC"
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-              />
-              <p style={{ color: "grey", textAlign:'left' }}>
-                if something does not work, please reload the page.
-              </p>
-              <Button btnBlack>Get Fcas Score</Button>
-            </form>
-            <div>
-              <button>open currency code list modal</button>
-              <button onClick={currencyListDownloader}>
-                download all currency code list
-              </button>
-            </div>
-          </div>
-
+    <React.Fragment>
+      <div className="fcasRating-container">
+        <div className="main-container">
           <div>
-            <FcasRatingItem
-              symbol={FcasRatingInfo.symbol}
-              name={FcasRatingInfo.name}
-              fcasRating={FcasRatingInfo.fcasRating}
-              fcasScore={FcasRatingInfo.fcasScore}
-              developlerScore={FcasRatingInfo.developlerScore}
-              marketMaturityScore={FcasRatingInfo.marketMaturityScore}
-              utilityScore={FcasRatingInfo.utilityScore}
-              lastRefreshed={FcasRatingInfo.lastRefreshed}
-              timezone={FcasRatingInfo.timezone}
-            />
+            <div className="center">
+              <form onSubmit={getFcasRating}>
+                <Input
+                  id="cryptoCode"
+                  element="input"
+                  label="cryptoCode"
+                  placeholder="currency code eg BTC"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  onInput={inputHandler}
+                />
+                <p style={{ color: "grey", textAlign: "left" }}>
+                  if something does not work, please reload the page.
+                </p>
+                <Button btnBlack>Get Fcas Score</Button>
+              </form>
+              <div>
+                <button>open currency code list modal</button>
+                <button onClick={currencyListDownloader}>
+                  download all currency code list
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <FcasRatingItem
+                symbol={FcasRatingInfo.symbol}
+                name={FcasRatingInfo.name}
+                fcasRating={FcasRatingInfo.fcasRating}
+                fcasScore={FcasRatingInfo.fcasScore}
+                developlerScore={FcasRatingInfo.developlerScore}
+                marketMaturityScore={FcasRatingInfo.marketMaturityScore}
+                utilityScore={FcasRatingInfo.utilityScore}
+                lastRefreshed={FcasRatingInfo.lastRefreshed}
+                timezone={FcasRatingInfo.timezone}
+              />
+            </div>
+            <MoveToTopButton />
           </div>
-          <MoveToTopButton />
         </div>
+        {/* <div className="side-container"></div> */}
       </div>
-      {/* <div className="side-container"></div> */}
-    </div>
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 

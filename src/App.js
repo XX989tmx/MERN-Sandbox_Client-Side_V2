@@ -39,6 +39,7 @@ import FcasRating from "./crypto-converters/pages/FcasRating";
 import TagIndex from "./articles/pages/TagIndex";
 import CategoryIndex from "./articles/pages/CategoryIndex";
 import FlexTraining from "./statics/FlexTraining";
+import FooterMainNavigation from "./shared/components/Footer/FooterMainNavigation";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -227,6 +228,7 @@ const App = () => {
             {routes}
           </Suspense>
         </main>
+        
       </Router>
     </AuthContext.Provider>
   );

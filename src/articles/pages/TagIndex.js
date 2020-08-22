@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import TagIndexList from "../components/TagIndexList";
 
-import './TagIndex.css';
+import "./TagIndex.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const TagIndex = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -19,21 +20,23 @@ const TagIndex = () => {
         console.log(responseData.responseArray);
         console.log(responseData.responseArray[0].tagName);
         console.log(responseData.responseArray[0].count);
-        
       } catch (error) {}
     };
     getTagIndex();
   }, [sendRequest]);
 
   return (
-    <div className="tag-index-container">
-      <div className="main-container">
-        <div>
-          <TagIndexList TagIndexData={TagIndexData} />
+    <React.Fragment>
+      <div className="tag-index-container">
+        <div className="main-container">
+          <div>
+            <TagIndexList TagIndexData={TagIndexData} />
+          </div>
         </div>
+        {/* <div className="side-container"></div> */}
       </div>
-      {/* <div className="side-container"></div> */}
-    </div>
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 

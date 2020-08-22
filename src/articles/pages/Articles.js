@@ -14,6 +14,7 @@ import {
 
 import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const ARTICLES = [
   {
@@ -424,6 +425,7 @@ const Articles = () => {
         </div>
         <div className="side-container"></div>
       </div>
+      <FooterMainNavigation />
       {/* )} */}
     </React.Fragment>
   );

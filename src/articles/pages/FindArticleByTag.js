@@ -7,7 +7,8 @@ import FindArticleByTagList from "../components/FindArticleByTagList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
-import './FindArticleByTag.css';
+import "./FindArticleByTag.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const FindArticleByTag = () => {
   const auth = useContext(AuthContext);
@@ -24,8 +25,8 @@ const FindArticleByTag = () => {
     const getArticlesByTags = async (params) => {
       try {
         const responseData = await sendRequest(
-          process.env
-            .REACT_APP_BACKEND_URL + `/articles/get_article_by_tags/${tags}`
+          process.env.REACT_APP_BACKEND_URL +
+            `/articles/get_article_by_tags/${tags}`
         );
         console.log(responseData);
         console.log("tag based sorting done.");
@@ -69,6 +70,7 @@ const FindArticleByTag = () => {
           {/* <div className="side-container"></div> */}
         </div>
       )}
+      {!isLoading && tagSortedArticle && <FooterMainNavigation />}
     </React.Fragment>
   );
 };

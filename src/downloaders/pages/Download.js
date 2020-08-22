@@ -7,8 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 import download from "downloadjs";
 import { Document, Page } from "react-pdf";
 
-import catImage from '../../images/sampleImages/sample.jpg';
-import samplePdf from '../../pdf/Git-Cheatsheet.pdf';
+import catImage from "../../images/sampleImages/sample.jpg";
+import samplePdf from "../../pdf/Git-Cheatsheet.pdf";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const Download = (params) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -326,172 +327,175 @@ const Download = (params) => {
   // }
 
   return (
-    <div className="download-container">
-      <div className="download-main-section">
-        <div className="download-link-lists">
-          <ul className="download-link-items">
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsPdfChecked}
-                ></input>
-                PDF File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={pdfDownloadSubmitHandler}
-                    disabled={disableDownload}
-                  >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-                {/* <Document file="https://storage.googleapis.com/sample_test_image_bucket/2020-06-10%20147.jpg">
+    <React.Fragment>
+      <div className="download-container">
+        <div className="download-main-section">
+          <div className="download-link-lists">
+            <ul className="download-link-items">
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsPdfChecked}
+                  ></input>
+                  PDF File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={pdfDownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                  {/* <Document file="https://storage.googleapis.com/sample_test_image_bucket/2020-06-10%20147.jpg">
                   <Page />
                 </Document> */}
-              </div>
-            </li>
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsImageChecked}
-                ></input>
-                Image File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={imageDownloadSubmitHandler}
-                    disabled={disableDownload}
+                </div>
+              </li>
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsImageChecked}
+                  ></input>
+                  Image File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={imageDownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                  <img
+                    src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
+                    className="image-preview"
+                  />
+                </div>
+              </li>
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsXlsxChecked}
+                  ></input>
+                  Excel File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={xlsxDownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                </div>
+              </li>
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsTxtChecked}
+                  ></input>
+                  Txt File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={txtDownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                  <a
+                    href="https://storage.googleapis.com/sample_test_image_bucket/sampleTxt%20(10).txt"
+                    target="_blank"
                   >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-                <img
-                  src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
-                  className="image-preview"
-                />
-              </div>
-            </li>
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsXlsxChecked}
-                ></input>
-                Excel File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={xlsxDownloadSubmitHandler}
-                    disabled={disableDownload}
-                  >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-              </div>
-            </li>
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsTxtChecked}
-                ></input>
-                Txt File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={txtDownloadSubmitHandler}
-                    disabled={disableDownload}
-                  >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-                <a
-                  href="https://storage.googleapis.com/sample_test_image_bucket/sampleTxt%20(10).txt"
-                  target="_blank"
-                >
-                  Preview Txt file
-                </a>
-              </div>
-            </li>
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsZipChecked}
-                ></input>
-                Zip File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={zipDownloadSubmitHandler}
-                    disabled={disableDownload}
-                  >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-              </div>
-            </li>
-            <li className="download-link-item">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  checked={IsMp4Checked}
-                ></input>
-                Mp4 File
-                <form>
-                  <Button
-                    btnBlack
-                    onClick={mp4DownloadSubmitHandler}
-                    disabled={disableDownload}
-                  >
-                    DOWNLOAD RESOURCE
-                  </Button>
-                </form>
-                <iframe
-                  src="https://player.vimeo.com/video/439287536"
-                  width="600"
-                  height="400"
-                  frameborder="0"
-                  allow="autoplay; fullscreen"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </li>
-          </ul>
+                    Preview Txt file
+                  </a>
+                </div>
+              </li>
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsZipChecked}
+                  ></input>
+                  Zip File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={zipDownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                </div>
+              </li>
+              <li className="download-link-item">
+                <div>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="defaultCheck1"
+                    checked={IsMp4Checked}
+                  ></input>
+                  Mp4 File
+                  <form>
+                    <Button
+                      btnBlack
+                      onClick={mp4DownloadSubmitHandler}
+                      disabled={disableDownload}
+                    >
+                      DOWNLOAD RESOURCE
+                    </Button>
+                  </form>
+                  <iframe
+                    src="https://player.vimeo.com/video/439287536"
+                    width="600"
+                    height="400"
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="download-side-section">
+          {IsPdfDownloaded ? (
+            <div>download check color graph: add green color; Donwloaded</div>
+          ) : (
+            <div>download check color graph : white; Not downloaded</div>
+          )}
+
+          <h3>you have downloaded this file : {DownloadedCount} times</h3>
+          <h1>{ErrorMessage}</h1>
+          <img src="https://storage.googleapis.com/sample_test_image_bucket/images/download-2.jpg" />
         </div>
       </div>
-      <div className="download-side-section">
-        {IsPdfDownloaded ? (
-          <div>download check color graph: add green color; Donwloaded</div>
-        ) : (
-          <div>download check color graph : white; Not downloaded</div>
-        )}
-
-        <h3>you have downloaded this file : {DownloadedCount} times</h3>
-        <h1>{ErrorMessage}</h1>
-        <img src="https://storage.googleapis.com/sample_test_image_bucket/images/download-2.jpg" />
-      </div>
-    </div>
+      {/* <FooterMainNavigation /> */}
+    </React.Fragment>
   );
 };
 

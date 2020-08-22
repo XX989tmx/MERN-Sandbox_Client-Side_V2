@@ -1,0 +1,51 @@
+import React from "react";
+import MainFooter from "./MainFooter";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import "./FooterMainNavigation.css";
+
+const FooterMainNavigation = () => {
+  return (
+    <div className="footer-container">
+      <MainFooter>
+        <div className="footer-links-wrapper">
+          <div className="footer-link-lists">
+            <ul className="footer-link-list">
+              <h3>Navigation</h3>
+              <li className="footer-link-item">
+                <NavLink to="/articles">ALL ARTICLES</NavLink>
+              </li>
+              <li className="footer-link-item">
+                <NavLink to="/crypto_converter">Crypto Converter</NavLink>
+              </li>
+              <li>
+                <NavLink to="/videos/main">Video Main</NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-link-lists">
+            <ul className="footer-link-list">
+              <h3>Resources</h3>
+              <li className="footer-link-item"></li>
+              <li className="footer-link-item"></li>
+            </ul>
+          </div>
+          <div className="footer-link-lists">
+            <ul className="footer-link-list">
+              <h3>Information</h3>
+              <li className="footer-link-item">
+                <NavLink to="/about_us">About Us</NavLink>
+              </li>
+              <li className="footer-link-item">
+                <NavLink to="/contact_us">Contact Us</NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </MainFooter>
+    </div>
+  );
+};
+
+export default FooterMainNavigation;

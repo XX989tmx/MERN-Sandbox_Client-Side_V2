@@ -7,6 +7,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 import './Users.css';
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const Users = () => {
   const {isLoading, error, sendRequest, clearError} = useHttpClient();
@@ -51,7 +52,9 @@ const Users = () => {
           </div>
           {/* <div className="side-container"></div> */}
         </div>
+        
       )}
+      {!isLoading && loadedUsers && <FooterMainNavigation />}
     </React.Fragment>
   );
 };

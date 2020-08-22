@@ -1,15 +1,17 @@
 import React from "react";
 
 import "./AboutUs.css";
+import FooterMainNavigation from "../shared/components/Footer/FooterMainNavigation";
 
 const AboutUs = () => {
   return (
-    <div className="aboutUs-container">
-      <div className="main-container">
-        <div className="post-form-area">
-          <h1 className="center">AboutUs</h1>
-          <div>
-            {/* <iframe
+    <React.Fragment>
+      <div className="aboutUs-container">
+        <div className="main-container">
+          <div className="post-form-area">
+            <h1 className="center">AboutUs</h1>
+            <div>
+              {/* <iframe
               src="https://player.vimeo.com/video/439287536"
               width="600"
               height="400"
@@ -17,11 +19,13 @@ const AboutUs = () => {
               allow="autoplay; fullscreen"
               allowfullscreen
             ></iframe> */}
+            </div>
           </div>
         </div>
+        {/* <div className="side-container"></div> */}
       </div>
-      {/* <div className="side-container"></div> */}
-    </div>
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 
