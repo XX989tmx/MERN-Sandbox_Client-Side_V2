@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import ExploreIcon from "@material-ui/icons/Explore";
 
 import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
@@ -15,7 +16,9 @@ const MainNavigation = () => {
   const auth = useContext(AuthContext);
   const [OpenArticlesNavArea, setOpenArticlesNavArea] = useState(false);
   const [OpenDownloadsNavArea, setOpenDownloadsNavArea] = useState(false);
-  const [OpenCryptoConverterNavArea, setOpenCryptoConverterNavArea] = useState(false);
+  const [OpenCryptoConverterNavArea, setOpenCryptoConverterNavArea] = useState(
+    false
+  );
   const [OpenNavModalArea, setOpenNavModalArea] = useState(false);
 
   const openDrawerHandler = () => {
@@ -33,8 +36,6 @@ const MainNavigation = () => {
   const closeNavModalArea = (params) => {
     setOpenNavModalArea(false);
   };
-
-  
 
   //   // articleを検索する
   // const searchQueryArticle = (params) => {
@@ -78,9 +79,10 @@ const MainNavigation = () => {
           <span />
           <span />
         </button>
-        <h1>
+        <ExploreIcon style={{ color: "white", fontSize: "40px" }} />
+        <h1 style={{ position: "absolute", left: "80px" }}>
           <Link to="/" className="home-link" style={{ textDecoration: "none" }}>
-            Go Back To Top Page
+            <span style={{ position: "relative", left: "0" }}>MSandbox</span>
           </Link>
         </h1>
         <nav className="main-navigation__header-nav">
