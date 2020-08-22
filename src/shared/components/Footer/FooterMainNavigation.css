@@ -28,6 +28,10 @@
     color: white;
     text-decoration-line: none;
 }
+.footer-link-lists li a:hover {
+    color: gold;
+    
+}
 
 .footer-link-list {
     list-style-type: none;
