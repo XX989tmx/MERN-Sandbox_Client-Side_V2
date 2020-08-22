@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import './VideoItems.css';
+import "./VideoItems.css";
 
 const VideoItems = (props) => {
   return (
@@ -12,12 +12,15 @@ const VideoItems = (props) => {
             src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
             alt=""
             style={{ width: "270px", height: "160px" }}
-          /><span className="duration">{props.duration}</span>
+          />
+          {props.hd && <span className="hd">HD</span>}
+          {props.is4k && <span className="is4K">4K</span>}
+          <span className="duration">{props.duration}</span>
         </div>
         <div>
           <h4>{props.title}</h4>
           <p>{props.description}</p>
-          
+
           <span className="videoItem-persons">{props.persons}</span>
           <span className="video-item-date">
             {new Date(props.date_created).toDateString()}

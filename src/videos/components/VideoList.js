@@ -18,6 +18,8 @@ const VideoList = (props) => {
           categories={video.categories}
           date_created={video.date_created}
           duration={video.duration}
+          hd={video.hd}
+          is4k={video.is4k}
         />
       ))}
     </ul>

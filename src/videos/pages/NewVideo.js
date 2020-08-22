@@ -25,6 +25,8 @@ const NewVideo = () => {
         tags: { value: "", isValid: false },
         categories: { value: "", isValid: false },
         duration: { value: "", isValid: false },
+        hd: { value: "", isValid: false },
+        is4k: { value: "", isValid: false },
       },
       false
     );
@@ -55,6 +57,8 @@ const NewVideo = () => {
                 userId: auth.userId,
                 categories: formState.inputs.categories.value,
                 duration: formState.inputs.duration.value,
+                hd: formState.inputs.hd.value,
+                is4k: formState.inputs.is4k.value,
               }),
               { "Content-Type": "application/json" }
             );
@@ -131,6 +135,24 @@ const NewVideo = () => {
                 element="input"
                 label="duration"
                 placeholder="duration"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="hd"
+                element="input"
+                label="hd"
+                placeholder="hd"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="is4k"
+                element="input"
+                label="is4k"
+                placeholder="is4k"
                 validators={[VALIDATOR_REQUIRE()]}
                 errorText="Please enter a valid address."
                 onInput={inputHandler}
