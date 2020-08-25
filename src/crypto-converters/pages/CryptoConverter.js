@@ -32,6 +32,10 @@ const CryptoConverter = () => {
   const [fcasRating, setFcasRating] = useState();
 
   const [ExchangeRate, setExchangeRate] = useState({});
+  const [
+    PriceDiffBetweenPreviousAndLatest,
+    setPriceDiffBetweenPreviousAndLatest,
+  ] = useState({});
 
   const [formState, inputHandler] = useForm(
     {
@@ -99,6 +103,10 @@ const CryptoConverter = () => {
         console.log(responseData.fcasScore);
         setFcasScore(responseData.fcasScore);
         setFcasRating(responseData.fcasRating);
+        console.log(responseData.priceDifferenceBetweenPreviousAndLatest);
+        setPriceDiffBetweenPreviousAndLatest(
+          responseData.priceDifferenceBetweenPreviousAndLatest
+        );
       } catch (error) {}
     };
     getRequestForCryptoData();
@@ -407,6 +415,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_JPY}
                       {LastValue.last_JPY}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.JPY
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -418,6 +431,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_USD}
                       {LastValue.last_USD}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.USD
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -431,6 +449,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_AUD}
                       {LastValue.last_AUD}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.AUD
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -442,6 +465,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_BRL}
                       {LastValue.last_BRL}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.BRL
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -455,6 +483,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_CAD}
                       {LastValue.last_CAD}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.CAD
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -466,6 +499,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_CHF}
                       {LastValue.last_CHF}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.CHF
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -479,6 +517,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_CLP}
                       {LastValue.last_CLP}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.CLP
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -490,6 +533,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_CNY}
                       {LastValue.last_CNY}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.CNY
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -503,6 +551,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_DKK}
                       {LastValue.last_DKK}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.DKK
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -514,6 +567,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_EUR}
                       {LastValue.last_EUR}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.EUR
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -527,6 +585,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_GBP}
                       {LastValue.last_GBP}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.GBP
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -538,6 +601,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_HKD}
                       {LastValue.last_HKD}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.HKD
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -551,6 +619,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_INR}
                       {LastValue.last_INR}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.INR
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -562,6 +635,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_ISK}
                       {LastValue.last_ISK}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.ISK
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -575,6 +653,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_KRW}
                       {LastValue.last_KRW}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.KRW
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -586,6 +669,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_NZD}
                       {LastValue.last_NZD}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.NZD
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -599,6 +687,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_PLN}
                       {LastValue.last_PLN}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.PLN
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -611,6 +704,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_RUB}
                       {LastValue.last_RUB}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.RUB
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -622,6 +720,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_SEK}
                       {LastValue.last_SEK}
+                    </th>{" "}
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.SEK
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -635,6 +738,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_SGD}
                       {LastValue.last_SGD}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.SGD
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -646,6 +754,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_THB}
                       {LastValue.last_THB}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.THB
+                      ).toFixed(2)}
                     </th>
                   </tr>
 
@@ -659,6 +772,11 @@ const CryptoConverter = () => {
                       {CurrencySymbol.symbol_TRY}
                       {LastValue.last_TRY}
                     </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.TRY
+                      ).toFixed(2)}
+                    </th>
                   </tr>
 
                   <tr>
@@ -670,6 +788,11 @@ const CryptoConverter = () => {
                     <th scope="row">
                       {CurrencySymbol.symbol_TWD}
                       {LastValue.last_TWD}
+                    </th>
+                    <th>
+                      {new Number(
+                        PriceDiffBetweenPreviousAndLatest.TWD
+                      ).toFixed(2)}
                     </th>
                   </tr>
                 </table>
