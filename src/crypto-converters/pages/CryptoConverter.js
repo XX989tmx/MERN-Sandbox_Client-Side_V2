@@ -41,7 +41,11 @@ const CryptoConverter = () => {
   const [Plus, setPlus] = useState(false);
   const [JPYFirstCharacter, setJPYFirstCharacter] = useState("");
   const [USDFirstCharacter, setUSDFirstCharacter] = useState("");
-
+  const [AUDFirstCharacter, setAUDFirstCharacter] = useState("");
+  const [BRLFirstCharacter, setBRLFirstCharacter] = useState("");
+  const [CADFirstCharacter, setCADFirstCharacter] = useState("");
+  const [CHFFirstCharacter, setCHFFirstCharacter] = useState("");
+  const [CLPFirstCharacter, setCLPFirstCharacter] = useState("");
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
@@ -112,6 +116,8 @@ const CryptoConverter = () => {
         setPriceDiffBetweenPreviousAndLatest(
           responseData.priceDifferenceBetweenPreviousAndLatest
         );
+
+        //JPY
         try {
           let jpy = responseData.priceDifferenceBetweenPreviousAndLatest.JPY;
           let firstCharacter = new String(jpy).charAt(0);
@@ -128,6 +134,46 @@ const CryptoConverter = () => {
           let firstCharacterUSD = new String(usd).charAt(0);
           console.log(new String(usd).charAt(0));
           setUSDFirstCharacter(firstCharacterUSD);
+        } catch (error) {}
+
+        //AUD
+        try {
+          let aud = responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
+          let firstCharacterAUD = new String(aud).charAt(0);
+          console.log(new String(aud).charAt(0));
+          setAUDFirstCharacter(firstCharacterAUD);
+        } catch (error) {}
+
+        //BRL
+        try {
+          let brl = responseData.priceDifferenceBetweenPreviousAndLatest.BRL;
+          let firstCharacterBRL = new String(brl).charAt(0);
+          console.log(new String(brl).charAt(0));
+          setBRLFirstCharacter(firstCharacterBRL);
+        } catch (error) {}
+
+        //CAD
+        try {
+          let cad = responseData.priceDifferenceBetweenPreviousAndLatest.CAD;
+          let firstCharacterCAD = new String(cad).charAt(0);
+          console.log(new String(cad).charAt(0));
+          setCADFirstCharacter(firstCharacterCAD);
+        } catch (error) {}
+
+        //CHF
+        try {
+          let chf = responseData.priceDifferenceBetweenPreviousAndLatest.CHF;
+          let firstCharacterCHF = new String(chf).charAt(0);
+          console.log(new String(chf).charAt(0));
+          setCHFFirstCharacter(firstCharacterCHF);
+        } catch (error) {}
+
+        //CLP
+        try {
+          let clp = responseData.priceDifferenceBetweenPreviousAndLatest.CLP;
+          let firstCharacterCLP = new String(clp).charAt(0);
+          console.log(new String(clp).charAt(0));
+          setCLPFirstCharacter(firstCharacterCLP);
         } catch (error) {}
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
@@ -501,6 +547,7 @@ const CryptoConverter = () => {
                       )) ||
                         (USDFirstCharacter !== "-" && (
                           <span style={{ color: "green" }}>
+                            +
                             {new Number(
                               PriceDiffBetweenPreviousAndLatest.USD
                             ).toFixed(2)}
@@ -520,9 +567,21 @@ const CryptoConverter = () => {
                       {LastValue.last_AUD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.AUD
-                      ).toFixed(2)}
+                      {(AUDFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.AUD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (AUDFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.AUD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -537,9 +596,21 @@ const CryptoConverter = () => {
                       {LastValue.last_BRL}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.BRL
-                      ).toFixed(2)}
+                      {(BRLFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.BRL
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (BRLFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.BRL
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -554,9 +625,21 @@ const CryptoConverter = () => {
                       {LastValue.last_CAD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.CAD
-                      ).toFixed(2)}
+                      {(CADFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.CAD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (CADFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.CAD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -571,9 +654,21 @@ const CryptoConverter = () => {
                       {LastValue.last_CHF}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.CHF
-                      ).toFixed(2)}
+                      {(CHFFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.CHF
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (CHFFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.CHF
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -588,9 +683,21 @@ const CryptoConverter = () => {
                       {LastValue.last_CLP}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.CLP
-                      ).toFixed(2)}
+                      {(CLPFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.CLP
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (CLPFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.CLP
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
