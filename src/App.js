@@ -69,6 +69,8 @@ const App = () => {
         <Route path="/users" exact>
           <Users />
         </Route>
+
+        {/* articles routes */}
         <Route path="/articles" exact>
           <Articles />
         </Route>
@@ -81,6 +83,15 @@ const App = () => {
         <Route path="/articles/new" exact>
           <NewArticle />
         </Route>
+        <Route path="/get_article_by_tags/:tags" exact>
+          <FindArticleByTag />
+        </Route>
+        <Route path="/get_article_by_categories/:categories" exact>
+          <FindArticleByCategory />
+        </Route>
+        <Route path="/get_specific_article_by_id/:articleId" exact>
+          <GetSpecificArticleById />
+        </Route>
         <Route path="/articles/tagIndex" exact>
           <TagIndex />
         </Route>
@@ -90,6 +101,8 @@ const App = () => {
         <Route path="/articles/:articleId">
           <UpdateArticle />
         </Route>
+
+        {/* static pages routes */}
         <Route path="/about_us" exact>
           <AboutUs />
         </Route>
@@ -99,6 +112,8 @@ const App = () => {
         <Route path="/download" exact>
           <Download />
         </Route>
+
+        {/* crypto converter page routes */}
         <Route path="/crypto_converter" exact>
           <CryptoConverter />
         </Route>
@@ -108,6 +123,8 @@ const App = () => {
         <Route path="/crypto_converter/fcasRating" exact>
           <FcasRating />
         </Route>
+
+        {/* video pages routes */}
         <Route path="/videos/new" exact>
           <NewVideo />
         </Route>
@@ -127,6 +144,7 @@ const App = () => {
           <VideoItemPage />
         </Route> */}
 
+        {/* user detail information page routes */}
         <Route path="/:userId/user_detail_info/create" exact>
           <UserDetailInfo />
         </Route>
@@ -135,15 +153,6 @@ const App = () => {
         </Route>
         <Route path="/:userId/user_detail_info/update" exact>
           <UpdateUserDetailInfos />
-        </Route>
-        <Route path="/get_article_by_tags/:tags" exact>
-          <FindArticleByTag />
-        </Route>
-        <Route path="/get_article_by_categories/:categories" exact>
-          <FindArticleByCategory />
-        </Route>
-        <Route path="/get_specific_article_by_id/:articleId" exact>
-          <GetSpecificArticleById />
         </Route>
 
         <Route path="/flex_training" exact>
@@ -159,6 +168,8 @@ const App = () => {
         <Route path="/users" exact>
           <Users />
         </Route>
+
+        {/* articles routes */}
         <Route path="/articles" exact>
           <Articles />
         </Route>
@@ -168,25 +179,58 @@ const App = () => {
         <Route path="/:categoryId/articles" exact>
           <CategoryArticles />
         </Route>
+
+        <Route path="/get_article_by_tags/:tags" exact>
+          <FindArticleByTag />
+        </Route>
+        <Route path="/get_article_by_categories/:categories" exact>
+          <FindArticleByCategory />
+        </Route>
+        <Route path="/get_specific_article_by_id/:articleId" exact>
+          <GetSpecificArticleById />
+        </Route>
+        <Route path="/articles/tagIndex" exact>
+          <TagIndex />
+        </Route>
+        <Route path="/articles/categoryIndex" exact>
+          <CategoryIndex />
+        </Route>
+
+        {/* static page routes */}
         <Route path="/about_us" exact>
           <AboutUs />
+        </Route>
+        <Route path="/contact_us" exact>
+          <ContactUs />
         </Route>
         <Route path="/download" exact>
           <Download />
         </Route>
 
+        {/* crypto converter page routes */}
         <Route path="/crypto_converter" exact>
           <CryptoConverter />
         </Route>
         <Route path="/crypto_converter/historical_data" exact>
           <HistoricalData />
         </Route>
+        <Route path="/crypto_converter/fcasRating" exact>
+          <FcasRating />
+        </Route>
 
+        {/* video page routes */}
         <Route path="/videos/main" exact>
           <VideoMainPage />
         </Route>
         <Route path="/videos/:videoId" exact>
           <VideoItemPage />
+        </Route>
+
+        <Route path="/videos/get_video_by_tags/:tags" exact>
+          <FindVideoByTags />
+        </Route>
+        <Route path="/videos/get_video_by_categories/:categories" exact>
+          <FindVideoByCategory />
         </Route>
         {/* <Route path="/videos/item" exact>
           <VideoItemPage />
@@ -194,9 +238,7 @@ const App = () => {
         <Route path="/flex_training" exact>
           <FlexTraining />
         </Route>
-        <Route path="/contact_us" exact>
-          <ContactUs />
-        </Route>
+
         <Route path="/auth">
           <Auth />
         </Route>
@@ -228,7 +270,6 @@ const App = () => {
             {routes}
           </Suspense>
         </main>
-        
       </Router>
     </AuthContext.Provider>
   );
