@@ -46,6 +46,22 @@ const CryptoConverter = () => {
   const [CADFirstCharacter, setCADFirstCharacter] = useState("");
   const [CHFFirstCharacter, setCHFFirstCharacter] = useState("");
   const [CLPFirstCharacter, setCLPFirstCharacter] = useState("");
+  const [CNYFirstCharacter, setCNYFirstCharacter] = useState("");
+  const [DKKFirstCharacter, setDKKFirstCharacter] = useState("");
+  const [EURFirstCharacter, setEURFirstCharacter] = useState("");
+  const [GBPFirstCharacter, setGBPFirstCharacter] = useState("");
+  const [HKDFirstCharacter, setHKDFirstCharacter] = useState("");
+  const [INRFirstCharacter, setINRFirstCharacter] = useState("");
+  const [ISKFirstCharacter, setISKFirstCharacter] = useState("");
+  const [KRWFirstCharacter, setKRWFirstCharacter] = useState("");
+  const [NZDFirstCharacter, setNZDFirstCharacter] = useState("");
+  const [PLNFirstCharacter, setPLNFirstCharacter] = useState("");
+  const [RUBFirstCharacter, setRUBFirstCharacter] = useState("");
+  const [SEKFirstCharacter, setSEKFirstCharacter] = useState("");
+  const [SGDFirstCharacter, setSGDFirstCharacter] = useState("");
+  const [THBFirstCharacter, setTHBFirstCharacter] = useState("");
+  const [TRYFirstCharacter, setTRYFirstCharacter] = useState("");
+  const [TWDFirstCharacter, setTWDFirstCharacter] = useState("");
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
@@ -175,6 +191,166 @@ const CryptoConverter = () => {
           console.log(new String(clp).charAt(0));
           setCLPFirstCharacter(firstCharacterCLP);
         } catch (error) {}
+
+        //CNY
+        try {
+          let cny = responseData.priceDifferenceBetweenPreviousAndLatest.CNY;
+          let firstCharacterCNY = new String(cny).charAt(0);
+          console.log(new String(cny).charAt(0));
+          setCNYFirstCharacter(firstCharacterCNY);
+        } catch (error) {
+          
+        }
+
+        //DKK
+        try {
+          let dkk = responseData.priceDifferenceBetweenPreviousAndLatest.DKK;
+          let firstCharacterDKK = new String(dkk).charAt(0);
+          console.log(new String(dkk).charAt(0));
+          setDKKFirstCharacter(firstCharacterDKK);
+        } catch (error) {
+          
+        }
+
+        //EUR
+        try {
+          let eur = responseData.priceDifferenceBetweenPreviousAndLatest.EUR;
+          let firstCharacterEUR = new String(eur).charAt(0);
+          console.log(new String(eur).charAt(0));
+          setEURFirstCharacter(firstCharacterEUR);
+        } catch (error) {
+          
+        }
+
+        //GBP
+        try {
+          let gbp = responseData.priceDifferenceBetweenPreviousAndLatest.GBP;
+          let firstCharacterGBP = new String(gbp).charAt(0);
+          console.log(new String(gbp).charAt(0));
+          setGBPFirstCharacter(firstCharacterGBP);
+        } catch (error) {
+          
+        }
+
+        //HKD
+        try {
+          let hkd = responseData.priceDifferenceBetweenPreviousAndLatest.HKD;
+          let firstCharacterHKD = new String(hkd).charAt(0);
+          console.log(new String(hkd).charAt(0));
+          setHKDFirstCharacter(firstCharacterHKD);
+        } catch (error) {
+          
+        }
+
+        //INR
+        try {
+          let inr = responseData.priceDifferenceBetweenPreviousAndLatest.INR;
+          let firstCharacterINR = new String(inr).charAt(0);
+          console.log(new String(inr).charAt(0));
+          setINRFirstCharacter(firstCharacterINR);
+        } catch (error) {
+          
+        }
+
+        //ISK
+        try {
+          let isk = responseData.priceDifferenceBetweenPreviousAndLatest.ISK;
+          let firstCharacterISK = new String(isk).charAt(0);
+          console.log(new String(isk).charAt(0));
+          setISKFirstCharacter(firstCharacterISK);
+        } catch (error) {
+          
+        }
+
+        //KRW
+        try {
+          let krw = responseData.priceDifferenceBetweenPreviousAndLatest.KRW;
+          let firstCharacterKRW = new String(krw).charAt(0);
+          console.log(new String(krw).charAt(0));
+          setKRWFirstCharacter(firstCharacterKRW);
+        } catch (error) {
+          
+        }
+
+        //NZD
+        try {
+          let nzd = responseData.priceDifferenceBetweenPreviousAndLatest.NZD;
+          let firstCharacterNZD = new String(nzd).charAt(0);
+          console.log(new String(nzd).charAt(0));
+          setNZDFirstCharacter(firstCharacterNZD);
+        } catch (error) {
+          
+        }
+
+        //PLN
+        try {
+          let pln = responseData.priceDifferenceBetweenPreviousAndLatest.PLN;
+          let firstCharacterPLN = new String(pln).charAt(0);
+          console.log(new String(pln).charAt(0));
+          setPLNFirstCharacter(firstCharacterPLN);
+        } catch (error) {
+          
+        }
+
+        //RUB
+        try {
+          let rub = responseData.priceDifferenceBetweenPreviousAndLatest.RUB;
+          let firstCharacterRUB = new String(rub).charAt(0);
+          console.log(new String(rub).charAt(0));
+          setRUBFirstCharacter(firstCharacterRUB);
+        } catch (error) {
+          
+        }
+
+        //SEK
+        try {
+          let sek = responseData.priceDifferenceBetweenPreviousAndLatest.SEK;
+          let firstCharacterSEK = new String(sek).charAt(0);
+          console.log(new String(sek).charAt(0));
+          setSEKFirstCharacter(firstCharacterSEK);
+        } catch (error) {
+          
+        }
+
+        //SGD
+        try {
+          let sgd = responseData.priceDifferenceBetweenPreviousAndLatest.SGD;
+          let firstCharacterSGD = new String(sgd).charAt(0);
+          console.log(new String(sgd).charAt(0));
+          setSGDFirstCharacter(firstCharacterSGD);
+        } catch (error) {
+          
+        }
+
+        //THB
+        try {
+          let thb = responseData.priceDifferenceBetweenPreviousAndLatest.THB;
+          let firstCharacterTHB = new String(thb).charAt(0);
+          console.log(new String(thb).charAt(0));
+          setTHBFirstCharacter(firstCharacterTHB);
+        } catch (error) {
+          
+        }
+
+        //TRY
+        try {
+          let cTry = responseData.priceDifferenceBetweenPreviousAndLatest.TRY;
+          let firstCharacterTRY = new String(cTry).charAt(0);
+          console.log(new String(cTry).charAt(0));
+          setTRYFirstCharacter(firstCharacterTRY);
+        } catch (error) {
+          
+        }
+
+        //TWD
+        try {
+          let twd = responseData.priceDifferenceBetweenPreviousAndLatest.TWD;
+          let firstCharacterTWD = new String(twd).charAt(0);
+          console.log(new String(twd).charAt(0));
+          setTWDFirstCharacter(firstCharacterTWD);
+        } catch (error) {
+          
+        }
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
@@ -703,7 +879,7 @@ const CryptoConverter = () => {
 
                   <tr>
                     <th scope="col">
-                      <span>🇨🇱</span>
+                      <span>🇨🇳</span>
                     </th>
                     <th scope="row">CNY</th>
                     <th scope="row">Renminbi</th>
@@ -712,9 +888,21 @@ const CryptoConverter = () => {
                       {LastValue.last_CNY}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.CNY
-                      ).toFixed(2)}
+                      {(CNYFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.CNY
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (CNYFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.CNY
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -729,9 +917,21 @@ const CryptoConverter = () => {
                       {LastValue.last_DKK}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.DKK
-                      ).toFixed(2)}
+                      {(DKKFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.DKK
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (DKKFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.DKK
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -746,9 +946,21 @@ const CryptoConverter = () => {
                       {LastValue.last_EUR}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.EUR
-                      ).toFixed(2)}
+                      {(EURFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.EUR
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (EURFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.EUR
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -763,9 +975,21 @@ const CryptoConverter = () => {
                       {LastValue.last_GBP}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.GBP
-                      ).toFixed(2)}
+                      {(GBPFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.GBP
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (GBPFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.GBP
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -780,9 +1004,21 @@ const CryptoConverter = () => {
                       {LastValue.last_HKD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.HKD
-                      ).toFixed(2)}
+                      {(HKDFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.HKD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (HKDFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.HKD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -797,9 +1033,21 @@ const CryptoConverter = () => {
                       {LastValue.last_INR}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.INR
-                      ).toFixed(2)}
+                      {(INRFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.INR
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (INRFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.INR
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -814,9 +1062,21 @@ const CryptoConverter = () => {
                       {LastValue.last_ISK}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.ISK
-                      ).toFixed(2)}
+                      {(ISKFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.ISK
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (ISKFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.ISK
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -831,9 +1091,21 @@ const CryptoConverter = () => {
                       {LastValue.last_KRW}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.KRW
-                      ).toFixed(2)}
+                      {(KRWFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.KRW
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (KRWFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.KRW
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -848,9 +1120,21 @@ const CryptoConverter = () => {
                       {LastValue.last_NZD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.NZD
-                      ).toFixed(2)}
+                      {(NZDFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.NZD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (NZDFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.NZD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -865,9 +1149,21 @@ const CryptoConverter = () => {
                       {LastValue.last_PLN}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.PLN
-                      ).toFixed(2)}
+                      {(PLNFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.PLN
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (PLNFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.PLN
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -882,9 +1178,21 @@ const CryptoConverter = () => {
                       {LastValue.last_RUB}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.RUB
-                      ).toFixed(2)}
+                      {(RUBFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.RUB
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (RUBFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.RUB
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -899,9 +1207,21 @@ const CryptoConverter = () => {
                       {LastValue.last_SEK}
                     </th>{" "}
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.SEK
-                      ).toFixed(2)}
+                      {(SEKFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.SEK
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (SEKFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.SEK
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -916,9 +1236,21 @@ const CryptoConverter = () => {
                       {LastValue.last_SGD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.SGD
-                      ).toFixed(2)}
+                      {(SGDFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.SGD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (SGDFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.SGD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -933,9 +1265,21 @@ const CryptoConverter = () => {
                       {LastValue.last_THB}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.THB
-                      ).toFixed(2)}
+                      {(THBFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.THB
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (THBFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.THB
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -950,9 +1294,21 @@ const CryptoConverter = () => {
                       {LastValue.last_TRY}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.TRY
-                      ).toFixed(2)}
+                      {(TRYFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.TRY
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (TRYFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.TRY
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
 
@@ -967,9 +1323,21 @@ const CryptoConverter = () => {
                       {LastValue.last_TWD}
                     </th>
                     <th>
-                      {new Number(
-                        PriceDiffBetweenPreviousAndLatest.TWD
-                      ).toFixed(2)}
+                      {(TWDFirstCharacter === "-" && (
+                        <span style={{ color: "red" }}>
+                          {new Number(
+                            PriceDiffBetweenPreviousAndLatest.TWD
+                          ).toFixed(2)}
+                        </span>
+                      )) ||
+                        (TWDFirstCharacter !== "-" && (
+                          <span style={{ color: "green" }}>
+                            +
+                            {new Number(
+                              PriceDiffBetweenPreviousAndLatest.TWD
+                            ).toFixed(2)}
+                          </span>
+                        ))}
                     </th>
                   </tr>
                 </table>
