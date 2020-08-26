@@ -7,9 +7,12 @@ import Button from "../../shared/components/FormElements/Button";
 import FcasRatingItem from "../components/FcasRatingItem";
 import download from "downloadjs";
 
-import './FcasRating.css';
+import "./FcasRating.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import CurrencyNameSelector from "../components/CurrencyNameSelector";
+import { currencyName } from "../../shared/util/currencyName";
+import { currencyCode } from "../../shared/util/currencyCode";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -21,6 +24,21 @@ const FcasRating = () => {
     false
   );
   const [FcasRatingInfo, setFcasRatingInfo] = useState({});
+
+  const [Option, setOption] = useState();
+  useEffect(() => {
+    const onLoad = (params) => {
+      let currencyArray = [];
+      currencyArray = currencyCode.split(",");
+      let selector = currencyArray.map((a) => (
+        <option value={a} key={a}>
+          {a}
+        </option>
+      ));
+      setOption(selector);
+    };
+    onLoad();
+  }, []);
 
   const getFcasRating = async (event) => {
     event.preventDefault();
@@ -36,21 +54,34 @@ const FcasRating = () => {
     } catch (error) {}
   };
 
-  const currencyListDownloader = async(event) => {
-      event.preventDefault();
+  const currencyListDownloader = async (event) => {
+    event.preventDefault();
 
-      try {
-        const res = await fetch(
-          process.env.REACT_APP_BACKEND_URL +
-            "/download/csv/digital_currency_list.csv"
-        );
-        const blob = await res.blob();
-        download(blob, "digital_currency_list.csv");
-        console.log(
-          "1 csv file was downloaded. download was successful"
-        );
-      } catch (err) {}
-  }
+    try {
+      const res = await fetch(
+        process.env.REACT_APP_BACKEND_URL +
+          "/download/csv/digital_currency_list.csv"
+      );
+      const blob = await res.blob();
+      download(blob, "digital_currency_list.csv");
+      console.log("1 csv file was downloaded. download was successful");
+    } catch (err) {}
+  };
+
+  const currencyNameSelector = async (params) => {
+    try {
+      var cryptoCodes = document.getElementById("Code");
+      var cryptoCode = cryptoCodes.value;
+      console.log(cryptoCode);
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/get_external_api/crypto_currency/health_index?cryptoCode=${cryptoCode}`
+      );
+      console.log(responseData);
+      console.log(responseData.fcasRating);
+      setFcasRatingInfo(responseData);
+    } catch (error) {}
+  };
 
   return (
     <React.Fragment>
@@ -67,6 +98,18 @@ const FcasRating = () => {
                   validators={[VALIDATOR_REQUIRE()]}
                   onInput={inputHandler}
                 />
+                <div>
+                  <select
+                    name="Code"
+                    id="Code"
+                    onChange={currencyNameSelector}
+                  >
+                    <option value="default" selected>
+                     Currency Code
+                    </option>
+                    {Option}
+                  </select>
+                </div>
                 <p style={{ color: "grey", textAlign: "left" }}>
                   if something does not work, please reload the page.
                 </p>
