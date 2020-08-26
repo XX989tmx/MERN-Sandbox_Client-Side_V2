@@ -14,7 +14,7 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const CryptoConverter = () => {
-  const [cryptoData, setCryptoData] = useState();
+  // const [cryptoData, setCryptoData] = useState();
   const [Timer, setTimer] = useState(false);
 
   const [cryptoPostData, setCryptoPostData] = useState();
@@ -118,7 +118,7 @@ const CryptoConverter = () => {
             "/get_external_api/crypto_currency"
         );
         const responseData = await response.json();
-        setCryptoData(responseData.exchange_rate);
+        // setCryptoData(responseData.exchange_rate);
         setLastValue(responseData.lastValueOfEveryCurrency);
         setCurrencySymbol(responseData.currencySymbolOfEveryCurrency);
         console.log(responseData.lastValueOfEveryCurrency);
@@ -647,8 +647,8 @@ const CryptoConverter = () => {
             <div className="crypto-get-area">
               <div className="center">
                 {/* components: GET Req for crypto & data pulled from backend */}
-                <p>{cryptoData}</p>
-                <GetCryptoData props={cryptoData} />
+                {/* <p>{cryptoData}</p>
+                <GetCryptoData props={cryptoData} /> */}
                 <form>
                   <Button btnBlack onClick={getRequesthandler}>
                     Get Latest Data
