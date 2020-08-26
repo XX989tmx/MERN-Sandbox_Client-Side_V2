@@ -88,6 +88,7 @@ const FcasRating = () => {
       <div className="fcasRating-container">
         <div className="main-container">
           <div>
+            <h3 className="center">FCAS Rating Checker</h3>
             <div className="center">
               <form onSubmit={getFcasRating}>
                 <Input
@@ -99,13 +100,9 @@ const FcasRating = () => {
                   onInput={inputHandler}
                 />
                 <div>
-                  <select
-                    name="Code"
-                    id="Code"
-                    onChange={currencyNameSelector}
-                  >
+                  <select name="Code" id="Code" onChange={currencyNameSelector}>
                     <option value="default" selected>
-                     Currency Code
+                      Currency Code
                     </option>
                     {Option}
                   </select>
@@ -134,6 +131,22 @@ const FcasRating = () => {
                 utilityScore={FcasRatingInfo.utilityScore}
                 lastRefreshed={FcasRatingInfo.lastRefreshed}
                 timezone={FcasRatingInfo.timezone}
+              />
+            </div>
+            <div>
+              <p>
+                Fundamental Crypto Asset Score (FCAS) is a comparative metric
+                used to assess the fundamental health of crypto projects. The
+                score is derived from the interactivity between primary project
+                life-cycle factors: User Activity/Utility, Developer Behavior,
+                and Market Maturity. Each crypto asset is given a composite
+                numerical score, 0-1000, and an associated rating as follows:
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
+                alt="" style={{width:'500px',height:'350px'}}
               />
             </div>
             <MoveToTopButton />
