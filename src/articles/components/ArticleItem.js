@@ -42,7 +42,8 @@ const ArticleItem = (props) => {
       };
       setWordCount(countWord(props.content));
 
-      setEstimatedReadingTime(new Number(estimatedReadingTime(props.content)).toFixed(1)
+      setEstimatedReadingTime(
+        new Number(estimatedReadingTime(props.content)).toFixed(1)
       );
     };
     onLoad();
@@ -224,119 +225,184 @@ const ArticleItem = (props) => {
             to={`/get_specific_article_by_id/${props.id}`}
             style={{ textDecoration: "none" }}
           >
-            <div className="article-item__image center">
-              <img
-                className="article-item-image-item"
-                src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
-                alt={props.title}
-                style={{ width: "200px", height: "130px" }}
-              />
-            </div>
-            <div className="article-item__article_content">
+            <div className="article-header">
               <h2>{props.title}</h2>
+            </div>
+            <div className="article-body">
+              <div
+                className="article-body-section1"
+                style={{ display: "flex", flexDirection: "row" }}
+              >
+                <div>
+                  <img
+                    className="article-item-image-item"
+                    src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                    alt={props.title}
+                    style={{ width: "200px", height: "130px" }}
+                  />
+                </div>
+                <div style={{ padding: "13px" }}>
+                  <p>
+                    {new String(props.content).substr(0, 200)} continue to
+                    read....
+                  </p>
+                </div>
+              </div>
+              <div
+                className="article-body-section2"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  
+                }}
+              >
+                <p>Word Count: {WordCount}</p>
 
-              <p>
-                {new String(props.content).substr(0, 80)} continue to read....
-              </p>
-
-              <p>Word Count: {WordCount}</p>
-
-              <h4>Estimated Reading Time: {EstimatedReadingTime} min</h4>
-              {/* <p>{props.id}</p> */}
-              <span>
-                {/* 著者情報をonFloatでモーダルで表示させてもいい */}
-                {/* <Button onClick={openModalHandler}> */}
+                <h4 style={{ marginLeft: "13px" }}>
+                  Estimated Reading Time: {EstimatedReadingTime} min
+                </h4>
+              </div>
+              <div
+                className="article-body-section3"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
                 <Link
                   to={`/${props.authorId}/articles`}
                   style={{ textDecoration: "none" }}
                 >
-                  <span className="author-info">
-                    author: {props.authorName}
-                  </span>
-                  <span className="contact-info">
-                    contact: {props.authorEmail}
-                  </span>
+                  <div>
+                    <span className="author-info">
+                      author: {props.authorName}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="contact-info">
+                      contact: {props.authorEmail}
+                    </span>
+                  </div>
                 </Link>
-                {/* </Button> */}
-              </span>
-              {/* <p>publishedDate: {props.publishedDate}</p> */}
+                {/* <span> */}
+                {/* 著者情報をonFloatでモーダルで表示させてもいい */}
+                {/* <Button onClick={openModalHandler}> */}
 
-              <Link
-                to={`/get_article_by_categories/${props.categories}`}
-                style={{ textDecoration: "none" }}
+                {/* </Button> */}
+                {/* </span> */}
+
+                <Link
+                  to={`/get_article_by_categories/${props.categories}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div style={{ marginLeft: "13px" }}>
+                    <p className="categoryArea">Category: {props.categories}</p>
+                  </div>
+                </Link>
+                <Link
+                  to={`/get_article_by_tags/${props.tags}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div style={{ marginLeft: "13px" }}>
+                    <p className="tag-area">Tag: {props.tags}</p>
+                  </div>
+                </Link>
+              </div>
+              <div
+                className="article-body-section4"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  position: "relative",
+                }}
               >
-                <div>
-                  <p className="categoryArea">Category: {props.categories}</p>
+                <h4>
+                  price:{" "}
+                  <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+                    {Sunday
+                      ? new Number(props.price * 0.9).toFixed(0)
+                      : new Number(props.price).toFixed(0)}{" "}
+                  </span>
+                  {Sunday && (
+                    <span
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        color: "rgb(201, 30, 30)",
+                      }}
+                    >
+                      (-{new Number(DiscountedAmount).toFixed(0)} Saved)
+                    </span>
+                  )}
+                </h4>
+                <div style={{ marginLeft: "20px" }}>
+                  {props.downloadable ? (
+                    <span style={{ color: "green", border: "1px solid green" }}>
+                      Downloadable
+                    </span>
+                  ) : (
+                    <span style={{ color: "red", border: "1px solid red" }}>
+                      Not Downloadable
+                    </span>
+                  )}
                 </div>
-              </Link>
-              <Link
-                to={`/get_article_by_tags/${props.tags}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div>
-                  <p className="tag-area">Tag: {props.tags}</p>
-                </div>
-              </Link>
-              <h4>
-                price:{" "}
-                <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
-                  {Sunday
-                    ? new Number(props.price * 0.9).toFixed(0)
-                    : new Number(props.price).toFixed(0)}{" "}
-                </span>
-                {Sunday && (
-                  <span
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "20px",
+                  }}
+                >
+                  <p
                     style={{
                       fontSize: "14px",
-                      fontWeight: "600",
-                      color: "rgb(201, 30, 30)",
+                      color: "grey",
                     }}
                   >
-                    (-{new Number(DiscountedAmount).toFixed(0)} Saved)
-                  </span>
-                )}
-              </h4>
-              {props.downloadable ? (
-                <span style={{ color: "green", border: "1px solid green" }}>
-                  Downloadable
-                </span>
-              ) : (
-                <span style={{ color: "red", border: "1px solid red" }}>
-                  Not Downloadable
-                </span>
-              )}
-              <p style={{ fontSize: "14px", color: "grey" }}>
-                Date Created: {new Date(props.date_created).toDateString()}
-              </p>
+                    Date Created: {new Date(props.date_created).toDateString()}
+                  </p>
+                </div>
+              </div>
             </div>
           </Link>
-          <div className="article-item__actions">
-            <Button btnBlack onClick={openModalHandler}>
-              View This Article
-            </Button>
+          <div className="article-footer">
+            <div className="article-item__actions">
+              <Button btnBlack onClick={openModalHandler}>
+                View This Article
+              </Button>
 
-            {auth.userId === props.author && (
-              <Button btnBlackInverse to={`/articles/${props.id}`}>
-                Edit This Article
-              </Button>
-            )}
-            {auth.userId === props.author && (
-              <Button danger onClick={showDeleteWarningHandler}>
-                Delete This Article
-              </Button>
-            )}
+              {auth.userId === props.author && (
+                <Button btnBlackInverse to={`/articles/${props.id}`}>
+                  Edit This Article
+                </Button>
+              )}
+              {auth.userId === props.author && (
+                <Button danger onClick={showDeleteWarningHandler}>
+                  Delete This Article
+                </Button>
+              )}
 
-            {auth.isLoggedIn && (
-              <Button btnGreen onClick={openBuyModalHandler}>
-                Buy This Article
-              </Button>
-            )}
-            {auth.isLoggedIn && (
-              <Button btnGreen onClick={openSubscriptionRequestHandler}>
-                Download This Article
-              </Button>
-            )}
+              {auth.isLoggedIn && (
+                <Button btnGreen onClick={openBuyModalHandler}>
+                  Buy This Article
+                </Button>
+              )}
+              {auth.isLoggedIn && (
+                <Button btnGreen onClick={openSubscriptionRequestHandler}>
+                  Download This Article
+                </Button>
+              )}
+            </div>
           </div>
+
+          <div className="article-item__article_content">
+            {/* <p>{props.id}</p> */}
+
+            {/* <p>publishedDate: {props.publishedDate}</p> */}
+          </div>
+
         </Card>
       </li>
     </React.Fragment>
