@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -14,33 +14,35 @@ const FindArticleByCategoryItems = (props) => {
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-const [BuyModal, setBuyModal] = useState(false);
-const [SubscriptionRequestModal, setSubscriptionRequestModal] = useState(false);
-const [Sunday, setSunday] = useState();
-const [DiscountedAmount, setDiscountedAmount] = useState();
-const [WordCount, setWordCount] = useState();
-const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
+  const [BuyModal, setBuyModal] = useState(false);
+  const [SubscriptionRequestModal, setSubscriptionRequestModal] = useState(
+    false
+  );
+  const [Sunday, setSunday] = useState();
+  const [DiscountedAmount, setDiscountedAmount] = useState();
+  const [WordCount, setWordCount] = useState();
+  const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
 
-useEffect(() => {
-  const onLoad = (params) => {
-    if (new Date(Date.now()).toDateString().split(" ")[0] === "Sun") {
-      let discountPrice = props.price * 0.9;
-      let normalPrice = props.price;
-      let discountAmount = normalPrice - discountPrice;
-      setDiscountedAmount(discountAmount);
-      setSunday(true);
-    }
-    const countWord = (value) => {
-      return value.split(/\W+/).length;
+  useEffect(() => {
+    const onLoad = (params) => {
+      if (new Date(Date.now()).toDateString().split(" ")[0] === "Sun") {
+        let discountPrice = props.price * 0.9;
+        let normalPrice = props.price;
+        let discountAmount = normalPrice - discountPrice;
+        setDiscountedAmount(discountAmount);
+        setSunday(true);
+      }
+      const countWord = (value) => {
+        return value.split(/\W+/).length;
+      };
+      setWordCount(countWord(props.content));
+
+      setEstimatedReadingTime(
+        new Number(estimatedReadingTime(props.content)).toFixed(1)
+      );
     };
-    setWordCount(countWord(props.content));
-
-    setEstimatedReadingTime(
-      new Number(estimatedReadingTime(props.content)).toFixed(1)
-    );
-  };
-  onLoad();
-}, []);
+    onLoad();
+  }, []);
 
   const openModalHandler = (params) => {
     setShowModal(true);
@@ -207,104 +209,175 @@ useEffect(() => {
             to={`/get_specific_article_by_id/${props.id}`}
             style={{ textDecoration: "none" }}
           >
-            <div className="article-item__image">
-              <img
-                src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
-                style={{ width: "200px", height: "130px" }}
-              />
-            </div>
-            <div className="article-item__article_content">
+            <div className="article-header">
               <h2>{props.title}</h2>
-              <p>
-                {new String(props.content).substr(0, 80)} continue to read....
-              </p>
-
-              <p>Word Count: {WordCount}</p>
-
-              <h4>Estimated Reading Time: {EstimatedReadingTime} min</h4>
-              {/* <p>{props.id}</p> */}
-              <Link
-                to={`/${props.authorId}/articles`}
-                style={{ textDecoration: "none" }}
-              >
-                <p>{props.authorName}</p>
-              </Link>
-              <p>{props.authorEmail}</p>
-              <Link
-                to={`/get_article_by_categories/${props.categories}`}
-                style={{ textDecoration: "none" }}
+            </div>
+            <div className="article-body">
+              <div
+                className="article-body-section1"
+                style={{ display: "flex", flexDirection: "row" }}
               >
                 <div>
-                  <p className="categoryArea">Category : {props.categories}</p>
+                  <img
+                    className="article-item-image-item"
+                    src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                    alt={props.title}
+                    style={{ width: "200px", height: "130px" }}
+                  />
                 </div>
-              </Link>
-              <Link
-                to={`/get_article_by_tags/${props.tags}`}
-                style={{ textDecoration: "none" }}
+                <div style={{ padding: "13px" }}>
+                  <p>
+                    {new String(props.content).substr(0, 200)} continue to
+                    read....
+                  </p>
+                </div>
+              </div>
+              <div
+                className="article-body-section2"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <div>
-                  <p className="tag-area">Tags: {props.tags}</p>
+                <p>Word Count: {WordCount}</p>
+
+                <h4 style={{ marginLeft: "13px" }}>
+                  Estimated Reading Time: {EstimatedReadingTime} min
+                </h4>
+              </div>
+              <div
+                className="article-body-section3"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <Link
+                  to={`/${props.authorId}/articles`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div>
+                    <span className="author-info">
+                      author: {props.authorName}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="contact-info">
+                      contact: {props.authorEmail}
+                    </span>
+                  </div>
+                </Link>
+                {/* <span> */}
+                {/* 著者情報をonFloatでモーダルで表示させてもいい */}
+                {/* <Button onClick={openModalHandler}> */}
+
+                {/* </Button> */}
+                {/* </span> */}
+
+                <Link
+                  to={`/get_article_by_categories/${props.categories}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div style={{ marginLeft: "13px" }}>
+                    <p className="categoryArea">Category: {props.categories}</p>
+                  </div>
+                </Link>
+                <Link
+                  to={`/get_article_by_tags/${props.tags}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div style={{ marginLeft: "13px" }}>
+                    <p className="tag-area">Tag: {props.tags}</p>
+                  </div>
+                </Link>
+              </div>
+              <div
+                className="article-body-section4"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                <h4>
+                  price:{" "}
+                  <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+                    {Sunday
+                      ? new Number(props.price * 0.9).toFixed(0)
+                      : new Number(props.price).toFixed(0)}{" "}
+                  </span>
+                  {Sunday && (
+                    <span
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        color: "rgb(201, 30, 30)",
+                      }}
+                    >
+                      (-{new Number(DiscountedAmount).toFixed(0)} Saved)
+                    </span>
+                  )}
+                </h4>
+                <div style={{ marginLeft: "20px" }}>
+                  {props.downloadable ? (
+                    <span style={{ color: "green", border: "1px solid green" }}>
+                      Downloadable
+                    </span>
+                  ) : (
+                    <span style={{ color: "red", border: "1px solid red" }}>
+                      Not Downloadable
+                    </span>
+                  )}
                 </div>
-              </Link>
-              <h4>
-                price:{" "}
-                <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
-                  {Sunday
-                    ? new Number(props.price * 0.9).toFixed(0)
-                    : new Number(props.price).toFixed(0)}
-                </span>
-                {Sunday && (
-                  <span
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "20px",
+                  }}
+                >
+                  <p
                     style={{
                       fontSize: "14px",
-                      fontWeight: "600",
-                      color: "rgb(201, 30, 30)",
+                      color: "grey",
                     }}
                   >
-                    (-{new Number(DiscountedAmount).toFixed(0)} Saved)
-                  </span>
-                )}
-              </h4>
-              {props.downloadable ? (
-                <span style={{ color: "green", border: "1px solid green" }}>
-                  Downloadable
-                </span>
-              ) : (
-                <span style={{ color: "red", border: "1px solid red" }}>
-                  Not Downloadable
-                </span>
-              )}
-              <p style={{ fontSize: "14px", color: "grey" }}>
-                Date Created: {new Date(props.date_created).toDateString()}
-              </p>
+                    Date Created: {new Date(props.date_created).toDateString()}
+                  </p>
+                </div>
+              </div>
             </div>
-          </Link>{" "}
-          <div className="article-item__actions">
-            <Button btnBlack onClick={openModalHandler}>
-              View This Article
-            </Button>
+          </Link>
+          <div className="article-footer">
+            <div className="article-item__actions">
+              <Button btnBlack onClick={openModalHandler}>
+                View This Article
+              </Button>
 
-            {auth.userId === props.author && (
-              <Button btnBlackInverse to={`/articles/${props.id}`}>
-                Edit This Article
-              </Button>
-            )}
-            {auth.userId === props.author && (
-              <Button danger onClick={showDeleteWarningHandler}>
-                Delete This Article
-              </Button>
-            )}
+              {auth.userId === props.author && (
+                <Button btnBlackInverse to={`/articles/${props.id}`}>
+                  Edit This Article
+                </Button>
+              )}
+              {auth.userId === props.author && (
+                <Button danger onClick={showDeleteWarningHandler}>
+                  Delete This Article
+                </Button>
+              )}
 
-            {auth.isLoggedIn && (
-              <Button btnGreen onClick={openBuyModalHandler}>
-                Buy This Article
-              </Button>
-            )}
-            {auth.isLoggedIn && (
-              <Button btnGreen onClick={openSubscriptionRequestHandler}>
-                Download This Article
-              </Button>
-            )}
+              {auth.isLoggedIn && (
+                <Button btnGreen onClick={openBuyModalHandler}>
+                  Buy This Article
+                </Button>
+              )}
+              {auth.isLoggedIn && (
+                <Button btnGreen onClick={openSubscriptionRequestHandler}>
+                  Download This Article
+                </Button>
+              )}
+            </div>
           </div>
         </Card>
       </li>

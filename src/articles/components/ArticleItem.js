@@ -254,7 +254,6 @@ const ArticleItem = (props) => {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  
                 }}
               >
                 <p>Word Count: {WordCount}</p>
@@ -396,13 +395,6 @@ const ArticleItem = (props) => {
               )}
             </div>
           </div>
-
-          <div className="article-item__article_content">
-            {/* <p>{props.id}</p> */}
-
-            {/* <p>publishedDate: {props.publishedDate}</p> */}
-          </div>
-
         </Card>
       </li>
     </React.Fragment>
