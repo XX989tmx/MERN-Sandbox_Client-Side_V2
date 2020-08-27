@@ -7,6 +7,7 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 
 import "./GetSpecificArticleById.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import SpecificArticleByIdItem from "../components/SpecificArticleByIdItem";
 
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -44,7 +45,22 @@ const GetSpecificArticleById = () => {
         <div className="getSpecificArticleById-container">
           <div className="main-container">
             <div>
-              <ArticleItem
+              {/* <ArticleItem
+                key={Article.id}
+                id={Article.id}
+                image={Article.image}
+                title={Article.title}
+                content={Article.content}
+                authorName={ArticleAuthor.name}
+                authorEmail={ArticleAuthor.email}
+                authorId={ArticleAuthor._id}
+                categories={Article.categories}
+                tags={Article.tags}
+                price={Article.price}
+                date_created={Article.date_created}
+                downloadable={Article.downloadable}
+              /> */}
+              <SpecificArticleByIdItem
                 key={Article.id}
                 id={Article.id}
                 image={Article.image}

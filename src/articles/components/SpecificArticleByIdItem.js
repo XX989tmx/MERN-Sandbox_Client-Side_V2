@@ -10,11 +10,9 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import Map from "../../shared/components/UIElements/Map";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import "./SpecificArticleByIdItem.css";
 
-import "./ArticleItem.css";
-import { estimatedReadingTime } from "../../shared/util/estimatedReadingTime";
-
-const ArticleItem = (props) => {
+const SpecificArticleByIdItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
@@ -25,8 +23,6 @@ const ArticleItem = (props) => {
   );
   const [Sunday, setSunday] = useState();
   const [DiscountedAmount, setDiscountedAmount] = useState();
-  const [WordCount, setWordCount] = useState();
-  const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
 
   useEffect(() => {
     const onLoad = (params) => {
@@ -37,13 +33,6 @@ const ArticleItem = (props) => {
         setDiscountedAmount(discountAmount);
         setSunday(true);
       }
-      const countWord = (value) => {
-        return value.split(/\W+/).length;
-      };
-      setWordCount(countWord(props.content));
-
-      setEstimatedReadingTime(new Number(estimatedReadingTime(props.content)).toFixed(1)
-      );
     };
     onLoad();
   }, []);
@@ -235,13 +224,7 @@ const ArticleItem = (props) => {
             <div className="article-item__article_content">
               <h2>{props.title}</h2>
 
-              <p>
-                {new String(props.content).substr(0, 80)} continue to read....
-              </p>
-
-              <p>Word Count: {WordCount}</p>
-
-              <h4>Estimated Reading Time: {EstimatedReadingTime} min</h4>
+              <p>{props.content}</p>
               {/* <p>{props.id}</p> */}
               <span>
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
@@ -343,4 +326,4 @@ const ArticleItem = (props) => {
   );
 };
 
-export default ArticleItem;
+export default SpecificArticleByIdItem;
