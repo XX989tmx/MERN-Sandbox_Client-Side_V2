@@ -7,6 +7,7 @@ import Button from "../../shared/components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 import Modal from "../../shared/components/UIElements/Modal";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import { estimatedReadingTime } from "../../shared/util/estimatedReadingTime";
 
 const FindArticleByCategoryItems = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -17,6 +18,8 @@ const [BuyModal, setBuyModal] = useState(false);
 const [SubscriptionRequestModal, setSubscriptionRequestModal] = useState(false);
 const [Sunday, setSunday] = useState();
 const [DiscountedAmount, setDiscountedAmount] = useState();
+const [WordCount, setWordCount] = useState();
+const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
 
 useEffect(() => {
   const onLoad = (params) => {
@@ -27,6 +30,14 @@ useEffect(() => {
       setDiscountedAmount(discountAmount);
       setSunday(true);
     }
+    const countWord = (value) => {
+      return value.split(/\W+/).length;
+    };
+    setWordCount(countWord(props.content));
+
+    setEstimatedReadingTime(
+      new Number(estimatedReadingTime(props.content)).toFixed(1)
+    );
   };
   onLoad();
 }, []);
@@ -204,7 +215,13 @@ useEffect(() => {
             </div>
             <div className="article-item__article_content">
               <h2>{props.title}</h2>
-              <p>{props.content}</p>
+              <p>
+                {new String(props.content).substr(0, 80)} continue to read....
+              </p>
+
+              <p>Word Count: {WordCount}</p>
+
+              <h4>Estimated Reading Time: {EstimatedReadingTime} min</h4>
               {/* <p>{props.id}</p> */}
               <Link
                 to={`/${props.authorId}/articles`}
