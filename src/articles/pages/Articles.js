@@ -31,6 +31,7 @@ const Articles = () => {
   const [SearchedArticle, setSearchedArticle] = useState();
 
   const [query, setQuery] = useState();
+  const [TagNames, setTagNames] = useState();
 
   useEffect(() => {
     const allArticles = async (params) => {
@@ -42,6 +43,9 @@ const Articles = () => {
         setAllArticles(responseData.articles);
         console.log(responseData.count);
         setArticleCount(responseData.count);
+        console.log(responseData.TagArray);
+        let tagNames = responseData.TagArray.map(a => <option value={a}>{a}</option>)
+        setTagNames(tagNames);
       } catch (error) {}
     };
     allArticles();
@@ -349,7 +353,8 @@ const Articles = () => {
                     id="tags"
                     onChange={sortByTag}
                   >
-                    <option value="default" selected>
+                    {TagNames}
+                    {/* <option value="default" selected>
                       sort
                     </option>
                     <option value="politics">politics</option>
@@ -358,7 +363,7 @@ const Articles = () => {
                     <option value="literature">literature</option>
                     <option value="investment">investment</option>
                     <option value="technology">technology</option>
-                    <option value="business">business</option>
+                    <option value="business">business</option> */}
                   </select>
                 </label>
               </span>
