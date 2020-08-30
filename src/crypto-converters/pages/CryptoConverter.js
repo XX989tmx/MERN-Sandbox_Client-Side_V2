@@ -645,25 +645,29 @@ const CryptoConverter = () => {
 
           <div className="crypto-get-area">
             <div className="crypto-get-area">
-              <div className="center">
-                {/* components: GET Req for crypto & data pulled from backend */}
-                {/* <p>{cryptoData}</p>
-                <GetCryptoData props={cryptoData} /> */}
-                <form>
-                  <Button btnBlack onClick={getRequesthandler}>
-                    Get Latest Data
-                  </Button>
-                </form>
-                {/* <button draggable="true" onClick={goBackToTop}>
-                back to top page
-              </button> */}
-                {/* <div className="back-to-top">
-                <button onClick={goBackToTop}>goBackToTop</button>
-              </div> */}
-              </div>
               <hr />
 
-              <div className="currency-crypto-table-area">
+              <div className="currency-crypto-table-area center">
+                <h3 className="center">
+                  Exchange Rate Index
+                </h3>
+                <p>1 BTC to Currency</p>
+                <div className="center">
+                  {/* components: GET Req for crypto & data pulled from backend */}
+                  {/* <p>{cryptoData}</p>
+                <GetCryptoData props={cryptoData} /> */}
+                  <form>
+                    <Button btnBlack onClick={getRequesthandler}>
+                      Get Latest Data
+                    </Button>
+                  </form>
+                  {/* <button draggable="true" onClick={goBackToTop}>
+                back to top page
+              </button> */}
+                  {/* <div className="back-to-top">
+                <button onClick={goBackToTop}>goBackToTop</button>
+              </div> */}
+                </div>
                 <table className="currency-crypto-table">
                   <tr>
                     <th scope="col">Flag</th>
