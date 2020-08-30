@@ -13,7 +13,8 @@ const ContactUs = () => {
     <React.Fragment>
       <div className="contactUs-container">
         <div className="main-container">
-          <a href="http://localhost:3000/contact_us#para1">para1</a>
+          <h1 className="center">ContactUs</h1>
+          {/* <a href="http://localhost:3000/contact_us#para1">para1</a>
           <a href="http://localhost:3000/contact_us#para2">para2</a>
           <a href="http://localhost:3000/contact_us#para3">para3</a>
 
@@ -135,7 +136,7 @@ const ContactUs = () => {
             architectures.
           </p>
           <p></p>
-          <p></p>
+          <p></p> */}
         </div>
         {/* <div className="side-container">
         <div className="to-top">
