@@ -6,7 +6,7 @@ const CategoryIndexItems = (props) => {
       <Link to={`/get_article_by_categories/${props.categoryName}`}>
         <li className="list-item">
           <div className="item-area">
-            {props.categoryName}
+            <span>{props.categoryName}</span>
             <span class="badge">{props.count}</span>
           </div>
         </li>

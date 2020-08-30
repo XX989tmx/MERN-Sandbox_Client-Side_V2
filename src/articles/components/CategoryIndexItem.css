@@ -1,10 +1,18 @@
 .badge {
   background-color: red;
+    color: white;
+    border-radius: 100px;
+    margin-left: 20px;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+  /* background-color: red;
   color: white;
   border-radius: 100px;
   margin-left: 20px;
   
-  display: inline;
+  display: inline; */
 }
 
 .list-item {

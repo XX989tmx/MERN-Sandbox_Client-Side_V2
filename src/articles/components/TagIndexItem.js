@@ -8,7 +8,7 @@ const TagIndexItem = (props) => {
     <Link to={`/get_article_by_tags/${props.tagName}`}>
       <li className="list-item">
         <div className="item-area">
-          {props.tagName}
+          <span>{props.tagName}</span>
           <span class="badge">{props.count}</span>
         </div>
       </li>
