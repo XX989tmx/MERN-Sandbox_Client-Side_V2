@@ -10,7 +10,7 @@ const VideoItems = (props) => {
         <div className="video-image-box">
           <img
             // src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
-            src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+            src={props.image}
             alt=""
             style={{ width: "270px", height: "160px" }}
           />
