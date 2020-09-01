@@ -20,6 +20,7 @@ const VideoList = (props) => {
           duration={video.duration}
           hd={video.hd}
           is4k={video.is4k}
+          image={video.image}
         />
       ))}
     </ul>

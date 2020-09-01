@@ -10,162 +10,173 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
-import './NewVideo.css';
-
+import "./NewVideo.css";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
 const NewVideo = () => {
-    const auth = useContext(AuthContext);
-    const { isLoading, error, sendRequest, clearError } = useHttpClient();
-    const [formState, inputHandler] = useForm(
-      {
-        title: { value: "", isValid: false },
-        description: { value: "", isValid: false },
-        persons: { value: "", isValid: false },
-        src: { value: null, isValid: false },
-        tags: { value: "", isValid: false },
-        categories: { value: "", isValid: false },
-        duration: { value: "", isValid: false },
-        hd: { value: "", isValid: false },
-        is4k: { value: "", isValid: false },
-      },
-      false
-    );
+  const auth = useContext(AuthContext);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [formState, inputHandler] = useForm(
+    {
+      title: { value: "", isValid: false },
+      description: { value: "", isValid: false },
+      persons: { value: "", isValid: false },
+      src: { value: null, isValid: false },
+      tags: { value: "", isValid: false },
+      categories: { value: "", isValid: false },
+      duration: { value: "", isValid: false },
+      hd: { value: "", isValid: false },
+      is4k: { value: "", isValid: false },
+      image: { value: undefined, isValid: false },
+    },
+    false
+  );
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const newVideoSubmitHandler = async(event) => {
-        event.preventDefault();
-        
-        try {
-            // const formData = new FormData();
-            // formData.append("title", formState.inputs.title.value);
-            // formData.append("description", formState.inputs.description.value);
-            // formData.append("persons", formState.inputs.persons.value);
-            // formData.append("src", formState.inputs.src.value);
-            // formData.append("tags", formState.inputs.tags.value);
-            // formData.append("categories", formState.inputs.categories.value);
-            
-            const responseData = await sendRequest(
-              process.env.REACT_APP_BACKEND_URL + `/videos/new`,
-              "POST",
-              JSON.stringify({
-                title: formState.inputs.title.value,
-                description: formState.inputs.description.value,
-                persons: formState.inputs.persons.value,
-                src: formState.inputs.src.value,
-                tags: formState.inputs.tags.value,
-                userId: auth.userId,
-                categories: formState.inputs.categories.value,
-                duration: formState.inputs.duration.value,
-                hd: formState.inputs.hd.value,
-                is4k: formState.inputs.is4k.value,
-              }),
-              { "Content-Type": "application/json" }
-            );
+  const newVideoSubmitHandler = async (event) => {
+    event.preventDefault();
 
-            console.log(responseData);
-            history.push("/videos/main");
-           
-        } catch (error) {
-            
-        }
-    };
+    try {
+      const formData = new FormData();
+      formData.append("title", formState.inputs.title.value);
+      formData.append("description", formState.inputs.description.value);
+      formData.append("persons", formState.inputs.persons.value);
+      formData.append("src", formState.inputs.src.value);
+      formData.append("userId", auth.userId);
+      formData.append("tags", formState.inputs.tags.value);
+      formData.append("categories", formState.inputs.categories.value);
+      formData.append("image", formState.inputs.image.value);
+      formData.append("duration", formState.inputs.duration.value);
+      formData.append("hd", formState.inputs.hd.value);
+      formData.append("is4k", formState.inputs.is4k.value);
+      console.log(formData);
 
-    return (
-      <div className="new-video-container">
-        <div className="main-container">
-          <div>
-            <form onSubmit={newVideoSubmitHandler} className="card-box">
-              <Input
-                id="title"
-                element="input"
-                label="title"
-                placeholder="title"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="description"
-                element="input"
-                label="description"
-                placeholder="description"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="persons"
-                element="input"
-                label="persons"
-                placeholder="persons"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="src"
-                element="input"
-                label="src"
-                placeholder="src(emmbded video url)"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="tags"
-                element="input"
-                label="tags"
-                placeholder="tags"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="categories"
-                element="input"
-                label="categories"
-                placeholder="categories"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="duration"
-                element="input"
-                label="duration"
-                placeholder="duration"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="hd"
-                element="input"
-                label="hd"
-                placeholder="hd"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="is4k"
-                element="input"
-                label="is4k"
-                placeholder="is4k"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Button btnBlack type="submit" disabled={!formState.isValid}>
-                ADD NEW VIDEO
-              </Button>
-            </form>
-          </div>
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/new`,
+        "POST",
+        formData
+        // JSON.stringify({
+        //   title: formState.inputs.title.value,
+        //   description: formState.inputs.description.value,
+        //   persons: formState.inputs.persons.value,
+        //   src: formState.inputs.src.value,
+        //   tags: formState.inputs.tags.value,
+        //   userId: auth.userId,
+        //   categories: formState.inputs.categories.value,
+        //   duration: formState.inputs.duration.value,
+        //   hd: formState.inputs.hd.value,
+        //   is4k: formState.inputs.is4k.value,
+        // }),
+        // { "Content-Type": "application/json" }
+      );
+
+      console.log(responseData);
+      history.push("/videos/main");
+    } catch (error) {}
+  };
+
+  return (
+    <div className="new-video-container">
+      <div className="main-container">
+        <div>
+          <form onSubmit={newVideoSubmitHandler} className="card-box">
+            <Input
+              id="title"
+              element="input"
+              label="title"
+              placeholder="title"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="description"
+              element="input"
+              label="description"
+              placeholder="description"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="persons"
+              element="input"
+              label="persons"
+              placeholder="persons"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="src"
+              element="input"
+              label="src"
+              placeholder="src(emmbded video url)"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="tags"
+              element="input"
+              label="tags"
+              placeholder="tags"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="categories"
+              element="input"
+              label="categories"
+              placeholder="categories"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="duration"
+              element="input"
+              label="duration"
+              placeholder="duration"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="hd"
+              element="input"
+              label="hd"
+              placeholder="hd"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="is4k"
+              element="input"
+              label="is4k"
+              placeholder="is4k"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <ImageUpload
+              center
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+            <Button btnBlack type="submit" disabled={!formState.isValid}>
+              ADD NEW VIDEO
+            </Button>
+          </form>
         </div>
-        {/* <div className="side-container"></div> */}
       </div>
-    );
-}
+      {/* <div className="side-container"></div> */}
+    </div>
+  );
+};
 
 export default NewVideo;
