@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import './VideoByIdItem.css';
+import "./VideoByIdItem.css";
+import { AuthContext } from "../../shared/context/auth-context";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import { useParams, useHistory } from "react-router-dom";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const VideoByIdItem = (props) => {
-    return (
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+
+  const confirmDeleteHandler = async (params) => {
+    // setShowConfirmModal(false);
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/${props.id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      history.push("/videos/main");
+      // props.onDelete(props.id);
+    } catch (err) {}
+  };
+
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <div>
         <iframe
           src={props.src}
@@ -21,20 +47,22 @@ const VideoByIdItem = (props) => {
         >
           <span className="videoById-tag">{props.tags}</span>
         </Link>
-
         <Link
           to={`/videos/get_video_by_categories/${props.categories}`}
           style={{ textDecoration: "none" }}
         >
           <span className="videoById-category">{props.categories}</span>
         </Link>
-
         <span className="videoById-persons">{props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
-        <Link to={`/videos/update/${props.id}`}><p>temporaly update link</p></Link>
+        <Link to={`/videos/update/${props.id}`}>
+          <p>temporaly update link</p>
+        </Link>
+        <button onClick={confirmDeleteHandler}>temporaly delete button</button>
       </div>
-    );
-}
+    </React.Fragment>
+  );
+};
 
 export default VideoByIdItem;
