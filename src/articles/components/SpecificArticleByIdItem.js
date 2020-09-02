@@ -216,7 +216,7 @@ const SpecificArticleByIdItem = (props) => {
             <div className="article-item__image center">
               <img
                 className="article-item-image-item"
-                src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                src={props.image}
                 alt={props.title}
                 style={{ width: "200px", height: "130px" }}
               />

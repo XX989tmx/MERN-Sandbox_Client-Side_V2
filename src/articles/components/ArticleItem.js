@@ -236,7 +236,7 @@ const ArticleItem = (props) => {
                 <div>
                   <img
                     className="article-item-image-item"
-                    src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`}
+                    src={props.image}
                     alt={props.title}
                     style={{ width: "200px", height: "130px" }}
                   />
