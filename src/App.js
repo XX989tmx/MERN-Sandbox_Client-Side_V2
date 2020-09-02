@@ -40,6 +40,7 @@ import TagIndex from "./articles/pages/TagIndex";
 import CategoryIndex from "./articles/pages/CategoryIndex";
 import FlexTraining from "./statics/FlexTraining";
 import FooterMainNavigation from "./shared/components/Footer/FooterMainNavigation";
+import UpdateVideo from "./videos/pages/UpdateVideo";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -139,6 +140,9 @@ const App = () => {
         </Route>
         <Route path="/videos/get_video_by_categories/:categories" exact>
           <FindVideoByCategory />
+        </Route>
+        <Route path="/videos/update/:videoId" exact>
+          <UpdateVideo />
         </Route>
         {/* <Route path="/videos/item" exact>
           <VideoItemPage />

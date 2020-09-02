@@ -32,6 +32,7 @@ const VideoByIdItem = (props) => {
         <span className="videoById-persons">{props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
+        <Link to={`/videos/update/${props.id}`}><p>temporaly update link</p></Link>
       </div>
     );
 }
