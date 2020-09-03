@@ -176,6 +176,11 @@ const MainNavigation = () => {
                 <li>
                   <NavLink to="/videos/item">Video Item</NavLink>
                 </li>
+                <li>
+                  <NavLink to={`/videos/video_management/${auth.userId}`}>
+                    manage my video
+                  </NavLink>
+                </li>
               </ul>
             </div>
             <div className="settings-and-information-modal">

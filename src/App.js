@@ -41,6 +41,7 @@ import CategoryIndex from "./articles/pages/CategoryIndex";
 import FlexTraining from "./statics/FlexTraining";
 import FooterMainNavigation from "./shared/components/Footer/FooterMainNavigation";
 import UpdateVideo from "./videos/pages/UpdateVideo";
+import VideoManagement from "./videos/pages/VideoManagement";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -143,6 +144,9 @@ const App = () => {
         </Route>
         <Route path="/videos/update/:videoId" exact>
           <UpdateVideo />
+        </Route>
+        <Route path="/videos/video_management/:userId" exact>
+          <VideoManagement />
         </Route>
         {/* <Route path="/videos/item" exact>
           <VideoItemPage />

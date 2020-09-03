@@ -55,6 +55,11 @@ const NavLinks = props => {
         <li>
           <NavLink to="/videos/item">ideo item</NavLink>
         </li>
+        <li>
+          <NavLink to={`/videos/video_management/${auth.userId}`}>
+            manage my video
+          </NavLink>
+        </li>
 
         <li>
           <NavLink to={`/${auth.userId}/user_detail_info/create`}>
