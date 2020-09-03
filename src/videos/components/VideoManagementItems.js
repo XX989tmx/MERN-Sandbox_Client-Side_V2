@@ -1,10 +1,62 @@
-import React from 'react';
-
-import './VideoItems.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../shared/context/auth-context";
+import "./VideoItems.css";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { Link } from "react-router-dom";
+import Button from "../../shared/components/FormElements/Button";
+import Modal from "../../shared/components/UIElements/Modal";
+import Card from "../../shared/components/UIElements/Card";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const VideoManagementItems = (props) => {
-    return (
+  const auth = useContext(AuthContext);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const showDeleteWarningHandler = (params) => {
+    setShowConfirmModal(true);
+  };
+  const cancelDeleteWarningHandler = (params) => {
+    setShowConfirmModal(false);
+  };
+  const confirmDeleteHandler = async (params) => {
+    setShowConfirmModal(false);
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/${props.id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
+  };
+
+  return (
+    <React.Fragment>
+      <Modal
+        show={showConfirmModal}
+        onCancel={cancelDeleteWarningHandler}
+        header="Are you sure?"
+        footerClass="article-item__modal-actions"
+        footer={
+          <React.Fragment>
+            <Button inverse onClick={cancelDeleteWarningHandler}>
+              CANCEL
+            </Button>
+            <Button danger onClick={confirmDeleteHandler}>
+              DELETE
+            </Button>
+          </React.Fragment>
+        }
+      >
+        <p>
+          Do you want to proceed and delete this video? Please note that it
+          can't be undone thereafter.
+        </p>
+      </Modal>
       <li className="video-item-container center">
         <Link to={`/videos/${props.id}`} style={{ textDecoration: "none" }}>
           <div className="video-image-box">
@@ -48,10 +100,18 @@ const VideoManagementItems = (props) => {
         >
           <span className="video-item-category">{props.categories}</span>
         </Link>
-
+        <div>
+          <Button btnGreen to={`/videos/update/${props.id}`}>
+            Update
+          </Button>
+          <Button danger onClick={showDeleteWarningHandler}>
+            Delete
+          </Button>
+        </div>
         {/* <p>{props.id}</p> */}
       </li>
-    );
-}
+    </React.Fragment>
+  );
+};
 
 export default VideoManagementItems;

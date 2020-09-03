@@ -56,10 +56,10 @@ const VideoByIdItem = (props) => {
         <span className="videoById-persons">{props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
-        <Link to={`/videos/update/${props.id}`}>
+        {/* <Link to={`/videos/update/${props.id}`}>
           <p>temporaly update link</p>
         </Link>
-        <button onClick={confirmDeleteHandler}>temporaly delete button</button>
+        <button onClick={confirmDeleteHandler}>temporaly delete button</button> */}
       </div>
     </React.Fragment>
   );
