@@ -62,6 +62,15 @@ const CryptoConverter = () => {
   const [THBFirstCharacter, setTHBFirstCharacter] = useState("");
   const [TRYFirstCharacter, setTRYFirstCharacter] = useState("");
   const [TWDFirstCharacter, setTWDFirstCharacter] = useState("");
+
+  const [FromCurrency1, setFromCurrency1] = useState();
+  const [FromCurrency2, setFromCurrency2] = useState();
+  const [ToCurrency1, setToCurrency1] = useState();
+  const [ToCurrency2, setToCurrency2] = useState();
+
+  const [FiatCurrencyCodeOptions, setFiatCurrencyCodeOptions] = useState("");
+  const [CryptoCurrencyCodeOptions, setCryptoCurrencyCodeOptions] = useState("");
+
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
@@ -198,9 +207,7 @@ const CryptoConverter = () => {
           let firstCharacterCNY = new String(cny).charAt(0);
           console.log(new String(cny).charAt(0));
           setCNYFirstCharacter(firstCharacterCNY);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //DKK
         try {
@@ -208,9 +215,7 @@ const CryptoConverter = () => {
           let firstCharacterDKK = new String(dkk).charAt(0);
           console.log(new String(dkk).charAt(0));
           setDKKFirstCharacter(firstCharacterDKK);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //EUR
         try {
@@ -218,9 +223,7 @@ const CryptoConverter = () => {
           let firstCharacterEUR = new String(eur).charAt(0);
           console.log(new String(eur).charAt(0));
           setEURFirstCharacter(firstCharacterEUR);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //GBP
         try {
@@ -228,9 +231,7 @@ const CryptoConverter = () => {
           let firstCharacterGBP = new String(gbp).charAt(0);
           console.log(new String(gbp).charAt(0));
           setGBPFirstCharacter(firstCharacterGBP);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //HKD
         try {
@@ -238,9 +239,7 @@ const CryptoConverter = () => {
           let firstCharacterHKD = new String(hkd).charAt(0);
           console.log(new String(hkd).charAt(0));
           setHKDFirstCharacter(firstCharacterHKD);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //INR
         try {
@@ -248,9 +247,7 @@ const CryptoConverter = () => {
           let firstCharacterINR = new String(inr).charAt(0);
           console.log(new String(inr).charAt(0));
           setINRFirstCharacter(firstCharacterINR);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //ISK
         try {
@@ -258,9 +255,7 @@ const CryptoConverter = () => {
           let firstCharacterISK = new String(isk).charAt(0);
           console.log(new String(isk).charAt(0));
           setISKFirstCharacter(firstCharacterISK);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //KRW
         try {
@@ -268,9 +263,7 @@ const CryptoConverter = () => {
           let firstCharacterKRW = new String(krw).charAt(0);
           console.log(new String(krw).charAt(0));
           setKRWFirstCharacter(firstCharacterKRW);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //NZD
         try {
@@ -278,9 +271,7 @@ const CryptoConverter = () => {
           let firstCharacterNZD = new String(nzd).charAt(0);
           console.log(new String(nzd).charAt(0));
           setNZDFirstCharacter(firstCharacterNZD);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //PLN
         try {
@@ -288,9 +279,7 @@ const CryptoConverter = () => {
           let firstCharacterPLN = new String(pln).charAt(0);
           console.log(new String(pln).charAt(0));
           setPLNFirstCharacter(firstCharacterPLN);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //RUB
         try {
@@ -298,9 +287,7 @@ const CryptoConverter = () => {
           let firstCharacterRUB = new String(rub).charAt(0);
           console.log(new String(rub).charAt(0));
           setRUBFirstCharacter(firstCharacterRUB);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //SEK
         try {
@@ -308,9 +295,7 @@ const CryptoConverter = () => {
           let firstCharacterSEK = new String(sek).charAt(0);
           console.log(new String(sek).charAt(0));
           setSEKFirstCharacter(firstCharacterSEK);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //SGD
         try {
@@ -318,9 +303,7 @@ const CryptoConverter = () => {
           let firstCharacterSGD = new String(sgd).charAt(0);
           console.log(new String(sgd).charAt(0));
           setSGDFirstCharacter(firstCharacterSGD);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //THB
         try {
@@ -328,9 +311,7 @@ const CryptoConverter = () => {
           let firstCharacterTHB = new String(thb).charAt(0);
           console.log(new String(thb).charAt(0));
           setTHBFirstCharacter(firstCharacterTHB);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //TRY
         try {
@@ -338,9 +319,7 @@ const CryptoConverter = () => {
           let firstCharacterTRY = new String(cTry).charAt(0);
           console.log(new String(cTry).charAt(0));
           setTRYFirstCharacter(firstCharacterTRY);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         //TWD
         try {
@@ -348,9 +327,7 @@ const CryptoConverter = () => {
           let firstCharacterTWD = new String(twd).charAt(0);
           console.log(new String(twd).charAt(0));
           setTWDFirstCharacter(firstCharacterTWD);
-        } catch (error) {
-          
-        }
+        } catch (error) {}
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
@@ -374,6 +351,30 @@ const CryptoConverter = () => {
         // responseData.priceDifferenceBetweenPreviousAndLatest.THB;
         // responseData.priceDifferenceBetweenPreviousAndLatest.TRY;
         // responseData.priceDifferenceBetweenPreviousAndLatest.TWD;
+      } catch (error) {}
+
+      try {
+        const response = await fetch(
+          process.env.REACT_APP_BACKEND_URL +
+            "/get_external_api/crypto_currency/fetchFiatCodesAndCryptoCodes"
+        );
+        const responseData = await response.json();
+        console.log(responseData);
+        const fiatCurrencyCodeList = responseData.fiatCurrencyCodes;
+
+        let fiatCurrencyCodeOption = fiatCurrencyCodeList.map((f) => (
+          <option value={f.currency_code} key={f.currency_code}>
+            {f.currency_code}
+          </option>
+        ));
+        setFiatCurrencyCodeOptions(fiatCurrencyCodeOption);
+        const cryptoCurrencyCodeList = responseData.cryptoCurrencyCodes;
+        let cryptoCurrencyCodeOption = cryptoCurrencyCodeList.map((c) => (
+          <option value={c.currency_code} key={c.currency_code}>
+            {c.currency_code}
+          </option>
+        ));
+        setCryptoCurrencyCodeOptions(cryptoCurrencyCodeOption)
       } catch (error) {}
     };
     getRequestForCryptoData();
@@ -436,6 +437,41 @@ const CryptoConverter = () => {
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
           `/get_external_api/crypto_currency/exchange_rate?FromCurrency=${FromCurrency}&ToCurrency=${ToCurrency}`
+      );
+      console.log(responseData);
+      console.log(responseData.ExchangeRate);
+      setExchangeRate(responseData);
+    } catch (error) {}
+  };
+
+  const FromCurrencyChangehandler1 = async (event) => {
+    // event.preventDefault();
+    setFromCurrency1(event.target.value);
+  };
+  const FromCurrencyChangehandler2 = async (event) => {
+    // event.preventDefault();
+    setFromCurrency2(event.target.value);
+  };
+  const ToCurrencyChangehandler1 = async (event) => {
+    // event.preventDefault();
+
+    setToCurrency1(event.target.value);
+  };
+  const ToCurrencyChangehandler2 = async (event) => {
+    // event.preventDefault();
+    setToCurrency2(event.target.value);
+  };
+
+  const exchangeRateSubmithandler = async (event) => {
+    event.preventDefault();
+    try {
+      // var FromCurrency = formState.inputs.FromCurrency.value;
+      // var ToCurrency = formState.inputs.ToCurrency.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/get_external_api/crypto_currency/exchange_rate?FromCurrency=${
+            FromCurrency1 || FromCurrency2
+          }&ToCurrency=${ToCurrency1 || ToCurrency2}`
       );
       console.log(responseData);
       console.log(responseData.ExchangeRate);
@@ -621,6 +657,29 @@ const CryptoConverter = () => {
               />
               <Button btnBlack>get exchange rate</Button>
             </form>
+            <form onSubmit={exchangeRateSubmithandler}>
+              <select
+                value={FromCurrency1}
+                onChange={FromCurrencyChangehandler1}
+              >
+                {FiatCurrencyCodeOptions}
+              </select>
+              <select
+                value={FromCurrency2}
+                onChange={FromCurrencyChangehandler2}
+              >
+                {CryptoCurrencyCodeOptions}
+              </select>
+              <select value={ToCurrency1} onChange={ToCurrencyChangehandler1}>
+                {FiatCurrencyCodeOptions}
+              </select>
+              <select value={ToCurrency2} onChange={ToCurrencyChangehandler2}>
+                {CryptoCurrencyCodeOptions}
+              </select>
+              <button type="submit" value="Submit">
+                submit
+              </button>
+            </form>
           </div>
           <div className="center">
             <ExchangeRateItem
@@ -648,9 +707,7 @@ const CryptoConverter = () => {
               <hr />
 
               <div className="currency-crypto-table-area center">
-                <h3 className="center">
-                  Exchange Rate Index
-                </h3>
+                <h3 className="center">Exchange Rate Index</h3>
                 <p>1 BTC to Currency</p>
                 <div className="center">
                   {/* components: GET Req for crypto & data pulled from backend */}
@@ -1345,101 +1402,6 @@ const CryptoConverter = () => {
                     </th>
                   </tr>
                 </table>
-
-                {/* <h4>
-                <span>🇯🇵</span> Japansease Yen:
-                {CurrencySymbol.symbol_JPY}
-                {LastValue.last_JPY}
-              </h4>
-              <h4>
-                <span>🇺🇸</span> US Dollar: {CurrencySymbol.symbol_USD}
-                {LastValue.last_USD}
-              </h4>
-              <h4>
-                <span>🇦🇺</span> Australian dollar: {CurrencySymbol.symbol_AUD}
-                {LastValue.last_AUD}
-              </h4>
-              <h4>
-                <span>🇧🇷</span> Brazilian Real: {CurrencySymbol.symbol_BRL}
-                {LastValue.last_BRL}
-              </h4>
-              <h4>
-                <span>🇨🇦</span> Canadian Dollar: {CurrencySymbol.symbol_CAD}
-                {LastValue.last_CAD}
-              </h4>
-              <h4>
-                <span>🇨🇭</span> Swiss franc: {CurrencySymbol.symbol_CHF}
-                {LastValue.last_CHF}
-              </h4>
-              <h4>
-                <span>🇨🇱</span> Chilean Peso: {CurrencySymbol.symbol_CLP}
-                {LastValue.last_CLP}
-              </h4>
-              <h4>
-                <span>🇨🇳</span> Renminbi: {CurrencySymbol.symbol_CNY}
-                {LastValue.last_CNY}
-              </h4>
-              <h4>
-                <span>🇩🇰</span> Danish krone: {CurrencySymbol.symbol_DKK}
-                {LastValue.last_DKK}
-              </h4>
-              <h4>
-                <span>🇪🇺</span> Euro: {CurrencySymbol.symbol_EUR}
-                {LastValue.last_EUR}
-              </h4>
-              <h4>
-                <span>🇬🇧</span> British pound sterling:{" "}
-                {CurrencySymbol.symbol_GBP}
-                {LastValue.last_GBP}
-              </h4>
-              <h4>
-                <span>🇭🇰</span> Hong Kong Dollar: {CurrencySymbol.symbol_HKD}
-                {LastValue.last_HKD}
-              </h4>
-              <h4>
-                <span>🇮🇳</span> Indian rupee: {CurrencySymbol.symbol_INR}
-                {LastValue.last_INR}
-              </h4>
-              <h4>
-                <span>🇮🇸</span> Icelandic króna: {CurrencySymbol.symbol_ISK}
-                {LastValue.last_ISK}
-              </h4>
-              <h4>
-                <span>🇰🇷</span> South Korean Won: {CurrencySymbol.symbol_KRW}
-                {LastValue.last_KRW}
-              </h4>
-              <h4>
-                <span>🇳🇿</span> New Zealand dollar: {CurrencySymbol.symbol_NZD}
-                {LastValue.last_NZD}
-              </h4>
-              <h4>
-                <span>🇵🇱</span> Polish zloty: {CurrencySymbol.symbol_PLN}
-                {LastValue.last_PLN}
-              </h4>
-              <h4>
-                <span>🇷🇺</span> Russian ruble: {CurrencySymbol.symbol_RUB}
-                {LastValue.last_RUB}
-              </h4>
-              <h4>
-                <span>🇸🇪</span> Swedish krona: {CurrencySymbol.symbol_SEK}
-                {LastValue.last_SEK}
-              </h4>
-              <h4>
-                <span>🇸🇬</span> Singapore dollar: {CurrencySymbol.symbol_SGD}
-                {LastValue.last_SGD}
-              </h4>
-              <h4>
-                <span>🇹🇭</span> Thai Baht: {CurrencySymbol.symbol_THB}
-                {LastValue.last_THB}
-              </h4>
-              <h4>
-                <span>🇹🇷</span> Turkish Lira: {CurrencySymbol.symbol_TRY}
-                {LastValue.last_TRY}
-              </h4>
-              <h4>
-                <span>🇹🇼</span> New Taiwan dollar: {CurrencySymbol.symbol_TWD}
-                {LastValue.last_TWD}
-              </h4> */}
               </div>
             </div>
           </div>
