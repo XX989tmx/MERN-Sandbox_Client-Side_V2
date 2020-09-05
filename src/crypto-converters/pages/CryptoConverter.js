@@ -67,7 +67,7 @@ const CryptoConverter = () => {
   const [FromCurrency2, setFromCurrency2] = useState();
   const [ToCurrency1, setToCurrency1] = useState();
   const [ToCurrency2, setToCurrency2] = useState();
-  const [userInputCurrencyAmount, setuserInputCurrencyAmount] = useState(0);
+  const [userInputCurrencyAmount, setuserInputCurrencyAmount] = useState(1);
   const [Result, setResult] = useState();
 
   const [FiatCurrencyCodeOptions, setFiatCurrencyCodeOptions] = useState("");
@@ -366,14 +366,14 @@ const CryptoConverter = () => {
 
         let fiatCurrencyCodeOption = fiatCurrencyCodeList.map((f) => (
           <option value={f.currency_code} key={f.currency_code}>
-            {f.currency_code}
+            {f.currency_name}
           </option>
         ));
         setFiatCurrencyCodeOptions(fiatCurrencyCodeOption);
         const cryptoCurrencyCodeList = responseData.cryptoCurrencyCodes;
         let cryptoCurrencyCodeOption = cryptoCurrencyCodeList.map((c) => (
           <option value={c.currency_code} key={c.currency_code}>
-            {c.currency_code}
+            {c.currency_name}
           </option>
         ));
         setCryptoCurrencyCodeOptions(cryptoCurrencyCodeOption)
