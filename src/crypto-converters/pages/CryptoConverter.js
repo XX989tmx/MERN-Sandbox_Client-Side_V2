@@ -712,10 +712,12 @@ const CryptoConverter = () => {
               AskPrice={ExchangeRate.AskPrice}
             />
             <div>
-              {/* {userInputCurrencyAmount}
-              {ExchangeRate.FromCurrencyName}is */}
-              {Result}
-              {ExchangeRate.ToCurrencyName}
+              {userInputCurrencyAmount}
+              {ExchangeRate.FromCurrencyName}is
+              <h3>
+                {Result && <span> {new Number(Result).toFixed(2)}</span>}
+                <span>{ExchangeRate.ToCurrencyName}</span>
+              </h3>
             </div>
             {/* <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
           <h3>
