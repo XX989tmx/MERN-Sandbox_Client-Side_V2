@@ -13,6 +13,7 @@ import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavig
 import CurrencyNameSelector from "../components/CurrencyNameSelector";
 import { currencyName } from "../../shared/util/currencyName";
 import { currencyCode } from "../../shared/util/currencyCode";
+import { Link } from "react-router-dom";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -143,12 +144,15 @@ const FcasRating = () => {
                 numerical score, 0-1000, and an associated rating as follows:
               </p>
             </div>
+            
             <div>
               <img
                 src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
-                alt="" style={{width:'500px',height:'350px'}}
+                alt=""
+                style={{ width: "500px", height: "350px" }}
               />
             </div>
+            <Link to={"/crypto_converter"}>Go Back</Link>
             <MoveToTopButton />
           </div>
         </div>

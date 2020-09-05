@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import ArticleList from "../components/ArticleList";
@@ -333,11 +333,12 @@ const Articles = () => {
                     name="Category"
                     id="categories"
                     onChange={sortByCategory}
-                  >{/* {CategoryNames} */}
+                  >
+                    {/* {CategoryNames} */}
                     <option value="default" selected>
                       sort
                     </option>
-                    
+
                     <option value="politics">politics</option>
                     <option value="science">science</option>
                     <option value="education">education</option>
@@ -395,6 +396,12 @@ const Articles = () => {
             <p style={{ color: "grey", textAlign: "left" }}>
               if something does not work, please reload the page.
             </p>
+            <span>
+              <Link to={"/articles/tagIndex"}>Tag Index</Link>
+            </span>
+            <span>
+              <Link to={"/articles/categoryIndex"}>Category Index</Link>
+            </span>
             <hr />
 
             <h5>{ArticleCount} articles</h5>

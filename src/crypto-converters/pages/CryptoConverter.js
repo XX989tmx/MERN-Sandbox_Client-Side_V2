@@ -67,6 +67,8 @@ const CryptoConverter = () => {
   const [FromCurrency2, setFromCurrency2] = useState();
   const [ToCurrency1, setToCurrency1] = useState();
   const [ToCurrency2, setToCurrency2] = useState();
+  const [userInputCurrencyAmount, setuserInputCurrencyAmount] = useState(0);
+  const [Result, setResult] = useState();
 
   const [FiatCurrencyCodeOptions, setFiatCurrencyCodeOptions] = useState("");
   const [CryptoCurrencyCodeOptions, setCryptoCurrencyCodeOptions] = useState("");
@@ -475,9 +477,20 @@ const CryptoConverter = () => {
       );
       console.log(responseData);
       console.log(responseData.ExchangeRate);
+      
       setExchangeRate(responseData);
+      console.log(new Number(responseData.ExchangeRate));
+      let resultAmount =
+        new Number(responseData.ExchangeRate) *
+        userInputCurrencyAmount;
+        console.log(resultAmount);
+      setResult(resultAmount);
     } catch (error) {}
   };
+
+  const userInputCurrencyAmountChangeHandler = async(event) => {
+    setuserInputCurrencyAmount(event.target.value)
+  }
 
   return (
     <React.Fragment>
@@ -658,6 +671,11 @@ const CryptoConverter = () => {
               <Button btnBlack>get exchange rate</Button>
             </form>
             <form onSubmit={exchangeRateSubmithandler}>
+              <input
+                type="text"
+                onChange={userInputCurrencyAmountChangeHandler}
+                value={userInputCurrencyAmount}
+              ></input>
               <select
                 value={FromCurrency1}
                 onChange={FromCurrencyChangehandler1}
@@ -693,6 +711,12 @@ const CryptoConverter = () => {
               BidPrice={ExchangeRate.BidPrice}
               AskPrice={ExchangeRate.AskPrice}
             />
+            <div>
+              {/* {userInputCurrencyAmount}
+              {ExchangeRate.FromCurrencyName}is */}
+              {Result}
+              {ExchangeRate.ToCurrencyName}
+            </div>
             {/* <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
           <h3>
             {ExchangeRate.ExchangeRate}{" "}

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ArticleItem from "../components/ArticleItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
@@ -75,6 +75,11 @@ const GetSpecificArticleById = () => {
                 date_created={Article.date_created}
                 downloadable={Article.downloadable}
               />
+              <div>
+                <span>
+                  <Link to={`/articles`}>Article Index</Link>
+                </span>
+              </div>
               <MoveToTopButton />
             </div>
           </div>

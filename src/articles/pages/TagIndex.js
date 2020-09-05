@@ -4,6 +4,7 @@ import TagIndexList from "../components/TagIndexList";
 
 import "./TagIndex.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import { Link } from "react-router-dom";
 
 const TagIndex = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -31,6 +32,11 @@ const TagIndex = () => {
         <div className="main-container">
           <div>
             <TagIndexList TagIndexData={TagIndexData} />
+          </div>
+          <div>
+            <span>
+              <Link to={`/articles`}>Article Index</Link>
+            </span>
           </div>
         </div>
         {/* <div className="side-container"></div> */}

@@ -13,6 +13,7 @@ import './HIstoricalData.css';
 import Button from "../../shared/components/FormElements/Button";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import { Link } from "react-router-dom";
 
 const HistoricalData = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -663,6 +664,8 @@ const HistoricalData = () => {
               <option value="11-2019">11-2019</option>
               <option value="12-2019">12-2019</option>
             </select>
+            <Link to={"/crypto_converter"}>Go Back</Link>
+            
             <hr />
             <HistoricalDataList
               dateStringArray={DateStringArray}

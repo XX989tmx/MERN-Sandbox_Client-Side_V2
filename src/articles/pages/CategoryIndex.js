@@ -4,6 +4,7 @@ import CategoryIndexList from "../components/CategoryIndexList";
 
 import "./CategoryIndex.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import { Link } from "react-router-dom";
 
 const CategoryIndex = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -31,6 +32,11 @@ const CategoryIndex = () => {
         <div className="main-container">
           <div>
             <CategoryIndexList CategoryIndexData={CategoryIndexData} />
+          </div>
+          <div>
+            <span>
+              <Link to={`/articles`}>Article Index</Link>
+            </span>
           </div>
         </div>
         {/* <div className="side-container"></div> */}

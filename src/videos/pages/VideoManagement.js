@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import VideoManagementList from "../components/VideoManagementList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
@@ -36,6 +36,9 @@ const VideoManagement = () => {
       <div className="video-main-container">
         <div>
           <h2>Welcome {UserName}! Your Videos is here</h2>
+          <span>
+            <Link to={`/videos/main`}>Go Video Index</Link>
+          </span>
           <VideoManagementList items={MyVideos} />
           <MoveToTopButton />
         </div>

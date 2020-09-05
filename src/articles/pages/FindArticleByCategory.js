@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import FindArticleByCategoryList from "../components/FindArticleByCategoryList";
@@ -45,6 +45,11 @@ const FindArticleByCategory = () => {
           <div className="main-container">
             <div>
               <h5>{CountByCategory} related articles found.</h5>
+              <div>
+                <span>
+                  <Link to={`/articles`}>Article Index</Link>
+                </span>
+              </div>
               <FindArticleByCategoryList items={CategorySortedArticle} />
               <MoveToTopButton />
             </div>

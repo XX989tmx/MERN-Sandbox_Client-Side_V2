@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import FindArticleByTagList from "../components/FindArticleByTagList";
@@ -63,6 +63,11 @@ const FindArticleByTag = () => {
         <h6>{ArticleContent}</h6>
       </div> */}
               <h4>{CountByTag} related article found</h4>
+              <div>
+                <span>
+                  <Link to={`/articles`}>Article Index</Link>
+                </span>
+              </div>
               <FindArticleByTagList items={tagSortedArticle} />
               <MoveToTopButton />
             </div>
