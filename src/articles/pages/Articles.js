@@ -393,7 +393,7 @@ const Articles = () => {
                 </label>
               </span>
             </div>
-            <p style={{ color: "grey", textAlign: "left" }}>
+            <p className="reload-request">
               if something does not work, please reload the page.
             </p>
             <span>
