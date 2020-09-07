@@ -10,8 +10,10 @@
 @media only screen and (min-width: 768px) {
   /* For tablets: */
   .video-main-container {
+      /* margin-right: 20%;
+    margin-left: 0px; */
     margin: auto;
-    width: 80%;
+    width: 100%;
     /* height: 100vh; */
     min-height: 100vh;
 }
