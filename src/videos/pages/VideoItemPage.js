@@ -42,7 +42,7 @@ const VideoItemPage = () => {
       )}
       {!isLoading && VideoById && (
         <div className="video-item-page-container">
-          <div>
+        
             <div>
               {/* <p>
               個別のビデオ表示のためには2通りの可能性。1videoItem child
@@ -68,7 +68,7 @@ const VideoItemPage = () => {
         
             <VideoLinkItemList></VideoLinkItemList> */}
             </div>
-          </div>
+          
         </div>
       )}
       {!isLoading && VideoById && <FooterMainNavigation />}

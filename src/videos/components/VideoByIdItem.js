@@ -30,11 +30,11 @@ const VideoByIdItem = (props) => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <div>
-        <iframe
+      <div className="video-area">
+        <iframe className="video-iframe"
           src={props.src}
-          width="1082px"
-          height="610px"
+          // width="1082px"
+          // height="610px"
           frameborder="0"
           allow="autoplay; fullscreen"
           allowfullscreen
