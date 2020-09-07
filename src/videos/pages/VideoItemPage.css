@@ -4,3 +4,13 @@
     /* height: 100vh; */
     min-height: 100vh;
 }
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktop: */
+ 
+}

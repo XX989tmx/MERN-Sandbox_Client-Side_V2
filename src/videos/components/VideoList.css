@@ -3,4 +3,28 @@
     flex-flow: row wrap;
     width: 100%;
     list-style: none;
+    margin: 0; /* To remove default bottom margin */ 
+    padding: 0; 
+}
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .video-list {
+     
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    list-style: none;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktop: */
+ .video-list {
+    
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    list-style: none;
+}
 }
