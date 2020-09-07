@@ -61,10 +61,11 @@ const VideoManagementItems = (props) => {
         <Link to={`/videos/${props.id}`} style={{ textDecoration: "none" }}>
           <div className="video-image-box">
             <img
+              className="video-image"
               // src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
               src={props.image}
               alt=""
-              style={{ width: "270px", height: "160px" }}
+              // style={{ width: "220px", height: "125px" }}
             />
             {props.hd && <span className="hd">HD</span>}
             {props.is4k && <span className="is4K">4K</span>}
