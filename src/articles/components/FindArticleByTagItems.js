@@ -214,47 +214,29 @@ const FindArticleByTagItems = (props) => {
               <h2>{props.title}</h2>
             </div>
             <div className="article-body">
-              <div
-                className="article-body-section1"
-                style={{ display: "flex", flexDirection: "row" }}
-              >
+              <div className="article-body-section1">
                 <div>
                   <img
                     className="article-item-image-item"
                     src={props.image}
                     alt={props.title}
-                    style={{ width: "200px", height: "130px" }}
                   />
                 </div>
-                <div style={{ padding: "13px" }}>
+                <div className="article-content-box">
                   <p>
                     {new String(props.content).substr(0, 200)} continue to
                     read....
                   </p>
                 </div>
               </div>
-              <div
-                className="article-body-section2"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
+              <div className="article-body-section2">
                 <p>Word Count: {WordCount}</p>
 
-                <h4 style={{ marginLeft: "13px" }}>
+                <h4 className="estimated-reading-time-tag">
                   Estimated Reading Time: {EstimatedReadingTime} min
                 </h4>
               </div>
-              <div
-                className="article-body-section3"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
+              <div className="article-body-section3">
                 <Link
                   to={`/${props.authorId}/articles`}
                   style={{ textDecoration: "none" }}
@@ -281,7 +263,7 @@ const FindArticleByTagItems = (props) => {
                   to={`/get_article_by_categories/${props.categories}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <div style={{ marginLeft: "13px" }}>
+                  <div className="margin-left13">
                     <p className="categoryArea">Category: {props.categories}</p>
                   </div>
                 </Link>
@@ -289,20 +271,12 @@ const FindArticleByTagItems = (props) => {
                   to={`/get_article_by_tags/${props.tags}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <div style={{ marginLeft: "13px" }}>
+                  <div className="margin-left13">
                     <p className="tag-area">Tag: {props.tags}</p>
                   </div>
                 </Link>
               </div>
-              <div
-                className="article-body-section4"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  position: "relative",
-                }}
-              >
+              <div className="article-body-section4">
                 <h4>
                   price:{" "}
                   <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
@@ -322,7 +296,7 @@ const FindArticleByTagItems = (props) => {
                     </span>
                   )}
                 </h4>
-                <div style={{ marginLeft: "20px" }}>
+                <div className="downloadable-box">
                   {props.downloadable ? (
                     <span style={{ color: "green", border: "1px solid green" }}>
                       Downloadable
@@ -333,18 +307,8 @@ const FindArticleByTagItems = (props) => {
                     </span>
                   )}
                 </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    right: "20px",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: "14px",
-                      color: "grey",
-                    }}
-                  >
+                <div className="date-created-box">
+                  <p className="date-created-tag">
                     Date Created: {new Date(props.date_created).toDateString()}
                   </p>
                 </div>

@@ -3,7 +3,7 @@ import FindArticleByCategoryItems from "./FindArticleByCategoryItems";
 
 const FindArticleByCategoryList = (props) => {
   return (
-    <ul>
+    <ul className="article-item-list ">
       {props.items.map((item) => (
         <FindArticleByCategoryItems
           key={item.id}
