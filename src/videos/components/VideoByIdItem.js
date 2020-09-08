@@ -17,6 +17,7 @@ const VideoByIdItem = (props) => {
   const [NewlyAddedCommentsArray, setNewlyAddedCommentsArray] = useState([]);
 
   const [NewCommentAdded, setNewCommentAdded] = useState(false);
+  const [CommentCountAfterAdd, setCommentCountAfterAdd] = useState();
 
   const [ResponseComment, setResponseComment] = useState([]);
   useEffect(() => {
@@ -89,6 +90,7 @@ const VideoByIdItem = (props) => {
       // setLatestComment(responseData.existingVideoComments[latestCommentPos]);
       setResponseComment(responseData.existingVideoComments);
       setNewCommentAdded(true);
+      setCommentCountAfterAdd(responseData.existingVideoComments.length);
     } catch (error) {}
   };
 
@@ -130,7 +132,8 @@ const VideoByIdItem = (props) => {
         <span className="videoById-persons">{props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
-
+        {(!NewCommentAdded && <p>{props.comments.length}Comments</p>) ||
+          (NewCommentAdded && <p>{CommentCountAfterAdd}Comments</p>)}
         <div>
           {/* {ResponseComment ? (<ul>{ResponseComment.map((c) => <li>{c}</li>)}</ul>) : (<ul>{props.comments.map((c) => <li>{c}</li>)}</ul>)} */}
           {(!NewCommentAdded && (
