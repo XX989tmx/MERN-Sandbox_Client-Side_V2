@@ -11,6 +11,7 @@ const VideoByIdItem = (props) => {
   const auth = useContext(AuthContext);
   const history = useHistory();
   const [Like, setLike] = useState(0);
+  const [Disliked, setDisliked] = useState(0);
   useEffect(() => {
     const onLoad = () => {};
     onLoad();
@@ -49,6 +50,18 @@ const VideoByIdItem = (props) => {
     } catch (error) {}
   };
 
+  const addDislikeToVideoHandler = async(params) => {
+    setDisliked(1);
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/videos/${props.id}/addDislikeToVideo`
+      );
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -68,6 +81,9 @@ const VideoByIdItem = (props) => {
         <h4>{props.views}views</h4>
         <button onClick={addLikeToVideoHandler}>
           {props.liked + Like}Like
+        </button>
+        <button onClick={addDislikeToVideoHandler}>
+          {props.disliked + Disliked}Disliked
         </button>
         <Link
           to={`/videos/get_video_by_tags/${props.tags}`}

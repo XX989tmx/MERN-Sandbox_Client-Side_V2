@@ -59,6 +59,7 @@ const VideoItemPage = () => {
               date_created={VideoById.date_created}
               views={VideoById.views}
               liked={VideoById.liked}
+              disliked={VideoById.disliked}
             />
             <MoveToTopButton />
 
