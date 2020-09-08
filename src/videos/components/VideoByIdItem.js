@@ -10,6 +10,11 @@ const VideoByIdItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
   const history = useHistory();
+  const [Like, setLike] = useState(0);
+  useEffect(() => {
+    const onLoad = () => {};
+    onLoad();
+  }, []);
 
   const confirmDeleteHandler = async (params) => {
     // setShowConfirmModal(false);
@@ -35,6 +40,15 @@ const VideoByIdItem = (props) => {
     } catch (error) {}
   };
 
+  const addLikeToVideoHandler = async (params) => {
+    setLike(1);
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/${props.id}/addLikeToVideo`
+      );
+    } catch (error) {}
+  };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -52,6 +66,9 @@ const VideoByIdItem = (props) => {
         <h2>{props.title}</h2>
         <p>{props.description}</p>
         <h4>{props.views}views</h4>
+        <button onClick={addLikeToVideoHandler}>
+          {props.liked + Like}Like
+        </button>
         <Link
           to={`/videos/get_video_by_tags/${props.tags}`}
           style={{ textDecoration: "none" }}
