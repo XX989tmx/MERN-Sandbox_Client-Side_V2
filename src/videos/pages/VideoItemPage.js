@@ -15,6 +15,7 @@ import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavig
 const VideoItemPage = () => {
   const videoId = useParams().videoId;
   const [VideoById, setVideoById] = useState({});
+  const [VideoCommentsArray, setVideoCommentsArray] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   useEffect(() => {
@@ -25,7 +26,9 @@ const VideoItemPage = () => {
         );
         console.log(responseData);
         setVideoById(responseData.video);
+        setVideoCommentsArray(responseData.video.comments);
         console.log(responseData.video);
+        console.log(responseData.video.comments);
         console.log(responseData.video.title);
       } catch (error) {}
       // window.scrollTo(0, 0);
@@ -60,6 +63,7 @@ const VideoItemPage = () => {
               views={VideoById.views}
               liked={VideoById.liked}
               disliked={VideoById.disliked}
+              comments={VideoCommentsArray}
             />
             <MoveToTopButton />
 

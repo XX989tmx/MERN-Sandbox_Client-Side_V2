@@ -12,6 +12,13 @@ const VideoByIdItem = (props) => {
   const history = useHistory();
   const [Like, setLike] = useState(0);
   const [Disliked, setDisliked] = useState(0);
+  const [CommentInput, setCommentInput] = useState("");
+  const [LatestComment, setLatestComment] = useState("");
+  const [NewlyAddedCommentsArray, setNewlyAddedCommentsArray] = useState([]);
+
+  const [NewCommentAdded, setNewCommentAdded] = useState(false);
+
+  const [ResponseComment, setResponseComment] = useState([]);
   useEffect(() => {
     const onLoad = () => {};
     onLoad();
@@ -50,17 +57,40 @@ const VideoByIdItem = (props) => {
     } catch (error) {}
   };
 
-  const addDislikeToVideoHandler = async(params) => {
+  const addDislikeToVideoHandler = async (params) => {
     setDisliked(1);
     try {
       await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
           `/videos/${props.id}/addDislikeToVideo`
       );
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
+
+  const commentInputChangeHandler = (event) => {
+    setCommentInput(event.target.value);
+  };
+
+  const commentInputSubmitHandler = async (event) => {
+    event.preventDefault();
+    try {
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/${props.id}/addComment`,
+        "POST",
+        JSON.stringify({ comment: CommentInput }),
+        { "Content-Type": "application/json" }
+      );
+      // let array = [];
+      // const latestCommentPos = responseData.existingVideoComments.length - 1;
+      // array.push(responseData.existingVideoComments[latestCommentPos]);
+      // console.log(responseData.existingVideoComments[latestCommentPos]);
+      // console.log(array);
+      // setNewlyAddedCommentsArray(array);
+      // setLatestComment(responseData.existingVideoComments[latestCommentPos]);
+      setResponseComment(responseData.existingVideoComments);
+      setNewCommentAdded(true);
+    } catch (error) {}
+  };
 
   return (
     <React.Fragment>
@@ -100,6 +130,38 @@ const VideoByIdItem = (props) => {
         <span className="videoById-persons">{props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
+
+        <div>
+          {/* {ResponseComment ? (<ul>{ResponseComment.map((c) => <li>{c}</li>)}</ul>) : (<ul>{props.comments.map((c) => <li>{c}</li>)}</ul>)} */}
+          {(!NewCommentAdded && (
+            <ul>
+              {props.comments.map((c) => (
+                <li>{c}</li>
+              ))}
+
+              {/* {NewlyAddedCommentsArray.map((a) => (
+              <li>{a}</li>
+            ))} */}
+            </ul>
+          )) ||
+            (NewCommentAdded && (
+              <ul>
+                {ResponseComment.map((c) => (
+                  <li>{c}</li>
+                ))}
+              </ul>
+            ))}
+        </div>
+        <div>
+          <form onSubmit={commentInputSubmitHandler}>
+            <input
+              type="text"
+              value={CommentInput}
+              onChange={commentInputChangeHandler}
+            />
+            <button type="submit">add comment</button>
+          </form>
+        </div>
         {/* <Link to={`/videos/update/${props.id}`}>
           <p>temporaly update link</p>
         </Link>
