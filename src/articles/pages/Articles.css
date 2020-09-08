@@ -2,7 +2,8 @@
 .articles-container {
   width: 100%;
   margin: auto;
-  /* height: 100%; */min-height: 100vh;
+  /* height: 100%; */
+  min-height: 100vh;
   border: 1px solid black;
   /* padding-left: 10px;
   padding-right: 10px; */
@@ -17,12 +18,18 @@
 }
 
 .sort-selector-container {
-  margin-top: 8px;
-  padding: 8px;
+  /* margin-top: 8px;
+  padding: 8px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 1;
 }
 
 .selector-item {
-  margin-right: 20px;
+  margin-left: 10px;
+  /* margin-right: 20px;  */
+  margin-bottom: 2px;
   /* margin-top: 15px; */
 
   font-weight: 400;
@@ -63,34 +70,34 @@
   }
 
   .search-box-container {
-  padding: 20px;
-}
+    padding: 20px;
+  }
 
-.sort-selector-container {
-  margin-top: 8px;
-  padding: 8px;
-}
+  .sort-selector-container {
+    margin-top: 8px;
+    padding: 8px;
+  }
 
-.selector-item {
-  margin-right: 20px;
-  /* margin-top: 15px; */
+  .selector-item {
+    margin-right: 20px;
+    /* margin-top: 15px; */
 
-  font-weight: 400;
-}
+    font-weight: 400;
+  }
 
-.selector-item:hover {
-  background: whitesmoke;
-}
+  .selector-item:hover {
+    background: whitesmoke;
+  }
 
-.selector {
-  border: 1px solid;
-  background-color: whitesmoke;
-  border-radius: 3px;
-}
+  .selector {
+    border: 1px solid;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
 
-.selector:focus {
-  outline: none;
-}
+  .selector:focus {
+    outline: none;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -106,32 +113,32 @@
   }
 
   .search-box-container {
-  padding: 20px;
-}
+    padding: 20px;
+  }
 
-.sort-selector-container {
-  margin-top: 8px;
-  padding: 8px;
-}
+  .sort-selector-container {
+    margin-top: 8px;
+    padding: 8px;
+  }
 
-.selector-item {
-  margin-right: 20px;
-  /* margin-top: 15px; */
+  .selector-item {
+    margin-right: 10px;
+    /* margin-top: 15px; */
 
-  font-weight: 400;
-}
+    font-weight: 400;
+  }
 
-.selector-item:hover {
-  background: whitesmoke;
-}
+  .selector-item:hover {
+    background: whitesmoke;
+  }
 
-.selector {
-  border: 1px solid;
-  background-color: whitesmoke;
-  border-radius: 3px;
-}
+  .selector {
+    border: 1px solid;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
 
-.selector:focus {
-  outline: none;
-}
+  .selector:focus {
+    outline: none;
+  }
 }
