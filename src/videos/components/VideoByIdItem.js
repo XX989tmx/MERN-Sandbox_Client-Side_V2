@@ -27,11 +27,21 @@ const VideoByIdItem = (props) => {
     } catch (err) {}
   };
 
+  const VideoViewCounter = async (params) => {
+    try {
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + `/videos/${props.id}/addViewCount`
+      );
+    } catch (error) {}
+  };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       <div className="video-area">
-        <iframe className="video-iframe"
+        <iframe
+          onLoad={VideoViewCounter}
+          className="video-iframe"
           src={props.src}
           // width="1082px"
           // height="610px"
@@ -41,6 +51,7 @@ const VideoByIdItem = (props) => {
         ></iframe>
         <h2>{props.title}</h2>
         <p>{props.description}</p>
+        <h4>{props.views}views</h4>
         <Link
           to={`/videos/get_video_by_tags/${props.tags}`}
           style={{ textDecoration: "none" }}

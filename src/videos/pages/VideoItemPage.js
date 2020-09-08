@@ -42,33 +42,32 @@ const VideoItemPage = () => {
       )}
       {!isLoading && VideoById && (
         <div className="video-item-page-container">
-        
-            <div>
-              {/* <p>
+          <div>
+            {/* <p>
               個別のビデオ表示のためには2通りの可能性。1videoItem child
               componentに渡して表示、2個別のビデオ表示用のchild
               componentを作り、それに渡す（youtubeの個別表示ページのようなレイアウト）
             </p> */}
-              <VideoByIdItem
-                title={VideoById.title}
-                description={VideoById.description}
-                src={VideoById.src}
-                tags={VideoById.tags}
-                categories={VideoById.categories}
-                persons={VideoById.persons}
-                id={VideoById.id}
-                date_created={VideoById.date_created}
-              />
-              <MoveToTopButton />
+            <VideoByIdItem
+              title={VideoById.title}
+              description={VideoById.description}
+              src={VideoById.src}
+              tags={VideoById.tags}
+              categories={VideoById.categories}
+              persons={VideoById.persons}
+              id={VideoById.id}
+              date_created={VideoById.date_created}
+              views={VideoById.views}
+            />
+            <MoveToTopButton />
 
-              {/* <VideoList items={VideoById} /> */}
-              {/* each video item page. place video player box component & video link item
+            {/* <VideoList items={VideoById} /> */}
+            {/* each video item page. place video player box component & video link item
       List&video link item. */}
-              {/* <VideoPlayerBox></VideoPlayerBox>
+            {/* <VideoPlayerBox></VideoPlayerBox>
         
             <VideoLinkItemList></VideoLinkItemList> */}
-            </div>
-          
+          </div>
         </div>
       )}
       {!isLoading && VideoById && <FooterMainNavigation />}
