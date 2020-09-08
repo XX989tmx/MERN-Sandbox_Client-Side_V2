@@ -1,9 +1,16 @@
 /* For mobile phones: */
-
+.article-item-list {
+  margin: 0; /* To remove default bottom margin */ 
+  padding: 0; 
+  /* display: flex;
+  flex: 1 1;
+  flex-direction: column; 
+  flex-wrap: wrap; */
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
+   
 }
 
 @media only screen and (min-width: 1024px) {
