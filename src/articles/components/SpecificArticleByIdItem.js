@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 
 import { Link } from "react-router-dom";
-
+import { HashLink } from "react-router-hashlink";
 import Modal from "../../shared/components/UIElements/Modal";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -203,6 +203,22 @@ const SpecificArticleByIdItem = (props) => {
         </div>
       </Modal>
       {isLoading && <LoadingSpinner asOverlay />}
+      <div>
+        <ul>
+          <HashLink to={`/get_specific_article_by_id/${props.id}#heading`}>
+            <li>{props.heading}</li>
+          </HashLink>
+          <HashLink to={`/get_specific_article_by_id/${props.id}#heading2`}>
+            <li>{props.heading2}</li>
+          </HashLink>
+          <HashLink to={`/get_specific_article_by_id/${props.id}#heading3`}>
+            <li>{props.heading3}</li>
+          </HashLink>
+          <HashLink to={`/get_specific_article_by_id/${props.id}#heading4`}>
+            <li>{props.heading4}</li>
+          </HashLink>
+        </ul>
+      </div>
       <li className="article-item ">
         {/* <div className="article-item__image">
         <img />
@@ -214,6 +230,7 @@ const SpecificArticleByIdItem = (props) => {
             style={{ textDecoration: "none" }}
           >
             <div className="article-item__image center">
+              <h2>{props.title}</h2>
               <img
                 className="article-item-image-item"
                 src={props.image}
@@ -222,9 +239,20 @@ const SpecificArticleByIdItem = (props) => {
               />
             </div>
             <div className="article-item__article_content">
-              <h2>{props.title}</h2>
-
-              <p>{props.content}</p>
+              <article>
+                <h3 id="heading">{props.heading}</h3>
+                <p>{props.content}</p>
+                <hr />
+                <h3 id="heading2">{props.heading2}</h3>
+                <p>{props.content2}</p>
+                <hr />
+                <h3 id="heading3">{props.heading3}</h3>
+                <p>{props.content3}</p>
+                <hr />
+                <h3 id="heading4">{props.heading4}</h3>
+                <p>{props.content4}</p>
+                <hr />
+              </article>
               {/* <p>{props.id}</p> */}
               <span>
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
@@ -293,7 +321,7 @@ const SpecificArticleByIdItem = (props) => {
               </p>
             </div>
           </Link>
-          <div className="article-item__actions">
+          <div id="control" className="article-item__actions">
             <Button btnBlack onClick={openModalHandler}>
               View This Article
             </Button>

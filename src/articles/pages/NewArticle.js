@@ -15,7 +15,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
-import './NewArticle.css';
+import "./NewArticle.css";
 
 const NewArticle = () => {
   const auth = useContext(AuthContext);
@@ -23,7 +23,14 @@ const NewArticle = () => {
   const [formState, inputHandler] = useForm(
     {
       title: { value: "", isValid: false },
+      heading: { value: "", isValid: false },
       content: { value: "", isValid: false },
+      heading2: { value: "", isValid: false },
+      content2: { value: "", isValid: false },
+      heading3: { value: "", isValid: false },
+      content3: { value: "", isValid: false },
+      heading4: { value: "", isValid: false },
+      content4: { value: "", isValid: false },
       address: { value: "", isValid: false },
       image: { value: null, isValid: false },
       // address: { value: "", isValid: false },
@@ -44,23 +51,34 @@ const NewArticle = () => {
     try {
       const formData = new FormData();
       formData.append("title", formState.inputs.title.value);
+      formData.append("heading", formState.inputs.heading.value);
       formData.append("content", formState.inputs.content.value);
+      formData.append("heading2", formState.inputs.heading2.value);
+      formData.append("content2", formState.inputs.content2.value);
+      formData.append("heading3", formState.inputs.heading3.value);
+      formData.append("content3", formState.inputs.content3.value);
+      formData.append("heading4", formState.inputs.heading4.value);
+      formData.append("content4", formState.inputs.content4.value);
       formData.append("address", formState.inputs.address.value);
       formData.append("author", auth.userId);
       formData.append("image", formState.inputs.image.value);
       formData.append("categories", formState.inputs.categories.value);
       formData.append("tags", formState.inputs.tags.value);
       formData.append("price", formState.inputs.price.value);
-formData.append("downloadable", formState.inputs.downloadable.value);
-      await sendRequest(process.env.REACT_APP_BACKEND_URL + "/articles", "POST", formData, {
-        Authorization: 'Bearer ' + auth.token
-      });
-        history.push(`/${auth.userId}/articles`);
+      formData.append("downloadable", formState.inputs.downloadable.value);
+      await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + "/articles",
+        "POST",
+        formData,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      history.push(`/${auth.userId}/articles`);
     } catch (err) {}
 
     // setSubmitCount(prev => prev+=1);
   };
-
 
   return (
     <React.Fragment>
@@ -83,9 +101,76 @@ formData.append("downloadable", formState.inputs.downloadable.value);
               onInput={inputHandler}
             />
             <Input
+              id="heading"
+              element="input"
+              type="text"
+              label="heading"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
               id="content"
               element="textarea"
               label="content"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading2"
+              element="input"
+              type="text"
+              label="heading2"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content2"
+              element="textarea"
+              label="content2"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading3"
+              element="input"
+              type="text"
+              label="heading3"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content3"
+              element="textarea"
+              label="content3"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading4"
+              element="input"
+              type="text"
+              label="heading4"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content4"
+              element="textarea"
+              label="content4"
               placeholder="Write your content here"
               validators={[VALIDATOR_MINLENGTH(5)]}
               errorText="Please enter a valid content (at least 5 characters)."

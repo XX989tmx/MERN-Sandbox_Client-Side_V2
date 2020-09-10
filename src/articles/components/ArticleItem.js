@@ -37,13 +37,30 @@ const ArticleItem = (props) => {
         setDiscountedAmount(discountAmount);
         setSunday(true);
       }
+
+      const addAllCharacterOfContent = (
+        content,
+        content2,
+        content3,
+        content4
+      ) => {
+        const TotalContent = content + content2 + content3 + content4;
+        return TotalContent;
+      };
+      const ContentAll = addAllCharacterOfContent(
+        props.content,
+        props.content2,
+        props.content3,
+        props.content4
+      );
+
       const countWord = (value) => {
         return value.split(/\W+/).length;
       };
-      setWordCount(countWord(props.content));
+      setWordCount(countWord(ContentAll));
 
       setEstimatedReadingTime(
-        new Number(estimatedReadingTime(props.content)).toFixed(1)
+        new Number(estimatedReadingTime(ContentAll)).toFixed(1)
       );
     };
     onLoad();

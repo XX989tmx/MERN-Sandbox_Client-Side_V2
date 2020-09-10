@@ -65,7 +65,14 @@ const GetSpecificArticleById = () => {
                 id={Article.id}
                 image={Article.image}
                 title={Article.title}
+                heading={Article.heading}
                 content={Article.content}
+                heading2={Article.heading2}
+                content2={Article.content2}
+                heading3={Article.heading3}
+                content3={Article.content3}
+                heading4={Article.heading4}
+                content4={Article.content4}
                 authorName={ArticleAuthor.name}
                 authorEmail={ArticleAuthor.email}
                 authorId={ArticleAuthor._id}
