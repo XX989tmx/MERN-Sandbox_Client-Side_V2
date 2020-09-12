@@ -5,7 +5,7 @@ export const estimatedReadingTime = (value) => {
 
   let amountOfSecondsToRead = wordCount / wordPerSeconds;
   let amountOfMinutesToRead = amountOfSecondsToRead / 60;
-  console.log(amountOfSecondsToRead);
-  console.log(amountOfMinutesToRead);
+  // console.log(amountOfSecondsToRead);
+  // console.log(amountOfMinutesToRead);
   return amountOfMinutesToRead;
 };

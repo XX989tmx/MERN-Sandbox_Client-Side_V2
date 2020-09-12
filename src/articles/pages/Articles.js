@@ -80,12 +80,14 @@ const Articles = () => {
       var sort = "oldest";
       var latest = "latest";
       // var query = formState.inputs.query.value;
-      const queryValue = event.target.value;
+      const queryValue = event.target.value.trim();
+      console.log(queryValue);
       const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + `/articles/all?q=${queryValue}`
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/all?q=${encodeURIComponent(queryValue)}`
       );
       console.log(responseData.articles);
-      setSearchedArticle(responseData.articles);
+      setAllArticles(responseData.articles);
     } catch (error) {}
   };
 
@@ -239,7 +241,7 @@ const Articles = () => {
                 <Input
                   id="query"
                   element="input"
-                  // type="search"
+                  type="search"
                   label="SEARCH"
                   placeholder="Search"
                   validators={[VALIDATOR_REQUIRE()]}
@@ -408,13 +410,15 @@ const Articles = () => {
                 <LoadingSpinner />
               </div>
             )}
-            {!isLoading && AllArticles && 
-            <div><h5>{ArticleCount} articles</h5>
-            {SearchedArticle ? (
+            {!isLoading && AllArticles && (
+              <div>
+                <h5>{ArticleCount} articles</h5>
+                {/* {SearchedArticle ? (
               <ArticleList items={SearchedArticle} />
-            ) : (
-              <ArticleList items={AllArticles} />
-            )}</div>}
+            ) : ( */}
+                <ArticleList items={AllArticles} />
+              </div>
+            )}
           </div>
         </div>
         <div className="side-container"></div>

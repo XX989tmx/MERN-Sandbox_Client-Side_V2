@@ -231,7 +231,7 @@ const ArticleItem = (props) => {
           </p>
         </div>
       </Modal>
-      {isLoading && <LoadingSpinner asOverlay />}
+      {/* {isLoading && <LoadingSpinner asOverlay />} */}
       <li className="article-item ">
         {/* <div className="article-item__image">
         <img />
