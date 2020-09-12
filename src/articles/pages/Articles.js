@@ -268,6 +268,15 @@ const Articles = () => {
       );
       console.log(responseData.articles);
       setAllArticles(responseData.articles);
+      const articleCount = responseData.articles.length;
+      let singleOrPlural;
+      if (articleCount === 1) {
+        singleOrPlural = "article";
+      } else {
+        singleOrPlural = "articles";
+      };
+      const result = `${articleCount} ${downloadableValue} ${singleOrPlural} found.`;
+      setsearchResultInfo(result);
     } catch (error) {}
   };
 
