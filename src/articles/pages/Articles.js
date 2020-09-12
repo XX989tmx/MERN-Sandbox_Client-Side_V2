@@ -16,8 +16,6 @@ import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
-
-
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
   const [ArticleCount, setArticleCount] = useState();
@@ -29,7 +27,8 @@ const Articles = () => {
     false
   );
   const [SearchedArticle, setSearchedArticle] = useState();
-
+  const [tagnames, settagnames] = useState();
+  const [categoryNames, setcategoryNames] = useState();
   const [query, setQuery] = useState();
   // const [TagNames, setTagNames] = useState();
   // const [CategoryNames, setCategoryNames] = useState();
@@ -50,6 +49,26 @@ const Articles = () => {
         // let categoryNames = responseData.CategoryArray.map(a => <option value={a}>{a}</option>)
         // setTagNames(tagNames);
         // setCategoryNames(categoryNames);
+      } catch (error) {}
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL + `/articles/categoryIndex`
+        );
+        console.log(responseData.responseArray);
+        const categoryName = responseData.responseArray.map((t) => (
+          <option value={t.categoryName}>{t.categoryName}</option>
+        ));
+        setcategoryNames(categoryName);
+      } catch (error) {}
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL + `/articles/tagIndex`
+        );
+        console.log(responseData.responseArray);
+        const tagName = responseData.responseArray.map((t) => (
+          <option value={t.tagName}>{t.tagName}</option>
+        ));
+        settagnames(tagName);
       } catch (error) {}
     };
     allArticles();
@@ -173,9 +192,9 @@ const Articles = () => {
   const changeHandler = (event) => {
     const queryValue = event.target.value;
     setQuery(queryValue);
-  }
+  };
 
-  const submitHandler = async(event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     try {
       var sort = "oldest";
@@ -189,20 +208,19 @@ const Articles = () => {
       console.log(responseData.articles);
       setSearchedArticle(responseData.articles);
     } catch (error) {}
-  }
+  };
 
   const DownloadableHandler = async (params) => {
-  try {var downloadable = document.getElementById("downloadable");
-       var downloadableValue = downloadable.value;
-    const responseData = await sendRequest(
-      process.env.REACT_APP_BACKEND_URL +
-        `/articles/downloadable?downloadable=${downloadableValue}`
-    );
-    console.log(responseData.articles);
-    setAllArticles(responseData.articles);
-  } catch (error) {
-    
-  }
+    try {
+      var downloadable = document.getElementById("downloadable");
+      var downloadableValue = downloadable.value;
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/downloadable?downloadable=${downloadableValue}`
+      );
+      console.log(responseData.articles);
+      setAllArticles(responseData.articles);
+    } catch (error) {}
   };
 
   return (
@@ -334,18 +352,8 @@ const Articles = () => {
                     id="categories"
                     onChange={sortByCategory}
                   >
-                    {/* {CategoryNames} */}
-                    <option value="default" selected>
-                      sort
-                    </option>
-
-                    <option value="politics">politics</option>
-                    <option value="science">science</option>
-                    <option value="education">education</option>
-                    <option value="literature">literature</option>
-                    <option value="investment">investment</option>
-                    <option value="technology">technology</option>
-                    <option value="business">business</option>
+                    <option>sort</option>
+                    {categoryNames}
                   </select>
                 </label>
               </span>
@@ -359,17 +367,8 @@ const Articles = () => {
                     id="tags"
                     onChange={sortByTag}
                   >
-                    {/* {TagNames} */}
-                    <option value="default" selected>
-                      sort
-                    </option>
-                    <option value="politics">politics</option>
-                    <option value="science">science</option>
-                    <option value="education">education</option>
-                    <option value="literature">literature</option>
-                    <option value="investment">investment</option>
-                    <option value="technology">technology</option>
-                    <option value="business">business</option>
+                    <option>sort</option>
+                    {tagnames}
                   </select>
                 </label>
               </span>
@@ -404,17 +403,23 @@ const Articles = () => {
             </span>
             <hr />
 
-            <h5>{ArticleCount} articles</h5>
+            {isLoading && (
+              <div className="center">
+                <LoadingSpinner />
+              </div>
+            )}
+            {!isLoading && AllArticles && 
+            <div><h5>{ArticleCount} articles</h5>
             {SearchedArticle ? (
               <ArticleList items={SearchedArticle} />
             ) : (
               <ArticleList items={AllArticles} />
-            )}
-            <MoveToTopButton />
+            )}</div>}
           </div>
         </div>
         <div className="side-container"></div>
       </div>
+      <MoveToTopButton />
       <FooterMainNavigation />
       {/* )} */}
     </React.Fragment>
