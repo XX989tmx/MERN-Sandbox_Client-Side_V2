@@ -29,6 +29,7 @@ const Articles = () => {
   const [SearchedArticle, setSearchedArticle] = useState();
   const [tagnames, settagnames] = useState();
   const [categoryNames, setcategoryNames] = useState();
+  const [searchResultInfo, setsearchResultInfo] = useState();
   const [query, setQuery] = useState();
   // const [TagNames, setTagNames] = useState();
   // const [CategoryNames, setCategoryNames] = useState();
@@ -41,8 +42,17 @@ const Articles = () => {
         );
         console.log(responseData);
         setAllArticles(responseData.articles);
-        console.log(responseData.count);
-        setArticleCount(responseData.count);
+        // console.log(responseData.count);
+        // setArticleCount(responseData.count);
+        const articleCount = responseData.articles.length;
+        let singleOrPlural;
+        if (articleCount === 1) {
+          singleOrPlural = "article";
+        } else {
+          singleOrPlural = "articles";
+        };
+        const result = `${articleCount} ${singleOrPlural} found in total`;
+        setsearchResultInfo(result);
         // console.log(responseData.TagArray);
         // console.log(responseData.CategoryArray);
         // let tagNames = responseData.TagArray.map(a => <option value={a}>{a}</option>)
@@ -88,6 +98,15 @@ const Articles = () => {
       );
       console.log(responseData.articles);
       setAllArticles(responseData.articles);
+      const articleCount = responseData.articles.length;
+      let singleOrPlural;
+      if (articleCount === 1) {
+        singleOrPlural = "article";
+      } else {
+        singleOrPlural = "articles";
+      }
+      const result = `${articleCount} ${singleOrPlural} found in searched term '${queryValue}'`;
+      setsearchResultInfo(result);
     } catch (error) {}
   };
 
@@ -102,8 +121,17 @@ const Articles = () => {
       );
       console.log(responseData);
       setAllArticles(responseData.articles);
-      console.log(responseData.count);
-      setArticleCount(responseData.count);
+      // console.log(responseData.count);
+      // setArticleCount(responseData.count);
+      const articleCount = responseData.articles.length;
+      let singleOrPlural;
+      if (articleCount === 1) {
+        singleOrPlural = "article";
+      } else {
+        singleOrPlural = "articles";
+      }
+      const result = `${articleCount} ${singleOrPlural} found in ${categoriesValue} category`;
+      setsearchResultInfo(result);
     } catch (error) {}
   };
 
@@ -117,8 +145,17 @@ const Articles = () => {
       );
       console.log(responseData);
       setAllArticles(responseData.articles);
-      console.log(responseData.count);
-      setArticleCount(responseData.count);
+      // console.log(responseData.count);
+      // setArticleCount(responseData.count);
+      const articleCount = responseData.articles.length;
+      let singleOrPlural;
+      if (articleCount === 1) {
+        singleOrPlural = "article";
+      } else {
+        singleOrPlural = "articles";
+      }
+      const result = `${articleCount} ${singleOrPlural} found in ${tagsValue} tag`;
+      setsearchResultInfo(result);
     } catch (error) {}
   };
 
@@ -132,8 +169,17 @@ const Articles = () => {
       );
       console.log(responseData);
       setAllArticles(responseData.articles);
-      console.log(responseData.count);
-      setArticleCount(responseData.count);
+      // console.log(responseData.count);
+      // setArticleCount(responseData.count);
+      const articleCount = responseData.articles.length;
+      let singleOrPlural;
+      if (articleCount === 1) {
+        singleOrPlural = "article";
+      } else {
+        singleOrPlural = "articles";
+      }
+      const result = `${articleCount} ${singleOrPlural} found in ${priceValue} price range`;
+      setsearchResultInfo(result);
     } catch (error) {}
   };
 
@@ -412,7 +458,7 @@ const Articles = () => {
             )}
             {!isLoading && AllArticles && (
               <div>
-                <h5>{ArticleCount} articles</h5>
+                <h4>{searchResultInfo}</h4>
                 {/* {SearchedArticle ? (
               <ArticleList items={SearchedArticle} />
             ) : ( */}
