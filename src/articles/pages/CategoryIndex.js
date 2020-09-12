@@ -5,6 +5,7 @@ import CategoryIndexList from "../components/CategoryIndexList";
 import "./CategoryIndex.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const CategoryIndex = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -28,17 +29,24 @@ const CategoryIndex = () => {
 
   return (
     <React.Fragment>
-      <div className="category-index-container">
-        <div className="main-container">
-          <div>
-            <CategoryIndexList CategoryIndexData={CategoryIndexData} />
-          </div>
-          <div>
-            <span>
-              <Link to={`/articles`}>Article Index</Link>
-            </span>
-          </div>
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
         </div>
+      )}
+      <div className="category-index-container">
+        {!isLoading && CategoryIndexData && (
+          <div className="main-container">
+            <div>
+              <CategoryIndexList CategoryIndexData={CategoryIndexData} />
+            </div>
+            <div>
+              <span>
+                <Link to={`/articles`}>Article Index</Link>
+              </span>
+            </div>
+          </div>
+        )}
         {/* <div className="side-container"></div> */}
       </div>
       <FooterMainNavigation />
