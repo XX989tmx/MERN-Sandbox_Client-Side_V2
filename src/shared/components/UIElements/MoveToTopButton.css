@@ -1,6 +1,6 @@
 .move-to-top-button {
   cursor: pointer;
-  background: rgba(255, 0, 0, 0.699);
+  background: #ffd000;
   width: 60px;
   height: 60px;
   border-radius: 100px;
@@ -17,5 +17,5 @@ outline: none;
 }
 
 .move-to-top-button:hover {
-background: rgba(255, 103, 103, 0.89);
+background: #ffd620;
 }
