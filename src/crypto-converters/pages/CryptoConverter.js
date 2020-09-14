@@ -692,14 +692,14 @@ const CryptoConverter = () => {
             <div className="currency-exchange-rate-selector">
               <div className="currency-exchange-rate-selector-form">
                 <form onSubmit={exchangeRateSubmithandler}>
-                  <div>
+                  <div className="user-input-currency-amount">
                     <input
                       type="text"
                       onChange={userInputCurrencyAmountChangeHandler}
                       value={userInputCurrencyAmount}
                     ></input>
                   </div>
-                  <div>
+                  <div className="from-currency-area">
                     <select
                       value={FromCurrency1}
                       onChange={FromCurrencyChangehandler1}
@@ -713,7 +713,7 @@ const CryptoConverter = () => {
                       {CryptoCurrencyCodeOptions}
                     </select>
                   </div>
-                  <div>
+                  <div className="to-currency-area">
                     <select
                       value={ToCurrency1}
                       onChange={ToCurrencyChangehandler1}
@@ -727,7 +727,7 @@ const CryptoConverter = () => {
                       {CryptoCurrencyCodeOptions}
                     </select>
                   </div>
-                  <div>
+                  <div className="exchange-rate-submit">
                     <button type="submit" value="Submit">
                       get exchange rate
                     </button>
