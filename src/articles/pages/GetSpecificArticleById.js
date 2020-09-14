@@ -82,7 +82,7 @@ const GetSpecificArticleById = () => {
                 date_created={Article.date_created}
                 downloadable={Article.downloadable}
               />
-              <div>
+              <div className="article-index-link">
                 <span>
                   <Link to={`/articles`}>Article Index</Link>
                 </span>
