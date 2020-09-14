@@ -133,9 +133,9 @@ const VideoByIdItem = (props) => {
         </Link>
         <span className="videoById-persons">Person: {props.persons}</span>
         {/* <p>{props.id}</p> */}
-        <p>{props.date_created}</p>
+        <p>Updated at: {new Date(props.date_created).toDateString()}</p>
         <p className="videoByIdItem-description">{props.description}</p>
-        
+
         {(!NewCommentAdded && <p>{props.comments.length}Comments</p>) ||
           (NewCommentAdded && <p>{CommentCountAfterAdd}Comments</p>)}
         <div>
