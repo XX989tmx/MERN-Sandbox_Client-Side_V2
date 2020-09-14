@@ -327,21 +327,21 @@ const Articles = () => {
                       From Highest Price
                     </option>
                     <option value="CheapestToHighest">From Lowest Price</option>
-                    <option value="lowest rating">lowest rating</option>
+                    {/* <option value="lowest rating">lowest rating</option> */}
                     <option value="FromOldest">From Oldest</option>
                     <option value="FromLatest">From Latest</option>
-                    <option value="Most viewed">Most viewed</option>
+                    {/* <option value="Most viewed">Most viewed</option>
                     <option value="Least viewed">Least viewed</option>
                     <option value="Highest Favorite Count">
                       Highest Favorite Count
                     </option>
                     <option value="Lowest Favorite Count">
                       Lowest Favorite Count
-                    </option>
+                    </option> */}
                     {/* <option value="Highest Cited">Highest Cited</option>
                   <option value="Lowest Cited">Lowest Cited</option> */}
-                    <option value="stock">stock</option>
-                    <option value="Free Shipment">Free Shipment</option>
+                    {/* <option value="stock">stock</option>
+                    <option value="Free Shipment">Free Shipment</option> */}
                   </select>
                 </label>
               </span>
@@ -386,7 +386,7 @@ const Articles = () => {
                 </label>
               </span>
 
-              <span className="selector-item">
+              {/* <span className="selector-item">
                 <label>
                   Format
                   <select className="selector" name="Format">
@@ -398,7 +398,7 @@ const Articles = () => {
                     <option value="WEB">WEB</option>
                   </select>
                 </label>
-              </span>
+              </span> */}
 
               <span className="selector-item">
                 <label>
@@ -430,7 +430,7 @@ const Articles = () => {
                 </label>
               </span>
 
-              <span className="selector-item">
+              {/* <span className="selector-item">
                 <label>
                   date
                   <select className="selector" name="date">
@@ -447,7 +447,7 @@ const Articles = () => {
                     <option value="2015">2015</option>
                   </select>
                 </label>
-              </span>
+              </span> */}
             </div>
             <p className="reload-request">
               if something does not work, please reload the page.
