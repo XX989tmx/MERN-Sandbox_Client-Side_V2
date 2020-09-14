@@ -31,9 +31,9 @@ const NavLinks = props => {
         <li>
           <NavLink to="/contact_us">Contact Us</NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/flex_training">Flex_Training</NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/download">Download</NavLink>
         </li>
@@ -61,7 +61,7 @@ const NavLinks = props => {
           </NavLink>
         </li>
 
-        <li>
+        {/* <li>
           <NavLink to={`/${auth.userId}/user_detail_info/create`}>
             user_detail_info
           </NavLink>
@@ -75,7 +75,7 @@ const NavLinks = props => {
           <NavLink to={`/${auth.userId}/user_detail_info/update`}>
             update_user_detail_info
           </NavLink>
-        </li>
+        </li> */}
 
         <li>
           <NavLink to={`/videos/new`}>New Video</NavLink>

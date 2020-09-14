@@ -185,7 +185,7 @@ const MainNavigation = () => {
             </div>
             <div className="settings-and-information-modal">
               <ul className="settings-and-information-nav-modal-list">
-                <li>
+                {/* <li>
                   <NavLink to={`/${auth.userId}/user_detail_info/create`}>
                     User Detail Information
                   </NavLink>
@@ -199,7 +199,7 @@ const MainNavigation = () => {
                   <NavLink to={`/${auth.userId}/user_detail_info/update`}>
                     Update User Detail Info
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to="/about_us">About Us</NavLink>
                 </li>
