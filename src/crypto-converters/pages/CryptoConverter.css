@@ -15,14 +15,29 @@
   margin-top: 20px;
 }
 
-.currency-exchange-rate-input{
+.currency-exchange-rate-input {
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-.currency-exchange-rate-selector{
-margin-top: 40px;
+.currency-exchange-rate-selector {
+  margin-top: 40px;
   margin-bottom: 40px;
+}
+
+.user-input-currency-amount {
+  margin-bottom: 10px;
+}
+.from-currency-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.to-currency-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.exchange-rate-submit {
+  margin-top: 10px;
 }
 /* .result-data-area {
   margin: auto;
