@@ -111,11 +111,11 @@ const VideoByIdItem = (props) => {
         <h2>{props.title}</h2>
 
         <h4>{props.views}views</h4>
-        <button onClick={addLikeToVideoHandler}>
-          {props.liked + Like}Like
+        <button className="liked-button" onClick={addLikeToVideoHandler}>
+          {props.liked + Like} Liked
         </button>
-        <button onClick={addDislikeToVideoHandler}>
-          {props.disliked + Disliked}Disliked
+        <button className="disliked-button" onClick={addDislikeToVideoHandler}>
+          {props.disliked + Disliked} Disliked
         </button>
         <Link
           to={`/videos/get_video_by_tags/${props.tags}`}
