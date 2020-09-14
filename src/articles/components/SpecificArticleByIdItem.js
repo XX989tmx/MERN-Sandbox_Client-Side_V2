@@ -204,16 +204,16 @@ const SpecificArticleByIdItem = (props) => {
       </Modal>
       {isLoading && <LoadingSpinner asOverlay />}
 
-      <li className="article-item ">
+      <li className="specific-article-item">
         {/* <div className="article-item__image">
         <img />
     </div> */}
 
         <Card className="article-item__contents">
-          <Link
+          {/* <Link
             to={`/get_specific_article_by_id/${props.id}`}
             style={{ textDecoration: "none" }}
-          >
+          > */}
             <div className="article-item__image center">
               <h2>{props.title}</h2>
               <img
@@ -338,7 +338,7 @@ const SpecificArticleByIdItem = (props) => {
                 Date Created: {new Date(props.date_created).toDateString()}
               </p>
             </div>
-          </Link>
+          {/* </Link> */}
           <div id="control" className="article-item__actions">
             <Button btnBlack onClick={openModalHandler}>
               View This Article

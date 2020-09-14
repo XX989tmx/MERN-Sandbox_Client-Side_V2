@@ -37,7 +37,8 @@
   box-shadow: 1px 2px 9px grey;
 }
 
-.article-item {
+
+.specific-article-item {
   list-style: none;
 }
 
@@ -58,10 +59,10 @@
   
 }
 
-.article-item:hover {
+/* .article-item:hover {
   box-shadow: 4px 5px 18px grey;
   background-color: whitesmoke;
-}
+} */
 
 .article-item-image-item {
   box-shadow: 4px 5px 10px grey; 
