@@ -1,0 +1,21 @@
+.updateVideo-container {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .updateVideo-container {
+    width: 769px;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktop: */
+  .updateVideo-container {
+    width: 980px;
+    margin: auto;
+  }
+}

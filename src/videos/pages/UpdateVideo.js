@@ -142,7 +142,7 @@ const UpdateVideo = () => {
         <div className="updateVideo-container">
           <div className="main-container">
             <div>
-              <form onSubmit={videoUpdateSubmitHandler}>
+              <form onSubmit={videoUpdateSubmitHandler} className="card-box">
                 <Input
                   id="title"
                   element="input"
@@ -248,12 +248,13 @@ const UpdateVideo = () => {
               </form>
             </div>
             <div>
-              <Link to={`/videos/video_management/${auth.userId}`}>Go Back</Link>
+              <Link to={`/videos/video_management/${auth.userId}`}>
+                Go Back
+              </Link>
             </div>
           </div>
           {/* <div className="side-container"></div> */}
         </div>
-        
       )}
     </React.Fragment>
   );
