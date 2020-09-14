@@ -237,26 +237,26 @@ const Articles = () => {
     }
   };
 
-  const changeHandler = (event) => {
-    const queryValue = event.target.value;
-    setQuery(queryValue);
-  };
+  // const changeHandler = (event) => {
+  //   const queryValue = event.target.value;
+  //   setQuery(queryValue);
+  // };
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    try {
-      var sort = "oldest";
-      var latest = "latest";
-      // var query = formState.inputs.query.value;
-      const queryValue = event.target.value;
-      const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL +
-          `/articles/all?q=${event.target.value}`
-      );
-      console.log(responseData.articles);
-      setSearchedArticle(responseData.articles);
-    } catch (error) {}
-  };
+  // const submitHandler = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     var sort = "oldest";
+  //     var latest = "latest";
+  //     // var query = formState.inputs.query.value;
+  //     const queryValue = event.target.value;
+  //     const responseData = await sendRequest(
+  //       process.env.REACT_APP_BACKEND_URL +
+  //         `/articles/all?q=${event.target.value}`
+  //     );
+  //     console.log(responseData.articles);
+  //     setSearchedArticle(responseData.articles);
+  //   } catch (error) {}
+  // };
 
   const DownloadableHandler = async (params) => {
     try {
@@ -305,10 +305,10 @@ const Articles = () => {
                 />
                 {/* <Button btnBlack>Search</Button> */}
               </form>
-              <form onChange={submitHandler}>
+              {/* <form onChange={submitHandler}>
                 <input type="text" value={query} onChange={changeHandler} />
                 <h3>{query}</h3>
-              </form>
+              </form> */}
             </div>
             <div className="sort-selector-container center">
               <span className="selector-item">
