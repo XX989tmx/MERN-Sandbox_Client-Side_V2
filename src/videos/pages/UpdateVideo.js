@@ -142,6 +142,7 @@ const UpdateVideo = () => {
         <div className="updateVideo-container">
           <div className="main-container">
             <div>
+            <h4 className="center">Update an Video</h4>
               <form onSubmit={videoUpdateSubmitHandler} className="card-box">
                 <Input
                   id="title"
