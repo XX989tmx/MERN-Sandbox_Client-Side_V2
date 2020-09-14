@@ -73,6 +73,7 @@
 }
 
 .article-items-table-of-contents {
+  margin-top: 30px;
   padding-top: 10px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -92,6 +93,22 @@
 /* .article-item Button {
   padding: 2px;
 } */
+.article-item__article_content {
+  margin-top: 30px;
+}
+
+#heading {
+  margin-top: 40px;
+}
+#heading2 {
+  margin-top: 40px;
+}
+#heading3 {
+  margin-top: 40px;
+}
+#heading4 {
+  margin-top: 40px;
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
