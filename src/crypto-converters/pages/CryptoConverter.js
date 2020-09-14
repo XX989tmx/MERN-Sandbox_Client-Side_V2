@@ -700,32 +700,40 @@ const CryptoConverter = () => {
                     ></input>
                   </div>
                   <div className="from-currency-area">
-                  <span className="from-text">From</span>
-                    <select className="from-currency1"
+                    <span className="from-text">From</span>
+                    <select
+                      className="from-currency1"
                       value={FromCurrency1}
                       onChange={FromCurrencyChangehandler1}
                     >
+                      <option value="">Currency</option>
                       {FiatCurrencyCodeOptions}
                     </select>
-                    <select className="from-currency2"
+                    <select
+                      className="from-currency2"
                       value={FromCurrency2}
                       onChange={FromCurrencyChangehandler2}
                     >
+                      <option value="">Crypto</option>
                       {CryptoCurrencyCodeOptions}
                     </select>
                   </div>
                   <div className="to-currency-area">
-                  <span className="to-text">To</span>
-                    <select className="to-currency1"
+                    <span className="to-text">To</span>
+                    <select
+                      className="to-currency1"
                       value={ToCurrency1}
                       onChange={ToCurrencyChangehandler1}
                     >
+                      <option value="">Currency</option>
                       {FiatCurrencyCodeOptions}
                     </select>
-                    <select className="to-currency2"
+                    <select
+                      className="to-currency2"
                       value={ToCurrency2}
                       onChange={ToCurrencyChangehandler2}
                     >
+                      <option value="">Crypto</option>
                       {CryptoCurrencyCodeOptions}
                     </select>
                   </div>
