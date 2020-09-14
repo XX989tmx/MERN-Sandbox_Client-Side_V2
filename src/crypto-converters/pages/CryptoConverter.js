@@ -700,6 +700,7 @@ const CryptoConverter = () => {
                     ></input>
                   </div>
                   <div className="from-currency-area">
+                  <span className="from-text">From</span>
                     <select className="from-currency1"
                       value={FromCurrency1}
                       onChange={FromCurrencyChangehandler1}
@@ -714,6 +715,7 @@ const CryptoConverter = () => {
                     </select>
                   </div>
                   <div className="to-currency-area">
+                  <span className="to-text">To</span>
                     <select className="to-currency1"
                       value={ToCurrency1}
                       onChange={ToCurrencyChangehandler1}

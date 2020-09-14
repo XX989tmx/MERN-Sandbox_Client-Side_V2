@@ -47,14 +47,18 @@
 
 } */
 .to-currency1 {
-margin-right: 20px;
+  margin-right: 20px;
 }
 /* .to-currency2 {
 
 } */
 
-
-
+.from-text {
+  margin-right: 30px;
+}
+.to-text {
+  margin-right: 30px;
+}
 
 /* .result-data-area {
   margin: auto;
