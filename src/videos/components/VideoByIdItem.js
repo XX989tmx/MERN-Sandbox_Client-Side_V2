@@ -109,7 +109,7 @@ const VideoByIdItem = (props) => {
           allowfullscreen
         ></iframe>
         <h2>{props.title}</h2>
-        <p className="videoByIdItem-description">{props.description}</p>
+
         <h4>{props.views}views</h4>
         <button onClick={addLikeToVideoHandler}>
           {props.liked + Like}Like
@@ -121,17 +121,21 @@ const VideoByIdItem = (props) => {
           to={`/videos/get_video_by_tags/${props.tags}`}
           style={{ textDecoration: "none" }}
         >
-          <span className="videoById-tag">{props.tags}</span>
+          <span className="videoById-tag">Tag: {props.tags}</span>
         </Link>
         <Link
           to={`/videos/get_video_by_categories/${props.categories}`}
           style={{ textDecoration: "none" }}
         >
-          <span className="videoById-category">{props.categories}</span>
+          <span className="videoById-category">
+            Category: {props.categories}
+          </span>
         </Link>
-        <span className="videoById-persons">{props.persons}</span>
+        <span className="videoById-persons">Person: {props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>{props.date_created}</p>
+        <p className="videoByIdItem-description">{props.description}</p>
+        
         {(!NewCommentAdded && <p>{props.comments.length}Comments</p>) ||
           (NewCommentAdded && <p>{CommentCountAfterAdd}Comments</p>)}
         <div>
