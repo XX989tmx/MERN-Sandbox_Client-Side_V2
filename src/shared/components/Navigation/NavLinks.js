@@ -52,9 +52,9 @@ const NavLinks = props => {
         <li>
           <NavLink to="/videos/main">video Main</NavLink>
         </li>
-        <li>
-          <NavLink to="/videos/item">ideo item</NavLink>
-        </li>
+        {/* <li>
+          <NavLink to="/videos/item">video item</NavLink>
+        </li> */}
         <li>
           <NavLink to={`/videos/video_management/${auth.userId}`}>
             manage my video

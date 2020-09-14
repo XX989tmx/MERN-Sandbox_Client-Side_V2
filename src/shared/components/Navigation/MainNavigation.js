@@ -173,9 +173,9 @@ const MainNavigation = () => {
                 <li>
                   <NavLink to="/videos/main">Video Main</NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/videos/item">Video Item</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to={`/videos/video_management/${auth.userId}`}>
                     manage my video
