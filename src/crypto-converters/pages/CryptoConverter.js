@@ -71,7 +71,9 @@ const CryptoConverter = () => {
   const [Result, setResult] = useState();
 
   const [FiatCurrencyCodeOptions, setFiatCurrencyCodeOptions] = useState("");
-  const [CryptoCurrencyCodeOptions, setCryptoCurrencyCodeOptions] = useState("");
+  const [CryptoCurrencyCodeOptions, setCryptoCurrencyCodeOptions] = useState(
+    ""
+  );
 
   const [formState, inputHandler] = useForm(
     {
@@ -376,7 +378,7 @@ const CryptoConverter = () => {
             {c.currency_name}
           </option>
         ));
-        setCryptoCurrencyCodeOptions(cryptoCurrencyCodeOption)
+        setCryptoCurrencyCodeOptions(cryptoCurrencyCodeOption);
       } catch (error) {}
     };
     getRequestForCryptoData();
@@ -477,20 +479,19 @@ const CryptoConverter = () => {
       );
       console.log(responseData);
       console.log(responseData.ExchangeRate);
-      
+
       setExchangeRate(responseData);
       console.log(new Number(responseData.ExchangeRate));
       let resultAmount =
-        new Number(responseData.ExchangeRate) *
-        userInputCurrencyAmount;
-        console.log(resultAmount);
+        new Number(responseData.ExchangeRate) * userInputCurrencyAmount;
+      console.log(resultAmount);
       setResult(resultAmount);
     } catch (error) {}
   };
 
-  const userInputCurrencyAmountChangeHandler = async(event) => {
-    setuserInputCurrencyAmount(event.target.value)
-  }
+  const userInputCurrencyAmountChangeHandler = async (event) => {
+    setuserInputCurrencyAmount(event.target.value);
+  };
 
   return (
     <React.Fragment>
@@ -652,85 +653,97 @@ const CryptoConverter = () => {
             onClick. make this p tag to button??'
           </p> */}
             <div className="currency-exchange-rate-input">
-              <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
-                <Input
-                  id="FromCurrency"
-                  element="input"
-                  label="FromCurrency"
-                  placeholder="Input Currency Code eg. CNY(Both Crypto Code and Fiat Code is available)"
-                  validators={[VALIDATOR_REQUIRE()]}
-                  onInput={inputHandler}
+              <div className="currency-exchange-rate-input-form">
+                <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
+                  <Input
+                    id="FromCurrency"
+                    element="input"
+                    label="FromCurrency"
+                    placeholder="Input Currency Code eg. CNY(Both Crypto Code and Fiat Code is available)"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    onInput={inputHandler}
+                  />
+                  <Input
+                    id="ToCurrency"
+                    element="input"
+                    label="ToCurrency"
+                    placeholder="Input Currency Code eg. BTC(Both Crypto Code and Fiat Code is available)"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    onInput={inputHandler}
+                  />
+                  <Button btnBlack>get exchange rate</Button>
+                </form>
+              </div>
+              <div className="currency-exchange-rate-input-result">
+                <ExchangeRateItem
+                  FromCurrencyCode={ExchangeRate.FromCurrencyCode}
+                  FromCurrencyName={ExchangeRate.FromCurrencyName}
+                  ToCurrencyCode={ExchangeRate.ToCurrencyCode}
+                  ToCurrencyName={ExchangeRate.ToCurrencyName}
+                  ExchangeRate={ExchangeRate.ExchangeRate}
+                  LastRefreshed={ExchangeRate.LastRefreshed}
+                  TimeZone={ExchangeRate.TimeZone}
+                  BidPrice={ExchangeRate.BidPrice}
+                  AskPrice={ExchangeRate.AskPrice}
                 />
-                <Input
-                  id="ToCurrency"
-                  element="input"
-                  label="ToCurrency"
-                  placeholder="Input Currency Code eg. BTC(Both Crypto Code and Fiat Code is available)"
-                  validators={[VALIDATOR_REQUIRE()]}
-                  onInput={inputHandler}
-                />
-                <Button btnBlack>get exchange rate</Button>
-              </form>
+              </div>
             </div>
             <hr />
             <div className="currency-exchange-rate-selector">
-              <form onSubmit={exchangeRateSubmithandler}>
-                <input
-                  type="text"
-                  onChange={userInputCurrencyAmountChangeHandler}
-                  value={userInputCurrencyAmount}
-                ></input>
-                <select
-                  value={FromCurrency1}
-                  onChange={FromCurrencyChangehandler1}
-                >
-                  {FiatCurrencyCodeOptions}
-                </select>
-                <select
-                  value={FromCurrency2}
-                  onChange={FromCurrencyChangehandler2}
-                >
-                  {CryptoCurrencyCodeOptions}
-                </select>
-                <select value={ToCurrency1} onChange={ToCurrencyChangehandler1}>
-                  {FiatCurrencyCodeOptions}
-                </select>
-                <select value={ToCurrency2} onChange={ToCurrencyChangehandler2}>
-                  {CryptoCurrencyCodeOptions}
-                </select>
-                <button type="submit" value="Submit">
-                  get exchange rate
-                </button>
-              </form>
-            </div>
-          </div>
-          <div className="center">
-            <ExchangeRateItem
-              FromCurrencyCode={ExchangeRate.FromCurrencyCode}
-              FromCurrencyName={ExchangeRate.FromCurrencyName}
-              ToCurrencyCode={ExchangeRate.ToCurrencyCode}
-              ToCurrencyName={ExchangeRate.ToCurrencyName}
-              ExchangeRate={ExchangeRate.ExchangeRate}
-              LastRefreshed={ExchangeRate.LastRefreshed}
-              TimeZone={ExchangeRate.TimeZone}
-              BidPrice={ExchangeRate.BidPrice}
-              AskPrice={ExchangeRate.AskPrice}
-            />
-            <div>
-              {userInputCurrencyAmount}
-              {ExchangeRate.FromCurrencyName}is
-              <h3>
-                {Result && <span> {new Number(Result).toFixed(2)}</span>}
-                <span>{ExchangeRate.ToCurrencyName}</span>
-              </h3>
-            </div>
-            {/* <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
+              <div className="currency-exchange-rate-selector-form">
+                <form onSubmit={exchangeRateSubmithandler}>
+                  <input
+                    type="text"
+                    onChange={userInputCurrencyAmountChangeHandler}
+                    value={userInputCurrencyAmount}
+                  ></input>
+                  <select
+                    value={FromCurrency1}
+                    onChange={FromCurrencyChangehandler1}
+                  >
+                    {FiatCurrencyCodeOptions}
+                  </select>
+                  <select
+                    value={FromCurrency2}
+                    onChange={FromCurrencyChangehandler2}
+                  >
+                    {CryptoCurrencyCodeOptions}
+                  </select>
+                  <select
+                    value={ToCurrency1}
+                    onChange={ToCurrencyChangehandler1}
+                  >
+                    {FiatCurrencyCodeOptions}
+                  </select>
+                  <select
+                    value={ToCurrency2}
+                    onChange={ToCurrencyChangehandler2}
+                  >
+                    {CryptoCurrencyCodeOptions}
+                  </select>
+                  <button type="submit" value="Submit">
+                    get exchange rate
+                  </button>
+                </form>
+              </div>
+              <div className="currency-exchange-rate-selector-result">
+                <h5>
+                  {userInputCurrencyAmount} {ExchangeRate.FromCurrencyName} is
+                  worth:
+                </h5>
+                <h3>
+                  {Result && <span> {new Number(Result).toFixed(2)}</span>}
+                  <span>{ExchangeRate.ToCurrencyName}</span>
+                </h3>
+              </div>
+              {/* <h5>1 {ExchangeRate.FromCurrencyName} is worth:</h5>
           <h3>
             {ExchangeRate.ExchangeRate}{" "}
             <span>{ExchangeRate.ToCurrencyName}</span>
           </h3>
 
           <p>last updated at: {ExchangeRate.LastRefreshed}</p> */}
+            </div>
           </div>
 
           <div className="crypto-get-area">
