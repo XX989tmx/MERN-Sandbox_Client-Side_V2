@@ -651,53 +651,58 @@ const CryptoConverter = () => {
             check Fiat Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
           </p> */}
-            <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
-              <Input
-                id="FromCurrency"
-                element="input"
-                label="FromCurrency"
-                placeholder="Input Currency Code eg. CNY(Both Crypto Code and Fiat Code is available)"
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-              />
-              <Input
-                id="ToCurrency"
-                element="input"
-                label="ToCurrency"
-                placeholder="Input Currency Code eg. BTC(Both Crypto Code and Fiat Code is available)"
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-              />
-              <Button btnBlack>get exchange rate</Button>
-            </form>
-            <form onSubmit={exchangeRateSubmithandler}>
-              <input
-                type="text"
-                onChange={userInputCurrencyAmountChangeHandler}
-                value={userInputCurrencyAmount}
-              ></input>
-              <select
-                value={FromCurrency1}
-                onChange={FromCurrencyChangehandler1}
-              >
-                {FiatCurrencyCodeOptions}
-              </select>
-              <select
-                value={FromCurrency2}
-                onChange={FromCurrencyChangehandler2}
-              >
-                {CryptoCurrencyCodeOptions}
-              </select>
-              <select value={ToCurrency1} onChange={ToCurrencyChangehandler1}>
-                {FiatCurrencyCodeOptions}
-              </select>
-              <select value={ToCurrency2} onChange={ToCurrencyChangehandler2}>
-                {CryptoCurrencyCodeOptions}
-              </select>
-              <button type="submit" value="Submit">
-                submit
-              </button>
-            </form>
+            <div className="currency-exchange-rate-input">
+              <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
+                <Input
+                  id="FromCurrency"
+                  element="input"
+                  label="FromCurrency"
+                  placeholder="Input Currency Code eg. CNY(Both Crypto Code and Fiat Code is available)"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="ToCurrency"
+                  element="input"
+                  label="ToCurrency"
+                  placeholder="Input Currency Code eg. BTC(Both Crypto Code and Fiat Code is available)"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  onInput={inputHandler}
+                />
+                <Button btnBlack>get exchange rate</Button>
+              </form>
+            </div>
+            <hr />
+            <div className="currency-exchange-rate-selector">
+              <form onSubmit={exchangeRateSubmithandler}>
+                <input
+                  type="text"
+                  onChange={userInputCurrencyAmountChangeHandler}
+                  value={userInputCurrencyAmount}
+                ></input>
+                <select
+                  value={FromCurrency1}
+                  onChange={FromCurrencyChangehandler1}
+                >
+                  {FiatCurrencyCodeOptions}
+                </select>
+                <select
+                  value={FromCurrency2}
+                  onChange={FromCurrencyChangehandler2}
+                >
+                  {CryptoCurrencyCodeOptions}
+                </select>
+                <select value={ToCurrency1} onChange={ToCurrencyChangehandler1}>
+                  {FiatCurrencyCodeOptions}
+                </select>
+                <select value={ToCurrency2} onChange={ToCurrencyChangehandler2}>
+                  {CryptoCurrencyCodeOptions}
+                </select>
+                <button type="submit" value="Submit">
+                  get exchange rate
+                </button>
+              </form>
+            </div>
           </div>
           <div className="center">
             <ExchangeRateItem
