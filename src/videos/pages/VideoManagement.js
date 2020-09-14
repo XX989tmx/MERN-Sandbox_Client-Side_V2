@@ -41,7 +41,7 @@ const VideoManagement = () => {
       {!isLoading && MyVideos && (
         <div className="video-main-container">
           <div>
-            <h4>Welcome Back {UserName}! Your Videos is here</h4>
+            <h4>Welcome Back {UserName}! Your Videos are all here</h4>
             <p>To Update your Video, Click an Update Button</p>
             <span>
               <Link to={`/videos/main`}>Go Video Index</Link>
