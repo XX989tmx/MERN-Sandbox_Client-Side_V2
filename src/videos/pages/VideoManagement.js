@@ -33,16 +33,24 @@ const VideoManagement = () => {
 
   return (
     <React.Fragment>
-      <div className="video-main-container">
-        <div>
-          <h4>Welcome Back {UserName}! Your Videos is here</h4>
-          <span>
-            <Link to={`/videos/main`}>Go Video Index</Link>
-          </span>
-          <VideoManagementList items={MyVideos} />
-          <MoveToTopButton />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
         </div>
-      </div>
+      )}
+      {!isLoading && MyVideos && (
+        <div className="video-main-container">
+          <div>
+            <h4>Welcome Back {UserName}! Your Videos is here</h4>
+            <span>
+              <Link to={`/videos/main`}>Go Video Index</Link>
+            </span>
+            <VideoManagementList items={MyVideos} />
+            <MoveToTopButton />
+          </div>
+        </div>
+      )}
+      {!isLoading && MyVideos && <FooterMainNavigation />}
     </React.Fragment>
   );
 };
