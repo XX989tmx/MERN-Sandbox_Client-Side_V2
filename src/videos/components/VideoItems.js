@@ -8,7 +8,8 @@ const VideoItems = (props) => {
     <li className="video-item-container">
       <Link to={`/videos/${props.id}`} style={{ textDecoration: "none" }}>
         <div className="video-image-box">
-          <img className="video-image"
+          <img
+            className="video-image"
             // src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
             src={props.image}
             alt=""
@@ -19,12 +20,14 @@ const VideoItems = (props) => {
           <span className="duration">{props.duration}</span>
         </div>
         <div>
-          <h4>{props.title}</h4>
-          <p>{props.description}</p>
+          <h4 className="video-item-title">{props.title}</h4>
+          <p className="video-item-description">
+            {new String(props.description).substr(0, 50)}...
+          </p>
 
-          <span className="videoItem-persons">{props.persons}</span>
+          {/* <span className="videoItem-persons">{props.persons}</span> */}
           <span className="video-item-date">
-            {new Date(props.date_created).toDateString()}
+            updated at {new Date(props.date_created).toDateString()}
           </span>
         </div>
         {/* <iframe
@@ -36,7 +39,7 @@ const VideoItems = (props) => {
             allowfullscreen
           ></iframe> */}
       </Link>
-      <Link
+      {/* <Link
         to={`/videos/get_video_by_tags/${props.tags}`}
         style={{ textDecoration: "none" }}
       >
@@ -47,7 +50,7 @@ const VideoItems = (props) => {
         style={{ textDecoration: "none" }}
       >
         <span className="video-item-category">{props.categories}</span>
-      </Link>
+      </Link> */}
 
       {/* <p>{props.id}</p> */}
     </li>

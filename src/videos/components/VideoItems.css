@@ -4,6 +4,7 @@
   margin: 1%;
   /* max-width: 341px; */
   min-width: 365px;
+  line-height: 1.1;
   box-shadow: 1px 2px 10px rgb(231, 231, 231);
   border-radius: 10px;
   justify-content: start;
@@ -61,9 +62,17 @@
 .videoItem-persons {
   margin-right: 10px;
 }
+/* .video-item-title {
+  
+} */
+.video-item-description {
+  font-size: 14px;
+}
 
 .video-item-date {
   margin-right: 10px;
+  color: rgb(129, 129, 129);
+  font-size: 13px;
 }
 
 .video-item-tags {
@@ -73,6 +82,8 @@
 .video-item-category {
   margin-right: 10px;
 }
+
+
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */

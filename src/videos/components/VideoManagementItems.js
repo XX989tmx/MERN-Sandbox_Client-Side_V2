@@ -73,7 +73,7 @@ const VideoManagementItems = (props) => {
           </div>
           <div>
             <h4>{props.title}</h4>
-            <p>{props.description}</p>
+            <p>{new String(props.description).substr(0, 50)}</p>
 
             <span className="videoItem-persons">{props.persons}</span>
             <span className="video-item-date">
