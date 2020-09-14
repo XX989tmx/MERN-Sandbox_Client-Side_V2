@@ -28,7 +28,7 @@
   width: 810px;
   height: 100%;
    
-  background-color: aqua;
+  background-color:whitesmoke;
   /* display: flex; */
   border: solid 1px;
 }
@@ -48,7 +48,7 @@
 
 
 .download-link-item {
-    background-color: red;
+    background-color: whitesmoke;
     list-style: none;
     border: solid 1px;
     padding-left: 30px;
@@ -59,7 +59,7 @@
 .download-side-section {
   width: 280px;
   height: 900px;
-  background-color: azure;
+  background-color: whitesmoke;
   border: solid 1px;
 }
 
