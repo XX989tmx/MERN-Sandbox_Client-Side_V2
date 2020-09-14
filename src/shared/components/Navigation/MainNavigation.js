@@ -80,11 +80,11 @@ const MainNavigation = () => {
           <span />
         </button>
         <ExploreIcon style={{ color: "white", fontSize: "40px" }} />
-        <h1 style={{ position: "absolute", left: "80px" }}>
+        <h2 style={{ position: "absolute", left: "80px" }}>
           <Link to="/" className="home-link" style={{ textDecoration: "none" }}>
-            <span style={{ position: "relative", left: "0" }}>MSandbox</span>
+            <span style={{ position: "relative", left: "0" }}>MERNSandbox</span>
           </Link>
-        </h1>
+        </h2>
         <nav className="main-navigation__header-nav">
           <ul className="nav-list">
             <li className="nav-items" onMouseOver={openNavModalArea}>
