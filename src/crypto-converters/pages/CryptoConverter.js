@@ -700,13 +700,13 @@ const CryptoConverter = () => {
                     ></input>
                   </div>
                   <div className="from-currency-area">
-                    <select
+                    <select className="from-currency1"
                       value={FromCurrency1}
                       onChange={FromCurrencyChangehandler1}
                     >
                       {FiatCurrencyCodeOptions}
                     </select>
-                    <select
+                    <select className="from-currency2"
                       value={FromCurrency2}
                       onChange={FromCurrencyChangehandler2}
                     >
@@ -714,13 +714,13 @@ const CryptoConverter = () => {
                     </select>
                   </div>
                   <div className="to-currency-area">
-                    <select
+                    <select className="to-currency1"
                       value={ToCurrency1}
                       onChange={ToCurrencyChangehandler1}
                     >
                       {FiatCurrencyCodeOptions}
                     </select>
-                    <select
+                    <select className="to-currency2"
                       value={ToCurrency2}
                       onChange={ToCurrencyChangehandler2}
                     >
