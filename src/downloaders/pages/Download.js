@@ -375,10 +375,10 @@ const Download = (params) => {
                       DOWNLOAD RESOURCE
                     </Button>
                   </form>
-                  <img
+                  {/* <img
                     src="https://storage.googleapis.com/sample_test_image_bucket/images/2020-06-10%20147.jpg"
                     className="image-preview"
-                  />
+                  /> */}
                 </div>
               </li>
               <li className="download-link-item">
@@ -421,12 +421,12 @@ const Download = (params) => {
                       DOWNLOAD RESOURCE
                     </Button>
                   </form>
-                  <a
+                  {/* <a
                     href="https://storage.googleapis.com/sample_test_image_bucket/sampleTxt%20(10).txt"
                     target="_blank"
                   >
                     Preview Txt file
-                  </a>
+                  </a> */}
                 </div>
               </li>
               <li className="download-link-item">
@@ -483,15 +483,15 @@ const Download = (params) => {
           </div>
         </div>
         <div className="download-side-section">
-          {IsPdfDownloaded ? (
+          {/* {IsPdfDownloaded ? (
             <div>download check color graph: add green color; Donwloaded</div>
           ) : (
             <div>download check color graph : white; Not downloaded</div>
-          )}
+          )} */}
 
-          <h3>you have downloaded this file : {DownloadedCount} times</h3>
-          <h1>{ErrorMessage}</h1>
-          <img src="https://storage.googleapis.com/sample_test_image_bucket/images/download-2.jpg" />
+          <h3>you have downloaded a file : {DownloadedCount} times</h3>
+          <h4>{ErrorMessage}</h4>
+          {/* <img src="https://storage.googleapis.com/sample_test_image_bucket/images/download-2.jpg" /> */}
         </div>
       </div>
       {/* <FooterMainNavigation /> */}
