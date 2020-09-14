@@ -44,7 +44,7 @@ const VideoMainPage = () => {
       {!isLoading && AllVideos && (
         <div className="video-main-container">
           <div>
-            list every Video link items here
+            
             <span>
               <Link to={`/videos/video_management/${auth.userId}`}>
                 Manage Video
