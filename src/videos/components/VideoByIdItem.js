@@ -109,7 +109,7 @@ const VideoByIdItem = (props) => {
           allowfullscreen
         ></iframe>
         <h2>{props.title}</h2>
-        <p>{props.description}</p>
+        <p className="videoByIdItem-description">{props.description}</p>
         <h4>{props.views}views</h4>
         <button onClick={addLikeToVideoHandler}>
           {props.liked + Like}Like

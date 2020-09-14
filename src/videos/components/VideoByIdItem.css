@@ -12,6 +12,10 @@
 
 /* .video-area {
 } */
+
+.videoByIdItem-description {
+  max-width: 1000px;
+}
 .video-iframe {
   width: 340px;
   /* height: 100%; */
