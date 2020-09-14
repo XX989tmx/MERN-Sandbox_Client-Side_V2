@@ -72,12 +72,13 @@ const VideoManagementItems = (props) => {
             <span className="duration">{props.duration}</span>
           </div>
           <div>
-            <h4>{props.title}</h4>
-            <p>{new String(props.description).substr(0, 50)}</p>
+            <h4 className="video-item-title">{props.title}</h4>
+            <p className="video-item-description">
+              {new String(props.description).substr(0, 50)}
+            </p>
 
-            <span className="videoItem-persons">{props.persons}</span>
             <span className="video-item-date">
-              {new Date(props.date_created).toDateString()}
+              updated at {new Date(props.date_created).toDateString()}
             </span>
           </div>
           {/* <iframe
@@ -101,6 +102,7 @@ const VideoManagementItems = (props) => {
         >
           <span className="video-item-category">{props.categories}</span>
         </Link>
+        <span className="videoItem-persons">{props.persons}</span>
         <div>
           <Button btnGreen to={`/videos/update/${props.id}`}>
             Update
