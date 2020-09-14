@@ -72,6 +72,23 @@
  
 }
 
+.article-items-table-of-contents {
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  height: 100%;
+  width: 300px;
+  background-color: rgb(235, 234, 234);
+}
+
+.article-items-table-of-contents-list {
+  list-style: none;
+  
+}
+.article-items-table-of-contents-item a {
+  text-decoration: none;
+  margin-top: 3px;
+}
 /* .article-item Button {
   padding: 2px;
 } */
