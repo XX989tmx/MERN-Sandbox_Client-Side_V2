@@ -333,11 +333,13 @@ const SpecificArticleByIdItem = (props) => {
             </p>
           </div>
           <div>
-          <h5>References</h5>
+            <h5>References</h5>
             <ul>
               {props.referenceSites.map((s) => (
                 <li>
-                  <a href={s.link}>{s.name}</a>
+                  <a target="_blank" href={s.link}>
+                    {s.name}
+                  </a>
                 </li>
               ))}
             </ul>
