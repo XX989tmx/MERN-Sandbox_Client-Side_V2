@@ -38,6 +38,12 @@ const NewArticle = () => {
       tags: { value: "", isValid: false },
       price: { value: null, isValid: false },
       downloadable: { value: null, isValid: false },
+      referenceSiteName1: { value: "", isValid: false },
+      referenceSiteLink1: { value: "", isValid: false },
+      referenceSiteName2: { value: "", isValid: false },
+      referenceSiteLink2: { value: "", isValid: false },
+      referenceSiteName3: { value: "", isValid: false },
+      referenceSiteLink3: { value: "", isValid: false },
     },
     false
   );
@@ -66,6 +72,12 @@ const NewArticle = () => {
       formData.append("tags", formState.inputs.tags.value);
       formData.append("price", formState.inputs.price.value);
       formData.append("downloadable", formState.inputs.downloadable.value);
+      formData.append("referenceSiteName1", formState.inputs.referenceSiteName1.value);
+      formData.append("referenceSiteLink1", formState.inputs.referenceSiteLink1.value);
+      formData.append("referenceSiteName2", formState.inputs.referenceSiteName2.value);
+      formData.append("referenceSiteLink2", formState.inputs.referenceSiteLink2.value);
+      formData.append("referenceSiteName3", formState.inputs.referenceSiteName3.value);
+      formData.append("referenceSiteLink3", formState.inputs.referenceSiteLink3.value);
       await sendRequest(
         process.env.REACT_APP_BACKEND_URL + "/articles",
         "POST",
@@ -221,6 +233,60 @@ const NewArticle = () => {
               errorText="Please enter a valid address."
               onInput={inputHandler}
             />
+            <Input
+              id="referenceSiteName1"
+              element="input"
+              label="referenceSiteName1"
+              placeholder="referenceSiteName1"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="referenceSiteLink1"
+              element="input"
+              label="referenceSiteLink1"
+              placeholder="referenceSiteLink1"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="referenceSiteName2"
+              element="input"
+              label="referenceSiteName2"
+              placeholder="referenceSiteName2"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="referenceSiteLink2"
+              element="input"
+              label="referenceSiteLink2"
+              placeholder="referenceSiteLink2"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="referenceSiteName3"
+              element="input"
+              label="referenceSiteName3"
+              placeholder="referenceSiteName3"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
+            <Input
+              id="referenceSiteLink3"
+              element="input"
+              label="referenceSiteLink3"
+              placeholder="referenceSiteLink3"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid address."
+              onInput={inputHandler}
+            />
             <ImageUpload
               id="image"
               onInput={inputHandler}
@@ -240,7 +306,7 @@ const NewArticle = () => {
           label="checkbox"
           placeholder="checkbox"
         /> */}
-            <Button btnBlack type="submit" disabled={!formState.isValid}>
+            <Button btnBlack type="submit" >
               ADD ARTICLE
             </Button>
           </form>

@@ -23,6 +23,7 @@ const SpecificArticleByIdItem = (props) => {
   );
   const [Sunday, setSunday] = useState();
   const [DiscountedAmount, setDiscountedAmount] = useState();
+  const [ReferenceLinks, setReferenceLinks] = useState();
 
   useEffect(() => {
     const onLoad = (params) => {
@@ -33,6 +34,9 @@ const SpecificArticleByIdItem = (props) => {
         setDiscountedAmount(discountAmount);
         setSunday(true);
       }
+      console.log(props.referenceSites);
+      // const reference =
+      // setReferenceLinks(reference);
     };
     onLoad();
   }, []);
@@ -214,130 +218,130 @@ const SpecificArticleByIdItem = (props) => {
             to={`/get_specific_article_by_id/${props.id}`}
             style={{ textDecoration: "none" }}
           > */}
-            <div className="article-item__image center">
-              <h2>{props.title}</h2>
-              <img
-                className="article-item-image-item"
-                src={props.image}
-                alt={props.title}
-                style={{ width: "200px", height: "130px" }}
-              />
-            </div>
-            <div className="article-items-table-of-contents">
-              <ul className="article-items-table-of-contents-list">
-                <h5>Contents</h5>
-                <HashLink
-                  to={`/get_specific_article_by_id/${props.id}#heading`}
-                >
-                  <li className="article-items-table-of-contents-item">
-                    1 {props.heading}
-                  </li>
-                </HashLink>
-                <HashLink
-                  to={`/get_specific_article_by_id/${props.id}#heading2`}
-                >
-                  <li className="article-items-table-of-contents-item">
-                    2 {props.heading2}
-                  </li>
-                </HashLink>
-                <HashLink
-                  to={`/get_specific_article_by_id/${props.id}#heading3`}
-                >
-                  <li className="article-items-table-of-contents-item">
-                    3 {props.heading3}
-                  </li>
-                </HashLink>
-                <HashLink
-                  to={`/get_specific_article_by_id/${props.id}#heading4`}
-                >
-                  <li className="article-items-table-of-contents-item">
-                    4 {props.heading4}
-                  </li>
-                </HashLink>
-              </ul>
-            </div>
-            <div className="article-item__article_content">
-              <article>
-                <h3 id="heading">1 {props.heading}</h3>
-                <p>{props.content}</p>
-                <hr />
-                <h3 id="heading2">2 {props.heading2}</h3>
-                <p>{props.content2}</p>
-                <hr />
-                <h3 id="heading3">3 {props.heading3}</h3>
-                <p>{props.content3}</p>
-                <hr />
-                <h3 id="heading4">4 {props.heading4}</h3>
-                <p>{props.content4}</p>
-                <hr />
-              </article>
-              {/* <p>{props.id}</p> */}
-              <span>
-                {/* 著者情報をonFloatでモーダルで表示させてもいい */}
-                {/* <Button onClick={openModalHandler}> */}
-                <Link
-                  to={`/${props.authorId}/articles`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <span className="author-info">
-                    author: {props.authorName}
-                  </span>
-                  <span className="contact-info">
-                    contact: {props.authorEmail}
-                  </span>
-                </Link>
-                {/* </Button> */}
-              </span>
-              {/* <p>publishedDate: {props.publishedDate}</p> */}
+          <div className="article-item__image center">
+            <h2>{props.title}</h2>
+            <img
+              className="article-item-image-item"
+              src={props.image}
+              alt={props.title}
+              style={{ width: "200px", height: "130px" }}
+            />
+          </div>
+          <div className="article-items-table-of-contents">
+            <ul className="article-items-table-of-contents-list">
+              <h5>Contents</h5>
+              <HashLink to={`/get_specific_article_by_id/${props.id}#heading`}>
+                <li className="article-items-table-of-contents-item">
+                  1 {props.heading}
+                </li>
+              </HashLink>
+              <HashLink to={`/get_specific_article_by_id/${props.id}#heading2`}>
+                <li className="article-items-table-of-contents-item">
+                  2 {props.heading2}
+                </li>
+              </HashLink>
+              <HashLink to={`/get_specific_article_by_id/${props.id}#heading3`}>
+                <li className="article-items-table-of-contents-item">
+                  3 {props.heading3}
+                </li>
+              </HashLink>
+              <HashLink to={`/get_specific_article_by_id/${props.id}#heading4`}>
+                <li className="article-items-table-of-contents-item">
+                  4 {props.heading4}
+                </li>
+              </HashLink>
+            </ul>
+          </div>
+          <div className="article-item__article_content">
+            <article>
+              <h3 id="heading">1 {props.heading}</h3>
+              <p>{props.content}</p>
+              <hr />
+              <h3 id="heading2">2 {props.heading2}</h3>
+              <p>{props.content2}</p>
+              <hr />
+              <h3 id="heading3">3 {props.heading3}</h3>
+              <p>{props.content3}</p>
+              <hr />
+              <h3 id="heading4">4 {props.heading4}</h3>
+              <p>{props.content4}</p>
+              <hr />
+            </article>
+            {/* <p>{props.id}</p> */}
+            <span>
+              {/* 著者情報をonFloatでモーダルで表示させてもいい */}
+              {/* <Button onClick={openModalHandler}> */}
+              <Link
+                to={`/${props.authorId}/articles`}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="author-info">author: {props.authorName}</span>
+                <span className="contact-info">
+                  contact: {props.authorEmail}
+                </span>
+              </Link>
+              {/* </Button> */}
+            </span>
+            {/* <p>publishedDate: {props.publishedDate}</p> */}
 
-              <Link
-                to={`/get_article_by_categories/${props.categories}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div>
-                  <p className="categoryArea">Category: {props.categories}</p>
-                </div>
-              </Link>
-              <Link
-                to={`/get_article_by_tags/${props.tags}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div>
-                  <p className="tag-area">Tag: {props.tags}</p>
-                </div>
-              </Link>
-              <h4>
-                price:{" "}
-                <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
-                  {Sunday
-                    ? new Number(props.price * 0.9).toFixed(0)
-                    : new Number(props.price).toFixed(0)}{" "}
-                </span>
-                {Sunday && (
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      color: "rgb(201, 30, 30)",
-                    }}
-                  >
-                    (-{new Number(DiscountedAmount).toFixed(0)} Saved)
-                  </span>
-                )}
-              </h4>
-              {props.downloadable ? (
-                <span style={{ color: "green", border: "1px solid green" }}>
-                  Downloadable
-                </span>
-              ) : (
-                <span style={{ color: "red", border: "1px solid red" }}>
-                  Not Downloadable
+            <Link
+              to={`/get_article_by_categories/${props.categories}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div>
+                <p className="categoryArea">Category: {props.categories}</p>
+              </div>
+            </Link>
+            <Link
+              to={`/get_article_by_tags/${props.tags}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div>
+                <p className="tag-area">Tag: {props.tags}</p>
+              </div>
+            </Link>
+            <h4>
+              price:{" "}
+              <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
+                {Sunday
+                  ? new Number(props.price * 0.9).toFixed(0)
+                  : new Number(props.price).toFixed(0)}{" "}
+              </span>
+              {Sunday && (
+                <span
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "rgb(201, 30, 30)",
+                  }}
+                >
+                  (-{new Number(DiscountedAmount).toFixed(0)} Saved)
                 </span>
               )}
-              <p style={{ fontSize: "14px", color: "grey" }}>
-                Date Created: {new Date(props.date_created).toDateString()}
-              </p>
-            </div>
+            </h4>
+            {props.downloadable ? (
+              <span style={{ color: "green", border: "1px solid green" }}>
+                Downloadable
+              </span>
+            ) : (
+              <span style={{ color: "red", border: "1px solid red" }}>
+                Not Downloadable
+              </span>
+            )}
+            <p style={{ fontSize: "14px", color: "grey" }}>
+              Date Created: {new Date(props.date_created).toDateString()}
+            </p>
+          </div>
+          <div>
+          <h5>References</h5>
+            <ul>
+              {props.referenceSites.map((s) => (
+                <li>
+                  <a href={s.link}>{s.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
           {/* </Link> */}
           <div id="control" className="article-item__actions">
             <Button btnBlack onClick={openModalHandler}>

@@ -14,6 +14,7 @@ const GetSpecificArticleById = () => {
   const articleId = useParams().articleId;
   const [Article, setArticle] = useState({});
   const [ArticleAuthor, setArticleAuthor] = useState({});
+  const [referenceSites, setreferenceSites] = useState([]);
 
   useEffect(() => {
     const getArticleById = async (params) => {
@@ -28,6 +29,8 @@ const GetSpecificArticleById = () => {
         console.log(responseData.article.author.name);
         setArticle(responseData.article);
         setArticleAuthor(responseData.article.author);
+        setreferenceSites(responseData.article.referenceSites);
+        console.log(responseData.article.referenceSites);
       } catch (error) {}
       // window.scrollTo(0, 0);
     };
@@ -81,6 +84,7 @@ const GetSpecificArticleById = () => {
                 price={Article.price}
                 date_created={Article.date_created}
                 downloadable={Article.downloadable}
+                referenceSites={referenceSites}
               />
               <div className="article-index-link">
                 <span>
