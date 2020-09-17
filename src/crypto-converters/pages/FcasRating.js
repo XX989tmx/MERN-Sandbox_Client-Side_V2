@@ -6,7 +6,7 @@ import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import FcasRatingItem from "../components/FcasRatingItem";
 import download from "downloadjs";
-
+import { v4 as uuidv4 } from "uuid";
 import "./FcasRating.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
@@ -28,15 +28,32 @@ const FcasRating = () => {
 
   const [Option, setOption] = useState();
   useEffect(() => {
-    const onLoad = (params) => {
-      let currencyArray = [];
-      currencyArray = currencyCode.split(",");
-      let selector = currencyArray.map((a) => (
-        <option value={a} key={a}>
-          {a}
-        </option>
-      ));
-      setOption(selector);
+    const onLoad = async(params) => {
+      try {
+        const response = await fetch(
+          process.env.REACT_APP_BACKEND_URL +
+            "/get_external_api/crypto_currency/fetchFiatCodesAndCryptoCodes"
+        );
+        const responseData = await response.json();
+        const cryptoCurrencyCodeList = responseData.cryptoCurrencyCodes;
+        let cryptoCurrencyCodeOption = cryptoCurrencyCodeList.map((c) => (
+          <option value={c.currency_code} key={uuidv4()}>
+            {c.currency_name}
+          </option>
+        ));
+        setOption(cryptoCurrencyCodeOption);
+      } catch (error) {
+        
+      }
+      // let currencyArray = [];
+      // currencyArray = currencyCode.split(",");
+      // let selector = currencyArray.map((a) => (
+      //   <option value={a} key={a}>
+      //     {a}
+      //   </option>
+      // ));
+
+      
     };
     onLoad();
   }, []);
@@ -69,14 +86,14 @@ const FcasRating = () => {
     } catch (err) {}
   };
 
-  const currencyNameSelector = async (params) => {
+  const currencyNameSelector = async (event) => {
     try {
-      var cryptoCodes = document.getElementById("Code");
-      var cryptoCode = cryptoCodes.value;
-      console.log(cryptoCode);
+      // var cryptoCodes = document.getElementById("Code");
+      // var cryptoCode = cryptoCodes.value;
+      // console.log(cryptoCode);
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
-          `/get_external_api/crypto_currency/health_index?cryptoCode=${cryptoCode}`
+          `/get_external_api/crypto_currency/health_index?cryptoCode=${event.target.value}`
       );
       console.log(responseData);
       console.log(responseData.fcasRating);
@@ -102,7 +119,7 @@ const FcasRating = () => {
                 />
                 <div>
                   <select name="Code" id="Code" onChange={currencyNameSelector}>
-                    <option value="default" selected>
+                    <option value="default" >
                       Currency Code
                     </option>
                     {Option}
