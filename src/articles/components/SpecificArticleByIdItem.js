@@ -340,6 +340,18 @@ const SpecificArticleByIdItem = (props) => {
               ))}
             </ul>
           </div>
+          <div>
+            <h5>External Links</h5>
+            <ul>
+              {props.externalSites.map((e) => (
+                <li>
+                  <a target="_blank" href={e.link}>
+                    {e.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           {/* </Link> */}
           <div id="control" className="article-item__actions">
             <Button btnBlack onClick={openModalHandler}>
