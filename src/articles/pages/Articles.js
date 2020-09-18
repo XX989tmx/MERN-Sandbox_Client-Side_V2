@@ -96,7 +96,7 @@ const Articles = () => {
         process.env.REACT_APP_BACKEND_URL +
           `/articles/all?q=${encodeURIComponent(queryValue)}`
       );
-      console.log(responseData.articles);
+      // console.log(responseData.articles);
       setAllArticles(responseData.articles);
       const articleCount = responseData.articles.length;
       let singleOrPlural;
@@ -194,8 +194,8 @@ const Articles = () => {
             process.env.REACT_APP_BACKEND_URL +
               `/articles/price_sort?q=${sortArticleFieldValue}`
           );
-          console.log(responseData);
-          console.log(responseData.results);
+          // console.log(responseData);
+          // console.log(responseData.results);
           setAllArticles(responseData.results);
         } catch (error) {}
         break;
@@ -205,8 +205,8 @@ const Articles = () => {
             process.env.REACT_APP_BACKEND_URL +
               `/articles/price_sort?q=${sortArticleFieldValue}`
           );
-          console.log(responseData);
-          console.log(responseData.results.id);
+          // console.log(responseData);
+          // console.log(responseData.results.id);
           setAllArticles(responseData.results);
         } catch (error) {}
         break;
@@ -216,8 +216,8 @@ const Articles = () => {
             process.env.REACT_APP_BACKEND_URL +
               `/articles/date_sort?date=FromOldest`
           );
-          console.log(responseData);
-          console.log(responseData.results);
+          // console.log(responseData);
+          // console.log(responseData.results);
           setAllArticles(responseData.results);
         } catch (error) {}
         break;
@@ -227,8 +227,8 @@ const Articles = () => {
             process.env.REACT_APP_BACKEND_URL +
               `/articles/date_sort?date=FromLatest`
           );
-          console.log(responseData);
-          console.log(responseData.results);
+          // console.log(responseData);
+          // console.log(responseData.results);
           setAllArticles(responseData.results);
         } catch (error) {}
         break;
@@ -266,7 +266,7 @@ const Articles = () => {
         process.env.REACT_APP_BACKEND_URL +
           `/articles/downloadable?downloadable=${downloadableValue}`
       );
-      console.log(responseData.articles);
+      // console.log(responseData.articles);
       setAllArticles(responseData.articles);
       const articleCount = responseData.articles.length;
       let singleOrPlural;
