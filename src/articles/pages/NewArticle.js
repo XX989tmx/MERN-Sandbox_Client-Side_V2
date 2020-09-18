@@ -126,17 +126,35 @@ const NewArticle = () => {
       formData.append("images", formState.inputs.image3.value);
       formData.append("images", formState.inputs.image4.value);
       formData.append("images", formState.inputs.image5.value);
-      
+
       formData.append("categories", formState.inputs.categories.value);
       formData.append("tags", formState.inputs.tags.value);
       formData.append("price", formState.inputs.price.value);
       formData.append("downloadable", formState.inputs.downloadable.value);
-      formData.append("referenceSiteName1", formState.inputs.referenceSiteName1.value);
-      formData.append("referenceSiteLink1", formState.inputs.referenceSiteLink1.value);
-      formData.append("referenceSiteName2", formState.inputs.referenceSiteName2.value);
-      formData.append("referenceSiteLink2", formState.inputs.referenceSiteLink2.value);
-      formData.append("referenceSiteName3", formState.inputs.referenceSiteName3.value);
-      formData.append("referenceSiteLink3", formState.inputs.referenceSiteLink3.value);
+      formData.append(
+        "referenceSiteName1",
+        formState.inputs.referenceSiteName1.value
+      );
+      formData.append(
+        "referenceSiteLink1",
+        formState.inputs.referenceSiteLink1.value
+      );
+      formData.append(
+        "referenceSiteName2",
+        formState.inputs.referenceSiteName2.value
+      );
+      formData.append(
+        "referenceSiteLink2",
+        formState.inputs.referenceSiteLink2.value
+      );
+      formData.append(
+        "referenceSiteName3",
+        formState.inputs.referenceSiteName3.value
+      );
+      formData.append(
+        "referenceSiteLink3",
+        formState.inputs.referenceSiteLink3.value
+      );
 
       formData.append(
         "externalSitesName1",
@@ -452,182 +470,209 @@ const NewArticle = () => {
               errorText="Please enter a valid address."
               onInput={inputHandler}
             />
-            <Input
-              id="referenceSiteName1"
-              element="input"
-              label="referenceSiteName1"
-              placeholder="referenceSiteName1"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="referenceSiteLink1"
-              element="input"
-              label="referenceSiteLink1"
-              placeholder="referenceSiteLink1"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="referenceSiteName2"
-              element="input"
-              label="referenceSiteName2"
-              placeholder="referenceSiteName2"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="referenceSiteLink2"
-              element="input"
-              label="referenceSiteLink2"
-              placeholder="referenceSiteLink2"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="referenceSiteName3"
-              element="input"
-              label="referenceSiteName3"
-              placeholder="referenceSiteName3"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="referenceSiteLink3"
-              element="input"
-              label="referenceSiteLink3"
-              placeholder="referenceSiteLink3"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+            <hr />
+            <div>
+              <Input
+                id="referenceSiteName1"
+                element="input"
+                label="referenceSiteName1"
+                placeholder="referenceSiteName1"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="referenceSiteLink1"
+                element="input"
+                label="referenceSiteLink1"
+                placeholder="referenceSiteLink1"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="referenceSiteName2"
+                element="input"
+                label="referenceSiteName2"
+                placeholder="referenceSiteName2"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="referenceSiteLink2"
+                element="input"
+                label="referenceSiteLink2"
+                placeholder="referenceSiteLink2"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="referenceSiteName3"
+                element="input"
+                label="referenceSiteName3"
+                placeholder="referenceSiteName3"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="referenceSiteLink3"
+                element="input"
+                label="referenceSiteLink3"
+                placeholder="referenceSiteLink3"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+            </div>
+            <hr />
+            <div>
+              <Input
+                id="externalSitesName1"
+                element="input"
+                label="externalSitesName1"
+                placeholder="externalSitesName1"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="externalSitesLink1"
+                element="input"
+                label="externalSitesLink1"
+                placeholder="externalSitesLink1"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
 
-            <Input
-              id="externalSitesName1"
-              element="input"
-              label="externalSitesName1"
-              placeholder="externalSitesName1"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="externalSitesLink1"
-              element="input"
-              label="externalSitesLink1"
-              placeholder="externalSitesLink1"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+              <Input
+                id="externalSitesName2"
+                element="input"
+                label="externalSitesName2"
+                placeholder="externalSitesName2"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="externalSitesLink2"
+                element="input"
+                label="externalSitesLink2"
+                placeholder="externalSitesLink2"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
 
-            <Input
-              id="externalSitesName2"
-              element="input"
-              label="externalSitesName2"
-              placeholder="externalSitesName2"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="externalSitesLink2"
-              element="input"
-              label="externalSitesLink2"
-              placeholder="externalSitesLink2"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+              <Input
+                id="externalSitesName3"
+                element="input"
+                label="externalSitesName3"
+                placeholder="externalSitesName3"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="externalSitesLink3"
+                element="input"
+                label="externalSitesLink3"
+                placeholder="externalSitesLink3"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
 
-            <Input
-              id="externalSitesName3"
-              element="input"
-              label="externalSitesName3"
-              placeholder="externalSitesName3"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="externalSitesLink3"
-              element="input"
-              label="externalSitesLink3"
-              placeholder="externalSitesLink3"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+              <Input
+                id="externalSitesName4"
+                element="input"
+                label="externalSitesName4"
+                placeholder="externalSitesName4"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="externalSitesLink4"
+                element="input"
+                label="externalSitesLink4"
+                placeholder="externalSitesLink4"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
 
-            <Input
-              id="externalSitesName4"
-              element="input"
-              label="externalSitesName4"
-              placeholder="externalSitesName4"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="externalSitesLink4"
-              element="input"
-              label="externalSitesLink4"
-              placeholder="externalSitesLink4"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+              <Input
+                id="externalSitesName5"
+                element="input"
+                label="externalSitesName5"
+                placeholder="externalSitesName5"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <Input
+                id="externalSitesLink5"
+                element="input"
+                label="externalSitesLink5"
+                placeholder="externalSitesLink5"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+            </div>
+            <hr />
+            <div className="center">
+              <h4 className="center">Thumbnail image</h4>
+              <div className="thumbnail-image-picker-area">
+                <div className="thumbnail-image-picker">
+                  <ImageUpload
+                    id="image1"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                </div>
+              </div>
+            </div>
+            <hr />
 
-            <Input
-              id="externalSitesName5"
-              element="input"
-              label="externalSitesName5"
-              placeholder="externalSitesName5"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="externalSitesLink5"
-              element="input"
-              label="externalSitesLink5"
-              placeholder="externalSitesLink5"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-
-            <ImageUpload
-              id="image1"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-
-            <ImageUpload
-              id="image2"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-            <ImageUpload
-              id="image3"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-            <ImageUpload
-              id="image4"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-            <ImageUpload
-              id="image5"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
+            <div>
+              <h4 className="center">Article Caption Images</h4>
+              <div className="caption-images-file-picker-area center">
+                <div className="caption-images-file-picker">
+                  <ImageUpload
+                    id="image2"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                </div>
+                <div className="caption-images-file-picker">
+                  <ImageUpload
+                    id="image3"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                </div>
+                <div className="caption-images-file-picker">
+                  <ImageUpload
+                    id="image4"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                </div>
+                <div className="caption-images-file-picker">
+                  <ImageUpload
+                    id="image5"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                </div>
+              </div>
+            </div>
+            <hr />
             {/* <Input element="input" type="radio" label="radio" placeholder="radio" />
         <Input element="input" type="email" label="email" placeholder="email" />
         <Input
@@ -642,9 +687,12 @@ const NewArticle = () => {
           label="checkbox"
           placeholder="checkbox"
         /> */}
-            <Button btnBlack type="submit">
-              ADD ARTICLE
-            </Button>
+            <div className="center">
+              {" "}
+              <Button btnBlack type="submit">
+                ADD ARTICLE
+              </Button>
+            </div>
           </form>
         </div>
         {/* <div className="side-container"></div> */}

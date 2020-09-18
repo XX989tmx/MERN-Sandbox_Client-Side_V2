@@ -4,6 +4,25 @@
   /* height: 100vh; */
   min-height: 100vh;
 }
+.caption-images-file-picker-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.caption-images-file-picker {
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-content: space-between;
+}
+.thumbnail-image-picker-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* .thumbnail-image-picker {
+  
+} */
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
