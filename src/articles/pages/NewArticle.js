@@ -528,101 +528,109 @@ const NewArticle = () => {
               />
             </div>
             <hr />
-            <div>
-              <Input
-                id="externalSitesName1"
-                element="input"
-                label="externalSitesName1"
-                placeholder="externalSitesName1"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="externalSitesLink1"
-                element="input"
-                label="externalSitesLink1"
-                placeholder="externalSitesLink1"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-
-              <Input
-                id="externalSitesName2"
-                element="input"
-                label="externalSitesName2"
-                placeholder="externalSitesName2"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="externalSitesLink2"
-                element="input"
-                label="externalSitesLink2"
-                placeholder="externalSitesLink2"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-
-              <Input
-                id="externalSitesName3"
-                element="input"
-                label="externalSitesName3"
-                placeholder="externalSitesName3"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="externalSitesLink3"
-                element="input"
-                label="externalSitesLink3"
-                placeholder="externalSitesLink3"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-
-              <Input
-                id="externalSitesName4"
-                element="input"
-                label="externalSitesName4"
-                placeholder="externalSitesName4"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="externalSitesLink4"
-                element="input"
-                label="externalSitesLink4"
-                placeholder="externalSitesLink4"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-
-              <Input
-                id="externalSitesName5"
-                element="input"
-                label="externalSitesName5"
-                placeholder="externalSitesName5"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="externalSitesLink5"
-                element="input"
-                label="externalSitesLink5"
-                placeholder="externalSitesLink5"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
+            <h4 className="center">External Sites Information</h4>
+            <div className="external-sitesInfo-input-area">
+              <div className="external-sitesInfo-input-item">
+                <Input
+                  id="externalSitesName1"
+                  element="input"
+                  label="externalSitesName1"
+                  placeholder="externalSitesName1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="externalSitesLink1"
+                  element="input"
+                  label="externalSitesLink1"
+                  placeholder="externalSitesLink1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="external-sitesInfo-input-item">
+                {" "}
+                <Input
+                  id="externalSitesName2"
+                  element="input"
+                  label="externalSitesName2"
+                  placeholder="externalSitesName2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="externalSitesLink2"
+                  element="input"
+                  label="externalSitesLink2"
+                  placeholder="externalSitesLink2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="external-sitesInfo-input-item">
+                <Input
+                  id="externalSitesName3"
+                  element="input"
+                  label="externalSitesName3"
+                  placeholder="externalSitesName3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="externalSitesLink3"
+                  element="input"
+                  label="externalSitesLink3"
+                  placeholder="externalSitesLink3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="external-sitesInfo-input-item">
+                <Input
+                  id="externalSitesName4"
+                  element="input"
+                  label="externalSitesName4"
+                  placeholder="externalSitesName4"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="externalSitesLink4"
+                  element="input"
+                  label="externalSitesLink4"
+                  placeholder="externalSitesLink4"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="external-sitesInfo-input-item">
+                <Input
+                  id="externalSitesName5"
+                  element="input"
+                  label="externalSitesName5"
+                  placeholder="externalSitesName5"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="externalSitesLink5"
+                  element="input"
+                  label="externalSitesLink5"
+                  placeholder="externalSitesLink5"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
             </div>
             <hr />
             <div className="center">
