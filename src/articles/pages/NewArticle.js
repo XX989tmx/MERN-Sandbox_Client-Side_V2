@@ -471,61 +471,68 @@ const NewArticle = () => {
               onInput={inputHandler}
             />
             <hr />
-            <div>
-              <Input
-                id="referenceSiteName1"
-                element="input"
-                label="referenceSiteName1"
-                placeholder="referenceSiteName1"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="referenceSiteLink1"
-                element="input"
-                label="referenceSiteLink1"
-                placeholder="referenceSiteLink1"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="referenceSiteName2"
-                element="input"
-                label="referenceSiteName2"
-                placeholder="referenceSiteName2"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="referenceSiteLink2"
-                element="input"
-                label="referenceSiteLink2"
-                placeholder="referenceSiteLink2"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="referenceSiteName3"
-                element="input"
-                label="referenceSiteName3"
-                placeholder="referenceSiteName3"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <Input
-                id="referenceSiteLink3"
-                element="input"
-                label="referenceSiteLink3"
-                placeholder="referenceSiteLink3"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
+            <h4 className="center">Reference Sites Information</h4>
+            <div className="reference-sites-information-area">
+              <div className="reference-sites-information-item">
+                <Input
+                  id="referenceSiteName1"
+                  element="input"
+                  label="referenceSiteName1"
+                  placeholder="referenceSiteName1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="referenceSiteLink1"
+                  element="input"
+                  label="referenceSiteLink1"
+                  placeholder="referenceSiteLink1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="reference-sites-information-item">
+                <Input
+                  id="referenceSiteName2"
+                  element="input"
+                  label="referenceSiteName2"
+                  placeholder="referenceSiteName2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="referenceSiteLink2"
+                  element="input"
+                  label="referenceSiteLink2"
+                  placeholder="referenceSiteLink2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="reference-sites-information-item">
+                <Input
+                  id="referenceSiteName3"
+                  element="input"
+                  label="referenceSiteName3"
+                  placeholder="referenceSiteName3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+                <Input
+                  id="referenceSiteLink3"
+                  element="input"
+                  label="referenceSiteLink3"
+                  placeholder="referenceSiteLink3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
             </div>
             <hr />
             <h4 className="center">External Sites Information</h4>

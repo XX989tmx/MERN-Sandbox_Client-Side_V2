@@ -24,6 +24,17 @@
   
 } */
 
+.reference-sites-information-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* width: 470px; */
+  max-height: 400px;
+}
+.reference-sites-information-item {
+  max-width: 470px;
+}
+
 .external-sitesInfo-input-area {
   display: flex;
   flex-direction: column;
