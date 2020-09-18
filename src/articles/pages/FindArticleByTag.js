@@ -20,6 +20,7 @@ const FindArticleByTag = () => {
   const [ArticleContent, setArticleContent] = useState();
   const [Articletags, setArticletags] = useState();
   const [CountByTag, setCountByTag] = useState();
+  const [searchResultInfo, setsearchResultInfo] = useState();
 
   useEffect(() => {
     const getArticlesByTags = async (params) => {
@@ -28,19 +29,28 @@ const FindArticleByTag = () => {
           process.env.REACT_APP_BACKEND_URL +
             `/articles/get_article_by_tags/${tags}`
         );
-        console.log(responseData);
-        console.log("tag based sorting done.");
-        console.log(responseData.tagMatchedArticles);
-        console.log(responseData.tagMatchedArticles[0].title);
-        console.log(responseData.tagMatchedArticles[0].content);
+        // console.log(responseData);
+        // console.log("tag based sorting done.");
+        // console.log(responseData.tagMatchedArticles);
+        // console.log(responseData.tagMatchedArticles[0].title);
+        // console.log(responseData.tagMatchedArticles[0].content);
         setArticleTitle(responseData.tagMatchedArticles[0].title);
         setArticleContent(responseData.tagMatchedArticles[0].content);
         setArticletags(responseData.tagMatchedArticles[0].tags);
         setTagSortedArticle(responseData.tagMatchedArticles);
-        console.log(tagSortedArticle.title);
+        // console.log(tagSortedArticle.title);
+        const articleCount = responseData.countByTag;
+        let singleOrPlural;
+        if (articleCount === 1) {
+          singleOrPlural = "article";
+        } else {
+          singleOrPlural = "articles";
+        }
+        const result = `${articleCount} ${singleOrPlural} found in '${tags}' tag`;
+        setsearchResultInfo(result);
 
-        console.log(responseData.countByTag);
-        setCountByTag(responseData.countByTag);
+        // console.log(responseData.countByTag);
+        // setCountByTag(responseData.countByTag);
       } catch (error) {}
     };
     getArticlesByTags();
@@ -62,7 +72,8 @@ const FindArticleByTag = () => {
         <h5>{articleTitle}</h5>
         <h6>{ArticleContent}</h6>
       </div> */}
-              <h4>{CountByTag} related article found</h4>
+              {/* <h4>{CountByTag} related article found</h4> */}
+              <h4>{searchResultInfo}</h4>
               <div>
                 <span>
                   <Link to={`/articles`}>Article Index</Link>
