@@ -10,10 +10,11 @@ const FindArticleByCategoryList = (props) => {
           id={item.id}
           image={item.image}
           title={item.title}
-          content={item.content}
-          content2={item.content2}
-          content3={item.content3}
-          content4={item.content4}
+          contents={item.contents}
+          // content={item.content}
+          // content2={item.content2}
+          // content3={item.content3}
+          // content4={item.content4}
           authorName={item.author.name}
           authorEmail={item.author.email}
           authorId={item.author._id}

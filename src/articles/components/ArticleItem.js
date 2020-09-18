@@ -37,30 +37,46 @@ const ArticleItem = (props) => {
         setDiscountedAmount(discountAmount);
         setSunday(true);
       }
+      let contentArray = [];
+      let r;
+      for (let index = 0; index < props.contents.length; index++) {
+        const element = props.contents[index];
+        contentArray.push(element.content);
+        r = contentArray.join(',')
+      }
+      // console.log(contentArray);
+      // console.log(r);
 
-      const addAllCharacterOfContent = (
-        content,
-        content2,
-        content3,
-        content4
-      ) => {
-        const TotalContent = content + content2 + content3 + content4;
-        return TotalContent;
-      };
-      const ContentAll = addAllCharacterOfContent(
-        props.content,
-        props.content2,
-        props.content3,
-        props.content4
-      );
+      // const r = contentArray.reduce(
+      //   (prevValue, currentValue) => prevValue + currentValue
+      // );
+      // console.log(r);
+      // const addAllCharacterOfContent = (
+      //   content,
+      //   content2,
+      //   content3,
+      //   content4
+      // ) => {
+      //   const TotalContent = content + content2 + content3 + content4;
+      //   return TotalContent;
+      // };
+      // const ContentAll = addAllCharacterOfContent(
+      //   props.content,
+      //   props.content2,
+      //   props.content3,
+      //   props.content4
+      // );
+      // props.contents.reduce((p,c) => {
+
+      // })
 
       const countWord = (value) => {
         return value.split(/\W+/).length;
       };
-      setWordCount(countWord(ContentAll));
+      setWordCount(countWord(new String(r)));
 
       setEstimatedReadingTime(
-        new Number(estimatedReadingTime(ContentAll)).toFixed(1)
+        new Number(estimatedReadingTime(new String(r))).toFixed(1)
       );
     };
     onLoad();
@@ -131,7 +147,7 @@ const ArticleItem = (props) => {
         }
       >
         <div className="map-container">
-          <p>{props.content}</p>
+          <p>{props.contents[0].content}</p>
           {/* <Map center={props.coordinates} zoom={16}/> */}
         </div>
       </Modal>
@@ -256,8 +272,8 @@ const ArticleItem = (props) => {
                 </div>
                 <div className="article-content-box">
                   <p>
-                    {new String(props.content).substr(0, 200)} continue to
-                    read....
+                    {new String(props.contents[0].content).substr(0, 200)}{" "}
+                    continue to read....
                   </p>
                 </div>
               </div>

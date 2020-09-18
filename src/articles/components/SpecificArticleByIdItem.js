@@ -106,7 +106,7 @@ const SpecificArticleByIdItem = (props) => {
         }
       >
         <div className="map-container">
-          <p>{props.content}</p>
+          {/* <p>{props.contents[0].content}</p> */}
           {/* <Map center={props.coordinates} zoom={16}/> */}
         </div>
       </Modal>
@@ -229,35 +229,31 @@ const SpecificArticleByIdItem = (props) => {
           </div>
           <div className="article-items-table-of-contents">
             <ul className="article-items-table-of-contents-list">
-              <h5>Contents</h5>
-              <HashLink to={`/get_specific_article_by_id/${props.id}#heading`}>
-                <li className="article-items-table-of-contents-item">
-                  1 {props.heading}
-                </li>
-              </HashLink>
-              <HashLink to={`/get_specific_article_by_id/${props.id}#heading2`}>
-                <li className="article-items-table-of-contents-item">
-                  2 {props.heading2}
-                </li>
-              </HashLink>
-              <HashLink to={`/get_specific_article_by_id/${props.id}#heading3`}>
-                <li className="article-items-table-of-contents-item">
-                  3 {props.heading3}
-                </li>
-              </HashLink>
-              <HashLink to={`/get_specific_article_by_id/${props.id}#heading4`}>
-                <li className="article-items-table-of-contents-item">
-                  4 {props.heading4}
-                </li>
-              </HashLink>
+              {props.contents.map((c) => (
+                <HashLink
+                  to={`/get_specific_article_by_id/${props.id}#${c.id}`}
+                >
+                  <li>
+                    {`${props.contents.indexOf(c) + 1} `} {c.heading}
+                  </li>
+                </HashLink>
+              ))}
             </ul>
           </div>
           <div className="article-item__article_content">
             <article>
-              <h3 id="heading">1 {props.heading}</h3>
-              <p>{props.content}</p>
-              <hr />
-              <h3 id="heading2">2 {props.heading2}</h3>
+              {props.contents.map((c) => (
+                <div>
+                  <h3 id={`${c.id}`}>
+                    {`${props.contents.indexOf(c) + 1} `}
+                    {c.heading}
+                  </h3>
+                  <p>{c.content}</p>
+                  <hr />
+                </div>
+              ))}
+
+              {/* <h3 id="heading2">2 {props.heading2}</h3>
               <p>{props.content2}</p>
               <hr />
               <h3 id="heading3">3 {props.heading3}</h3>
@@ -265,7 +261,7 @@ const SpecificArticleByIdItem = (props) => {
               <hr />
               <h3 id="heading4">4 {props.heading4}</h3>
               <p>{props.content4}</p>
-              <hr />
+              <hr /> */}
             </article>
             {/* <p>{props.id}</p> */}
             <span>

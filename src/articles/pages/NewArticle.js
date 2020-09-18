@@ -31,6 +31,18 @@ const NewArticle = () => {
       content3: { value: "", isValid: false },
       heading4: { value: "", isValid: false },
       content4: { value: "", isValid: false },
+      heading5: { value: "", isValid: false },
+      content5: { value: "", isValid: false },
+      heading6: { value: "", isValid: false },
+      content6: { value: "", isValid: false },
+      heading7: { value: "", isValid: false },
+      content7: { value: "", isValid: false },
+      heading8: { value: "", isValid: false },
+      content8: { value: "", isValid: false },
+      heading9: { value: "", isValid: false },
+      content9: { value: "", isValid: false },
+      heading10: { value: "", isValid: false },
+      content10: { value: "", isValid: false },
       address: { value: "", isValid: false },
       image: { value: null, isValid: false },
       // address: { value: "", isValid: false },
@@ -59,12 +71,34 @@ const NewArticle = () => {
       formData.append("title", formState.inputs.title.value);
       formData.append("heading", formState.inputs.heading.value);
       formData.append("content", formState.inputs.content.value);
+
       formData.append("heading2", formState.inputs.heading2.value);
       formData.append("content2", formState.inputs.content2.value);
+
       formData.append("heading3", formState.inputs.heading3.value);
       formData.append("content3", formState.inputs.content3.value);
+
       formData.append("heading4", formState.inputs.heading4.value);
       formData.append("content4", formState.inputs.content4.value);
+
+      formData.append("heading5", formState.inputs.heading5.value);
+      formData.append("content5", formState.inputs.content5.value);
+
+      formData.append("heading6", formState.inputs.heading6.value);
+      formData.append("content6", formState.inputs.content6.value);
+
+      formData.append("heading7", formState.inputs.heading7.value);
+      formData.append("content7", formState.inputs.content7.value);
+
+      formData.append("heading8", formState.inputs.heading8.value);
+      formData.append("content8", formState.inputs.content8.value);
+
+      formData.append("heading9", formState.inputs.heading9.value);
+      formData.append("content9", formState.inputs.content9.value);
+
+      formData.append("heading10", formState.inputs.heading10.value);
+      formData.append("content10", formState.inputs.content10.value);
+
       formData.append("address", formState.inputs.address.value);
       formData.append("author", auth.userId);
       formData.append("image", formState.inputs.image.value);
@@ -189,6 +223,120 @@ const NewArticle = () => {
               onInput={inputHandler}
             />
             <Input
+              id="heading5"
+              element="input"
+              type="text"
+              label="heading5"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content5"
+              element="textarea"
+              label="content5"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading6"
+              element="input"
+              type="text"
+              label="heading6"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content6"
+              element="textarea"
+              label="content6"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading7"
+              element="input"
+              type="text"
+              label="heading7"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content7"
+              element="textarea"
+              label="content7"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading8"
+              element="input"
+              type="text"
+              label="heading8"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content8"
+              element="textarea"
+              label="content8"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading9"
+              element="input"
+              type="text"
+              label="heading9"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content9"
+              element="textarea"
+              label="content9"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="heading10"
+              element="input"
+              type="text"
+              label="heading10"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid heading."
+              onInput={inputHandler}
+            />
+            <Input
+              id="content10"
+              element="textarea"
+              label="content10"
+              placeholder="Write your content here"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid content (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
               id="address"
               element="input"
               label="Address"
@@ -306,7 +454,7 @@ const NewArticle = () => {
           label="checkbox"
           placeholder="checkbox"
         /> */}
-            <Button btnBlack type="submit" >
+            <Button btnBlack type="submit">
               ADD ARTICLE
             </Button>
           </form>
