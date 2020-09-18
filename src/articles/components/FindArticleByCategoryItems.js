@@ -242,7 +242,7 @@ const FindArticleByCategoryItems = (props) => {
                 <div>
                   <img
                     className="article-item-image-item"
-                    src={props.image}
+                    src={props.images[0]}
                     alt={props.title}
                   />
                 </div>

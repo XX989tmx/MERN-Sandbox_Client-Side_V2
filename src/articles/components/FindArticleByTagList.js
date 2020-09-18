@@ -8,7 +8,7 @@ const FindArticleByTagList = (props) => {
         <FindArticleByTagItems
           key={item.id}
           id={item.id}
-          image={item.image}
+          images={item.images}
           title={item.title}
           contents={item.contents}
           // content={item.content}

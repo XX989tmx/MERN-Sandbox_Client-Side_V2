@@ -17,6 +17,7 @@ const GetSpecificArticleById = () => {
   const [referenceSites, setreferenceSites] = useState([]);
   const [contents, setcontents] = useState([]);
   const [externalSites, setexternalSites] = useState([]);
+  const [images, setimages] = useState([]);
 
   useEffect(() => {
     const getArticleById = async (params) => {
@@ -35,6 +36,7 @@ const GetSpecificArticleById = () => {
         setcontents(responseData.article.contents);
         console.log(responseData.article.referenceSites);
         setexternalSites(responseData.article.externalSites);
+         setimages(responseData.article.images);
       } catch (error) {}
       // window.scrollTo(0, 0);
     };
@@ -70,7 +72,7 @@ const GetSpecificArticleById = () => {
               <SpecificArticleByIdItem
                 key={Article.id}
                 id={Article.id}
-                image={Article.image}
+                images={images}
                 title={Article.title}
                 // heading={Article.heading}
                 // content={Article.content}

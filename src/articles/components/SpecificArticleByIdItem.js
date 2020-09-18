@@ -222,9 +222,9 @@ const SpecificArticleByIdItem = (props) => {
             <h2>{props.title}</h2>
             <img
               className="article-item-image-item"
-              src={props.image}
+              src={props.images[0]}
               alt={props.title}
-              style={{ width: "200px", height: "130px" }}
+              style={{ width: "1000px", height: "500px" }}
             />
           </div>
           <div className="article-items-table-of-contents">
@@ -244,6 +244,14 @@ const SpecificArticleByIdItem = (props) => {
             <article>
               {props.contents.map((c) => (
                 <div>
+                  
+                  
+                  {/* <img
+                    className="article-item-image-item"
+                    src={props.images[props.contents.indexOf(c) + 1]}
+                    // alt={props.title}
+                    style={{ width: "400px", height: "250px" }}
+                  /> */}
                   <h3 id={`${c.id}`}>
                     {`${props.contents.indexOf(c) + 1} `}
                     {c.heading}

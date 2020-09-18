@@ -44,7 +44,12 @@ const NewArticle = () => {
       heading10: { value: "", isValid: false },
       content10: { value: "", isValid: false },
       address: { value: "", isValid: false },
-      image: { value: null, isValid: false },
+      image1: { value: null, isValid: false },
+      image2: { value: null, isValid: false },
+      image3: { value: null, isValid: false },
+      image4: { value: null, isValid: false },
+
+      image5: { value: null, isValid: false },
       // address: { value: "", isValid: false },
       categories: { value: "", isValid: false },
       tags: { value: "", isValid: false },
@@ -116,7 +121,12 @@ const NewArticle = () => {
 
       formData.append("address", formState.inputs.address.value);
       formData.append("author", auth.userId);
-      formData.append("image", formState.inputs.image.value);
+      formData.append("images", formState.inputs.image1.value);
+      formData.append("images", formState.inputs.image2.value);
+      formData.append("images", formState.inputs.image3.value);
+      formData.append("images", formState.inputs.image4.value);
+      formData.append("images", formState.inputs.image5.value);
+      
       formData.append("categories", formState.inputs.categories.value);
       formData.append("tags", formState.inputs.tags.value);
       formData.append("price", formState.inputs.price.value);
@@ -593,7 +603,28 @@ const NewArticle = () => {
             />
 
             <ImageUpload
-              id="image"
+              id="image1"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+
+            <ImageUpload
+              id="image2"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+            <ImageUpload
+              id="image3"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+            <ImageUpload
+              id="image4"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+            <ImageUpload
+              id="image5"
               onInput={inputHandler}
               errorText="Please provide an image."
             />
