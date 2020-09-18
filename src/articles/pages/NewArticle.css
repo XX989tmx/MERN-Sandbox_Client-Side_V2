@@ -24,6 +24,17 @@
   
 } */
 
+.detail-information-input-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* width: 470px; */
+  max-height: 200px;
+}
+.detail-information-input-item {
+  max-width: 300px;
+}
+
 .reference-sites-information-area {
   display: flex;
   flex-direction: column;

@@ -425,51 +425,66 @@ const NewArticle = () => {
               errorText="Please enter a valid content (at least 5 characters)."
               onInput={inputHandler}
             />
-            <Input
-              id="address"
-              element="input"
-              label="Address"
-              placeholder="Address"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="categories"
-              element="input"
-              label="categories"
-              placeholder="categories"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="tags"
-              element="input"
-              label="tags"
-              placeholder="tags"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="price"
-              element="input"
-              label="price"
-              placeholder="price"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
-            <Input
-              id="downloadable"
-              element="input"
-              label="downloadable"
-              placeholder="downloadable"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a valid address."
-              onInput={inputHandler}
-            />
+            <hr />
+            <h4 className="center">Detail Information</h4>
+            <div className="detail-information-input-area">
+              <div className="detail-information-input-item">
+                <Input
+                  id="address"
+                  element="input"
+                  label="Address"
+                  placeholder="Address"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="categories"
+                  element="input"
+                  label="categories"
+                  placeholder="categories"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="tags"
+                  element="input"
+                  label="tags"
+                  placeholder="tags"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="price"
+                  element="input"
+                  label="price"
+                  placeholder="price"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="downloadable"
+                  element="input"
+                  label="downloadable"
+                  placeholder="downloadable"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+            </div>
+
             <hr />
             <h4 className="center">Reference Sites Information</h4>
             <div className="reference-sites-information-area">
