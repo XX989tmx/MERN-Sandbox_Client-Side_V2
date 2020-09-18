@@ -17,11 +17,11 @@ const TagIndex = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + `/articles/tagIndex`
         );
-        console.log(responseData);
+        // console.log(responseData);
         setTagIndexData(responseData.responseArray);
-        console.log(responseData.responseArray);
-        console.log(responseData.responseArray[0].tagName);
-        console.log(responseData.responseArray[0].count);
+        // console.log(responseData.responseArray);
+        // console.log(responseData.responseArray[0].tagName);
+        // console.log(responseData.responseArray[0].count);
       } catch (error) {}
     };
     getTagIndex();

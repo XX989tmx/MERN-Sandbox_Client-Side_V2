@@ -40,7 +40,7 @@ const Articles = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + `/articles/all`
         );
-        console.log(responseData);
+        // console.log(responseData);
         setAllArticles(responseData.articles);
         // console.log(responseData.count);
         // setArticleCount(responseData.count);
@@ -64,7 +64,7 @@ const Articles = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + `/articles/categoryIndex`
         );
-        console.log(responseData.responseArray);
+        // console.log(responseData.responseArray);
         const categoryName = responseData.responseArray.map((t) => (
           <option value={t.categoryName}>{t.categoryName}</option>
         ));
@@ -74,7 +74,7 @@ const Articles = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + `/articles/tagIndex`
         );
-        console.log(responseData.responseArray);
+        // console.log(responseData.responseArray);
         const tagName = responseData.responseArray.map((t) => (
           <option value={t.tagName}>{t.tagName}</option>
         ));
@@ -91,7 +91,7 @@ const Articles = () => {
       var latest = "latest";
       // var query = formState.inputs.query.value;
       const queryValue = event.target.value.trim();
-      console.log(queryValue);
+      // console.log(queryValue);
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
           `/articles/all?q=${encodeURIComponent(queryValue)}`
@@ -111,7 +111,7 @@ const Articles = () => {
   };
 
   const sortByCategory = async (params) => {
-    console.log("selected");
+    // console.log("selected");
     try {
       var categories = document.getElementById("categories");
       var categoriesValue = categories.value;
@@ -119,7 +119,7 @@ const Articles = () => {
         process.env.REACT_APP_BACKEND_URL +
           `/articles/all?categories=${categoriesValue}`
       );
-      console.log(responseData);
+      // console.log(responseData);
       setAllArticles(responseData.articles);
       // console.log(responseData.count);
       // setArticleCount(responseData.count);
@@ -136,14 +136,14 @@ const Articles = () => {
   };
 
   const sortByTag = async (params) => {
-    console.log("selected");
+    // console.log("selected");
     try {
       var tags = document.getElementById("tags");
       var tagsValue = tags.value;
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL + `/articles/all?tags=${tagsValue}`
       );
-      console.log(responseData);
+      // console.log(responseData);
       setAllArticles(responseData.articles);
       // console.log(responseData.count);
       // setArticleCount(responseData.count);
@@ -160,14 +160,14 @@ const Articles = () => {
   };
 
   const sortByPrice = async (params) => {
-    console.log("selected");
+    // console.log("selected");
     try {
       var price = document.getElementById("price");
       var priceValue = price.value;
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL + `/articles/all?price=${priceValue}`
       );
-      console.log(responseData);
+      // console.log(responseData);
       setAllArticles(responseData.articles);
       // console.log(responseData.count);
       // setArticleCount(responseData.count);

@@ -26,15 +26,15 @@ const GetSpecificArticleById = () => {
           process.env.REACT_APP_BACKEND_URL +
             `/articles/get_specific_article_by_id/${articleId}`
         );
-        console.log(responseData);
-        console.log(responseData.article);
-        console.log(responseData.article.author);
-        console.log(responseData.article.author.name);
+        // console.log(responseData);
+        // console.log(responseData.article);
+        // console.log(responseData.article.author);
+        // console.log(responseData.article.author.name);
         setArticle(responseData.article);
         setArticleAuthor(responseData.article.author);
         setreferenceSites(responseData.article.referenceSites);
         setcontents(responseData.article.contents);
-        console.log(responseData.article.referenceSites);
+        // console.log(responseData.article.referenceSites);
         setexternalSites(responseData.article.externalSites);
          setimages(responseData.article.images);
       } catch (error) {}

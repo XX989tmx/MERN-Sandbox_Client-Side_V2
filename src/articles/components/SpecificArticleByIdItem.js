@@ -224,7 +224,7 @@ const SpecificArticleByIdItem = (props) => {
               className="article-item-image-item"
               src={props.images[0]}
               alt={props.title}
-              style={{ width: "1000px", height: "500px" }}
+              style={{ width: "950px", height: "500px" }}
             />
           </div>
           <div className="article-items-table-of-contents">
@@ -246,12 +246,12 @@ const SpecificArticleByIdItem = (props) => {
                 <div>
                   
                   
-                  {/* <img
+                  <img
                     className="article-item-image-item"
                     src={props.images[props.contents.indexOf(c) + 1]}
                     // alt={props.title}
                     style={{ width: "400px", height: "250px" }}
-                  /> */}
+                  /> 
                   <h3 id={`${c.id}`}>
                     {`${props.contents.indexOf(c) + 1} `}
                     {c.heading}

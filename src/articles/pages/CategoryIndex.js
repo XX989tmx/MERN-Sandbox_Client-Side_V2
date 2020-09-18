@@ -17,11 +17,11 @@ const CategoryIndex = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + `/articles/categoryIndex`
         );
-        console.log(responseData);
+        // console.log(responseData);
         setCategoryIndexData(responseData.responseArray);
-        console.log(responseData.responseArray);
-        console.log(responseData.responseArray[0].categoryName);
-        console.log(responseData.responseArray[0].count);
+        // console.log(responseData.responseArray);
+        // console.log(responseData.responseArray[0].categoryName);
+        // console.log(responseData.responseArray[0].count);
       } catch (error) {}
     };
     getCategoryIndex();
