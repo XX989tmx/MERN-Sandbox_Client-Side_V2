@@ -5,7 +5,20 @@ import { NavLink } from "react-router-dom";
 
 import "./FooterMainNavigation.css";
 
+
+
 const FooterMainNavigation = () => {
+const socialLinks = [
+  { title: "Youtube", link: "https://en.wikipedia.org/wiki/Blockchain" },
+  {
+    title: "Twitter",
+    link: "https://en.wikipedia.org/wiki/Blockchain",
+  },
+  { title: "Facebook", link: "https://en.wikipedia.org/wiki/Blockchain" },
+  { title: "Linkedin", link: "https://en.wikipedia.org/wiki/Blockchain" },
+  { title: "Instagram", link: "https://en.wikipedia.org/wiki/Blockchain" },
+];
+
   return (
     <div className="footer-container">
       <MainFooter>
@@ -29,6 +42,20 @@ const FooterMainNavigation = () => {
               <h3>Resources</h3>
               <li className="footer-link-item"></li>
               <li className="footer-link-item"></li>
+            </ul>
+          </div>
+          <div className="footer-link-lists">
+            <ul className="footer-link-list">
+              <h3>Social</h3>
+              {socialLinks.map(function (s,index) {
+                return (
+                  <li key={index}>
+                    <a href={s.link} target="_blank">
+                      {s.title}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="footer-link-lists">
