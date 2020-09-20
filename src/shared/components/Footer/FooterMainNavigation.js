@@ -26,6 +26,11 @@ const FooterMainNavigation = () => {
     },
   ];
 
+  const informationLinks = [
+    { title: "About Us", link: "/about_us" },
+    { title: "Contact Us", link: "/contact_us" },
+  ];
+
   return (
     <div className="footer-container">
       <MainFooter>
@@ -66,12 +71,11 @@ const FooterMainNavigation = () => {
           <div className="footer-link-lists">
             <ul className="footer-link-list">
               <h3>Information</h3>
-              <li className="footer-link-item">
-                <NavLink to="/about_us">About Us</NavLink>
-              </li>
-              <li className="footer-link-item">
-                <NavLink to="/contact_us">Contact Us</NavLink>
-              </li>
+              {informationLinks.map(function (link,index) {return (
+                <li key={index} className="footer-link-item">
+                  <NavLink to={link.link}>{link.title}</NavLink>
+                </li>
+              );})}
             </ul>
           </div>
         </div>
