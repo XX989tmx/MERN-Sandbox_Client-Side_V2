@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import { HashLink } from "react-router-hashlink";
 import Modal from "../../shared/components/UIElements/Modal";
 import Card from "../../shared/components/UIElements/Card";
@@ -244,14 +244,12 @@ const SpecificArticleByIdItem = (props) => {
             <article>
               {props.contents.map((c) => (
                 <div>
-                  
-                  
                   <img
                     className="article-item-image-item"
                     src={props.images[props.contents.indexOf(c) + 1]}
                     // alt={props.title}
                     style={{ width: "400px", height: "250px" }}
-                  /> 
+                  />
                   <h3 id={`${c.id}`}>
                     {`${props.contents.indexOf(c) + 1} `}
                     {c.heading}
@@ -390,6 +388,27 @@ const SpecificArticleByIdItem = (props) => {
           </div>
         </Card>
       </li>
+      <div>
+        <h3>Same author also writes the following articles..</h3>
+        <ul>
+          {props.articlesExceptTheCurrentOne.map(function (elm, index) {
+            return (
+              <a
+                href={`http://localhost:3000/get_specific_article_by_id/${elm.id}`}
+              >
+                <li key={index}>
+                  <h4>{elm.title}</h4>
+                  <img
+                    style={{ width: "140px", height: "80px" }}
+                    src={elm.images[0]}
+                  />
+                  <h6>{elm.price}</h6>
+                </li>
+              </a>
+            );
+          })}
+        </ul>
+      </div>
     </React.Fragment>
   );
 };

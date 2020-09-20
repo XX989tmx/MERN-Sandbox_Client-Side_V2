@@ -8,6 +8,8 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 import "./GetSpecificArticleById.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import SpecificArticleByIdItem from "../components/SpecificArticleByIdItem";
+import Axios from "axios";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -18,9 +20,17 @@ const GetSpecificArticleById = () => {
   const [contents, setcontents] = useState([]);
   const [externalSites, setexternalSites] = useState([]);
   const [images, setimages] = useState([]);
+  const auth = useContext(AuthContext);
+  const [authorId, setauthorId] = useState();
+
+  const [
+    articlesExceptTheCurrentOne,
+    setarticlesExceptTheCurrentOne,
+  ] = useState([]);
 
   useEffect(() => {
     const getArticleById = async (params) => {
+      let authorId;
       try {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL +
@@ -32,12 +42,33 @@ const GetSpecificArticleById = () => {
         // console.log(responseData.article.author.name);
         setArticle(responseData.article);
         setArticleAuthor(responseData.article.author);
+        console.log(responseData.article.author.id);
+        authorId = responseData.article.author.id;
+        setauthorId(responseData.article.author.id);
         setreferenceSites(responseData.article.referenceSites);
         setcontents(responseData.article.contents);
         // console.log(responseData.article.referenceSites);
         setexternalSites(responseData.article.externalSites);
-         setimages(responseData.article.images);
-      } catch (error) {}
+        setimages(responseData.article.images);
+      } catch (error) {
+        console.log(error);
+      }
+      Axios.get(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/get_same_authors_articles/${articleId}/${authorId}`,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      )
+        .then((response) => {
+          console.log(response.data);
+          setarticlesExceptTheCurrentOne(
+            response.data.articlesExceptTheCurrentOne
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       // window.scrollTo(0, 0);
     };
     getArticleById();
@@ -93,6 +124,7 @@ const GetSpecificArticleById = () => {
                 referenceSites={referenceSites}
                 contents={contents}
                 externalSites={externalSites}
+                articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
               />
               <div className="article-index-link">
                 <span>
