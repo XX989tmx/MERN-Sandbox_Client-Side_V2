@@ -29,6 +29,9 @@ const FooterMainNavigation = () => {
   const informationLinks = [
     { title: "About Us", link: "/about_us" },
     { title: "Contact Us", link: "/contact_us" },
+    { title: "Disclaimer", link: "/about_us" },
+    { title: "Terms", link: "/about_us" },
+    { title: "Privacy", link: "/about_us" },
   ];
 
   return (
