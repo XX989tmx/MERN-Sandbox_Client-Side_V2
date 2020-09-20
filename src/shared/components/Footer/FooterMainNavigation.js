@@ -5,19 +5,26 @@ import { NavLink } from "react-router-dom";
 
 import "./FooterMainNavigation.css";
 
-
-
 const FooterMainNavigation = () => {
-const socialLinks = [
-  { title: "Youtube", link: "https://en.wikipedia.org/wiki/Blockchain" },
-  {
-    title: "Twitter",
-    link: "https://en.wikipedia.org/wiki/Blockchain",
-  },
-  { title: "Facebook", link: "https://en.wikipedia.org/wiki/Blockchain" },
-  { title: "Linkedin", link: "https://en.wikipedia.org/wiki/Blockchain" },
-  { title: "Instagram", link: "https://en.wikipedia.org/wiki/Blockchain" },
-];
+  const socialLinks = [
+    { title: "Youtube", link: "https://en.wikipedia.org/wiki/Blockchain" },
+    {
+      title: "Twitter",
+      link: "https://en.wikipedia.org/wiki/Blockchain",
+    },
+    { title: "Facebook", link: "https://en.wikipedia.org/wiki/Blockchain" },
+    { title: "Linkedin", link: "https://en.wikipedia.org/wiki/Blockchain" },
+    { title: "Instagram", link: "https://en.wikipedia.org/wiki/Blockchain" },
+  ];
+
+  const navigationLinks = [
+    { title: "Articles", link: "/articles" },
+    { title: "Crypto Converter", link: "/crypto_converter" },
+    {
+      title: "Videos",
+      link: "/videos/main",
+    },
+  ];
 
   return (
     <div className="footer-container">
@@ -26,15 +33,13 @@ const socialLinks = [
           <div className="footer-link-lists">
             <ul className="footer-link-list">
               <h3>Navigation</h3>
-              <li className="footer-link-item">
-                <NavLink to="/articles">ALL ARTICLES</NavLink>
-              </li>
-              <li className="footer-link-item">
-                <NavLink to="/crypto_converter">Crypto Converter</NavLink>
-              </li>
-              <li>
-                <NavLink to="/videos/main">Video Main</NavLink>
-              </li>
+              {navigationLinks.map(function (link, index) {
+                return (
+                  <li className="footer-link-item" key={index}>
+                    <NavLink to={link.link}>{link.title}</NavLink>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="footer-link-lists">
@@ -47,9 +52,9 @@ const socialLinks = [
           <div className="footer-link-lists">
             <ul className="footer-link-list">
               <h3>Social</h3>
-              {socialLinks.map(function (s,index) {
+              {socialLinks.map(function (s, index) {
                 return (
-                  <li key={index}>
+                  <li className="footer-link-item" key={index}>
                     <a href={s.link} target="_blank">
                       {s.title}
                     </a>
