@@ -19,6 +19,7 @@ const UserArticles = () => {
   const [TotalCountOfThisUsersArticles, setTotalCountOfThisUsersArticles] = useState();
 
   const [articleCountNotification, setarticleCountNotification] = useState();
+  const [AllOfImagesOfThisUsersArticles, setAllOfImagesOfThisUsersArticles] = useState([]);
 
   const userId = useParams().userId;
 
@@ -49,7 +50,15 @@ const UserArticles = () => {
         setTotalCountOfThisUsersArticles(response.data.count);
       }).catch((err) => {
         console.log(err);
-      });;
+      });
+      Axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/articles/getAllImagesOfUsersArticles/${userId}`
+      ).then((response) => {
+        console.log(response.data);
+        setAllOfImagesOfThisUsersArticles(response.data.imagesArray);
+      }).catch((err) => {
+        
+      });
     };
     fetchArticles();
   }, [sendRequest, userId]);
@@ -99,6 +108,20 @@ const UserArticles = () => {
                 </h5>
               </li>
             </ul>
+            <div>
+              <h5>image index</h5>
+              <ul>
+                {" "}
+                {AllOfImagesOfThisUsersArticles.map(function (elm, index) {
+                  return (
+                    <li key={index}>
+                      {" "}
+                      <img src={elm} style={{width:'150px',height:'80px'}}/>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
             <MoveToTopButton />
           </div>
           {/* <div className="side-container"></div> */}
