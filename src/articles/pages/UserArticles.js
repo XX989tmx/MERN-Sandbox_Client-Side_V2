@@ -16,6 +16,9 @@ const UserArticles = () => {
 
   const [averagePriceOfThisUsersArticles, setaveragePriceOfThisUsersArticles] = useState();
   const [sumOfPriceOfThisUsersArticles, setsumOfPriceOfThisUsersArticles] = useState();
+  const [TotalCountOfThisUsersArticles, setTotalCountOfThisUsersArticles] = useState();
+
+  const [articleCountNotification, setarticleCountNotification] = useState();
 
   const userId = useParams().userId;
 
@@ -26,7 +29,12 @@ const UserArticles = () => {
           `${process.env.REACT_APP_BACKEND_URL}/articles/user/${userId}`
         );
         setLoadedArticles(responseData.articles);
+        console.log(responseData.articles);
         setArticleAuthor(responseData.articles[0].author);
+        const authorName = responseData.articles[0].author.name;
+        const articleCount = responseData.articles.length;
+        const articleCountNotification = `${authorName} has ${articleCount} articles `;
+        setarticleCountNotification(articleCountNotification);
       } catch (err) {}
       Axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/articles/averagePriceOfThisUsersArticles/${userId}`
@@ -38,6 +46,7 @@ const UserArticles = () => {
           response.data.averagePriceOfThisUsersArticles
         );
         setsumOfPriceOfThisUsersArticles(response.data.sumOfPrice);
+        setTotalCountOfThisUsersArticles(response.data.count);
       }).catch((err) => {
         console.log(err);
       });;
@@ -65,6 +74,7 @@ const UserArticles = () => {
             <h3 className="center">
               {new String(ArticleAuthor.name).toUpperCase()}'s Articles
             </h3>
+            <h4>{articleCountNotification}</h4>
             <ArticleList
               items={loadedArticles}
               onDeleteArticle={articleDeletedHandler}
@@ -77,8 +87,15 @@ const UserArticles = () => {
                 </h5>
               </li>
               <li>
-                <h5>Average Price of This Users Articles:
+                <h5>
+                  Average Price of This Users Articles:
                   <h3>{averagePriceOfThisUsersArticles}</h3>
+                </h5>
+              </li>
+              <li>
+                <h5>
+                  Total Count of This Users Articles:
+                  <h3>{TotalCountOfThisUsersArticles}</h3>
                 </h5>
               </li>
             </ul>
