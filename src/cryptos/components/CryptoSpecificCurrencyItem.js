@@ -3,6 +3,7 @@ import React from "react";
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div>
+      <img src={props.icon} alt="" />
       <h1>{props.name}</h1>
       {props.code}
       {props.price}
@@ -28,7 +29,6 @@ const CryptoSpecificCurrencyItem = (props) => {
       {props.sourceCode}
       {props.technicalDocumentation}
 
-      <img src={props.icon} alt="" />
       {props.tokenInsightRating}
       {props.dynamicPerformanceScore}
       {props.dynamicPerformanceScore}

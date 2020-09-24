@@ -11,6 +11,7 @@ const CryptoIndexList = (props) => {
             queryName={c.queryName}
             code={c.code}
             price={c.price}
+            icon={c.icon}
             // roi={c.roi}
             marketRank={c.marketRank}
             marketCap={c.marketCap}
