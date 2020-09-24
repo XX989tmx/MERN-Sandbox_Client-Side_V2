@@ -42,6 +42,7 @@ import FlexTraining from "./statics/FlexTraining";
 import FooterMainNavigation from "./shared/components/Footer/FooterMainNavigation";
 import UpdateVideo from "./videos/pages/UpdateVideo";
 import VideoManagement from "./videos/pages/VideoManagement";
+import CryptoIndex from "./cryptos/pages/CryptoIndex";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -125,6 +126,10 @@ const App = () => {
         <Route path="/crypto_converter/fcasRating" exact>
           <FcasRating />
         </Route>
+        <Route path="/cryptos/index" exact>
+          <CryptoIndex />
+        </Route>
+        {/* /crptos/currency/:name */}
 
         {/* video pages routes */}
         <Route path="/videos/new" exact>
@@ -225,6 +230,10 @@ const App = () => {
         <Route path="/crypto_converter/fcasRating" exact>
           <FcasRating />
         </Route>
+        <Route path="/cryptos/index" exact>
+          <CryptoIndex />
+        </Route>
+
 
         {/* video page routes */}
         <Route path="/videos/main" exact>

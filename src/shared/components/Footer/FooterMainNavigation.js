@@ -24,6 +24,10 @@ const FooterMainNavigation = () => {
       title: "Videos",
       link: "/videos/main",
     },
+    {
+      title: "Crypto Index",
+      link: "/cryptos/index",
+    },
   ];
 
   const informationLinks = [
@@ -74,11 +78,13 @@ const FooterMainNavigation = () => {
           <div className="footer-link-lists">
             <ul className="footer-link-list">
               <h3>Information</h3>
-              {informationLinks.map(function (link,index) {return (
-                <li key={index} className="footer-link-item">
-                  <NavLink to={link.link}>{link.title}</NavLink>
-                </li>
-              );})}
+              {informationLinks.map(function (link, index) {
+                return (
+                  <li key={index} className="footer-link-item">
+                    <NavLink to={link.link}>{link.title}</NavLink>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
