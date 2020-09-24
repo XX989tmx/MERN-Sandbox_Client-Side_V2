@@ -28,7 +28,7 @@ const CryptoSpecificCurrencyItem = (props) => {
       {props.sourceCode}
       {props.technicalDocumentation}
 
-      {/* <img src={props.icon} alt="" /> */}
+      <img src={props.icon} alt="" />
       {props.tokenInsightRating}
       {props.dynamicPerformanceScore}
       {props.dynamicPerformanceScore}
