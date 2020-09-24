@@ -43,6 +43,7 @@ import FooterMainNavigation from "./shared/components/Footer/FooterMainNavigatio
 import UpdateVideo from "./videos/pages/UpdateVideo";
 import VideoManagement from "./videos/pages/VideoManagement";
 import CryptoIndex from "./cryptos/pages/CryptoIndex";
+import CryptoSpecificCurrency from "./cryptos/pages/CryptoSpecificCurrency";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -128,6 +129,9 @@ const App = () => {
         </Route>
         <Route path="/cryptos/index" exact>
           <CryptoIndex />
+        </Route>
+        <Route path="/cryptos/currencies/:queryName" exact>
+          <CryptoSpecificCurrency />
         </Route>
         {/* /crptos/currency/:name */}
 
@@ -233,7 +237,9 @@ const App = () => {
         <Route path="/cryptos/index" exact>
           <CryptoIndex />
         </Route>
-
+        <Route path="/cryptos/currencies/:queryName" exact>
+          <CryptoSpecificCurrency />
+        </Route>
 
         {/* video page routes */}
         <Route path="/videos/main" exact>
