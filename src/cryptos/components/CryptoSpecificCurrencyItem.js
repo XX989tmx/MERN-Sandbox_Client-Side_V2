@@ -1,8 +1,9 @@
 import React from "react";
-
+import { useParams, useHistory, Link } from "react-router-dom";
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div>
+    
       <img src={props.icon} alt="" />
       <h1>{props.name}</h1>
       {props.code}
@@ -31,7 +32,12 @@ const CryptoSpecificCurrencyItem = (props) => {
 
       {props.tokenInsightRating}
       {props.dynamicPerformanceScore}
-      {props.dynamicPerformanceScore}
+      {props.fcasRating}
+      <div>
+        <Link to={`/cryptos/currencies/${props.queryName}/ratings`}>
+          <p>Rating</p>
+        </Link>
+      </div>
     </div>
   );
 };

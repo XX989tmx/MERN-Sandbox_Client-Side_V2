@@ -23,6 +23,7 @@ const [MatchedCrypto, setMatchedCrypto] = useState([]);
 
     return (
       <div>
+        <h3>Charts</h3>
         <CryptoSpecificCurrencyList MatchedCrypto={MatchedCrypto} />
       </div>
     );

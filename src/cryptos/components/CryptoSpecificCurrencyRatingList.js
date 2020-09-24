@@ -1,11 +1,12 @@
 import React from 'react';
-import CryptoSpecificCurrencyItem from './CryptoSpecificCurrencyItem';
+import CryptoSpecificCurrencyRatingItem from './CryptoSpecificCurrencyRatingItem';
 
-const CryptoSpecificCurrencyList = (props) => {
+
+const CryptoSpecificCurrencyRatingList = (props) => {
     return (
       <div>
-        {props.MatchedCrypto.map((v, index) => (
-          <CryptoSpecificCurrencyItem
+        {props.MatchedCurrencyInRating.map((v, index) => (
+          <CryptoSpecificCurrencyRatingItem
             key={index}
             name={v.name}
             queryName={v.queryName}
@@ -42,4 +43,4 @@ const CryptoSpecificCurrencyList = (props) => {
     );
 }
 
-export default CryptoSpecificCurrencyList;
+export default CryptoSpecificCurrencyRatingList;
