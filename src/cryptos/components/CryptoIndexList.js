@@ -3,7 +3,7 @@ import CryptoIndexItem from './CryptoIndexItem';
 
 const CryptoIndexList = (props) => {
     return (
-      <ul>
+      <div>
         {props.CryptoArray.map((c) => (
           <CryptoIndexItem
             key={c.index}
@@ -20,7 +20,7 @@ const CryptoIndexList = (props) => {
             fcasRating={c.fcasRating}
           />
         ))}
-      </ul>
+      </div>
     );
 }
 

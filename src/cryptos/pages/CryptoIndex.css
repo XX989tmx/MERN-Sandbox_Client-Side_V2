@@ -1,0 +1,56 @@
+/* .thead-tag {
+    position: absolute;
+}
+
+.thead-crypto-index {
+position: relative;
+left: 0;
+}
+.tr-table-header {  
+position: relative;
+left: 0;
+} */
+.tr-table-header {
+    width: 100%;
+}
+
+.table-header-header1 {
+    width: 42px;
+    height: 43px;
+}
+.table-header-header2 {
+    width: 48px;
+    height: 43px;
+}
+.table-header-header3 {
+    width: 228px;
+    height: 43px;
+}
+.table-header-header4 {
+    width: 180px;
+    height: 43px;
+}
+.table-header-header5 {
+    width: 165px;
+    height: 43px;
+}
+.table-header-header6 {
+    width: 100px;
+    height: 43px;
+}
+.table-header-header7 {
+    width: 178px;
+    height: 43px;
+}
+.table-header-header8 {
+    width: 196px;
+    height: 43px;
+}
+.table-header-header9 {
+    width: 185px;
+    height: 43px;
+}
+.table-header-header10 {
+    width: 64px;
+    height: 43px;
+}
