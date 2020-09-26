@@ -52,3 +52,69 @@
     width: 64px;
     height: 80px;
 }
+
+.market-rank {
+    line-height: 18px;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #58667e;
+}
+
+.coin-name {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 23px;font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    color: #222531;
+}
+.currency-code {
+    font-style: normal;
+    font-size: 15px;
+    color: rgba(23, 24, 27, 0.85);
+    font-weight: 400;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    line-height: 23px;
+}
+.coin-price {
+    font-weight: 500;
+    font-style: normal;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    color: #3861fb;
+    font-size: 15px;
+    line-height: 23px;
+}
+.a24hour-change {
+    color: #16c784;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    font-style: normal;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+.market-cap {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #222531;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+.a24hour-volume {
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: #3861fb;
+}
+.circulating-supply {
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: #222531;
+}
