@@ -3,6 +3,7 @@
   min-height: 100vh;
   margin-right: 15%;
   margin-left: 15%;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .coin-icon-crypto-specific {
   width: 35px;
@@ -145,14 +146,28 @@
 
 .table-row-crypto-specific {
   height: 48px;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 13px;
+  line-height: 13px;
+  color: rgba(23, 24, 27, 0.85);
 }
 .table-header-crypto-specific {
   height: 48px;
   width: 180px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 13px;
+  color: rgba(23, 24, 27, 0.85);
 }
 .table-data-crypto-specific {
   height: 48px;
   width: 159px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 17px;
+  color: rgba(23, 24, 27, 0.85);
 }
 .grey-color-row {
     background-color: #EFF2F5;
