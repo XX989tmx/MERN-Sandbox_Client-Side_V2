@@ -123,6 +123,10 @@
   height: 100%;
 } */
 
+.section3-charts-area {
+  height: 692px;
+}
+
 .section4-article-and-table-area {
   width: 100%;
   height: 100%;
@@ -131,10 +135,22 @@
   flex-wrap: wrap;
 }
 .article-area-crypto-specific {
-  width: 60%;
+  width: 67%;
   height: 100%;
 }
 .table-area-crypto-specific {
-  width: 40%;
+  width: 33%;
   height: 100%;
+}
+
+.table-row-crypto-specific {
+  height: 48px;
+}
+.table-header-crypto-specific {
+  height: 48px;
+  width: 180px;
+}
+.table-data-crypto-specific {
+  height: 48px;
+  width: 159px;
 }

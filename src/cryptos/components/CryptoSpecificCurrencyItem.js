@@ -134,81 +134,81 @@ const CryptoSpecificCurrencyItem = (props) => {
         <div className="table-area-crypto-specific">
           <h1>tables</h1>
           <table>
-            <tr>
-              <th>{props.name} Price</th>
-              <td>{props.price}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">{props.name} Price</th>
+              <td className="table-data-crypto-specific">{props.price}</td>
             </tr>
-            <tr>
-              <th>{props.name} ROI</th>
-              <td>{props.roi}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">{props.name} ROI</th>
+              <td className="table-data-crypto-specific">{props.roi}</td>
             </tr>
-            <tr>
-              <th>Market Rank</th>
-              <td>{props.marketRank}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Market Rank</th>
+              <td className="table-data-crypto-specific">{props.marketRank}</td>
             </tr>
-            <tr>
-              <th>Market Cap</th>
-              <td>{props.marketCap}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Market Cap</th>
+              <td className="table-data-crypto-specific">{props.marketCap}</td>
             </tr>
-            <tr>
-              <th>24 Hour Volume</th>
-              <td>{props.a24hourVolume}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">24 Hour Volume</th>
+              <td className="table-data-crypto-specific">{props.a24hourVolume}</td>
             </tr>
-            <tr>
-              <th>Circulating Supply</th>
-              <td>{props.circulatingSupply}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Circulating Supply</th>
+              <td className="table-data-crypto-specific">{props.circulatingSupply}</td>
             </tr>
-            <tr>
-              <th>Total Supply</th>
-              <td>{props.totalSupply}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Total Supply</th>
+              <td className="table-data-crypto-specific">{props.totalSupply}</td>
             </tr>
-            <tr>
-              <th>Max Supply</th>
-              <td>{props.maxSupply}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Max Supply</th>
+              <td className="table-data-crypto-specific">{props.maxSupply}</td>
             </tr>
-            <tr>
-              <th>All Time High</th>
-              <td>{props.allTimeHigh}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">All Time High</th>
+              <td className="table-data-crypto-specific">{props.allTimeHigh}</td>
             </tr>
-            <tr>
-              <th>All Time Low</th>
-              <td>{props.allTimeLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">All Time Low</th>
+              <td className="table-data-crypto-specific">{props.allTimeLow}</td>
             </tr>
-            <tr>
-              <th>52 Week High / Low</th>
-              <td>{props.a52weekHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">52 Week High / Low</th>
+              <td className="table-data-crypto-specific">{props.a52weekHighAndLow}</td>
             </tr>
-            <tr>
-              <th>90 Day High / Low</th>
-              <td>{props.a90dayHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">90 Day High / Low</th>
+              <td className="table-data-crypto-specific">{props.a90dayHighAndLow}</td>
             </tr>
-            <tr>
-              <th>30 Day High / Low</th>
-              <td>{props.a30dayHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">30 Day High / Low</th>
+              <td className="table-data-crypto-specific">{props.a30dayHighAndLow}</td>
             </tr>
-            <tr>
-              <th>7 Day High / Low</th>
-              <td>{props.a7dayHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">7 Day High / Low</th>
+              <td className="table-data-crypto-specific">{props.a7dayHighAndLow}</td>
             </tr>
-            <tr>
-              <th>24 Hour High / Low</th>
-              <td>{props.a24hourHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">24 Hour High / Low</th>
+              <td className="table-data-crypto-specific">{props.a24hourHighAndLow}</td>
             </tr>
-            <tr>
-              <th>Yesterday's High / Low </th>
-              <td>{props.yesterdaysHighAndLow}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Yesterday's High / Low </th>
+              <td className="table-data-crypto-specific">{props.yesterdaysHighAndLow}</td>
             </tr>
-            <tr>
-              <th>Yesterday's Open / Close </th>
-              <td>{props.yesterdaysOpenAndClose}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Yesterday's Open / Close </th>
+              <td className="table-data-crypto-specific">{props.yesterdaysOpenAndClose}</td>
             </tr>
-            <tr>
-              <th>Yesterday's Change </th>
-              <td>{props.yesterdaysChange}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Yesterday's Change </th>
+              <td className="table-data-crypto-specific">{props.yesterdaysChange}</td>
             </tr>
-            <tr>
-              <th>Yesterday's Volume </th>
-              <td>{props.yesterdaysVolume}</td>
+            <tr className="table-row-crypto-specific">
+              <th className="table-header-crypto-specific">Yesterday's Volume </th>
+              <td className="table-data-crypto-specific">{props.yesterdaysVolume}</td>
             </tr>
           </table>
         </div>
