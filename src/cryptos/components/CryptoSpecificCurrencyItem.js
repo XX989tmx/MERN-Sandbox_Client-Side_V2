@@ -81,14 +81,20 @@ const CryptoSpecificCurrencyItem = (props) => {
       </div>
       {/* navigation */}
       <div className="section2-navigation-area">
-        <span>Charts</span>
-        <span>Market Pairs</span>
-        <span>Social</span>
-        <span>Tools</span>
-        <span>Historical Data</span>
-        <span>Ratings</span>
-        <span>On-Chain Analysis</span>
-        <span>News</span>
+        <div className="navigation-list-crypto-specific">
+          <span className="navigation-item-crypto-specific-charts">Charts</span>
+          <span className="navigation-item-crypto-specific-market-pairs">Market Pairs</span>
+          <span className="navigation-item-crypto-specific-social">Social</span>
+          <span className="navigation-item-crypto-specific-tools">Tools</span>
+          <span className="navigation-item-crypto-specific-historical-data">
+            Historical Data
+          </span>
+          <span className="navigation-item-crypto-specific-ratings">Ratings</span>
+          <span className="navigation-item-crypto-specific-on-chain-analysis">
+            On-Chain Analysis
+          </span>
+          <span className="navigation-item-crypto-specific-news">News</span>
+        </div>
       </div>
       {/* charts */}
       <div className="section3-charts-area">{props.name} Charts</div>
