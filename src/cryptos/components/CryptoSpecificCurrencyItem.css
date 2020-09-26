@@ -50,6 +50,18 @@
   width: 40%;
   height: 214px;
 }
+.link-list-ul-list {
+  list-style: none;
+  color:rgba(16, 112, 224, 0.85);
+  line-height: 23px;
+  font-size: 15px;
+
+}
+.link-list-ul-list a {
+  list-style: none;
+  color:rgba(16, 112, 224, 0.85);
+  text-decoration: none;
+}
 .marketcap-volume-circulating-supply-table {
   height: 131px;
   width: 60%;
@@ -146,7 +158,7 @@
 
 .table-row-crypto-specific {
   height: 48px;
-  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   /* font-weight: 700; */
   font-size: 13px;
@@ -170,5 +182,5 @@
   color: rgba(23, 24, 27, 0.85);
 }
 .grey-color-row {
-    background-color: #EFF2F5;
+  background-color: #eff2f5;
 }

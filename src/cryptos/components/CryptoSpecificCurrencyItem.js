@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
-import './CryptoSpecificCurrencyItem.css';
+import "./CryptoSpecificCurrencyItem.css";
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div className="crypto-specific-item-main-container">
@@ -49,15 +49,42 @@ const CryptoSpecificCurrencyItem = (props) => {
         <div className="section1-general-area-lower-area">
           {/* link list */}
           <div className="link-list">
-            <ul>
+            <ul className="link-list-ul-list">
               <li>Rank {props.marketRank}</li>
-              <li>Website{props.website}</li>
+              <li>
+                <a
+                  href={props.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Website
+                </a>{" "}
+              </li>
               <li>Announcement</li>
               <li>Explorer</li>
               <li>Message Board</li>
               <li>Chat</li>
-              <li>Source Code{props.sourceCode}</li>
-              <li>Technical Documentation{props.technicalDocumentation}</li>
+              <li>
+                <a
+                  href={props.sourceCode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Source Code
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href={props.technicalDocumentation}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Technical Documentation
+                </a>
+              </li>
+
               <li>
                 <button>Coin</button>
                 <button>Inactive</button>
