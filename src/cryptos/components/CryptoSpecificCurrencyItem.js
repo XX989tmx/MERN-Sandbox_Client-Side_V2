@@ -92,103 +92,90 @@ const CryptoSpecificCurrencyItem = (props) => {
           <h1>tables</h1>
           <table>
             <tr>
-              <th></th>
-              <td></td>
+              <th>{props.name} Price</th>
+              <td>{props.price}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>{props.name} ROI</th>
+              <td>{props.roi}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Market Rank</th>
+              <td>{props.marketRank}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Market Cap</th>
+              <td>{props.marketCap}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>24 Hour Volume</th>
+              <td>{props.a24hourVolume}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Circulating Supply</th>
+              <td>{props.circulatingSupply}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Total Supply</th>
+              <td>{props.totalSupply}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Max Supply</th>
+              <td>{props.maxSupply}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>All Time High</th>
+              <td>{props.allTimeHigh}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>All Time Low</th>
+              <td>{props.allTimeLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>52 Week High / Low</th>
+              <td>{props.a52weekHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>90 Day High / Low</th>
+              <td>{props.a90dayHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>30 Day High / Low</th>
+              <td>{props.a30dayHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>7 Day High / Low</th>
+              <td>{props.a7dayHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>24 Hour High / Low</th>
+              <td>{props.a24hourHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Yesterday's High / Low </th>
+              <td>{props.yesterdaysHighAndLow}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Yesterday's Open / Close </th>
+              <td>{props.yesterdaysOpenAndClose}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Yesterday's Change </th>
+              <td>{props.yesterdaysChange}</td>
             </tr>
             <tr>
-              <th></th>
-              <td></td>
+              <th>Yesterday's Volume </th>
+              <td>{props.yesterdaysVolume}</td>
             </tr>
           </table>
         </div>
       </div>
 
-      {props.totalSupply}
-      {props.maxSupply}
-      {props.allTimeHigh}
-      {props.allTimeLow}
-      {props.a52weekHighAndLow}
-      {props.a90dayHighAndLow}
-      {props.a30dayHighAndLow}
-      {props.a7dayHighAndLow}
-      {props.a24hourHighAndLow}
-      {props.yesterdaysHighAndLow}
-      {props.yesterdaysOpenAndClose}
-      {props.yesterdaysChange}
-      {props.yesterdaysVolume}
-      {props.website}
+      {/* {props.website}
 
       {props.tokenInsightRating}
       {props.dynamicPerformanceScore}
-      {props.fcasRating}
+      {props.fcasRating} */}
       <div>
         <Link to={`/cryptos/currencies/${props.queryName}/ratings`}>
           <p>Rating</p>
