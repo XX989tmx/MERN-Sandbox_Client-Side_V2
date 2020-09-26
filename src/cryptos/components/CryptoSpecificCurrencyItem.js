@@ -4,22 +4,26 @@ import './CryptoSpecificCurrencyItem.css';
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div className="crypto-specific-item-main-container">
-    {/* general area */}
+      {/* general area */}
       <div className="section1-general-area">
         {/* upper-area1 */}
-        <div>
-          <div>
-            <div>
-              <div>
-                <img src={props.icon} alt="" />
+        <div className="section1-general-area-upper-area">
+          <div className="upper-area-item1">
+            <div className="image-and-currency-box">
+              <div className="crypto-image-area">
+                <img
+                  className="coin-icon-crypto-specific"
+                  src={props.icon}
+                  alt=""
+                />
               </div>
-              <div>
+              <div className="crypto-name-area">
                 <h1>{props.name}</h1>
-                {props.code}
               </div>
+              <span>{props.code}</span>
             </div>
           </div>
-          <div>
+          <div className="upper-area-item2">
             <div>
               <span>{props.price}</span>
               <span>{props.roi}</span>
@@ -31,7 +35,7 @@ const CryptoSpecificCurrencyItem = (props) => {
               <button>share</button>
             </div>
           </div>
-          <div>
+          <div className="upper-area-item3">
             <div>
               <button>Buy</button>
               <button>Exchange</button>
@@ -42,7 +46,7 @@ const CryptoSpecificCurrencyItem = (props) => {
           </div>
         </div>
         {/* upper-area-2 */}
-        <div>
+        <div className="section1-general-area-lower-area">
           {/* link list */}
           <div>
             <ul>
@@ -75,7 +79,7 @@ const CryptoSpecificCurrencyItem = (props) => {
           </div>
         </div>
       </div>
-    {/* navigation */}
+      {/* navigation */}
       <div className="section2-navigation-area">
         <span>Charts</span>
         <span>Market Pairs</span>
@@ -86,9 +90,9 @@ const CryptoSpecificCurrencyItem = (props) => {
         <span>On-Chain Analysis</span>
         <span>News</span>
       </div>
-        {/* charts */}
+      {/* charts */}
       <div className="section3-charts-area">{props.name} Charts</div>
-    {/* article&table */}
+      {/* article&table */}
       <div className="section4-article-and-table-area">
         <div className="article-area-crypto-specific">
           <h1>articles</h1>

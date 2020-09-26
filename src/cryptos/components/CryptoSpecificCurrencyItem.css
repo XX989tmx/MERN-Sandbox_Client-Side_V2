@@ -1,9 +1,43 @@
 .crypto-specific-item-main-container {
-    max-width: 1167px;
-    min-height: 100vh;
-    margin-right: 15%;
-    margin-left: 15%;
+  max-width: 1167px;
+  min-height: 100vh;
+  margin-right: 15%;
+  margin-left: 15%;
 }
+.coin-icon-crypto-specific {
+  width: 35px;
+  height: 35px;
+}
+
+.section1-general-area-upper-area {
+  height: 160px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.upper-area-item1 {
+  height: 100%;
+  width: 386px;
+}
+.upper-area-item2 {
+  width: 239px;
+  height: 151px;
+}
+.upper-area-item3 {
+  height: 100%;
+  width: 530px;
+}
+
+.image-and-currency-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/* .crypto-image-area {
+}
+.crypto-name-area {
+} */
 
 .section4-article-and-table-area {
   width: 100%;
