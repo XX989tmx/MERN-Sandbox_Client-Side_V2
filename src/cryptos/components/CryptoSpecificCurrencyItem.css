@@ -80,6 +80,13 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  color: #1070e0;
+  line-height: 21px;
+  font-size: 15px;
+  font-weight: 400;
+}
+.navigation-list-crypto-specific a {
+text-decoration: none;
 }
 .navigation-item-crypto-specific-charts {
   height: 45px;
