@@ -35,6 +35,13 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.crypto-price {
+  line-height: 42px;
+  font-size: 25px;
+  color: rgba(23, 24, 27, 0.85);
+  font-weight: 500;
+}
 /* .crypto-image-area {
 }
 .crypto-name-area {
@@ -52,15 +59,19 @@
 }
 .link-list-ul-list {
   list-style: none;
-  color:rgba(16, 112, 224, 0.85);
+  color: rgba(16, 112, 224, 0.85);
   line-height: 23px;
   font-size: 15px;
-
 }
 .link-list-ul-list a {
   list-style: none;
-  color:rgba(16, 112, 224, 0.85);
+  color: rgba(16, 112, 224, 0.85);
   text-decoration: none;
+}
+.link-list-ul-list a:hover {
+  list-style: none;
+  color: rgba(16, 112, 224, 0.85);
+  text-decoration: underline;
 }
 .marketcap-volume-circulating-supply-table {
   height: 131px;
@@ -86,7 +97,10 @@
   font-weight: 400;
 }
 .navigation-list-crypto-specific a {
-text-decoration: none;
+  text-decoration: none;
+}
+.navigation-list-crypto-specific a:hover {
+  text-decoration: underline;
 }
 .navigation-item-crypto-specific-charts {
   height: 45px;

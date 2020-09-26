@@ -25,7 +25,7 @@ const CryptoSpecificCurrencyItem = (props) => {
           </div>
           <div className="upper-area-item2">
             <div>
-              <span>{props.price}</span>
+              <span className="crypto-price">{props.price}</span>
               <span>{props.roi}</span>
             </div>
             <div>
