@@ -10,6 +10,16 @@ left: 0;
 position: relative;
 left: 0;
 } */
+.crypto-index-container {
+    margin-right: 13%;
+    margin-left: 13%;
+    min-height: 100vh;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 23px;
+    color: rgba(23, 24, 27, 0.85);
+}
 .tr-table-header {
     width: 100%;
 }
