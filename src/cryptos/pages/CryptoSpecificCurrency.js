@@ -1,32 +1,32 @@
-import Axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import CryptoSpecificCurrencyList from '../components/CryptoSpecificCurrencyList';
+import Axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import CryptoSpecificCurrencyList from "../components/CryptoSpecificCurrencyList";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const CryptoSpecificCurrency = () => {
-const queryName = useParams().queryName;
-const [MatchedCrypto, setMatchedCrypto] = useState([]);
+  const queryName = useParams().queryName;
+  const [MatchedCrypto, setMatchedCrypto] = useState([]);
 
-    useEffect(() => {
-        const fetch = () => {
-            Axios.get(
-              process.env.REACT_APP_BACKEND_URL + `/cryptos/currencies/${queryName}`
-            )
-              .then((response) => {
-                console.log(response.data);
-                setMatchedCrypto(response.data.matchedCurrency);
-              })
-              .catch((err) => {});
-        }
-        fetch()
-    }, []);
+  useEffect(() => {
+    const fetch = () => {
+      Axios.get(
+        process.env.REACT_APP_BACKEND_URL + `/cryptos/currencies/${queryName}`
+      )
+        .then((response) => {
+          console.log(response.data);
+          setMatchedCrypto(response.data.matchedCurrency);
+        })
+        .catch((err) => {});
+    };
+    fetch();
+  }, []);
 
-    return (
-      <div>
-        <h3>Charts</h3>
-        <CryptoSpecificCurrencyList MatchedCrypto={MatchedCrypto} />
-      </div>
-    );
-}
+  return (
+    <div>
+      <CryptoSpecificCurrencyList MatchedCrypto={MatchedCrypto} />
+      <div className="related-cryptocurrencies"></div>
+    </div>
+  );
+};
 
 export default CryptoSpecificCurrency;
