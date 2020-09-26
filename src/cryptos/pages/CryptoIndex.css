@@ -11,6 +11,7 @@ position: relative;
 left: 0;
 } */
 .crypto-index-container {
+    padding-top: 20px;
     margin-right: 13%;
     margin-left: 13%;
     min-height: 100vh;

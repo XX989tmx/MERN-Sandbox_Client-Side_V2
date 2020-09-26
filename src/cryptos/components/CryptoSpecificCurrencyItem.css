@@ -73,6 +73,21 @@
   color: rgba(16, 112, 224, 0.85);
   text-decoration: underline;
 }
+
+.rank-wrapper {
+    background-color: #5CB85C;
+    color: white;
+    /* padding: 4px; */
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+    
+}
+
 .marketcap-volume-circulating-supply-table {
   height: 131px;
   width: 60%;

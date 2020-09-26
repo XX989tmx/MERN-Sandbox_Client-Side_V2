@@ -50,7 +50,9 @@ const CryptoSpecificCurrencyItem = (props) => {
           {/* link list */}
           <div className="link-list">
             <ul className="link-list-ul-list">
-              <li>Rank {props.marketRank}</li>
+              <li>
+                <span className="rank-wrapper">Rank {props.marketRank}</span>
+              </li>
               <li>
                 <a
                   href={props.website}
