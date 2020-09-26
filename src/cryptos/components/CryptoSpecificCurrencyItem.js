@@ -48,7 +48,7 @@ const CryptoSpecificCurrencyItem = (props) => {
         {/* upper-area-2 */}
         <div className="section1-general-area-lower-area">
           {/* link list */}
-          <div>
+          <div className="link-list">
             <ul>
               <li>Rank {props.marketRank}</li>
               <li>Website{props.website}</li>
@@ -65,7 +65,7 @@ const CryptoSpecificCurrencyItem = (props) => {
             </ul>
           </div>
           {/* marketcap/volume/circulating supply */}
-          <div>
+          <div className="marketcap-volume-circulating-supply-table">
             <tr>
               <th>Market Cap</th>
               <th>Volume (24h)</th>

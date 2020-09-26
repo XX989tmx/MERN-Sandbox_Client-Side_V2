@@ -38,6 +38,21 @@
 }
 .crypto-name-area {
 } */
+.section1-general-area-lower-area {
+  width: 100%;
+  height: 225px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.link-list {
+  width: 40%;
+  height: 214px;
+}
+.marketcap-volume-circulating-supply-table {
+  height: 131px;
+  width: 60%;
+}
 
 .section4-article-and-table-area {
   width: 100%;
