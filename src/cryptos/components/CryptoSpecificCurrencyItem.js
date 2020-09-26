@@ -3,7 +3,8 @@ import { useParams, useHistory, Link } from "react-router-dom";
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div className="crypto-specific-item-main-container">
-      <div>
+    {/* general area */}
+      <div className="section1-general-area">
         {/* upper-area1 */}
         <div>
           <div>
@@ -73,7 +74,8 @@ const CryptoSpecificCurrencyItem = (props) => {
           </div>
         </div>
       </div>
-      <div>
+    {/* navigation */}
+      <div className="section2-navigation-area">
         <span>Charts</span>
         <span>Market Pairs</span>
         <span>Social</span>
@@ -83,8 +85,10 @@ const CryptoSpecificCurrencyItem = (props) => {
         <span>On-Chain Analysis</span>
         <span>News</span>
       </div>
-      <div>{props.name} Charts</div>
-      <div>
+        {/* charts */}
+      <div className="section3-charts-area">{props.name} Charts</div>
+    {/* article&table */}
+      <div className="section4-article-and-table-area">
         <div>
           <h1>articles</h1>
         </div>
