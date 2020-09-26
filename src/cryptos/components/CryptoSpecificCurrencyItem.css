@@ -59,10 +59,46 @@
   width: 100%;
 }
 .navigation-list-crypto-specific {
+  list-style: none;
   width: 100%;
   height: 45px;
   margin-top: 45px;
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.navigation-item-crypto-specific-charts {
+  height: 45px;
+  width: 104px;
+}
+.navigation-item-crypto-specific-market-pairs {
+  height: 45px;
+  width: 145px;
+}
+.navigation-item-crypto-specific-social {
+  height: 45px;
+  width: 99px;
+}
+.navigation-item-crypto-specific-tools {
+  height: 45px;
+  width: 93px;
+}
+.navigation-item-crypto-specific-historical-data {
+  height: 45px;
+  width: 160px;
+}
+.navigation-item-crypto-specific-ratings {
+  height: 45px;
+  width: 104px;
+}
+.navigation-item-crypto-specific-on-chain-analysis {
+  height: 45px;
+  width: 187px;
+}
+.navigation-item-crypto-specific-news {
+  height: 45px;
+  width: 97px;
 }
 /* .navigation-item-crypto-specific-charts {
   height: 45px;

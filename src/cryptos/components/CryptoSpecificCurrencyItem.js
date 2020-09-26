@@ -81,19 +81,47 @@ const CryptoSpecificCurrencyItem = (props) => {
       </div>
       {/* navigation */}
       <div className="section2-navigation-area">
-        <div className="navigation-list-crypto-specific">
-          <span className="navigation-item-crypto-specific-charts">Charts</span>
-          <span className="navigation-item-crypto-specific-market-pairs">Market Pairs</span>
-          <span className="navigation-item-crypto-specific-social">Social</span>
-          <span className="navigation-item-crypto-specific-tools">Tools</span>
-          <span className="navigation-item-crypto-specific-historical-data">
-            Historical Data
-          </span>
-          <span className="navigation-item-crypto-specific-ratings">Ratings</span>
-          <span className="navigation-item-crypto-specific-on-chain-analysis">
-            On-Chain Analysis
-          </span>
-          <span className="navigation-item-crypto-specific-news">News</span>
+        <div>
+          <ul className="navigation-list-crypto-specific">
+            <li className="navigation-item-crypto-specific-charts">
+              <span className="navigation-item-crypto-specific-charts">
+                Charts
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-market-pairs">
+              <span className="navigation-item-crypto-specific-market-pairs">
+                Market Pairs
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-social">
+              <span className="navigation-item-crypto-specific-social">
+                Social
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-tools">
+              <span className="navigation-item-crypto-specific-tools">
+                Tools
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-historical-data">
+              <span className="navigation-item-crypto-specific-historical-data">
+                Historical Data
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-ratings">
+              <span className="navigation-item-crypto-specific-ratings">
+                Ratings
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-on-chain-analysis">
+              <span className="navigation-item-crypto-specific-on-chain-analysis">
+                On-Chain Analysis
+              </span>
+            </li>
+            <li className="navigation-item-crypto-specific-news">
+              <span className="navigation-item-crypto-specific-news">News</span>
+            </li>
+          </ul>
         </div>
       </div>
       {/* charts */}
