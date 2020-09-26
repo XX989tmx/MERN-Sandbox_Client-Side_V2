@@ -97,10 +97,10 @@
   font-weight: 400;
 }
 .navigation-list-crypto-specific a {
-  text-decoration: none;
+  text-decoration: none;color: #1070e0;
 }
 .navigation-list-crypto-specific a:hover {
-  text-decoration: underline;
+  text-decoration: underline;color: #1070e0;
 }
 .navigation-item-crypto-specific-charts {
   height: 45px;

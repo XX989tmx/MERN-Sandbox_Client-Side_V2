@@ -110,11 +110,13 @@ const CryptoSpecificCurrencyItem = (props) => {
       <div className="section2-navigation-area">
         <div>
           <ul className="navigation-list-crypto-specific">
-            <li className="navigation-item-crypto-specific-charts">
-              <span className="navigation-item-crypto-specific-charts">
-                Charts
-              </span>
-            </li>
+            <Link to={`/cryptos/currencies/${props.queryName}`}>
+              <li className="navigation-item-crypto-specific-charts">
+                <span className="navigation-item-crypto-specific-charts">
+                  Charts
+                </span>
+              </li>
+            </Link>
             <li className="navigation-item-crypto-specific-market-pairs">
               <span className="navigation-item-crypto-specific-market-pairs">
                 Market Pairs
@@ -135,11 +137,13 @@ const CryptoSpecificCurrencyItem = (props) => {
                 Historical Data
               </span>
             </li>
-            <li className="navigation-item-crypto-specific-ratings">
-              <span className="navigation-item-crypto-specific-ratings">
-                Ratings
-              </span>
-            </li>
+            <Link to={`/cryptos/currencies/${props.queryName}/ratings`}>
+              <li className="navigation-item-crypto-specific-ratings">
+                <span className="navigation-item-crypto-specific-ratings">
+                  Ratings
+                </span>
+              </li>
+            </Link>
             <li className="navigation-item-crypto-specific-on-chain-analysis">
               <span className="navigation-item-crypto-specific-on-chain-analysis">
                 On-Chain Analysis
@@ -156,10 +160,10 @@ const CryptoSpecificCurrencyItem = (props) => {
       {/* article&table */}
       <div className="section4-article-and-table-area">
         <div className="article-area-crypto-specific">
-          <h1>articles</h1>
+          <h1>About {props.name}</h1>
         </div>
         <div className="table-area-crypto-specific">
-          <h1>tables</h1>
+          <h1>{props.name} Price</h1>
           <table>
             <tr className="table-row-crypto-specific grey-color-row">
               <th className="table-header-crypto-specific grey-color-row">
