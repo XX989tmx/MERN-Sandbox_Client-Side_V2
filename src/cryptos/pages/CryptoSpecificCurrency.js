@@ -2,6 +2,7 @@ import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import CryptoSpecificCurrencyList from "../components/CryptoSpecificCurrencyList";
 import { useParams, useHistory, Link } from "react-router-dom";
+import './CryptoSpecificCurrency.css';
 
 const CryptoSpecificCurrency = () => {
   const queryName = useParams().queryName;
@@ -22,7 +23,7 @@ const CryptoSpecificCurrency = () => {
   }, []);
 
   return (
-    <div>
+    <div className="crypto-specific-container">
       <CryptoSpecificCurrencyList MatchedCrypto={MatchedCrypto} />
       <div className="related-cryptocurrencies"></div>
     </div>

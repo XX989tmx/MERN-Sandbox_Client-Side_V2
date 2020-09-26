@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
+import './CryptoSpecificCurrencyItem.css';
 const CryptoSpecificCurrencyItem = (props) => {
   return (
     <div className="crypto-specific-item-main-container">
@@ -89,10 +90,10 @@ const CryptoSpecificCurrencyItem = (props) => {
       <div className="section3-charts-area">{props.name} Charts</div>
     {/* article&table */}
       <div className="section4-article-and-table-area">
-        <div>
+        <div className="article-area-crypto-specific">
           <h1>articles</h1>
         </div>
-        <div>
+        <div className="table-area-crypto-specific">
           <h1>tables</h1>
           <table>
             <tr>

@@ -1,0 +1,22 @@
+.crypto-specific-item-main-container {
+    max-width: 1167px;
+    min-height: 100vh;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.section4-article-and-table-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.article-area-crypto-specific {
+  width: 60%;
+  height: 100%;
+}
+.table-area-crypto-specific {
+  width: 40%;
+  height: 100%;
+}
