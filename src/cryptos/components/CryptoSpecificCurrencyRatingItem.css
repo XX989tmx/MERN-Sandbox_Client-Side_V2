@@ -24,5 +24,11 @@
     height: 590px;
 }   
 .tokeninsignt-rating-area {
+    height: 100%;
+}
+.token-insight-rating {
+    height: 186px;
+}
+.token-insight-analysis {
     height: 186px;
 }

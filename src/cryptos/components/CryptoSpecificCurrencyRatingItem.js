@@ -49,13 +49,28 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
           <p>Find Out More About Fcas | Request Historical FCAS data via CSV</p>
         </div>
         {/* fcasGraph */}
-        <div className="fcas-graph-rating-area"></div>
+        <div className="fcas-graph-rating-area">
+          <p>Fundamental Crypto Asset Score</p>
+        </div>
         {/* fcasChart */}
-        <div className="fcas-chart-rating-area"></div>
+        <div className="fcas-chart-rating-area">
+          <p>FCAS Trend</p>
+        </div>
         {/* fcasReportSheet */}
         <div className="fcas-report-sheet-rating-area"></div>
         {/* tokenInsightRatingArea */}
-        <div className="tokeninsignt-rating-area"></div>
+        <div className="tokeninsignt-rating-area">
+          <div className="token-insight-rating">
+            <p>TokenInsight Rating</p>
+            <h1>{props.tokenInsightRating}</h1>
+          </div>
+          <div className="token-insight-analysis">
+            <p>TokenInsight Analysis</p>
+            <h1>Dynamic Performance Score</h1>
+            <h1>{props.dynamicPerformanceScore}</h1>
+            {/* chart here */}
+          </div>
+        </div>
       </div>
 
       {/* article&table */}
