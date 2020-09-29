@@ -88,35 +88,41 @@ const UserArticles = () => {
               items={loadedArticles}
               onDeleteArticle={articleDeletedHandler}
             />
-            <ul>
-              <li>
-                <h5>
-                  Total Price of This Users articles:{" "}
-                  <h3>{sumOfPriceOfThisUsersArticles}</h3>
-                </h5>
-              </li>
-              <li>
-                <h5>
-                  Average Price of This Users Articles:
-                  <h3>{averagePriceOfThisUsersArticles}</h3>
-                </h5>
-              </li>
-              <li>
-                <h5>
-                  Total Count of This Users Articles:
-                  <h3>{TotalCountOfThisUsersArticles}</h3>
-                </h5>
-              </li>
-            </ul>
             <div>
-              <h5>image index</h5>
+              <h5>analytics</h5>
               <ul>
+                <li>
+                  <h5>
+                    Total Price of This Users articles:{" "}
+                    <h3>{sumOfPriceOfThisUsersArticles}</h3>
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    Average Price of This Users Articles:
+                    <h3>{averagePriceOfThisUsersArticles}</h3>
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    Total Count of This Users Articles:
+                    <h3>{TotalCountOfThisUsersArticles}</h3>
+                  </h5>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5>image index(this user is using a following images)</h5>
+              <ul className="image-index-list">
                 {" "}
                 {AllOfImagesOfThisUsersArticles.map(function (elm, index) {
                   return (
-                    <li key={index}>
+                    <li className="image-index-items" key={index}>
                       {" "}
-                      <img src={elm} style={{width:'150px',height:'80px'}}/>
+                      <img
+                        src={elm}
+                        style={{ width: "150px", height: "80px" }}
+                      />
                     </li>
                   );
                 })}

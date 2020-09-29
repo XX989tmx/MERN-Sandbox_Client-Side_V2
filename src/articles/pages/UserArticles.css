@@ -6,6 +6,22 @@
   min-height: 100vh;
 }
 
+.image-index-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  
+}
+.image-index-list a{
+  text-decoration: none;
+} 
+.image-index-items {
+  width: 170px;
+  height: 92px;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
   .user-articles-container {
