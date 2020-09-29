@@ -221,7 +221,7 @@ const SpecificArticleByIdItem = (props) => {
           <div className="article-item__image center">
             <h2>{props.title}</h2>
             <img
-              className="article-item-image-item"
+              
               src={props.images[0]}
               alt={props.title}
               style={{ width: "950px", height: "500px" }}
@@ -245,7 +245,7 @@ const SpecificArticleByIdItem = (props) => {
               {props.contents.map((c) => (
                 <div>
                   <img
-                    className="article-item-image-item"
+                    
                     src={props.images[props.contents.indexOf(c) + 1]}
                     // alt={props.title}
                     style={{ width: "400px", height: "250px" }}
