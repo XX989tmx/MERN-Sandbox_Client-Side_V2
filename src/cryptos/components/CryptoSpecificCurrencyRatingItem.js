@@ -3,6 +3,12 @@ import { useParams, useHistory, Link } from "react-router-dom";
 const CryptoSpecificCurrencyRatingItem = (props) => {
     return (
       <div>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
         <img src={props.icon} alt="" />
         <h1>{props.name}</h1>
         {props.code}

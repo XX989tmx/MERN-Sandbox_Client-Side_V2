@@ -20,11 +20,12 @@ const CryptoSpecificCurrencyRating = () => {
         fetch();
     }, []);
     return (
-      <div>
+      <div className="crypto-specific-container">
         <h3>Ratings</h3>
         <CryptoSpecificCurrencyRatingList
           MatchedCurrencyInRating={MatchedCurrencyInRating}
         />
+        <div className="related-cryptocurrencies"></div>
       </div>
     );
 }
