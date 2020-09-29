@@ -2,6 +2,8 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CryptoSpecificCurrencyRatingList from '../components/CryptoSpecificCurrencyRatingList';
 import { useParams, useHistory, Link } from "react-router-dom";
+import FooterMainNavigation from '../../shared/components/Footer/FooterMainNavigation';
+import MoveToTopButton from '../../shared/components/UIElements/MoveToTopButton';
 const CryptoSpecificCurrencyRating = () => {
     const queryName = useParams().queryName;
     const [MatchedCurrencyInRating, setMatchedCurrencyInRating] = useState([]);
@@ -20,13 +22,17 @@ const CryptoSpecificCurrencyRating = () => {
         fetch();
     }, []);
     return (
-      <div className="crypto-specific-container">
-        <h3>Ratings</h3>
-        <CryptoSpecificCurrencyRatingList
-          MatchedCurrencyInRating={MatchedCurrencyInRating}
-        />
-        <div className="related-cryptocurrencies"></div>
-      </div>
+      <React.Fragment>
+        <div className="crypto-specific-container">
+          {/* <h3>Ratings</h3> */}
+          <CryptoSpecificCurrencyRatingList
+            MatchedCurrencyInRating={MatchedCurrencyInRating}
+          />
+          <div className="related-cryptocurrencies"></div>
+        </div>
+        <MoveToTopButton />
+        <FooterMainNavigation />
+      </React.Fragment>
     );
 }
 

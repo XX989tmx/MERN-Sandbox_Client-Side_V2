@@ -1,5 +1,7 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import CryptoIndexList from "../components/CryptoIndexList";
 import './CryptoIndex.css';
 const CryptoIndex = () => {
@@ -18,49 +20,53 @@ const CryptoIndex = () => {
   }, []);
 
   return (
-    <div className="crypto-index-container">
-      <div>
-        <h2>Top 100 Cryptocurrencies by Market Capitalization</h2>
-        {/* <table className="thead-tag">
+    <React.Fragment>
+      <div className="crypto-index-container">
+        <div>
+          <h2>Top 100 Cryptocurrencies by Market Capitalization</h2>
+          {/* <table className="thead-tag">
         <thead className="thead-crypto-index"> */}
-        <tr className="tr-table-header">
-          <th className="table-header-header1">
-            <span></span>
-          </th>
-          <th className="table-header-header2">
-            <span>Rank</span>
-          </th>
-          <th className="table-header-header3">
-            <span>Name</span>
-          </th>
-          <th className="table-header-header4">
-            <span>Market Cap</span>
-          </th>
-          <th className="table-header-header5">
-            <span>Price</span>
-          </th>
-          <th className="table-header-header6">
-            <span>Change(24h)</span>
-          </th>
-          <th className="table-header-header7">
-            <span>Volume(24h)</span>
-          </th>
-          <th className="table-header-header8">
-            <span>Circulating Supply</span>
-          </th>
-          <th className="table-header-header9">
-            <span>Price Graph</span>
-          </th>
-          <th className="table-header-header10">
-            <span></span>
-          </th>
-        </tr>
-        {/* </thead> */}
+          <tr className="tr-table-header">
+            <th className="table-header-header1">
+              <span></span>
+            </th>
+            <th className="table-header-header2">
+              <span>Rank</span>
+            </th>
+            <th className="table-header-header3">
+              <span>Name</span>
+            </th>
+            <th className="table-header-header4">
+              <span>Market Cap</span>
+            </th>
+            <th className="table-header-header5">
+              <span>Price</span>
+            </th>
+            <th className="table-header-header6">
+              <span>Change(24h)</span>
+            </th>
+            <th className="table-header-header7">
+              <span>Volume(24h)</span>
+            </th>
+            <th className="table-header-header8">
+              <span>Circulating Supply</span>
+            </th>
+            <th className="table-header-header9">
+              <span>Price Graph</span>
+            </th>
+            <th className="table-header-header10">
+              <span></span>
+            </th>
+          </tr>
+          {/* </thead> */}
 
-        <CryptoIndexList CryptoArray={CryptoArray} />
-        {/* </table> */}
+          <CryptoIndexList CryptoArray={CryptoArray} />
+          {/* </table> */}
+        </div>
       </div>
-    </div>
+      <MoveToTopButton />
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 
