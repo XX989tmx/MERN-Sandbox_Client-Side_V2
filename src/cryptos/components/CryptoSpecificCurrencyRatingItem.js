@@ -4,7 +4,7 @@ import Section1GeneralArea from "./Section1GeneralArea";
 import Section2NavigationArea from "./Section2NavigationArea";
 import Section4ArticleAndTableArea from "./Section4ArticleAndTableArea";
 
-import './CryptoSpecificCurrencyRatingItem.css';
+import "./CryptoSpecificCurrencyRatingItem.css";
 const CryptoSpecificCurrencyRatingItem = (props) => {
   return (
     <div className="crypto-specific-rating-item-main-container">
@@ -25,15 +25,29 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
       />
       {/* navigation */}
       <Section2NavigationArea queryName={props.queryName} />
-
       {/* ratingArea */}
       <div className="section3-rating-area">
-        {props.name} Rating Area{" "}
+        {props.name} Rating Area
         <div>
           <h3>{props.tokenInsightRating}</h3>
           <h3>{props.dynamicPerformanceScore}</h3>
           <h3>{props.fcasRating}</h3>
         </div>
+        {/* textArea */}
+        <div className="rating-area-text-area">
+          <h1></h1>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+        {/* fcasGraph */}
+        <div className="fcas-graph-rating-area"></div>
+        {/* fcasChart */}
+        <div className="fcas-chart-rating-area"></div>
+        {/* fcasReportSheet */}
+        <div className="fcas-report-sheet-rating-area"></div>
+        {/* tokenInsightRatingArea */}
+        <div className="tokeninsignt-rating-area"></div>
       </div>
 
       {/* article&table */}

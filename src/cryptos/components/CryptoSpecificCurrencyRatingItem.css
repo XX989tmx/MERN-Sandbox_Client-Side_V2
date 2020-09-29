@@ -7,5 +7,22 @@
 }
 
 .section3-rating-area {
-  height: 692px;
+  /* height: 692px; */
+  height: 100%;
+}
+
+.rating-area-text-area {
+    height: 218px;
+}
+.fcas-graph-rating-area {
+    height: 384px;
+}
+.fcas-chart-rating-area {
+    height: 540px;
+}
+.fcas-report-sheet-rating-area {
+    height: 590px;
+}   
+.tokeninsignt-rating-area {
+    height: 186px;
 }
