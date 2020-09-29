@@ -111,6 +111,21 @@
   margin-top: 40px;
 }
 
+.same-authors-other-articles-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+.same-authors-other-articles-list a{
+  text-decoration: none;
+}
+.same-authors-other-articles-item {
+  width: 180px;
+  height: 180px;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
 }
