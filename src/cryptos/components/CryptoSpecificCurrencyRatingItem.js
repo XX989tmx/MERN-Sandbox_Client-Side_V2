@@ -35,10 +35,18 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
         </div>
         {/* textArea */}
         <div className="rating-area-text-area">
-          <h1></h1>
-          <p></p>
-          <p></p>
-          <p></p>
+          <h1>Ratings</h1>
+          <p>
+            Disclaimer: Ratings are calculated by third party organizations and
+            are not influenced or endorsed by MERNSandbox in any way.
+          </p>
+          <p>
+            FCAS stands for Fundamental Crypto Asset Score, a single,
+            consistently comparable value for measuring cryptocurrency project
+            health. FCAS measures User Activity, Developer Behavior and Asset
+            Maturity.
+          </p>
+          <p>Find Out More About Fcas | Request Historical FCAS data via CSV</p>
         </div>
         {/* fcasGraph */}
         <div className="fcas-graph-rating-area"></div>
