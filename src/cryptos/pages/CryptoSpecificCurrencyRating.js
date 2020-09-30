@@ -14,7 +14,7 @@ const CryptoSpecificCurrencyRating = () => {
                 `/cryptos/currencies/${queryName}/ratings`
             ).then((response) => {
                 console.log(response.data)
-                setMatchedCurrencyInRating(response.data.matchedCurrency);
+                setMatchedCurrencyInRating(response.data.crypto);
             }).catch((err) => {
                 
             });

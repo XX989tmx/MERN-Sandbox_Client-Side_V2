@@ -17,8 +17,13 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
         roi={props.roi}
         marketRank={props.marketRank}
         website={props.website}
+        announcement={props.announcement}
+        explorer={props.explorer}
+        message_board={props.message_board}
+        chat={props.chat}
         sourceCode={props.sourceCode}
         technicalDocumentation={props.technicalDocumentation}
+        tags={props.tags}
         marketCap={props.marketCap}
         a24hourVolume={props.a24hourVolume}
         circulatingSupply={props.circulatingSupply}
@@ -28,11 +33,11 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
       {/* ratingArea */}
       <div className="section3-rating-area">
         {props.name} Rating Area
-        <div>
+        {/* <div>
           <h3>{props.tokenInsightRating}</h3>
           <h3>{props.dynamicPerformanceScore}</h3>
           <h3>{props.fcasRating}</h3>
-        </div>
+        </div> */}
         {/* textArea */}
         <div className="rating-area-text-area">
           <h1>Ratings</h1>
@@ -51,18 +56,82 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
         {/* fcasGraph */}
         <div className="fcas-graph-rating-area">
           <p>Fundamental Crypto Asset Score</p>
+          <h1>{props.fcasRatingInitial}</h1>
+          <h6>{props.fcasScore}</h6>
         </div>
         {/* fcasChart */}
         <div className="fcas-chart-rating-area">
           <p>FCAS Trend</p>
         </div>
         {/* fcasReportSheet */}
-        <div className="fcas-report-sheet-rating-area"></div>
+        <div className="fcas-report-sheet-rating-area">
+          <div>
+            <h2>{props.report.heading}</h2>
+            <ul>
+              {props.report.report_list.map((v, i) => {
+                return <li>{v}</li>;
+              })}
+            </ul>
+            <button>See Full Report</button>
+            <p>{props.report.paragraph}</p>
+          </div>
+          <div>
+            <div>
+              <h1>{props.report.score}</h1>
+
+              <span>{props.report.updated_at}</span>
+            </div>
+            <div>
+              <ul>
+                <li>
+                  Market Opportunity
+                  {"      "}
+                  {props.report.market_opportunity}
+                </li>
+                <li>
+                  Underlying Technology
+                  {"      "}
+                  {props.report.underlying_technology}
+                </li>
+                <li>
+                  Ecosystem Structure
+                  {"      "}
+                  {props.report.ecosystem_structure}
+                </li>
+                <li>
+                  Core Team
+                  {"      "}
+                  {props.report.core_team}
+                </li>
+                <li>
+                  Token Economics
+                  {"      "}
+                  {props.report.token_economics}
+                </li>
+                <li>
+                  Token Performance
+                  {"      "}
+                  {props.report.token_performance}
+                </li>
+                <li>
+                  Roadmap Progress
+                  {"      "}
+                  {props.report.roadmap_progress}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         {/* tokenInsightRatingArea */}
         <div className="tokeninsignt-rating-area">
           <div className="token-insight-rating">
             <p>TokenInsight Rating</p>
-            <h1>{props.tokenInsightRating}</h1>
+            <h1>{props.tokenInsightRating.score}</h1>
+            <span>{props.tokenInsightRating.score_string}</span>
+            <h4>Industry:</h4>
+            <span>{props.tokenInsightRating.industry}</span>
+            <h4>Rating Description:</h4>
+            <p>{props.tokenInsightRating.rating_description}</p>
           </div>
           <div className="token-insight-analysis">
             <p>TokenInsight Analysis</p>
@@ -86,15 +155,24 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
         maxSupply={props.maxSupply}
         allTimeHigh={props.allTimeHigh}
         allTimeLow={props.allTimeLow}
-        a52weekHighAndLow={props.a52weekHighAndLow}
-        a90dayHighAndLow={props.a90dayHighAndLow}
-        a30dayHighAndLow={props.a30dayHighAndLow}
-        a7dayHighAndLow={props.a7dayHighAndLow}
-        a24hourHighAndLow={props.a24hourHighAndLow}
-        yesterdaysHighAndLow={props.yesterdaysHighAndLow}
-        yesterdaysOpenAndClose={props.yesterdaysOpenAndClose}
+        a52weekHigh={props.a52weekHigh}
+        a52weekLow={props.a52weekLow}
+        a90dayHigh={props.a90dayHigh}
+        a90dayLow={props.a90dayLow}
+        a30dayHigh={props.a30dayHigh}
+        a30dayLow={props.a30dayLow}
+        a7dayHigh={props.a7dayHigh}
+        a7dayLow={props.a7dayLow}
+        a24hourHigh={props.a24hourHigh}
+        a24hourLow={props.a24hourLow}
+        yesterdaysHigh={props.yesterdaysHigh}
+        yesterdaysLow={props.yesterdaysLow}
+        yesterdaysOpen={props.yesterdaysOpen}
+        yesterdaysClose={props.yesterdaysClose}
         yesterdaysChange={props.yesterdaysChange}
         yesterdaysVolume={props.yesterdaysVolume}
+        // article
+        article={props.article}
       />
 
       {/* <img src={props.icon} alt="" />

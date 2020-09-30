@@ -5,38 +5,53 @@ import CryptoSpecificCurrencyRatingItem from './CryptoSpecificCurrencyRatingItem
 const CryptoSpecificCurrencyRatingList = (props) => {
     return (
       <div>
-        {props.MatchedCurrencyInRating.map((v, index) => (
+        {props.MatchedCurrencyInRating.map((c, index) => (
           <CryptoSpecificCurrencyRatingItem
-            key={index}
-            name={v.name}
-            queryName={v.queryName}
-            code={v.code}
-            price={v.price}
-            roi={v.roi}
-            marketRank={v.marketRank}
-            marketCap={v.marketCap}
-            a24hourVolume={v.a24hourVolume}
-            circulatingSupply={v.circulatingSupply}
-            totalSupply={v.totalSupply}
-            maxSupply={v.maxSupply}
-            allTimeHigh={v.allTimeHigh}
-            allTimeLow={v.allTimeLow}
-            a52weekHighAndLow={v.a52weekHighAndLow}
-            a90dayHighAndLow={v.a90dayHighAndLow}
-            a30dayHighAndLow={v.a30dayHighAndLow}
-            a7dayHighAndLow={v.a7dayHighAndLow}
-            a24hourHighAndLow={v.a24hourHighAndLow}
-            yesterdaysHighAndLow={v.yesterdaysHighAndLow}
-            yesterdaysOpenAndClose={v.yesterdaysOpenAndClose}
-            yesterdaysChange={v.yesterdaysChange}
-            yesterdaysVolume={v.yesterdaysVolume}
-            website={v.website}
-            sourceCode={v.sourceCode}
-            technicalDocumentation={v.technicalDocumentation}
-            icon={v.icon}
-            tokenInsightRating={v.tokenInsightRating}
-            dynamicPerformanceScore={v.dynamicPerformanceScore}
-            fcasRating={v.fcasRating}
+            key={c.index}
+            name={c.name}
+            queryName={c.queryName}
+            code={c.code}
+            price={c.price}
+            roi={c.roi}
+            marketRank={c.marketRank}
+            marketCap={c.marketCap}
+            a24hourVolume={c.a24hourVolume}
+            circulatingSupply={c.circulatingSupply}
+            totalSupply={c.totalSupply}
+            maxSupply={c.maxSupply}
+            allTimeHigh={c.allTimeHigh}
+            allTimeLow={c.allTimeLow}
+            a52weekHigh={c.a52weekHigh}
+            a52weekLow={c.a52weekLow}
+            a90dayHigh={c.a90dayHigh}
+            a90dayLow={c.a90dayLow}
+            a30dayHigh={c.a30dayHigh}
+            a30dayLow={c.a30dayLow}
+            a7dayHigh={c.a7dayHigh}
+            a7dayLow={c.a7dayLow}
+            a24hourHigh={c.a24hourHigh}
+            a24hourLow={c.a24hourLow}
+            yesterdaysHigh={c.yesterdaysHigh}
+            yesterdaysLow={c.yesterdaysLow}
+            yesterdaysOpen={c.yesterdaysOpen}
+            yesterdaysClose={c.yesterdaysClose}
+            yesterdaysChange={c.yesterdaysChange}
+            yesterdaysVolume={c.yesterdaysVolume}
+            website={c.website}
+            announcement={c.announcement}
+            explorer={c.explorer}
+            message_board={c.message_board}
+            chat={c.chat}
+            sourceCode={c.sourceCode}
+            technicalDocumentation={c.technicalDocumentation}
+            tags={c.tags}
+            icon={c.icon}
+            report={c.report}
+            tokenInsightRating={c.tokenInsightRating}
+            dynamicPerformanceScore={c.dynamicPerformanceScore}
+            fcasRatingInitial={c.fcasRatingInitial}
+            fcasScore={c.fcasScore}
+            article={c.article}
           />
         ))}
       </div>
