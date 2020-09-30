@@ -13,7 +13,7 @@ const Section1GeneralArea = (props) => {
       setUSDPrice(props.price.usd);
       setBTCPrice(props.price.btc);
       setETHPrice(props.price.eth);
-      setROI(props.roi)
+      setROI(props.roi);
     };
     onLoad();
   }, []);
@@ -47,7 +47,7 @@ const Section1GeneralArea = (props) => {
             <br />
             {ETHPrice && <span> {props.price.eth} ETH</span>}
             <br />
-            {ROI ? <span>{props.roi}</span> : <span>No Data</span> }
+            {ROI ? <span>{props.roi}</span> : <span>No Data</span>}
           </div>
           <div>
             <span>profit?%</span>
@@ -158,27 +158,48 @@ const Section1GeneralArea = (props) => {
         </div>
         {/* marketcap/volume/circulating supply */}
         <div className="marketcap-volume-circulating-supply-table">
+          {/* row1 header*/}
           <tr>
             <th>Market Cap</th>
             <th>Volume (24h)</th>
             <th>Circulating Supply</th>
+            <th>Total Supply</th>
+            <th>Max Supply</th>
           </tr>
+          {/* row2 usd & self code*/}
           <tr>
             <td>$ {props.marketCap.usd}</td>
-            <td>{props.marketCap.btc} BTC</td>
-            <td>{props.marketCap.eth} ETH</td>
-            <td>{props.marketCap.bnb} BNB</td>
-
             <td>$ {props.a24hourVolume.usd}</td>
             <td>
-              {props.a24hourVolume.self_code} {props.code}
+              {props.circulatingSupply} {props.code}
             </td>
-            <td>{props.a24hourVolume.btc} BTC</td>
-            <td>{props.a24hourVolume.eth} ETH</td>
-            <td>{props.a24hourVolume.bnb} BNB</td>
-
-            <td>{props.circulatingSupply}</td>
+            <td>
+              {props.totalSupply} {props.code}
+            </td>
+            <td>
+              {props.maxSupply} {props.code}
+            </td>
           </tr>
+
+          {/* row3 btc*/}
+          <tr>
+            <td>{props.marketCap.btc} BTC</td>
+            <td>{props.a24hourVolume.btc} BTC</td>
+          </tr>
+
+          {/* row4 eth */}
+          <tr>
+            <td>{props.marketCap.eth} ETH</td>
+            <td>{props.a24hourVolume.eth} ETH</td>
+          </tr>
+
+          {/* row5 bnb */}
+          <tr>
+            <td>{props.marketCap.bnb} BNB</td>
+            <td>{props.a24hourVolume.bnb} BNB</td>
+          </tr>
+
+          
         </div>
       </div>
     </div>
