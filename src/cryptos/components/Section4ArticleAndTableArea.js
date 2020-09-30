@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const Section4ArticleAndTableArea = (props) => {
+  const [MaxSupply, setMaxSupply] = useState();
+  useEffect(() => {
+    const onLoad = (params) => {
+      setMaxSupply(props.maxSupply);
+    };
+    onLoad();
+  }, []);
+
   return (
     <div className="section4-article-and-table-area">
       <div className="article-area-crypto-specific">
@@ -102,9 +110,11 @@ const Section4ArticleAndTableArea = (props) => {
           </tr>
           <tr className="table-row-crypto-specific">
             <th className="table-header-crypto-specific">Max Supply</th>
-            <td className="table-data-crypto-specific">
-              {props.maxSupply} {props.code}
-            </td>
+            {MaxSupply ? <td className="table-data-crypto-specific">
+               {props.maxSupply} {props.code} 
+            </td> : <td className="table-data-crypto-specific">
+               No Data
+            </td> }
           </tr>
           <tr className="table-row-crypto-specific grey-color-row">
             <th className="table-header-crypto-specific">All Time High</th>

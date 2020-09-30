@@ -6,12 +6,14 @@ const Section1GeneralArea = (props) => {
   const [USDPrice, setUSDPrice] = useState();
   const [BTCPrice, setBTCPrice] = useState();
   const [ETHPrice, setETHPrice] = useState();
+  const [ROI, setROI] = useState();
 
   useEffect(() => {
     const onLoad = (params) => {
       setUSDPrice(props.price.usd);
       setBTCPrice(props.price.btc);
       setETHPrice(props.price.eth);
+      setROI(props.roi)
     };
     onLoad();
   }, []);
@@ -45,7 +47,7 @@ const Section1GeneralArea = (props) => {
             <br />
             {ETHPrice && <span> {props.price.eth} ETH</span>}
             <br />
-            <span>{props.roi}</span>
+            {ROI ? <span>{props.roi}</span> : <span>No Data</span> }
           </div>
           <div>
             <span>profit?%</span>
