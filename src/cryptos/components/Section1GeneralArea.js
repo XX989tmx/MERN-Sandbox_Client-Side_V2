@@ -29,7 +29,6 @@ const Section1GeneralArea = (props) => {
       setMarketCapETH(props.marketCap.eth);
       setMarketCapBNB(props.marketCap.bnb);
 
-
       //column check
       setCirculatingSupply(props.circulatingSupply);
       setTotalSupply(props.totalSupply);
@@ -178,48 +177,81 @@ const Section1GeneralArea = (props) => {
         </div>
         {/* marketcap/volume/circulating supply */}
         <div className="marketcap-volume-circulating-supply-table">
-          {/* row1 header*/}
-          <tr>
-            <th>Market Cap</th>
-            <th>Volume (24h)</th>
-            {CirculatingSupply && <th>Circulating Supply</th>}
-            {TotalSupply && <th>Total Supply</th>}
-            {MaxSupply && <th>Max Supply</th>}
-          </tr>
-          {/* row2 usd & self code*/}
-          <tr>
-            <td>$ {props.marketCap.usd}</td>
-            <td>$ {props.a24hourVolume.usd}</td>
-            {CirculatingSupply && <td>
-              {props.circulatingSupply} {props.code}
-            </td>}
-            {TotalSupply && <td>
-              {props.totalSupply} {props.code}
-            </td>}
-            {MaxSupply && <td>
-              {props.maxSupply} {props.code}
-            </td>}
-          </tr>
-
-          {/* row3 btc*/}
-          {MarketCapBTC && <tr>
-            <td>{props.marketCap.btc} BTC</td>
-            <td>{props.a24hourVolume.btc} BTC</td>
-          </tr>}
-
-          {/* row4 eth */}
-          {MarketCapETH && <tr>
-            <td>{props.marketCap.eth} ETH</td>
-            <td>{props.a24hourVolume.eth} ETH</td>
-          </tr>}
-
-          {/* row5 bnb */}
-          {MarketCapBNB && <tr>
-            <td>{props.marketCap.bnb} BNB</td>
-            <td>{props.a24hourVolume.bnb} BNB</td>
-          </tr>}
-
-          
+          <ul className="marketcap-volume-circulating-supply-table-list">
+            <li className="marketcap-volume-circulating-supply-table-item">
+              <div>
+                <h5 className="marketcap-volume-circulating-supply-heading">
+                  <span className="mt-text"> Market Cap</span>
+                </h5>
+                <span className="mt-content">$ {props.marketCap.usd}</span>
+                <br />
+                {MarketCapBTC && <span className="mt-content">{props.marketCap.btc} BTC</span>}
+                <br />
+                {MarketCapETH && <span className="mt-content">{props.marketCap.eth} ETH</span>}
+                <br />
+                {MarketCapBNB && <span className="mt-content">{props.marketCap.bnb} BNB</span>}
+              </div>
+            </li>
+            <li className="marketcap-volume-circulating-supply-table-item">
+              <div>
+                <h5 className="marketcap-volume-circulating-supply-heading">
+                  <span className="mt-text">Volume (24h)</span>
+                </h5>
+                <span className="mt-content">$ {props.a24hourVolume.usd}</span>
+                <br />
+                {MarketCapBTC && <span className="mt-content">
+                  {props.a24hourVolume.btc} BTC
+                </span>}
+                <br />
+                {MarketCapETH && <span className="mt-content">
+                  {props.a24hourVolume.eth} ETH
+                </span>}
+                <br />
+                {MarketCapBNB && <span className="mt-content">
+                  {props.a24hourVolume.bnb} BNB
+                </span>}
+              </div>
+            </li>
+            {/* Circulating Supply */}
+            {CirculatingSupply && (
+              <li className="marketcap-volume-circulating-supply-table-item">
+                <div>
+                  <h5 className="marketcap-volume-circulating-supply-heading">
+                    <span className="mt-text">Circulating Supply</span>
+                  </h5>
+                  <span className="mt-content">
+                    {props.circulatingSupply} {props.code}
+                  </span>
+                </div>
+              </li>
+            )}
+            {/* Total Supply */}
+            {TotalSupply && (
+              <li className="marketcap-volume-circulating-supply-table-item">
+                <div>
+                  <h5 className="marketcap-volume-circulating-supply-heading">
+                    <span className="mt-text">Total Supply</span>
+                  </h5>
+                  <span className="mt-content">
+                    {props.totalSupply} {props.code}
+                  </span>
+                </div>
+              </li>
+            )}
+            {/* Max Supply */}
+            {MaxSupply && (
+              <li className="marketcap-volume-circulating-supply-table-item">
+                <div>
+                  <h5 className="marketcap-volume-circulating-supply-heading">
+                    <span className="mt-text"> Max Supply</span>
+                  </h5>
+                  <span className="mt-content">
+                    {props.maxSupply} {props.code}
+                  </span>
+                </div>
+              </li>
+            )}
+          </ul>
         </div>
       </div>
     </div>
