@@ -8,12 +8,32 @@ const Section1GeneralArea = (props) => {
   const [ETHPrice, setETHPrice] = useState();
   const [ROI, setROI] = useState();
 
+  //row conditional
+  const [MarketCapBTC, setMarketCapBTC] = useState();
+  const [MarketCapETH, setMarketCapETH] = useState();
+  const [MarketCapBNB, setMarketCapBNB] = useState();
+
+  //column conditional
+  const [CirculatingSupply, setCirculatingSupply] = useState();
+  const [TotalSupply, setTotalSupply] = useState();
+  const [MaxSupply, setMaxSupply] = useState();
+
   useEffect(() => {
     const onLoad = (params) => {
       setUSDPrice(props.price.usd);
       setBTCPrice(props.price.btc);
       setETHPrice(props.price.eth);
       setROI(props.roi);
+      // row check
+      setMarketCapBTC(props.marketCap.btc);
+      setMarketCapETH(props.marketCap.eth);
+      setMarketCapBNB(props.marketCap.bnb);
+
+
+      //column check
+      setCirculatingSupply(props.circulatingSupply);
+      setTotalSupply(props.totalSupply);
+      setMaxSupply(props.maxSupply);
     };
     onLoad();
   }, []);
@@ -162,42 +182,42 @@ const Section1GeneralArea = (props) => {
           <tr>
             <th>Market Cap</th>
             <th>Volume (24h)</th>
-            <th>Circulating Supply</th>
-            <th>Total Supply</th>
-            <th>Max Supply</th>
+            {CirculatingSupply && <th>Circulating Supply</th>}
+            {TotalSupply && <th>Total Supply</th>}
+            {MaxSupply && <th>Max Supply</th>}
           </tr>
           {/* row2 usd & self code*/}
           <tr>
             <td>$ {props.marketCap.usd}</td>
             <td>$ {props.a24hourVolume.usd}</td>
-            <td>
+            {CirculatingSupply && <td>
               {props.circulatingSupply} {props.code}
-            </td>
-            <td>
+            </td>}
+            {TotalSupply && <td>
               {props.totalSupply} {props.code}
-            </td>
-            <td>
+            </td>}
+            {MaxSupply && <td>
               {props.maxSupply} {props.code}
-            </td>
+            </td>}
           </tr>
 
           {/* row3 btc*/}
-          <tr>
+          {MarketCapBTC && <tr>
             <td>{props.marketCap.btc} BTC</td>
             <td>{props.a24hourVolume.btc} BTC</td>
-          </tr>
+          </tr>}
 
           {/* row4 eth */}
-          <tr>
+          {MarketCapETH && <tr>
             <td>{props.marketCap.eth} ETH</td>
             <td>{props.a24hourVolume.eth} ETH</td>
-          </tr>
+          </tr>}
 
           {/* row5 bnb */}
-          <tr>
+          {MarketCapBNB && <tr>
             <td>{props.marketCap.bnb} BNB</td>
             <td>{props.a24hourVolume.bnb} BNB</td>
-          </tr>
+          </tr>}
 
           
         </div>

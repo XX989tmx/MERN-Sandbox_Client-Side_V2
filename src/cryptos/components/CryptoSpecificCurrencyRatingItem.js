@@ -27,6 +27,8 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
         marketCap={props.marketCap}
         a24hourVolume={props.a24hourVolume}
         circulatingSupply={props.circulatingSupply}
+        totalSupply={props.totalSupply}
+        maxSupply={props.maxSupply}
       />
       {/* navigation */}
       <Section2NavigationArea queryName={props.queryName} />
