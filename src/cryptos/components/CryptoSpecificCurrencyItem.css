@@ -83,13 +83,14 @@
   background-color: #5cb85c;
   color: white;
   /* padding: 4px; */
-  padding-right: 6px;
-  padding-left: 6px;
+  padding-right: 7px;
+  padding-left: 7px;
   padding-top: 4px;
   padding-bottom: 4px;
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;
+  border-radius: 2px;
 }
 
 .tag-area-section1 {
