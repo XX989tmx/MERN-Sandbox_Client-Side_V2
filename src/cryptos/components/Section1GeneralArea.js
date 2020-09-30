@@ -68,9 +68,9 @@ const Section1GeneralArea = (props) => {
             <br />
             {ROI ? <span>{props.roi}</span> : <span>No Data</span>}
           </div>
-          <div>
+          {/* <div>
             <span>profit?%</span>
-          </div>
+          </div> */}
           <div>
             <button>share</button>
           </div>
@@ -191,7 +191,7 @@ const Section1GeneralArea = (props) => {
                   </h5>
                 </div>
                 <div className="marketcap-volume-circulating-supply-content-area">
-                  <span className="mt-content">$ {props.marketCap.usd}</span>
+                  <span className="mt-content">$ {props.marketCap.usd} USD</span>
                   <br />
                   {MarketCapBTC && (
                     <span className="mt-content">
@@ -222,7 +222,7 @@ const Section1GeneralArea = (props) => {
                 </div>
                 <div className="marketcap-volume-circulating-supply-content-area">
                   <span className="mt-content">
-                    $ {props.a24hourVolume.usd}
+                    $ {props.a24hourVolume.usd} USD
                   </span>
                   <br />
                   {MarketCapBTC && (
