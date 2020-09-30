@@ -92,6 +92,25 @@
   font-weight: 500;
 }
 
+.tag-area-section1 {
+  width: 379px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tags-section1 {
+  background-color: #EFF2F5;
+  font-size: 11px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 1px 10px 1px 10px;
+  border-radius: 30px;
+  color: black;
+  margin-left: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .marketcap-volume-circulating-supply-table {
   height: 131px;
   width: 780px;

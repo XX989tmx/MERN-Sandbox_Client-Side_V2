@@ -164,10 +164,15 @@ const Section1GeneralArea = (props) => {
                 </li>
               );
             })}
-
-            {props.tags.map(function (v, i) {
-              return <span key={i}>{v}</span>;
-            })}
+            <li className="tag-area-section1">
+              {props.tags.map(function (v, i) {
+                return (
+                  <span className="tags-section1" key={i}>
+                    {v}
+                  </span>
+                );
+              })}
+            </li>
 
             <li>
               <button>Coin</button>
