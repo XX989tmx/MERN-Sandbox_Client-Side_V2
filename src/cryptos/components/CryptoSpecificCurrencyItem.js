@@ -44,7 +44,6 @@ const CryptoSpecificCurrencyItem = (props) => {
         maxSupply={props.maxSupply}
         allTimeHigh={props.allTimeHigh}
         allTimeLow={props.allTimeLow}
-
         a52weekHigh={props.a52weekHigh}
         a52weekLow={props.a52weekLow}
         a90dayHigh={props.a90dayHigh}
@@ -61,6 +60,9 @@ const CryptoSpecificCurrencyItem = (props) => {
         yesterdaysClose={props.yesterdaysClose}
         yesterdaysChange={props.yesterdaysChange}
         yesterdaysVolume={props.yesterdaysVolume}
+
+        // article
+        article={props.article}
       />
 
       {/* {props.website}
