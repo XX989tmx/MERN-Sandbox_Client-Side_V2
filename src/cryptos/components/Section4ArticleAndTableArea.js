@@ -9,52 +9,52 @@ const Section4ArticleAndTableArea = (props) => {
 
         <h3>{props.article.heading1}</h3>
         {props.article.paragraph1.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading2}</h3>
         {props.article.paragraph2.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading3}</h3>
         {props.article.paragraph3.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading4}</h3>
         {props.article.paragraph4.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading5}</h3>
         {props.article.paragraph5.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading6}</h3>
         {props.article.paragraph6.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading7}</h3>
         {props.article.paragraph7.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading8}</h3>
         {props.article.paragraph8.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading9}</h3>
         {props.article.paragraph9.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
 
         <h3>{props.article.heading10}</h3>
         {props.article.paragraph10.map((v, i) => {
-          return <p>{v}</p>;
+          return <p key={i}>{v}</p>;
         })}
       </div>
       <div className="table-area-crypto-specific">
