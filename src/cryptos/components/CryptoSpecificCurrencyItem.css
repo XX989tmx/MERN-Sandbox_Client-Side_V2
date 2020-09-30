@@ -110,17 +110,25 @@
   width: 193px;
   height: 100%;
 }
-.marketcap-volume-circulating-supply-heading {
+.marketcap-volume-circulating-supply-heading-area {
   height: 48px;
-  margin-top: 0;
-  padding-top: 0;
+
   background-color: #f7f9fa;
+}
+.marketcap-volume-circulating-supply-heading {
+  margin-top: 0;
+  padding-top: 15px;
+  padding-left: 13px;
+}
+.marketcap-volume-circulating-supply-content-area {
+  padding-top: 10px;
+  padding-left: 13px;
 }
 /* .mt-text {
   
-}
-.mt-content {
-  
+} */
+/* .mt-content {
+  margin-top: 10px;
 } */
 
 .section2-navigation-area {
