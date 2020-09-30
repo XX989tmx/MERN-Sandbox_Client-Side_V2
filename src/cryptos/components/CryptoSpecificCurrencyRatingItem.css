@@ -21,14 +21,14 @@
     height: 540px;
 }
 .fcas-report-sheet-rating-area {
-    height: 590px;
+    height: 100%;
 }   
 .tokeninsignt-rating-area {
     height: 100%;
 }
 .token-insight-rating {
-    height: 186px;
+    height: 100%;
 }
 .token-insight-analysis {
-    height: 186px;
+    height: 100%;
 }
