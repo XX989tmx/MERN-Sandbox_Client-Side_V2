@@ -69,7 +69,7 @@ const CryptoSpecificCurrencyRatingItem = (props) => {
             <h2>{props.report.heading}</h2>
             <ul>
               {props.report.report_list.map((v, i) => {
-                return <li>{v}</li>;
+                return <li key={i}>{v}</li>;
               })}
             </ul>
             <button>See Full Report</button>

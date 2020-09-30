@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const Section1GeneralArea = (props) => {
+  const [USDPrice, setUSDPrice] = useState();
+  const [BTCPrice, setBTCPrice] = useState();
+  const [ETHPrice, setETHPrice] = useState();
+
+  useEffect(() => {
+    const onLoad = (params) => {
+      setUSDPrice(props.price.usd);
+      setBTCPrice(props.price.btc);
+      setETHPrice(props.price.eth);
+    };
+    onLoad();
+  }, []);
+
   return (
     <div className="section1-general-area">
       {/* upper-area1 */}
@@ -23,9 +37,14 @@ const Section1GeneralArea = (props) => {
         </div>
         <div className="upper-area-item2">
           <div>
-            <span className="crypto-price">$ {props.price.usd}</span>
-            <span className="crypto-price"> {props.price.btc} BTC</span>
-            <span className="crypto-price"> {props.price.eth} ETH</span>
+            {USDPrice && (
+              <span className="crypto-price">$ {props.price.usd} USD</span>
+            )}{" "}
+            <br />
+            {BTCPrice && <span> {props.price.btc} BTC</span>}
+            <br />
+            {ETHPrice && <span> {props.price.eth} ETH</span>}
+            <br />
             <span>{props.roi}</span>
           </div>
           <div>
@@ -126,9 +145,7 @@ const Section1GeneralArea = (props) => {
             })}
 
             {props.tags.map(function (v, i) {
-              return (
-                <span key={i}>{v}</span>
-              );
+              return <span key={i}>{v}</span>;
             })}
 
             <li>
