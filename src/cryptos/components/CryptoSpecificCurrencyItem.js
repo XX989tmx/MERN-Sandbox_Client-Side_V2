@@ -16,8 +16,13 @@ const CryptoSpecificCurrencyItem = (props) => {
         roi={props.roi}
         marketRank={props.marketRank}
         website={props.website}
+        announcement={props.announcement}
+        explorer={props.explorer}
+        message_board={props.message_board}
+        chat={props.chat}
         sourceCode={props.sourceCode}
         technicalDocumentation={props.technicalDocumentation}
+        tags={props.tags}
         marketCap={props.marketCap}
         a24hourVolume={props.a24hourVolume}
         circulatingSupply={props.circulatingSupply}
@@ -39,13 +44,21 @@ const CryptoSpecificCurrencyItem = (props) => {
         maxSupply={props.maxSupply}
         allTimeHigh={props.allTimeHigh}
         allTimeLow={props.allTimeLow}
-        a52weekHighAndLow={props.a52weekHighAndLow}
-        a90dayHighAndLow={props.a90dayHighAndLow}
-        a30dayHighAndLow={props.a30dayHighAndLow}
-        a7dayHighAndLow={props.a7dayHighAndLow}
-        a24hourHighAndLow={props.a24hourHighAndLow}
-        yesterdaysHighAndLow={props.yesterdaysHighAndLow}
-        yesterdaysOpenAndClose={props.yesterdaysOpenAndClose}
+
+        a52weekHigh={props.a52weekHigh}
+        a52weekLow={props.a52weekLow}
+        a90dayHigh={props.a90dayHigh}
+        a90dayLow={props.a90dayLow}
+        a30dayHigh={props.a30dayHigh}
+        a30dayLow={props.a30dayLow}
+        a7dayHigh={props.a7dayHigh}
+        a7dayLow={props.a7dayLow}
+        a24hourHigh={props.a24hourHigh}
+        a24hourLow={props.a24hourLow}
+        yesterdaysHigh={props.yesterdaysHigh}
+        yesterdaysLow={props.yesterdaysLow}
+        yesterdaysOpen={props.yesterdaysOpen}
+        yesterdaysClose={props.yesterdaysClose}
         yesterdaysChange={props.yesterdaysChange}
         yesterdaysVolume={props.yesterdaysVolume}
       />

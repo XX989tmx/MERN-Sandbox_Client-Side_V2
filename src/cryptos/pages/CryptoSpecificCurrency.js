@@ -17,7 +17,7 @@ const CryptoSpecificCurrency = () => {
       )
         .then((response) => {
           console.log(response.data);
-          setMatchedCrypto(response.data.matchedCurrency);
+          setMatchedCrypto(response.data.crypto);
         })
         .catch((err) => {});
     };

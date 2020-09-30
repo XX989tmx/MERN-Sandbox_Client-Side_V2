@@ -1,112 +1,169 @@
-import React from 'react';
+import React from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const Section1GeneralArea = (props) => {
-    return (
-      <div className="section1-general-area">
-        {/* upper-area1 */}
-        <div className="section1-general-area-upper-area">
-          <div className="upper-area-item1">
-            <div className="image-and-currency-box">
-              <div className="crypto-image-area">
-                <img
-                  className="coin-icon-crypto-specific"
-                  src={props.icon}
-                  alt=""
-                />
-              </div>
-              <div className="crypto-name-area">
-                <h1>{props.name}</h1>
-              </div>
-              <span>{props.code}</span>
+  return (
+    <div className="section1-general-area">
+      {/* upper-area1 */}
+      <div className="section1-general-area-upper-area">
+        <div className="upper-area-item1">
+          <div className="image-and-currency-box">
+            <div className="crypto-image-area">
+              <img
+                className="coin-icon-crypto-specific"
+                src={props.icon}
+                alt=""
+              />
             </div>
-          </div>
-          <div className="upper-area-item2">
-            <div>
-              <span className="crypto-price">{props.price}</span>
-              <span>{props.roi}</span>
+            <div className="crypto-name-area">
+              <h1>{props.name}</h1>
             </div>
-            <div>
-              <span>profit?%</span>
-            </div>
-            <div>
-              <button>share</button>
-            </div>
-          </div>
-          <div className="upper-area-item3">
-            <div>
-              <button>Buy</button>
-              <button>Exchange</button>
-              <button>Gamble</button>
-              <button>Earn Crypto</button>
-            </div>
-            <div>sponsored</div>
+            <span>{props.code}</span>
           </div>
         </div>
-        {/* upper-area-2 */}
-        <div className="section1-general-area-lower-area">
-          {/* link list */}
-          <div className="link-list">
-            <ul className="link-list-ul-list">
-              <li>
-                <span className="rank-wrapper">Rank {props.marketRank}</span>
-              </li>
-              <li>
-                <a
-                  href={props.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Website
-                </a>{" "}
-              </li>
-              <li>Announcement</li>
-              <li>Explorer</li>
-              <li>Message Board</li>
-              <li>Chat</li>
-              <li>
-                <a
-                  href={props.sourceCode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {" "}
-                  Source Code
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href={props.technicalDocumentation}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Technical Documentation
-                </a>
-              </li>
-
-              <li>
-                <button>Coin</button>
-                <button>Inactive</button>
-              </li>
-            </ul>
+        <div className="upper-area-item2">
+          <div>
+            <span className="crypto-price">$ {props.price.usd}</span>
+            <span className="crypto-price"> {props.price.btc} BTC</span>
+            <span className="crypto-price"> {props.price.eth} ETH</span>
+            <span>{props.roi}</span>
           </div>
-          {/* marketcap/volume/circulating supply */}
-          <div className="marketcap-volume-circulating-supply-table">
-            <tr>
-              <th>Market Cap</th>
-              <th>Volume (24h)</th>
-              <th>Circulating Supply</th>
-            </tr>
-            <tr>
-              <td>{props.marketCap}</td>
-              <td>{props.a24hourVolume}</td>
-              <td>{props.circulatingSupply}</td>
-            </tr>
+          <div>
+            <span>profit?%</span>
           </div>
+          <div>
+            <button>share</button>
+          </div>
+        </div>
+        <div className="upper-area-item3">
+          <div>
+            <button>Buy</button>
+            <button>Exchange</button>
+            <button>Gamble</button>
+            <button>Earn Crypto</button>
+          </div>
+          <div>sponsored</div>
         </div>
       </div>
-    );
-}
+      {/* upper-area-2 */}
+      <div className="section1-general-area-lower-area">
+        {/* link list */}
+        <div className="link-list">
+          <ul className="link-list-ul-list">
+            <li>
+              <span className="rank-wrapper">Rank {props.marketRank}</span>
+            </li>
+            {props.website.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Website {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+            {props.announcement.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Announcement {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+            {props.explorer.map(function (v, i) {
+              return i === 0 ? (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Explorer
+                  </a>{" "}
+                </li>
+              ) : (
+                <a href={v} target="_blank" rel="noopener noreferrer">
+                  {i + 1}
+                </a>
+              );
+            })}
+
+            {props.message_board.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Message Board {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+
+            {props.chat.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Chat {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+
+            {props.sourceCode.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Source Code {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+
+            {props.technicalDocumentation.map(function (v, i) {
+              return (
+                <li key={i}>
+                  <a href={v} target="_blank" rel="noopener noreferrer">
+                    Technical Documentation {i + 1}
+                  </a>{" "}
+                </li>
+              );
+            })}
+
+            {props.tags.map(function (v, i) {
+              return (
+                <span key={i}>{v}</span>
+              );
+            })}
+
+            <li>
+              <button>Coin</button>
+              <button>Inactive</button>
+            </li>
+          </ul>
+        </div>
+        {/* marketcap/volume/circulating supply */}
+        <div className="marketcap-volume-circulating-supply-table">
+          <tr>
+            <th>Market Cap</th>
+            <th>Volume (24h)</th>
+            <th>Circulating Supply</th>
+          </tr>
+          <tr>
+            <td>$ {props.marketCap.usd}</td>
+            <td>{props.marketCap.btc} BTC</td>
+            <td>{props.marketCap.eth} ETH</td>
+            <td>{props.marketCap.bnb} BNB</td>
+
+            <td>$ {props.a24hourVolume.usd}</td>
+            <td>
+              {props.a24hourVolume.self_code} {props.code}
+            </td>
+            <td>{props.a24hourVolume.btc} BTC</td>
+            <td>{props.a24hourVolume.eth} ETH</td>
+            <td>{props.a24hourVolume.bnb} BNB</td>
+
+            <td>{props.circulatingSupply}</td>
+          </tr>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Section1GeneralArea;

@@ -20,19 +20,24 @@ const CryptoIndexItem = (props) => {
           <span className="currency-code">{props.code}</span>
         </td>
         <td className="td-crypto-index-item4">
-          <span className="market-cap">{props.marketCap}</span>
+          <span className="market-cap">$ {props.marketCap.usd}</span>
         </td>
         <td className="td-crypto-index-item5">
-          <span className="coin-price">{props.price}</span>
+          <span className="coin-price">$ {props.price.usd}</span>
         </td>
         <td className="td-crypto-index-item6">
           <span className="a24hour-change">0.00%</span>
         </td>
         <td className="td-crypto-index-item7">
-          <span className="a24hour-volume">{props.a24hourVolume}</span>
+          <span className="a24hour-volume">$ {props.a24hourVolume.usd}</span>
+          <span className="a24hour-volume">
+            {props.a24hourVolume.self_code} {props.code}
+          </span>
         </td>
         <td className="td-crypto-index-item8">
-          <span className="circulating-supply">{props.circulatingSupply}</span>
+          <span className="circulating-supply">
+            {props.circulatingSupply} {props.code}
+          </span>
         </td>
         <td className="td-crypto-index-item9">
           <span>Price Graph</span>

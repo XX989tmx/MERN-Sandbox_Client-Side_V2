@@ -1,27 +1,59 @@
-import React from 'react';
-import CryptoIndexItem from './CryptoIndexItem';
+import React from "react";
+import CryptoIndexItem from "./CryptoIndexItem";
 
 const CryptoIndexList = (props) => {
-    return (
-      <div>
-        {props.CryptoArray.map((c) => (
-          <CryptoIndexItem
-            key={c.index}
-            name={c.name}
-            queryName={c.queryName}
-            code={c.code}
-            price={c.price}
-            icon={c.icon}
-            // roi={c.roi}
-            marketRank={c.marketRank}
-            marketCap={c.marketCap}
-            a24hourVolume={c.a24hourVolume}
-            circulatingSupply={c.circulatingSupply}
-            fcasRating={c.fcasRating}
-          />
-        ))}
-      </div>
-    );
-}
+  return (
+    <div>
+      {props.CryptoArray.map((c) => (
+        <CryptoIndexItem
+          key={c.index}
+          name={c.name}
+          queryName={c.queryName}
+          code={c.code}
+          price={c.price}
+          roi={c.roi}
+          marketRank={c.marketRank}
+          marketCap={c.marketCap}
+          a24hourVolume={c.a24hourVolume}
+          circulatingSupply={c.circulatingSupply}
+          totalSupply={c.totalSupply}
+          maxSupply={c.maxSupply}
+          allTimeHigh={c.allTimeHigh}
+          allTimeLow={c.allTimeLow}
+          a52weekHigh={c.a52weekHigh}
+          a52weekLow={c.a52weekLow}
+          a90dayHigh={c.a90dayHigh}
+          a90dayLow={c.a90dayLow}
+          a30dayHigh={c.a30dayHigh}
+          a30dayLow={c.a30dayLow}
+          a7dayHigh={c.a7dayHigh}
+          a7dayLow={c.a7dayLow}
+          a24hourHigh={c.a24hourHigh}
+          a24hourLow={c.a24hourLow}
+          yesterdaysHigh={c.yesterdaysHigh}
+          yesterdaysLow={c.yesterdaysLow}
+          yesterdaysOpen={c.yesterdaysOpen}
+          yesterdaysClose={c.yesterdaysClose}
+          yesterdaysChange={c.yesterdaysChange}
+          yesterdaysVolume={c.yesterdaysVolume}
+          website={c.website}
+          announcement={c.announcement}
+          explorer={c.explorer}
+          message_board={c.message_board}
+          chat={c.chat}
+          sourceCode={c.sourceCode}
+          technicalDocumentation={c.technicalDocumentation}
+          tags={c.tags}
+          icon={c.icon}
+          report={c.report}
+          tokenInsightRating={c.tokenInsightRating}
+          dynamicPerformanceScore={c.dynamicPerformanceScore}
+          fcasRatingInitial={c.fcasRatingInitial}
+          fcasScore={c.fcasScore}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default CryptoIndexList;

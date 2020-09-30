@@ -11,8 +11,9 @@ const CryptoIndex = () => {
     const fetch = (params) => {
       Axios.get(process.env.REACT_APP_BACKEND_URL + `/cryptos/index`)
         .then((response) => {
-          console.log(response.data.cryptoArray);
-          setCryptoArray(response.data.cryptoArray);
+          console.log(response.data);
+          console.log(response.data.cryptos);
+          setCryptoArray(response.data.cryptos);
         })
         .catch((err) => {});
     };

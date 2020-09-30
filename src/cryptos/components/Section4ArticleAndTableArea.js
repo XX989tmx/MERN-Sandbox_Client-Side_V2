@@ -15,7 +15,7 @@ const Section4ArticleAndTableArea = (props) => {
                 {props.name} Price
               </th>
               <td className="table-data-crypto-specific grey-color-row">
-                {props.price}
+                $ {props.price.usd} USD
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
@@ -28,12 +28,14 @@ const Section4ArticleAndTableArea = (props) => {
             </tr>
             <tr className="table-row-crypto-specific">
               <th className="table-header-crypto-specific">Market Cap</th>
-              <td className="table-data-crypto-specific">{props.marketCap}</td>
+              <td className="table-data-crypto-specific">
+                $ {props.marketCap.usd} USD
+              </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
               <th className="table-header-crypto-specific">24 Hour Volume</th>
               <td className="table-data-crypto-specific">
-                {props.a24hourVolume}
+                $ {props.a24hourVolume.usd} USD
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
@@ -41,35 +43,39 @@ const Section4ArticleAndTableArea = (props) => {
                 Circulating Supply
               </th>
               <td className="table-data-crypto-specific">
-                {props.circulatingSupply}
+                {props.circulatingSupply} {props.code}
               </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
               <th className="table-header-crypto-specific">Total Supply</th>
               <td className="table-data-crypto-specific">
-                {props.totalSupply}
+                {props.totalSupply} {props.code}
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
               <th className="table-header-crypto-specific">Max Supply</th>
-              <td className="table-data-crypto-specific">{props.maxSupply}</td>
+              <td className="table-data-crypto-specific">
+                {props.maxSupply} {props.code}
+              </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
               <th className="table-header-crypto-specific">All Time High</th>
               <td className="table-data-crypto-specific">
-                {props.allTimeHigh}
+                $ {props.allTimeHigh} USD
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
               <th className="table-header-crypto-specific">All Time Low</th>
-              <td className="table-data-crypto-specific">{props.allTimeLow}</td>
+              <td className="table-data-crypto-specific">
+                $ {props.allTimeLow} USD
+              </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
               <th className="table-header-crypto-specific">
                 52 Week High / Low
               </th>
               <td className="table-data-crypto-specific">
-                {props.a52weekHighAndLow}
+                {`$ ${props.a52weekHigh} USD / $ ${props.a52weekLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
@@ -77,7 +83,7 @@ const Section4ArticleAndTableArea = (props) => {
                 90 Day High / Low
               </th>
               <td className="table-data-crypto-specific">
-                {props.a90dayHighAndLow}
+                {`$ ${props.a90dayHigh} USD / $ ${props.a90dayLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
@@ -85,13 +91,13 @@ const Section4ArticleAndTableArea = (props) => {
                 30 Day High / Low
               </th>
               <td className="table-data-crypto-specific">
-                {props.a30dayHighAndLow}
+                {`$ ${props.a30dayHigh} USD / $ ${props.a30dayLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
               <th className="table-header-crypto-specific">7 Day High / Low</th>
               <td className="table-data-crypto-specific">
-                {props.a7dayHighAndLow}
+                {`$ ${props.a7dayHigh} USD / $ ${props.a7dayLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
@@ -99,7 +105,7 @@ const Section4ArticleAndTableArea = (props) => {
                 24 Hour High / Low
               </th>
               <td className="table-data-crypto-specific">
-                {props.a24hourHighAndLow}
+                {`$ ${props.a24hourHigh} USD / $ ${props.a24hourLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific">
@@ -107,7 +113,7 @@ const Section4ArticleAndTableArea = (props) => {
                 Yesterday's High / Low{" "}
               </th>
               <td className="table-data-crypto-specific">
-                {props.yesterdaysHighAndLow}
+                {`$ ${props.yesterdaysHigh} USD / $ ${props.yesterdaysLow} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
@@ -115,7 +121,7 @@ const Section4ArticleAndTableArea = (props) => {
                 Yesterday's Open / Close{" "}
               </th>
               <td className="table-data-crypto-specific">
-                {props.yesterdaysOpenAndClose}
+                {`$ ${props.yesterdaysOpen} USD / $ ${props.yesterdaysClose} USD`}
               </td>
             </tr>
             <tr className="table-row-crypto-specific ">
@@ -123,7 +129,7 @@ const Section4ArticleAndTableArea = (props) => {
                 Yesterday's Change{" "}
               </th>
               <td className="table-data-crypto-specific">
-                {props.yesterdaysChange}
+                $ {props.yesterdaysChange} USD
               </td>
             </tr>
             <tr className="table-row-crypto-specific grey-color-row">
@@ -131,7 +137,7 @@ const Section4ArticleAndTableArea = (props) => {
                 Yesterday's Volume{" "}
               </th>
               <td className="table-data-crypto-specific">
-                {props.yesterdaysVolume}
+                $ {props.yesterdaysVolume} USD
               </td>
             </tr>
           </table>
