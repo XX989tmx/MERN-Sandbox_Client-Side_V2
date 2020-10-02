@@ -29,7 +29,7 @@ const CryptoIndexItem = (props) => {
           <span className="a24hour-change">0.00%</span>
         </td>
         <td className="td-crypto-index-item7">
-          <span className="a24hour-volume">$ {props.a24hourVolume.usd}</span>
+          <span className="a24hour-volume">$ {props.a24hourVolume.usd}</span><br/>
           <span className="a24hour-volume">
             {props.a24hourVolume.self_code} {props.code}
           </span>
