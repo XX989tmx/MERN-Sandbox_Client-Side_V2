@@ -11,6 +11,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import { dateOptions } from "../data/article-date-sort-data";
 
 import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
@@ -31,6 +32,7 @@ const Articles = () => {
   const [categoryNames, setcategoryNames] = useState();
   const [searchResultInfo, setsearchResultInfo] = useState();
   const [query, setQuery] = useState();
+  const [DateSelector, setDateSelector] = useState();
   // const [TagNames, setTagNames] = useState();
   // const [CategoryNames, setCategoryNames] = useState();
 
@@ -50,7 +52,7 @@ const Articles = () => {
           singleOrPlural = "article";
         } else {
           singleOrPlural = "articles";
-        };
+        }
         const result = `${articleCount} ${singleOrPlural} found in total`;
         setsearchResultInfo(result);
         // console.log(responseData.TagArray);
@@ -79,6 +81,16 @@ const Articles = () => {
           <option value={t.tagName}>{t.tagName}</option>
         ));
         settagnames(tagName);
+      } catch (error) {}
+      try {
+        const dateSelector = await dateOptions.map(function (v, i) {
+          return (
+            <option key={i} value={v}>
+              {v}
+            </option>
+          );
+        });
+        setDateSelector(dateSelector);
       } catch (error) {}
     };
     allArticles();
@@ -274,7 +286,7 @@ const Articles = () => {
         singleOrPlural = "article";
       } else {
         singleOrPlural = "articles";
-      };
+      }
       const result = `${articleCount} ${downloadableValue} ${singleOrPlural} found.`;
       setsearchResultInfo(result);
     } catch (error) {}
@@ -430,24 +442,15 @@ const Articles = () => {
                 </label>
               </span>
 
-              {/* <span className="selector-item">
+              <span className="selector-item">
                 <label>
                   date
                   <select className="selector" name="date">
-                    <option value="default" selected>
-                      sort
-                    </option>
-                    <option value="last 30 days">last 30 days</option>
-                    <option value="last 6 month">last 6 month</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
+                    <option value="default">sort</option>
+                    {DateSelector}
                   </select>
                 </label>
-              </span> */}
+              </span>
             </div>
             <p className="reload-request">
               if something does not work, please reload the page.
