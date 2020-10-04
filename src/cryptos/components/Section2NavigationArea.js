@@ -28,11 +28,14 @@ const Section2NavigationArea = (props) => {
                 Tools
               </span>
             </li>
-            <li className="navigation-item-crypto-specific-historical-data">
-              <span className="navigation-item-crypto-specific-historical-data">
-                Historical Data
-              </span>
-            </li>
+            <Link to={`/cryptos/currencies/${props.queryName}/historical-data`}>
+              {" "}
+              <li className="navigation-item-crypto-specific-historical-data">
+                <span className="navigation-item-crypto-specific-historical-data">
+                  Historical Data
+                </span>
+              </li>
+            </Link>
             <Link to={`/cryptos/currencies/${props.queryName}/ratings`}>
               <li className="navigation-item-crypto-specific-ratings">
                 <span className="navigation-item-crypto-specific-ratings">
