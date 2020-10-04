@@ -13,11 +13,13 @@ const Section2NavigationArea = (props) => {
                 </span>
               </li>
             </Link>
-            <li className="navigation-item-crypto-specific-market-pairs">
-              <span className="navigation-item-crypto-specific-market-pairs">
-                Market Pairs
-              </span>
-            </li>
+            <Link to={`/cryptos/currencies/${props.queryName}/market-pairs`}>
+              <li className="navigation-item-crypto-specific-market-pairs">
+                <span className="navigation-item-crypto-specific-market-pairs">
+                  Market Pairs
+                </span>
+              </li>
+            </Link>
             <li className="navigation-item-crypto-specific-social">
               <span className="navigation-item-crypto-specific-social">
                 Social
