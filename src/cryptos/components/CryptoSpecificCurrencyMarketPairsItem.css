@@ -1,0 +1,11 @@
+.crypto-specific-market-pairs-item-container {
+    max-width: 1167px;
+  min-height: 100vh;
+  margin-right: 15%;
+  margin-left: 15%;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.section3-market-pairs-area {
+    height: 692px;
+}
