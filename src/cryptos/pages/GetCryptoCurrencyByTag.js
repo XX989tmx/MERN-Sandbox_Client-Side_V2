@@ -5,8 +5,8 @@ import GetCryptoCurrencyByTagList from "../components/GetCryptoCurrencyByTagList
 import { useParams, useHistory, Link } from "react-router-dom";
 
 const GetCryptoCurrencyByTag = () => {
-    const [tagSortedCrypto, settagSortedCrypto] = useState([]);
-    
+  const [tagSortedCrypto, settagSortedCrypto] = useState([]);
+  const [Tag, setTag] = useState();
   const tag = useParams().tag;
   useEffect(() => {
     const fetch = (params) => {
@@ -21,11 +21,14 @@ const GetCryptoCurrencyByTag = () => {
         .catch((err) => {});
     };
     fetch();
+    (function (params) {
+      setTag(`'${tag}'`);
+    })();
   }, []);
 
   return (
     <div className="crypto-index-container">
-    <h2>Tag Related Cryptos</h2>
+      <h2>{Tag} Tag Related Cryptos</h2>
       <CryptoIndexTableHeader />
       <GetCryptoCurrencyByTagList tagSortedCrypto={tagSortedCrypto} />
     </div>
