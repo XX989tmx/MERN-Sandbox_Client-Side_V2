@@ -167,9 +167,11 @@ const Section1GeneralArea = (props) => {
             <li className="tag-area-section1">
               {props.tags.map(function (v, i) {
                 return (
-                  <span className="tags-section1" key={i}>
-                    {v}
-                  </span>
+                  <Link to={`/cryptos/currencies/tag/${v}`}>
+                    <span className="tags-section1" key={i}>
+                      {v}
+                    </span>
+                  </Link>
                 );
               })}
             </li>
