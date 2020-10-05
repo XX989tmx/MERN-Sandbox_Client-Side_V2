@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import CryptoSpecificCurrencyMarketPairsList from "../components/CryptoSpecificCurrencyMarketPairsList";
 import { useParams, useHistory, Link } from "react-router-dom";
 import "./CryptoSpecificCurrencyMarketPairs.css";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const CryptoSpecificCurrencyMarketPairs = () => {
   const queryName = useParams().queryName;
@@ -24,10 +26,14 @@ const CryptoSpecificCurrencyMarketPairs = () => {
     fetch();
   }, []);
   return (
-    <div className="crypto-specific-market-pairs-container">
-      <CryptoSpecificCurrencyMarketPairsList CryptoData={CryptoData} />
-      <div className="related-cryptocurrencies"></div>
-    </div>
+    <React.Fragment>
+      <div className="crypto-specific-market-pairs-container">
+        <CryptoSpecificCurrencyMarketPairsList CryptoData={CryptoData} />
+        <div className="related-cryptocurrencies"></div>
+      </div>
+      <MoveToTopButton />
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 
