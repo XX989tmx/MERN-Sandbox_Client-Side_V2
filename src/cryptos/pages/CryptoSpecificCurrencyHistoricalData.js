@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import CryptoSpecificCurrencyHistoricalDataList from '../components/CryptoSpecificCurrencyHistoricalDataList';
 import { useParams, useHistory, Link } from "react-router-dom";
 import './CryptoSpecificCurrencyHistoricalData.css';
+import MoveToTopButton from '../../shared/components/UIElements/MoveToTopButton';
+import FooterMainNavigation from '../../shared/components/Footer/FooterMainNavigation';
 const CryptoSpecificCurrencyHistoricalData = () => {
     const queryName = useParams().queryName;
     const [CryptoData, setCryptoData] = useState([]);
@@ -25,8 +27,10 @@ const CryptoSpecificCurrencyHistoricalData = () => {
       <React.Fragment>
         <div className="crypto-specific-historical-data-container">
           <CryptoSpecificCurrencyHistoricalDataList CryptoData={CryptoData} />
+          <div className="related-cryptocurrencies"></div>
         </div>
-        <div className="related-cryptocurrencies"></div>
+        <MoveToTopButton />
+        <FooterMainNavigation />
       </React.Fragment>
     );
 }
