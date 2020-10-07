@@ -69,6 +69,15 @@ const GetSpecificArticleById = () => {
         .catch((err) => {
           console.log(err);
         });
+
+        try {
+          await Axios.get(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/${articleId}/addViewCount`
+          );
+        } catch (error) {
+          console.log(error);
+        }
       // window.scrollTo(0, 0);
     };
     getArticleById();
