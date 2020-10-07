@@ -14,6 +14,7 @@ import CurrencyNameSelector from "../components/CurrencyNameSelector";
 import { currencyName } from "../../shared/util/currencyName";
 import { currencyCode } from "../../shared/util/currencyCode";
 import { Link } from "react-router-dom";
+import ExternalLink from "../../shared/components/UIElements/ExternalLink";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -119,9 +120,7 @@ const FcasRating = () => {
                 />
                 <div>
                   <select name="Code" id="Code" onChange={currencyNameSelector}>
-                    <option value="default" >
-                      Currency Code
-                    </option>
+                    <option value="default">Currency Code</option>
                     {Option}
                   </select>
                 </div>
@@ -161,13 +160,14 @@ const FcasRating = () => {
                 numerical score, 0-1000, and an associated rating as follows:
               </p>
             </div>
-            
+
             <div>
               <img
                 src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
                 alt=""
                 style={{ width: "500px", height: "350px" }}
               />
+              <ExternalLink to="https://www.alphavantage.co/" className="natural" text="Data Provided By Alphavantage"/>
             </div>
             <Link to={"/crypto_converter"}>Go Back</Link>
             <MoveToTopButton />

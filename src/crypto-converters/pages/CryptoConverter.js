@@ -12,6 +12,7 @@ import GetCryptoData from "../components/GetCryptoData";
 import ExchangeRateItem from "../components/ExchangeRateItem";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import ExternalLink from "../../shared/components/UIElements/ExternalLink";
 
 const CryptoConverter = () => {
   // const [cryptoData, setCryptoData] = useState();
@@ -497,8 +498,13 @@ const CryptoConverter = () => {
     <React.Fragment>
       <div className="cryptoConverter-container">
         <div className="main-container">
-          <div className="post-form-area">
+          <div className="post-form-area center">
             <h3 className="center">Currency To Bitcoin Converter</h3>
+            <ExternalLink
+              to="https://www.blockchain.com/"
+              className="natural"
+              text="Data Provided By Blockchain.com"
+            />
             <form className="center" onSubmit={cryptoConvertionSubmitHandler}>
               {/* <input id="currency" type="text" label="Currency" />
             <input id="value" type="text" label="Value" /> */}
@@ -644,6 +650,11 @@ const CryptoConverter = () => {
             <h3 style={{ paddingTop: "10px", paddingBottom: "10px" }}>
               Currency Exchange Rate Converter
             </h3>
+            <ExternalLink
+              className="natural"
+              to="https://www.alphavantage.co/"
+              text="Data Provided By alphavantage"
+            />
             {/* <p>
             check Crypto Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
@@ -780,6 +791,11 @@ const CryptoConverter = () => {
                       Get Latest Data
                     </Button>
                   </form>
+                  <ExternalLink
+                    to="https://www.blockchain.com/"
+                    className="natural"
+                    text="Data Provided By Blockchain.com"
+                  />
                   {/* <button draggable="true" onClick={goBackToTop}>
                 back to top page
               </button> */}
