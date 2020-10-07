@@ -16,6 +16,8 @@ import { dateOptions } from "../data/article-date-sort-data";
 import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import Axios from "axios";
+import Top5MostViewedArticlesList from "../components/Top5MostViewedArticlesList";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -35,6 +37,7 @@ const Articles = () => {
   const [DateSelector, setDateSelector] = useState();
   // const [TagNames, setTagNames] = useState();
   // const [CategoryNames, setCategoryNames] = useState();
+  const [Top5MostViewedArticles, setTop5MostViewedArticles] = useState([]);
 
   useEffect(() => {
     const allArticles = async (params) => {
@@ -92,6 +95,17 @@ const Articles = () => {
         });
         setDateSelector(dateSelector);
       } catch (error) {}
+      try {
+        const response = await Axios.get(
+          process.env.REACT_APP_BACKEND_URL + `/articles/top5MostViewedArticles`
+        );
+        const data = response.data;
+        console.log(data.articles);
+        const top5MostViewedArticles = data.articles;
+        setTop5MostViewedArticles(top5MostViewedArticles);
+      } catch (error) {
+        console.log(error);
+      }
     };
     allArticles();
   }, [sendRequest]);
@@ -479,7 +493,11 @@ const Articles = () => {
             )}
           </div>
         </div>
-        <div className="side-container"></div>
+        <div className="side-container">
+          <Top5MostViewedArticlesList
+            Top5MostViewedArticles={Top5MostViewedArticles}
+          />
+        </div>
       </div>
       <MoveToTopButton />
       <FooterMainNavigation />
