@@ -55,7 +55,7 @@ const VideoItemPage = () => {
       )}
       {!isLoading && VideoById && (
         <div className="video-item-page-container">
-          <div>
+          <div className="video-item-main-section">
             {/* <p>
               個別のビデオ表示のためには2通りの可能性。1videoItem child
               componentに渡して表示、2個別のビデオ表示用のchild
@@ -75,9 +75,6 @@ const VideoItemPage = () => {
               disliked={VideoById.disliked}
               comments={VideoCommentsArray}
             />
-            <h4>Related Videos</h4>
-            <RelatedVideosList RelatedVideos={RelatedVideos} />
-            <MoveToTopButton />
 
             {/* <VideoList items={VideoById} /> */}
             {/* each video item page. place video player box component & video link item
@@ -86,6 +83,11 @@ const VideoItemPage = () => {
         
             <VideoLinkItemList></VideoLinkItemList> */}
           </div>
+          <div className="video-item-side-bar-section">
+            <h4>Related Videos</h4>
+            <RelatedVideosList RelatedVideos={RelatedVideos} />
+          </div>
+          <MoveToTopButton />
         </div>
       )}
       {!isLoading && VideoById && <FooterMainNavigation />}

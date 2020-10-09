@@ -3,6 +3,15 @@
     width: 90%;
     /* height: 100vh; */
     min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.video-item-main-section {
+  width: 70%;
+}
+.video-item-side-bar-section {
+  width: 25%;
 }
 
 @media only screen and (min-width: 768px) {
