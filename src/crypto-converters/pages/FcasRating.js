@@ -16,6 +16,11 @@ import { currencyCode } from "../../shared/util/currencyCode";
 import { Link } from "react-router-dom";
 import ExternalLink from "../../shared/components/UIElements/ExternalLink";
 import Axios from "axios";
+import SuperbList from "../components/SuperbList";
+import AttractiveList from "../components/AttractiveList";
+import BasicList from "../components/BasicList";
+import CautionList from "../components/CautionList";
+import FragileList from "../components/FragileList";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -190,22 +195,27 @@ const FcasRating = () => {
             <hr />
             <div>
               <h3>Superb</h3>
+              <SuperbList />
             </div>
             <hr />
             <div>
               <h3>Attractive</h3>
+              <AttractiveList />
             </div>
             <hr />
             <div>
               <h3>Basic</h3>
+              <BasicList />
             </div>
             <hr />
             <div>
               <h3>Caution</h3>
+              <CautionList />
             </div>
             <hr />
             <div>
               <h3>Fragile</h3>
+              <FragileList />
             </div>
             <hr />
             <Link to={"/crypto_converter"}>Go Back</Link>
