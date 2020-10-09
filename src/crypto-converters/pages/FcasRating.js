@@ -15,6 +15,7 @@ import { currencyName } from "../../shared/util/currencyName";
 import { currencyCode } from "../../shared/util/currencyCode";
 import { Link } from "react-router-dom";
 import ExternalLink from "../../shared/components/UIElements/ExternalLink";
+import Axios from "axios";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -29,7 +30,7 @@ const FcasRating = () => {
 
   const [Option, setOption] = useState();
   useEffect(() => {
-    const onLoad = async(params) => {
+    const onLoad = async (params) => {
       try {
         const response = await fetch(
           process.env.REACT_APP_BACKEND_URL +
@@ -43,8 +44,23 @@ const FcasRating = () => {
           </option>
         ));
         setOption(cryptoCurrencyCodeOption);
+      } catch (error) {}
+      try {
+        const response = await Axios.get(
+          process.env.REACT_APP_BACKEND_URL +
+            "/cryptos/categorize_crypto_through_fcas_rank"
+        );
+        const data = response.data;
+        console.log(data);
+        console.log(data._5ArraySortedBasedOnFcasScore.SuperbRatedCryptoArray);
+        console.log(
+          data._5ArraySortedBasedOnFcasScore.AttractiveRatedCryptoArray
+        );
+        console.log(data._5ArraySortedBasedOnFcasScore.BasicRatedCryptoArray);
+        console.log(data._5ArraySortedBasedOnFcasScore.CautionRatedCryptoArray);
+        console.log(data._5ArraySortedBasedOnFcasScore.FragileRatedCryptoArray);
       } catch (error) {
-        
+        console.log(error);
       }
       // let currencyArray = [];
       // currencyArray = currencyCode.split(",");
@@ -53,8 +69,6 @@ const FcasRating = () => {
       //     {a}
       //   </option>
       // ));
-
-      
     };
     onLoad();
   }, []);
@@ -167,8 +181,33 @@ const FcasRating = () => {
                 alt=""
                 style={{ width: "500px", height: "350px" }}
               />
-              <ExternalLink to="https://www.alphavantage.co/" className="natural" text="Data Provided By Alphavantage"/>
+              <ExternalLink
+                to="https://www.alphavantage.co/"
+                className="natural"
+                text="Data Provided By Alphavantage"
+              />
             </div>
+            <hr />
+            <div>
+              <h3>Superb</h3>
+            </div>
+            <hr />
+            <div>
+              <h3>Attractive</h3>
+            </div>
+            <hr />
+            <div>
+              <h3>Basic</h3>
+            </div>
+            <hr />
+            <div>
+              <h3>Caution</h3>
+            </div>
+            <hr />
+            <div>
+              <h3>Fragile</h3>
+            </div>
+            <hr />
             <Link to={"/crypto_converter"}>Go Back</Link>
             <MoveToTopButton />
           </div>
