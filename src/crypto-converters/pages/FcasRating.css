@@ -7,6 +7,61 @@
   padding: 20px;
 }
 
+.superb-heading {
+  padding: 10px 30px 10px 30px ;
+  background-color: #00E685;
+  color: black;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.attractive-heading {
+  padding: 10px 30px 10px 30px ;
+  background-color: #73EFBB;
+  color: black;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.basic-heading {
+  padding: 10px 30px 10px 30px ;
+  background-color: #BFEFDB;
+  color: black;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.caution-heading {
+  padding: 10px 30px 10px 30px ;
+  background-color: #FFAC70;
+  color: black;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.fragile-heading {
+  padding: 10px 30px 10px 30px ;
+  background-color: #FF4D4D;
+  color: black;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
   .fcasRating-container {
