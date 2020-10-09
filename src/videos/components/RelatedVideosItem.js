@@ -1,22 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './RelatedVideosItem.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./RelatedVideosItem.css";
 
 const RelatedVideosItem = (props) => {
-    return (
-      //   <Link to={`/videos/${props.id}`}>
-      <a href={`/videos/${props.id}`}>
-        <li className="related-videos-item">
+  return (
+    //   <Link to={`/videos/${props.id}`}>
+    <a href={`/videos/${props.id}`}>
+      <li className="related-videos-item">
+        <div className="related-videos-item-image-area">
           <img className="related-videos-item-image" src={props.image} />
-          {props.title}
+        </div>
+        <div className="related-videos-item-caption-area">
+          {" "}
+          <span>{props.title}</span><br/>
           {props.duration}
           {props.date_created}
           {props.hd}
           {props.is4k}
-        </li>
-      </a>
-      //   </Link>
-    );
-}
+        </div>
+      </li>
+    </a>
+    //   </Link>
+  );
+};
 
 export default RelatedVideosItem;
