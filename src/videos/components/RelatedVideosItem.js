@@ -10,17 +10,16 @@ const RelatedVideosItem = (props) => {
         <div className="related-videos-item-image-area">
           <img className="related-videos-item-image" src={props.image} />
           <span className="related-video-duration">{props.duration}</span>
+          <span className="related-video-hd">HD</span>
         </div>
         <div className="related-videos-item-caption-area">
           {" "}
           <span className="related-video-item-title">{props.title}</span>
           <br />
-          
           {/* {props.date_created} */}
           <span className="video-item-date">
             updated at {new Date(props.date_created).toDateString()}
           </span>
-          {props.hd}
           {props.is4k}
         </div>
       </li>
