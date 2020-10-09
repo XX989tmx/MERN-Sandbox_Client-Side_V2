@@ -1,10 +1,11 @@
 import React from 'react';
+import AttractiveItem from './AttractiveItem';
 
-const AttractiveList = () => {
+const AttractiveList = (props) => {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <AttractiveItem />
+        </ul>
     );
 }
 

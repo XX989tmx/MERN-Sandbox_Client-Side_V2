@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CautionItem = () => {
+const CautionItem = (props) => {
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     );
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
+import FragileItem from './FragileItem';
 
-const FragileList = () => {
+const FragileList = (props) => {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <FragileItem />
+        </ul>
     );
 }
 

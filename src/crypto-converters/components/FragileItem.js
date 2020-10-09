@@ -1,10 +1,10 @@
 import React from 'react';
 
-const FragileItem = () => {
+const FragileItem = (props) => {
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     );
 }
 

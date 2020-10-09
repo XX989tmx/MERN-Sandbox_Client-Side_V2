@@ -1,10 +1,11 @@
 import React from 'react';
+import BasicItem from './BasicItem';
 
-const BasicList = () => {
+const BasicList = (props) => {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <BasicItem />
+        </ul>
     );
 }
 

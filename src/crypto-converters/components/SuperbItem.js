@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SuperbItem = () => {
+const SuperbItem = (props) => {
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     );
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AttractiveItem = () => {
+const AttractiveItem = (props) => {
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     );
 }
 

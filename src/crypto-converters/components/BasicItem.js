@@ -1,10 +1,10 @@
 import React from 'react';
 
-const BasicItem = () => {
+const BasicItem = (props) => {
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     );
 }
 
