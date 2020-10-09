@@ -2,6 +2,14 @@ import React from 'react';
 import FragileItem from './FragileItem';
 
 const FragileList = (props) => {
+    if (props.FragileRatedCryptoArray.length === 0) {
+      return (
+        <div>
+          <h3>No Data</h3>
+        </div>
+      );
+    }
+
     return (
       <ul>
         {props.FragileRatedCryptoArray.map((c, i) => (

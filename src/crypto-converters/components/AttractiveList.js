@@ -2,6 +2,15 @@ import React from 'react';
 import AttractiveItem from './AttractiveItem';
 
 const AttractiveList = (props) => {
+
+    if (props.AttractiveRatedCryptoArray.length === 0) {
+      return (
+        <div>
+          <h3>No Data</h3>
+        </div>
+      );
+    }
+
     return (
       <ul>
         {props.AttractiveRatedCryptoArray.map((c, i) => (

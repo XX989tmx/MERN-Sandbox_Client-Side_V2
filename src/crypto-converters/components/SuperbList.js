@@ -2,6 +2,15 @@ import React from 'react';
 import SuperbItem from './SuperbItem';
 
 const SuperbList = (props) => {
+
+    if (props.SuperbRatedCryptoArray.length === 0) {
+        return (
+            <div>
+                <h3>No Data</h3>
+            </div>
+        )
+    }
+
     return (
       <ul>
         {props.SuperbRatedCryptoArray.map((c, i) => (

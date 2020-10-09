@@ -2,6 +2,15 @@ import React from 'react';
 import BasicItem from './BasicItem';
 
 const BasicList = (props) => {
+
+    if (props.BasicRatedCryptoArray.length === 0) {
+      return (
+        <div>
+          <h3>No Data</h3>
+        </div>
+      );
+    }
+
     return (
       <ul>
         {props.BasicRatedCryptoArray.map((c, i) => (
