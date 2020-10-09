@@ -11,13 +11,15 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 
 import "./VideoItemPage.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import RelatedVideosList from "../components/RelatedVideosList";
+import Axios from "axios";
 
 const VideoItemPage = () => {
   const videoId = useParams().videoId;
   const [VideoById, setVideoById] = useState({});
   const [VideoCommentsArray, setVideoCommentsArray] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
+  const [RelatedVideos, setRelatedVideos] = useState([]);
   useEffect(() => {
     const getVideoById = async (params) => {
       try {
@@ -32,6 +34,14 @@ const VideoItemPage = () => {
         console.log(responseData.video.title);
       } catch (error) {}
       // window.scrollTo(0, 0);
+      try {
+        const response = await Axios.get(process.env.REACT_APP_BACKEND_URL + `/videos/get_related_videos/${videoId}`);
+        const data = response.data;
+        console.log(data);
+        setRelatedVideos(data.relatedVideosArrayCapped20);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getVideoById();
   }, [sendRequest]);
@@ -65,6 +75,8 @@ const VideoItemPage = () => {
               disliked={VideoById.disliked}
               comments={VideoCommentsArray}
             />
+            <h4>Related Videos</h4>
+            <RelatedVideosList RelatedVideos={RelatedVideos} />
             <MoveToTopButton />
 
             {/* <VideoList items={VideoById} /> */}
