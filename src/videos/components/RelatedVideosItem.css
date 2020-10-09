@@ -42,8 +42,22 @@
   color: black;
   background-color: rgb(255, 230, 0);
   /* width: 10px; */
-  font-size: 10px;
+  font-size: 11px;
   line-height: 13px;
-  font-weight: 400;
+  font-weight: 500;
   font-family: Roboto, Arial, sans-serif;
+  width: 15px;
+}
+.related-video-4k {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  color: white;
+  background-color: rgb(0, 140, 255);
+  /* width: 10px; */
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
+  font-family: Roboto, Arial, sans-serif;
+  width: 15px;
 }

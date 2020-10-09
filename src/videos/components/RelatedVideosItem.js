@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./RelatedVideosItem.css";
 
 const RelatedVideosItem = (props) => {
+    
   return (
     //   <Link to={`/videos/${props.id}`}>
     <a href={`/videos/${props.id}`}>
@@ -11,6 +12,7 @@ const RelatedVideosItem = (props) => {
           <img className="related-videos-item-image" src={props.image} />
           <span className="related-video-duration">{props.duration}</span>
           <span className="related-video-hd">HD</span>
+          <span className="related-video-4k">4K</span>
         </div>
         <div className="related-videos-item-caption-area">
           {" "}
