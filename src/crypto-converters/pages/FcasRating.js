@@ -218,13 +218,13 @@ const FcasRating = () => {
               />
             </div>
             <hr />
-            <div>
+            <div className="superb-list-container">
               <span className="superb-heading">Superb</span>
               <br />
               <SuperbList SuperbRatedCryptoArray={SuperbRatedCryptoArray} />
             </div>
             <hr />
-            <div>
+            <div className="attractive-list-container">
               <span className="attractive-heading">Attractive</span>
               <br />
               <AttractiveList
@@ -232,19 +232,19 @@ const FcasRating = () => {
               />
             </div>
             <hr />
-            <div>
+            <div className="basic-list-container">
               <span className="basic-heading">Basic</span>
               <br />
               <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
             </div>
             <hr />
-            <div>
+            <div className="caution-list-container">
               <span className="caution-heading">Caution</span>
               <br />
               <CautionList CautionRatedCryptoArray={CautionRatedCryptoArray} />
             </div>
             <hr />
-            <div>
+            <div className="fragile-list-container">
               <span className="fragile-heading">Fragile</span>
               <br />
               <FragileList FragileRatedCryptoArray={FragileRatedCryptoArray} />

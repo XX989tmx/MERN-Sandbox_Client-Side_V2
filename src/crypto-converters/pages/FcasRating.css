@@ -62,6 +62,32 @@
   border-radius: 5px;
 }
 
+.superb-list-container {
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.attractive-list-container {
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.basic-list-container {
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.caution-list-container {
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.fragile-list-container {
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
   .fcasRating-container {
