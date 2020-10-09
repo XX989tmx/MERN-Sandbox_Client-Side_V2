@@ -34,6 +34,15 @@ const FcasRating = () => {
   const [FcasRatingInfo, setFcasRatingInfo] = useState({});
 
   const [Option, setOption] = useState();
+
+  const [SuperbRatedCryptoArray, setSuperbRatedCryptoArray] = useState([]);
+  const [AttractiveRatedCryptoArray, setAttractiveRatedCryptoArray] = useState(
+    []
+  );
+  const [BasicRatedCryptoArray, setBasicRatedCryptoArray] = useState([]);
+  const [CautionRatedCryptoArray, setCautionRatedCryptoArray] = useState([]);
+  const [FragileRatedCryptoArray, setFragileRatedCryptoArray] = useState([]);
+
   useEffect(() => {
     const onLoad = async (params) => {
       try {
