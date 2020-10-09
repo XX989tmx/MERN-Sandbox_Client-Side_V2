@@ -12,9 +12,13 @@ const RelatedVideosItem = (props) => {
         </div>
         <div className="related-videos-item-caption-area">
           {" "}
-          <span className="related-video-item-title">{props.title}</span><br/>
-          {props.duration}
-          {props.date_created}
+          <span className="related-video-item-title">{props.title}</span>
+          <br />
+          {props.duration} <br/>
+          {/* {props.date_created} */}
+          <span className="video-item-date">
+            updated at {new Date(props.date_created).toDateString()}
+          </span>
           {props.hd}
           {props.is4k}
         </div>
