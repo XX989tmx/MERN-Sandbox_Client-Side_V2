@@ -1,5 +1,6 @@
 import React from 'react';
 import AttractiveItem from './AttractiveItem';
+import './AttractiveList.css';
 
 const AttractiveList = (props) => {
 

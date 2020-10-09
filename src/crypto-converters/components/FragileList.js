@@ -1,5 +1,6 @@
 import React from 'react';
 import FragileItem from './FragileItem';
+import './FragileList.css';
 
 const FragileList = (props) => {
     if (props.FragileRatedCryptoArray.length === 0) {

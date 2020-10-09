@@ -1,5 +1,6 @@
 import React from 'react';
 import BasicItem from './BasicItem';
+import './BasicList.css';
 
 const BasicList = (props) => {
 

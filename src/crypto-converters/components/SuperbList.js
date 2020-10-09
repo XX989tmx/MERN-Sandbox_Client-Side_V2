@@ -1,5 +1,6 @@
 import React from 'react';
 import SuperbItem from './SuperbItem';
+import './SuperbList.css';
 
 const SuperbList = (props) => {
 

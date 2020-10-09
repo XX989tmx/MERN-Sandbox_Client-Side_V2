@@ -1,5 +1,6 @@
 import React from "react";
 import CautionItem from "./CautionItem";
+import './CautionList.css';
 
 const CautionList = (props) => {
   if (props.CautionRatedCryptoArray.length === 0) {
