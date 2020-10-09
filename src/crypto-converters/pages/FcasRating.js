@@ -73,6 +73,22 @@ const FcasRating = () => {
         console.log(data._5ArraySortedBasedOnFcasScore.BasicRatedCryptoArray);
         console.log(data._5ArraySortedBasedOnFcasScore.CautionRatedCryptoArray);
         console.log(data._5ArraySortedBasedOnFcasScore.FragileRatedCryptoArray);
+
+        setSuperbRatedCryptoArray(
+          data._5ArraySortedBasedOnFcasScore.SuperbRatedCryptoArray
+        );
+        setAttractiveRatedCryptoArray(
+          data._5ArraySortedBasedOnFcasScore.AttractiveRatedCryptoArray
+        );
+        setBasicRatedCryptoArray(
+          data._5ArraySortedBasedOnFcasScore.BasicRatedCryptoArray
+        );
+        setCautionRatedCryptoArray(
+          data._5ArraySortedBasedOnFcasScore.CautionRatedCryptoArray
+        );
+        setFragileRatedCryptoArray(
+          data._5ArraySortedBasedOnFcasScore.FragileRatedCryptoArray
+        );
       } catch (error) {
         console.log(error);
       }
@@ -204,27 +220,29 @@ const FcasRating = () => {
             <hr />
             <div>
               <h3>Superb</h3>
-              <SuperbList />
+              <SuperbList SuperbRatedCryptoArray={SuperbRatedCryptoArray} />
             </div>
             <hr />
             <div>
               <h3>Attractive</h3>
-              <AttractiveList />
+              <AttractiveList
+                AttractiveRatedCryptoArray={AttractiveRatedCryptoArray}
+              />
             </div>
             <hr />
             <div>
               <h3>Basic</h3>
-              <BasicList />
+              <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
             </div>
             <hr />
             <div>
               <h3>Caution</h3>
-              <CautionList />
+              <CautionList CautionRatedCryptoArray={CautionRatedCryptoArray} />
             </div>
             <hr />
             <div>
               <h3>Fragile</h3>
-              <FragileList />
+              <FragileList FragileRatedCryptoArray={FragileRatedCryptoArray} />
             </div>
             <hr />
             <Link to={"/crypto_converter"}>Go Back</Link>
