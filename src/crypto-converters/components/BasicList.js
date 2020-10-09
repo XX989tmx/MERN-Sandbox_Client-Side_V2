@@ -13,7 +13,7 @@ const BasicList = (props) => {
     }
 
     return (
-      <ul>
+      <ul className="basic-list-list">
         {props.BasicRatedCryptoArray.map((c, i) => (
           <BasicItem
             key={c.index}

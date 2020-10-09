@@ -13,7 +13,7 @@ const SuperbList = (props) => {
     }
 
     return (
-      <ul>
+      <ul className="superb-list-list">
         {props.SuperbRatedCryptoArray.map((c, i) => (
           <SuperbItem
             key={c.index}

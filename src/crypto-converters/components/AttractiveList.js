@@ -13,7 +13,7 @@ const AttractiveList = (props) => {
     }
 
     return (
-      <ul>
+      <ul className="attractive-list-list">
         {props.AttractiveRatedCryptoArray.map((c, i) => (
           <AttractiveItem
             key={c.index}

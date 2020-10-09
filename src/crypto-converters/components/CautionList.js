@@ -12,7 +12,7 @@ const CautionList = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="caution-list-list">
       {props.CautionRatedCryptoArray.map((c, i) => (
         <CautionItem
           key={c.index}
