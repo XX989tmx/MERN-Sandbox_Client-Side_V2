@@ -1,0 +1,8 @@
+.basic-list-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.basic-list-list a {
+    text-decoration: none;
+}

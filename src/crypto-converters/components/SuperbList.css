@@ -1,0 +1,9 @@
+.superb-list-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.superb-list-list a {
+    text-decoration: none;
+}

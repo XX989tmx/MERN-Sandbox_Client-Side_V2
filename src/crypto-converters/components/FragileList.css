@@ -1,0 +1,8 @@
+.fragile-list-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.fragile-list-list a {
+    text-decoration: none;
+}
