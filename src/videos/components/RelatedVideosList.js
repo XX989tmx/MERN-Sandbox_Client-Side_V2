@@ -1,9 +1,9 @@
 import React from "react";
 import RelatedVideosItem from "./RelatedVideosItem";
-
+import './RelatedVideosList.css';
 const RelatedVideosList = (props) => {
   return (
-    <ul>
+    <ul className="related-videos-list">
       {props.RelatedVideos.map((v, i) => (
         <RelatedVideosItem
           key={v.id}

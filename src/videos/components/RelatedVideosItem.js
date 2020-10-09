@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './RelatedVideosItem.css';
 
 const RelatedVideosItem = (props) => {
     return (
       //   <Link to={`/videos/${props.id}`}>
       <a href={`/videos/${props.id}`}>
-        <li>
-          <img style={{ width: "150px", height: "90px" }} src={props.image} />
+        <li className="related-videos-item">
+          <img className="related-videos-item-image" src={props.image} />
           {props.title}
           {props.duration}
           {props.date_created}
