@@ -12,7 +12,7 @@ const RelatedVideosItem = (props) => {
         </div>
         <div className="related-videos-item-caption-area">
           {" "}
-          <span>{props.title}</span><br/>
+          <span className="related-video-item-title">{props.title}</span><br/>
           {props.duration}
           {props.date_created}
           {props.hd}

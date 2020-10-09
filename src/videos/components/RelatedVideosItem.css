@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
 }
 .related-videos-item-image-area {
   width: 38%;
@@ -14,4 +17,8 @@
 .related-videos-item-image {
   width: 150px;
   height: 90px;
+}
+.related-video-item-title {
+  font-size: 16px;
+  font-weight: 600;
 }
