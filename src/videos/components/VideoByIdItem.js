@@ -123,16 +123,6 @@ const VideoByIdItem = (props) => {
         >
           <span className="videoById-tag">Tag: {props.tags}</span>
         </Link> */}
-        <span>Tag:</span>
-        {props.videoTagsArray.map((v, i) => {
-          return (
-            <Link to={`/videos/get_video_by_tags/${v}`}>
-              <span className="videoById-tag" key={i}>
-                {v}
-              </span>
-            </Link>
-          );
-        })}
 
         {/* <Link
           to={`/videos/get_video_by_categories/${props.categories}`}
@@ -142,27 +132,43 @@ const VideoByIdItem = (props) => {
             Category: {props.categories}
           </span>
         </Link> */}
-        <span>Category:</span>
+        <div>
+          <span>Tag:</span>
+          {props.videoTagsArray.map((v, i) => {
+            return (
+              <Link to={`/videos/get_video_by_tags/${v}`}>
+                <span className="videoById-tag" key={i}>
+                  {v}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+        <div>
+          <span>Category:</span>
 
-        {props.videoCategoriesArray.map((v, i) => {
-          return (
-            <Link to={`/videos/get_video_by_categories/${v}`}>
-              <span className="videoById-category" key={i}>
+          {props.videoCategoriesArray.map((v, i) => {
+            return (
+              <Link to={`/videos/get_video_by_categories/${v}`}>
+                <span className="videoById-category" key={i}>
+                  {v}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div>
+          <span>Persons:</span>
+
+          {props.videoPersonsArray.map((v, i) => {
+            return (
+              <span className="videoById-persons" key={i}>
                 {v}
               </span>
-            </Link>
-          );
-        })}
-
-        <span>Persons:</span>
-
-        {props.videoPersonsArray.map((v, i) => {
-          return (
-            <span className="videoById-persons" key={i}>
-              {v}
-            </span>
-          );
-        })}
+            );
+          })}
+        </div>
 
         {/* <p>{props.id}</p> */}
         <p>Updated at: {new Date(props.date_created).toDateString()}</p>
