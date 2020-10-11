@@ -127,19 +127,33 @@ const VideoByIdItem = (props) => {
         {props.videoTagsArray.map((v, i) => {
           return (
             <Link to={`/videos/get_video_by_tags/${v}`}>
-              <span className="videoById-tag" key={i}>{v}</span>
+              <span className="videoById-tag" key={i}>
+                {v}
+              </span>
             </Link>
           );
         })}
 
-        <Link
+        {/* <Link
           to={`/videos/get_video_by_categories/${props.categories}`}
           style={{ textDecoration: "none" }}
         >
           <span className="videoById-category">
             Category: {props.categories}
           </span>
-        </Link>
+        </Link> */}
+        <span>Category:</span>
+
+        {props.videoCategoriesArray.map((v, i) => {
+          return (
+            <Link to={`/videos/get_video_by_categories/${v}`}>
+              <span className="videoById-category" key={i}>
+                {v}
+              </span>
+            </Link>
+          );
+        })}
+
         <span className="videoById-persons">Person: {props.persons}</span>
         {/* <p>{props.id}</p> */}
         <p>Updated at: {new Date(props.date_created).toDateString()}</p>

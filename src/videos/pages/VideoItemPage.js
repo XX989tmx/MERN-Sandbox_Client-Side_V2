@@ -19,6 +19,7 @@ const VideoItemPage = () => {
   const [VideoById, setVideoById] = useState({});
   const [VideoCommentsArray, setVideoCommentsArray] = useState([]);
   const [videoTagsArray, setvideoTagsArray] = useState([]);
+  const [videoCategoriesArray, setvideoCategoriesArray] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [RelatedVideos, setRelatedVideos] = useState([]);
   useEffect(() => {
@@ -31,6 +32,7 @@ const VideoItemPage = () => {
         setVideoById(responseData.video);
         setVideoCommentsArray(responseData.video.comments);
         setvideoTagsArray(responseData.video.tags);
+        setvideoCategoriesArray(responseData.video.categories);
         console.log(responseData.video);
         console.log(responseData.video.comments);
         console.log(responseData.video.title);
@@ -68,7 +70,7 @@ const VideoItemPage = () => {
               description={VideoById.description}
               src={VideoById.src}
               videoTagsArray={videoTagsArray}
-              categories={VideoById.categories}
+              videoCategoriesArray={videoCategoriesArray}
               persons={VideoById.persons}
               id={VideoById.id}
               date_created={VideoById.date_created}

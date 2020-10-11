@@ -31,15 +31,19 @@ line-height: 22px;
 padding: 2px;
 }
 .videoById-category {
-color: white;
-background-color: rgb(83, 83, 83);
+color: black;
+background-color: rgb(255, 208, 0);
 font-weight: 600;
+font-size: 13px;
+line-height: 22px;
 padding: 2px;
 }
 .videoById-persons {
 color: white;
 background-color: rgb(83, 83, 83);
 font-weight: 600;
+font-size: 13px;
+line-height: 22px;
 padding: 2px;
 }
 
