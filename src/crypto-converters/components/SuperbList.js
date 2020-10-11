@@ -13,7 +13,7 @@ const SuperbList = (props) => {
     }
 
     return (
-      <ul className="superb-list-list">
+      <tr className="superb-list-list">
         {props.SuperbRatedCryptoArray.map((c, i) => (
           <SuperbItem
             key={c.index}
@@ -62,7 +62,7 @@ const SuperbList = (props) => {
             fcasScore={c.fcasScore}
           />
         ))}
-      </ul>
+      </tr>
     );
 }
 

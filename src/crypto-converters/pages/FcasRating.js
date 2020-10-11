@@ -219,9 +219,12 @@ const FcasRating = () => {
             </div>
             <hr />
             <div className="superb-list-container">
-              <span className="superb-heading">Superb</span>
-              <br />
-              <SuperbList SuperbRatedCryptoArray={SuperbRatedCryptoArray} />
+              <div>
+                <span className="superb-heading">Superb</span>
+              </div>
+              <div className="crypto-list-array-components-area">
+                <SuperbList SuperbRatedCryptoArray={SuperbRatedCryptoArray} />
+              </div>
             </div>
             <hr />
             <div className="attractive-list-container">

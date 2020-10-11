@@ -6,6 +6,12 @@
   border: solid 1px;
   padding: 20px;
 }
+.superb-list-container {
+  height: 100%;
+}
+.crypto-list-array-components-area {
+  margin-top: 20px;
+}
 
 .superb-heading {
   padding: 10px 30px 10px 30px ;
