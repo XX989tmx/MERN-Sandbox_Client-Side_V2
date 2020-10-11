@@ -228,29 +228,47 @@ const FcasRating = () => {
             </div>
             <hr />
             <div className="attractive-list-container">
-              <span className="attractive-heading">Attractive</span>
-              <br />
-              <AttractiveList
-                AttractiveRatedCryptoArray={AttractiveRatedCryptoArray}
-              />
+              <div>
+                {" "}
+                <span className="attractive-heading">Attractive</span>
+              </div>
+              <div className="crypto-list-array-components-area">
+                <AttractiveList
+                  AttractiveRatedCryptoArray={AttractiveRatedCryptoArray}
+                />
+              </div>
             </div>
             <hr />
             <div className="basic-list-container">
-              <span className="basic-heading">Basic</span>
-              <br />
-              <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
+              <div>
+                <span className="basic-heading">Basic</span>
+              </div>
+              <div className="crypto-list-array-components-area">
+                <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
+              </div>
             </div>
             <hr />
             <div className="caution-list-container">
-              <span className="caution-heading">Caution</span>
-              <br />
-              <CautionList CautionRatedCryptoArray={CautionRatedCryptoArray} />
+              <div>
+                <span className="caution-heading">Caution</span>
+              </div>
+              <div className="crypto-list-array-components-area">
+                <CautionList
+                  CautionRatedCryptoArray={CautionRatedCryptoArray}
+                />
+              </div>
             </div>
             <hr />
             <div className="fragile-list-container">
-              <span className="fragile-heading">Fragile</span>
-              <br />
-              <FragileList FragileRatedCryptoArray={FragileRatedCryptoArray} />
+              <div>
+                {" "}
+                <span className="fragile-heading">Fragile</span>
+              </div>
+              <div className="crypto-list-array-components-area">
+                <FragileList
+                  FragileRatedCryptoArray={FragileRatedCryptoArray}
+                />
+              </div>
             </div>
             <hr />
             <Link to={"/crypto_converter"}>Go Back</Link>
