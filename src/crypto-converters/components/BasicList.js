@@ -13,7 +13,7 @@ const BasicList = (props) => {
     }
 
     return (
-      <ul className="basic-list-list">
+      <tr className="basic-list-list">
         {props.BasicRatedCryptoArray.map((c, i) => (
           <BasicItem
             key={c.index}
@@ -62,7 +62,7 @@ const BasicList = (props) => {
             fcasScore={c.fcasScore}
           />
         ))}
-      </ul>
+      </tr>
     );
 }
 
