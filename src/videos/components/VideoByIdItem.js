@@ -109,7 +109,6 @@ const VideoByIdItem = (props) => {
           allowfullscreen
         ></iframe>
 
-
         <div className="video-information-area">
           <div className="video-info-left-area">
             <h2>{props.title}</h2>
@@ -193,9 +192,12 @@ const VideoByIdItem = (props) => {
         <div>
           {/* {ResponseComment ? (<ul>{ResponseComment.map((c) => <li>{c}</li>)}</ul>) : (<ul>{props.comments.map((c) => <li>{c}</li>)}</ul>)} */}
           {(!NewCommentAdded && (
-            <ul>
-              {props.comments.map((c) => (
-                <li>{c}</li>
+            <ul className="video-comment-list">
+              {props.comments.map((c, i) => (
+                <li className="video-comment-item" key={i}>
+                  comment{i + 1}:{" "}
+                  <span className="video-comment-text">{c}</span>
+                </li>
               ))}
 
               {/* {NewlyAddedCommentsArray.map((a) => (
@@ -204,9 +206,12 @@ const VideoByIdItem = (props) => {
             </ul>
           )) ||
             (NewCommentAdded && (
-              <ul>
-                {ResponseComment.map((c) => (
-                  <li>{c}</li>
+              <ul className="video-comment-list">
+                {ResponseComment.map((c, i) => (
+                  <li className="video-comment-item" key={i}>
+                    comment{i + 1}:{" "}
+                    <span className="video-comment-text">{c}</span>
+                  </li>
                 ))}
               </ul>
             ))}

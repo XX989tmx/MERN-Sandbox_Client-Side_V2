@@ -65,6 +65,21 @@
 .video-information-area {
   max-width: 1080px;
 }
+.video-comment-list {
+  list-style: none;
+}
+.video-comment-item {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 400;
+
+}
+.video-comment-text {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 500;
+
+}
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
