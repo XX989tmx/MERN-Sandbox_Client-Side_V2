@@ -12,7 +12,7 @@ const FragileList = (props) => {
     }
 
     return (
-      <ul className="fragile-list-list">
+      <tr className="fragile-list-list">
         {props.FragileRatedCryptoArray.map((c, i) => (
           <FragileItem
             key={c.index}
@@ -61,7 +61,7 @@ const FragileList = (props) => {
             fcasScore={c.fcasScore}
           />
         ))}
-      </ul>
+      </tr>
     );
 }
 
