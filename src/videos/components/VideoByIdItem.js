@@ -117,12 +117,21 @@ const VideoByIdItem = (props) => {
         <button className="disliked-button" onClick={addDislikeToVideoHandler}>
           {props.disliked + Disliked} Disliked
         </button>
-        <Link
+        {/* <Link
           to={`/videos/get_video_by_tags/${props.tags}`}
           style={{ textDecoration: "none" }}
         >
           <span className="videoById-tag">Tag: {props.tags}</span>
-        </Link>
+        </Link> */}
+        <span>Tag:</span>
+        {props.videoTagsArray.map((v, i) => {
+          return (
+            <Link to={`/videos/get_video_by_tags/${v}`}>
+              <span className="videoById-tag" key={i}>{v}</span>
+            </Link>
+          );
+        })}
+
         <Link
           to={`/videos/get_video_by_categories/${props.categories}`}
           style={{ textDecoration: "none" }}
