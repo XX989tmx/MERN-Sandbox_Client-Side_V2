@@ -154,7 +154,16 @@ const VideoByIdItem = (props) => {
           );
         })}
 
-        <span className="videoById-persons">Person: {props.persons}</span>
+        <span>Persons:</span>
+
+        {props.videoPersonsArray.map((v, i) => {
+          return (
+            <span className="videoById-persons" key={i}>
+              {v}
+            </span>
+          );
+        })}
+
         {/* <p>{props.id}</p> */}
         <p>Updated at: {new Date(props.date_created).toDateString()}</p>
         <p className="videoByIdItem-description">{props.description}</p>

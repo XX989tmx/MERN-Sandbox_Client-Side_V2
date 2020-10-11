@@ -39,8 +39,9 @@ line-height: 22px;
 padding: 2px;
 }
 .videoById-persons {
-color: white;
-background-color: rgb(83, 83, 83);
+color: black;
+background-color: white;
+border: solid 1px black;
 font-weight: 600;
 font-size: 13px;
 line-height: 22px;
