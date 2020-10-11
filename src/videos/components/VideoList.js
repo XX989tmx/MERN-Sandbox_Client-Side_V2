@@ -1,9 +1,24 @@
 import React from "react";
 import VideoItems from "./VideoItems";
+import Card from "../../shared/components/UIElements/Card";
+import Button from "../../shared/components/FormElements/Button";
 
-import './VideoList.css';
+import "./VideoList.css";
 
 const VideoList = (props) => {
+  if (props.items.length === 0) {
+    return (
+      <div>
+        <Card style={{ background: "rgb(248,248,248)", textAlign: "center" }}>
+          <h2>No Videos Found. Maybe Create One?</h2>
+          <Button btnBlack to="/articles/new">
+            Input Video Information
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <ul className="video-list">
       {props.items.map((video) => (
