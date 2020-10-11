@@ -21,6 +21,7 @@ import AttractiveList from "../components/AttractiveList";
 import BasicList from "../components/BasicList";
 import CautionList from "../components/CautionList";
 import FragileList from "../components/FragileList";
+import TableHeaderOfFcasRankList from "../components/TableHeaderOfFcasRankList";
 
 const FcasRating = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -218,6 +219,14 @@ const FcasRating = () => {
               />
             </div>
             <hr />
+
+
+            <div>
+                <TableHeaderOfFcasRankList />
+            </div>
+            <hr/>
+
+
             <div className="superb-list-container">
               <div>
                 <span className="superb-heading">Superb</span>
