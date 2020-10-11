@@ -108,15 +108,68 @@ const VideoByIdItem = (props) => {
           allow="autoplay; fullscreen"
           allowfullscreen
         ></iframe>
-        <h2>{props.title}</h2>
 
-        <h4>{props.views}views</h4>
-        <button className="liked-button" onClick={addLikeToVideoHandler}>
-          {props.liked + Like} Liked
-        </button>
-        <button className="disliked-button" onClick={addDislikeToVideoHandler}>
-          {props.disliked + Disliked} Disliked
-        </button>
+
+        <div className="video-information-area">
+          <div className="video-info-left-area">
+            <h2>{props.title}</h2>
+
+            <h4>{props.views}views</h4>
+            <button className="liked-button" onClick={addLikeToVideoHandler}>
+              {props.liked + Like} Liked
+            </button>
+            <button
+              className="disliked-button"
+              onClick={addDislikeToVideoHandler}
+            >
+              {props.disliked + Disliked} Disliked
+            </button>
+          </div>
+
+          <div className="video-info-right-area">
+            <div>
+              <span>Tag</span>
+              {props.videoTagsArray.map((v, i) => {
+                return (
+                  <Link to={`/videos/get_video_by_tags/${v}`}>
+                    <span className="videoById-tag" key={i}>
+                      {v}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+            <div>
+              <span>Category</span>
+
+              {props.videoCategoriesArray.map((v, i) => {
+                return (
+                  <Link to={`/videos/get_video_by_categories/${v}`}>
+                    <span className="videoById-category" key={i}>
+                      {v}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div>
+              <span>Persons</span>
+
+              {props.videoPersonsArray.map((v, i) => {
+                return (
+                  <span className="videoById-persons" key={i}>
+                    {v}
+                  </span>
+                );
+              })}
+            </div>
+
+            {/* <p>{props.id}</p> */}
+            <p>Updated at: {new Date(props.date_created).toDateString()}</p>
+          </div>
+        </div>
+
         {/* <Link
           to={`/videos/get_video_by_tags/${props.tags}`}
           style={{ textDecoration: "none" }}
@@ -132,46 +185,7 @@ const VideoByIdItem = (props) => {
             Category: {props.categories}
           </span>
         </Link> */}
-        <div>
-          <span>Tag:</span>
-          {props.videoTagsArray.map((v, i) => {
-            return (
-              <Link to={`/videos/get_video_by_tags/${v}`}>
-                <span className="videoById-tag" key={i}>
-                  {v}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-        <div>
-          <span>Category:</span>
 
-          {props.videoCategoriesArray.map((v, i) => {
-            return (
-              <Link to={`/videos/get_video_by_categories/${v}`}>
-                <span className="videoById-category" key={i}>
-                  {v}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div>
-          <span>Persons:</span>
-
-          {props.videoPersonsArray.map((v, i) => {
-            return (
-              <span className="videoById-persons" key={i}>
-                {v}
-              </span>
-            );
-          })}
-        </div>
-
-        {/* <p>{props.id}</p> */}
-        <p>Updated at: {new Date(props.date_created).toDateString()}</p>
         <p className="videoByIdItem-description">{props.description}</p>
 
         {(!NewCommentAdded && <p>{props.comments.length}Comments</p>) ||
