@@ -12,7 +12,7 @@ const SuperbItem = (props) => {
       <td className="fcas-list-td-name">{props.name}</td>
       <td className="fcas-list-td-code">{props.code}</td>
       <td className="fcas-list-td-fcasscore">{props.fcasScore}</td>
-      <td className="fcas-list-td-usd-price">{props.price.usd}</td>
+      <td className="fcas-list-td-usd-price">$ {props.price.usd}</td>
       <td className="fcas-list-td-marketcap">{props.marketRank}</td>
     </Link>
   );
