@@ -394,7 +394,7 @@ const SpecificArticleByIdItem = (props) => {
           {props.articlesExceptTheCurrentOne.map(function (elm, index) {
             return (
               <a
-                href={`http://localhost:3000/get_specific_article_by_id/${elm.id}`}
+                href={`/get_specific_article_by_id/${elm.id}`}
               >
                 <li className="same-authors-other-articles-item" key={index}>
                   <h4>{elm.title}</h4>
