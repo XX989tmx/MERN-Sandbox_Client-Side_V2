@@ -48,6 +48,7 @@ import CryptoSpecificCurrencyRating from "./cryptos/pages/CryptoSpecificCurrency
 import CryptoSpecificCurrencyHistoricalData from "./cryptos/pages/CryptoSpecificCurrencyHistoricalData";
 import CryptoSpecificCurrencyMarketPairs from "./cryptos/pages/CryptoSpecificCurrencyMarketPairs";
 import GetCryptoCurrencyByTag from "./cryptos/pages/GetCryptoCurrencyByTag";
+import GetSpecificUser from "./users/pages/GetSpecificUser";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -76,6 +77,9 @@ const App = () => {
       <Switch>
         <Route path="/users" exact>
           <Users />
+        </Route>
+        <Route path="/getSpecificUser/:userId" exact>
+          <GetSpecificUser />
         </Route>
 
         {/* articles routes */}
@@ -200,6 +204,9 @@ const App = () => {
       <Switch>
         <Route path="/users" exact>
           <Users />
+        </Route>
+        <Route path="/getSpecificUser/:userId" exact>
+          <GetSpecificUser />
         </Route>
 
         {/* articles routes */}

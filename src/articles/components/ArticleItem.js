@@ -300,6 +300,9 @@ const ArticleItem = (props) => {
                     </span>
                   </div>
                 </Link>
+                <Link to={`/getSpecificUser/${props.authorId}`}>
+                  <span>user: {props.authorName}</span>
+                </Link>
                 {/* <span> */}
                 {/* 著者情報をonFloatでモーダルで表示させてもいい */}
                 {/* <Button onClick={openModalHandler}> */}
