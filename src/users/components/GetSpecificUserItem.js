@@ -12,33 +12,39 @@ const GetSpecificUserItem = (props) => {
         style={{ width: "100px", height: "100px" }}
       />
       {props.email}
-
-      {/* <div>
-        <h4>Profile</h4>
-        {props.profile.nickname ? <p>NickName: {props.profile.nickname}</p> : 'no data' } 
-        <p>State:{props.profile.state}</p>
-        <p>City: {props.profile.city}</p>
-        <p>About Me: {props.profile.introduce_yourself}</p>
-        <p>
-          Things I Love:{" "}
-          <ul>
-            {props.profile.things_you_likes.map((v, i) => {
-              return <li key={i}>{v}</li>;
-            })}
-          </ul>
-        </p>
-        <p>
+      <h4>Profile</h4>
+      {props.profile ? (
+        <div>
+          <p>NickName: {props.profile.nickname}</p>
+          <p>State:{props.profile.state}</p>
+          <p>City: {props.profile.city}</p>
+          <p>About Me: {props.profile.introduce_yourself}</p>
+          <p>
+            Things I Love:{" "}
+            <ul>
+              {props.profile.things_you_likes.map((v, i) => {
+                return <li key={i}>{v}</li>;
+              })}
+            </ul>
+          </p>
+          <p>
+            {" "}
+            Things I Hate:{" "}
+            <ul>
+              {props.profile.things_you_hates.map((v, i) => {
+                return <li key={i}>{v}</li>;
+              })}
+            </ul>
+          </p>
+          <p> School: {props.profile.school}</p>
+          <p>Company:{props.profile.company}</p>
+        </div>
+      ) : (
+        <div>
           {" "}
-          Things I Hate:{" "}
-          <ul>
-            {props.profile.things_you_hates.map((v, i) => {
-              return <li key={i}>{v}</li>;
-            })}
-          </ul>
-        </p>
-        <p> School: {props.profile.school}</p>
-        <p>Company:{props.profile.company}</p>
-      </div> */}
+          <h5>this user do not have profile information yet</h5>
+        </div>
+      )}
 
       <div>
         <h4>{props.name}'s Articles</h4>
