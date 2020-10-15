@@ -13,6 +13,33 @@ const GetSpecificUserItem = (props) => {
       />
       {props.email}
 
+      {/* <div>
+        <h4>Profile</h4>
+        {props.profile.nickname ? <p>NickName: {props.profile.nickname}</p> : 'no data' } 
+        <p>State:{props.profile.state}</p>
+        <p>City: {props.profile.city}</p>
+        <p>About Me: {props.profile.introduce_yourself}</p>
+        <p>
+          Things I Love:{" "}
+          <ul>
+            {props.profile.things_you_likes.map((v, i) => {
+              return <li key={i}>{v}</li>;
+            })}
+          </ul>
+        </p>
+        <p>
+          {" "}
+          Things I Hate:{" "}
+          <ul>
+            {props.profile.things_you_hates.map((v, i) => {
+              return <li key={i}>{v}</li>;
+            })}
+          </ul>
+        </p>
+        <p> School: {props.profile.school}</p>
+        <p>Company:{props.profile.company}</p>
+      </div> */}
+
       <div>
         <h4>{props.name}'s Articles</h4>
         {props.articles.map((v, i) => {
@@ -46,7 +73,6 @@ const GetSpecificUserItem = (props) => {
         })}
       </div>
 
-      {/* {props.profile} */}
       <div>
         <h4>Articles This User Stared</h4>
         {props.staredArticles.map((v, i) => {
