@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const GetSpecificUserItem = (props) => {
   return (
@@ -14,7 +15,11 @@ const GetSpecificUserItem = (props) => {
       <div>
       <h4>Articles This User Stared</h4>
         {props.staredArticles.map((v, i) => {
-          return <h5>{v.title}</h5>;
+          return (
+            <Link to={`/get_specific_article_by_id/${v.id}`}>
+              <h5>{v.title}</h5>
+            </Link>
+          );
         })}
       </div>
       {/* {props.videos} */}
