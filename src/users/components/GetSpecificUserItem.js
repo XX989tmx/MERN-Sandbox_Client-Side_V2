@@ -7,7 +7,16 @@ const GetSpecificUserItem = (props) => {
       {props.id}
       {/* {props.articles} */}
       {props.email}
-      {/* {props.followedBy} */}
+      <div>
+        <h4>People Following This User(Followers)</h4>
+        {props.followedBy.map((v, i) => {
+          return (
+            <a href={`/getSpecificUser/${v.id}`}>
+              <h5 key={i}>{v.name}</h5>
+            </a>
+          );
+        })}
+      </div>
       <div>
         <h4>People This User Is Following(Following)</h4>
         {props.following.map((v, i) => {
