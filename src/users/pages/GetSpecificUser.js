@@ -25,7 +25,7 @@ const GetSpecificUser = () => {
   }, []);
 
   return (
-    <div>
+    <div className="get-specific-user-container">
       <GetSpecificUserList UserArray={UserArray} />
     </div>
   );

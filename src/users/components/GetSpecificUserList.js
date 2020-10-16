@@ -4,7 +4,7 @@ import './GetSpecificUserList.css';
 
 const GetSpecificUserList = (props) => {
   return (
-    <ul>
+    <ul className="get-specific-user-list">
       {props.UserArray.map((v, i) => (
         <GetSpecificUserItem
           key={v.id}

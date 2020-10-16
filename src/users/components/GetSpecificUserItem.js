@@ -30,7 +30,7 @@ const GetSpecificUserItem = (props) => {
             <p>About Me: {props.profile.introduce_yourself}</p>
             <p>
               Things I Love:{" "}
-              <ul>
+              <ul className="no-list-style">
                 {props.profile.things_you_likes.map((v, i) => {
                   return <li key={i}>{v}</li>;
                 })}
@@ -39,7 +39,7 @@ const GetSpecificUserItem = (props) => {
             <p>
               {" "}
               Things I Hate:{" "}
-              <ul>
+              <ul className="no-list-style">
                 {props.profile.things_you_hates.map((v, i) => {
                   return <li key={i}>{v}</li>;
                 })}
@@ -58,7 +58,7 @@ const GetSpecificUserItem = (props) => {
 
       <div className="profile-specific-users-articles-list-area">
         <h4>{props.name}'s Articles</h4>
-        <ul>
+        <ul className="no-list-style">
           {props.articles.map((v, i) => {
             return (
               <li>
@@ -76,7 +76,7 @@ const GetSpecificUserItem = (props) => {
       <div className="profile-followers-list-area">
         <h4>People Following This User(Followers)</h4>
         <h4>{props.followedBy.length} Followers</h4>
-        <ul>
+        <ul className="no-list-style">
           {" "}
           {props.followedBy.map((v, i) => {
             return (
@@ -93,7 +93,7 @@ const GetSpecificUserItem = (props) => {
       <div className="profile-following-list-area">
         <h4>People This User Is Following(Following)</h4>
         <h4>{props.following.length} Following</h4>
-        <ul>
+        <ul className="no-list-style">
           {" "}
           {props.following.map((v, i) => {
             return (
@@ -111,7 +111,7 @@ const GetSpecificUserItem = (props) => {
       <div className="profile-specific-users-stared-articles-list-area">
         <h4>Articles This User Stared</h4>
         <h4>{props.staredArticles.length} Stared Articles</h4>
-        <ul>
+        <ul className="no-list-style">
           {" "}
           {props.staredArticles.map((v, i) => {
             return (
