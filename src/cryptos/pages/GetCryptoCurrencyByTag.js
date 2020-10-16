@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import CryptoIndexTableHeader from "../components/CryptoIndexTableHeader";
 import GetCryptoCurrencyByTagList from "../components/GetCryptoCurrencyByTagList";
 import { useParams, useHistory, Link } from "react-router-dom";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 
 const GetCryptoCurrencyByTag = () => {
   const [tagSortedCrypto, settagSortedCrypto] = useState([]);
@@ -27,11 +29,15 @@ const GetCryptoCurrencyByTag = () => {
   }, []);
 
   return (
-    <div className="crypto-index-container">
-      <h2>{Tag} Tag Related Cryptos</h2>
-      <CryptoIndexTableHeader />
-      <GetCryptoCurrencyByTagList tagSortedCrypto={tagSortedCrypto} />
-    </div>
+    <React.Fragment>
+      <div className="crypto-index-container">
+        <h2>{Tag} Tag Related Cryptos</h2>
+        <CryptoIndexTableHeader />
+        <GetCryptoCurrencyByTagList tagSortedCrypto={tagSortedCrypto} />
+      </div>
+      <MoveToTopButton />
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 

@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import GetSpecificUserList from "../components/GetSpecificUserList";
 import { useParams, useHistory } from "react-router-dom";
-import './GetSpecificUser.css';
+import "./GetSpecificUser.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 const GetSpecificUser = () => {
   const userId = useParams().userId;
   const [UserArray, setUserArray] = useState([]);
@@ -25,9 +27,13 @@ const GetSpecificUser = () => {
   }, []);
 
   return (
-    <div className="get-specific-user-container">
-      <GetSpecificUserList UserArray={UserArray} />
-    </div>
+    <React.Fragment>
+      <div className="get-specific-user-container">
+        <GetSpecificUserList UserArray={UserArray} />
+      </div>
+      <MoveToTopButton />
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 
