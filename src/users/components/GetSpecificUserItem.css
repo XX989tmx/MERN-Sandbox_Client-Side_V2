@@ -72,3 +72,12 @@
 .inline-display {
   display: inline;
 }
+.follow-button-area {
+  width: 281px;
+  height: 50px;
+  padding: 10px;
+}
+.follow-button {
+    width: 160px;
+    height: 30px;
+}

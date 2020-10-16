@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "../../shared/components/FormElements/Button";
 import "./GetSpecificUserItem.css";
 
 const GetSpecificUserItem = (props) => {
@@ -37,6 +38,12 @@ const GetSpecificUserItem = (props) => {
             <div className="following-count-container  center">
               <span className="following-count">{props.following.length}</span>
             </div>
+          </div>
+        </div>
+
+        <div className="follow-button-area">
+          <div className="follow-button-container center">
+            <button className="follow-button">Follow</button>
           </div>
         </div>
       </div>
