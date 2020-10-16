@@ -1,5 +1,6 @@
 import React from "react";
 import GetSpecificUserItem from "./GetSpecificUserItem";
+import './GetSpecificUserList.css';
 
 const GetSpecificUserList = (props) => {
   return (

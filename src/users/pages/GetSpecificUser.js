@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import GetSpecificUserList from "../components/GetSpecificUserList";
 import { useParams, useHistory } from "react-router-dom";
+import './GetSpecificUser.css';
 const GetSpecificUser = () => {
   const userId = useParams().userId;
   const [UserArray, setUserArray] = useState([]);

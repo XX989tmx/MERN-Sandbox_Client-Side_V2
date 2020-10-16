@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './GetSpecificUserItem.css';
 
 const GetSpecificUserItem = (props) => {
   return (
