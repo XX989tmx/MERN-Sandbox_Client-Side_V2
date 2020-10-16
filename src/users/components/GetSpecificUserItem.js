@@ -1,23 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './GetSpecificUserItem.css';
+import "./GetSpecificUserItem.css";
 
 const GetSpecificUserItem = (props) => {
   return (
     <li>
       {/* {props.id} */}
 
-      <div className="profile-image-area">
-        <img
-          src={props.image}
-          alt=""
-          style={{ width: "100px", height: "100px" }}
-        />
-      </div>
+      <div className="user-profile-image-name-follow-related-info-container">
+        <div className="profile-image-container">
+          <div className="profile-image-area">
+            <img className="user-profile-image" src={props.image} alt="" />
+          </div>
+        </div>
 
-      <div className="profile-name-etc-area">
-        <h3>{props.name}</h3>
-        <p>{props.email}</p>
+        <div className="profile-name-area">
+          <div className="profile-name-wrapper">
+            <p> {props.name}</p>
+            {/* <p>{props.email}</p> */}
+          </div>
+        </div>
+
+        <div className="followers-following-information-container">
+          <div className="followers-left-box">
+            <div className="followers-text-container center">
+              <span className="followers-text ">Followers</span>
+            </div>
+            <div className="followers-count-container  center">
+              <span className="followers-count">{props.followedBy.length}</span>
+            </div>
+          </div>
+          <div className="following-right-box">
+            <div className="following-text-container  center">
+              <span className="following-text">Following</span>
+            </div>
+            <div className="following-count-container  center">
+              <span className="following-count">{props.following.length}</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="profile-profile-information-area">

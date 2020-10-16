@@ -1,3 +1,74 @@
 .no-list-style {
-    list-style: none;
+  list-style: none;
+}
+
+.user-profile-image {
+  width: 260px;
+  height: 260px;
+}
+.profile-image-area {
+  height: 261px;
+  width: 261px;
+}
+.profile-image-container {
+  padding: 10px;
+  height: 281px;
+  width: 281px;
+}
+.user-profile-image-name-follow-related-info-container {
+  padding: 20px;
+  width: 321px;
+  height: 600px;
+}
+.profile-name-area {
+  padding: 1px 10px 1px 10px;
+  width: 281px;
+  height: 56px;
+}
+.profile-name-wrapper {
+  text-align: center;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 20px;
+}
+.followers-text {
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 19px;
+}
+.followers-count {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+}
+/* .followers-text-container {
+} */
+.following-text {
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 19px;
+}
+.following-count {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+}
+.followers-following-information-container {
+  width: 281px;
+  height: 48px;
+}
+.followers-left-box {
+  width: 140px;
+  display: inline-block;
+}
+.following-right-box {
+  width: 140px;
+  display: inline-block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+.inline-display {
+  display: inline;
 }
