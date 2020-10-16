@@ -60,6 +60,7 @@ const GetSpecificUserItem = (props) => {
 
       <div>
         <h4>People Following This User(Followers)</h4>
+        <h4>{props.followedBy.length} Followers</h4>
         {props.followedBy.map((v, i) => {
           return (
             <a href={`/getSpecificUser/${v.id}`}>
@@ -70,6 +71,7 @@ const GetSpecificUserItem = (props) => {
       </div>
       <div>
         <h4>People This User Is Following(Following)</h4>
+        <h4>{props.following.length} Following</h4>
         {props.following.map((v, i) => {
           return (
             <a href={`/getSpecificUser/${v.id}`}>
@@ -81,6 +83,7 @@ const GetSpecificUserItem = (props) => {
 
       <div>
         <h4>Articles This User Stared</h4>
+        <h4>{props.staredArticles.length} Stared Articles</h4>
         {props.staredArticles.map((v, i) => {
           return (
             <Link to={`/get_specific_article_by_id/${v.id}`}>
