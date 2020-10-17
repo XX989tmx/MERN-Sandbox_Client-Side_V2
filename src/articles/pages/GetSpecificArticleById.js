@@ -22,6 +22,7 @@ const GetSpecificArticleById = () => {
   const [images, setimages] = useState([]);
   const auth = useContext(AuthContext);
   const [authorId, setauthorId] = useState();
+  const [StaredBy, setStaredBy] = useState([]);
 
   const [
     articlesExceptTheCurrentOne,
@@ -50,6 +51,8 @@ const GetSpecificArticleById = () => {
         // console.log(responseData.article.referenceSites);
         setexternalSites(responseData.article.externalSites);
         setimages(responseData.article.images);
+        console.log(responseData.article);
+        setStaredBy(responseData.article.staredBy);
       } catch (error) {
         console.log(error);
       }
@@ -134,6 +137,7 @@ const GetSpecificArticleById = () => {
                 contents={contents}
                 externalSites={externalSites}
                 articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
+                StaredBy={StaredBy}
               />
               <div className="article-index-link">
                 <span>

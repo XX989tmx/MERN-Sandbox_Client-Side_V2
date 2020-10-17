@@ -318,7 +318,10 @@ const SpecificArticleByIdItem = (props) => {
               </div>
             </Link>
             <div>
-              <button onClick={starThisArticle}>Star</button>
+              <h4>{props.StaredBy.length} Star</h4>
+            </div>
+            <div>
+              <button onClick={starThisArticle}>Star This Article</button>
             </div>
             <h4>
               price:{" "}
