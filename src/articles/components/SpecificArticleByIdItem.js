@@ -11,6 +11,7 @@ import Map from "../../shared/components/UIElements/Map";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./SpecificArticleByIdItem.css";
+import Axios from "axios";
 
 const SpecificArticleByIdItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -82,6 +83,22 @@ const SpecificArticleByIdItem = (props) => {
       );
       props.onDelete(props.id);
     } catch (err) {}
+  };
+
+  const starThisArticle = async (event) => {
+    event.preventDefault();
+    let articleId = props.id;
+    console.log(articleId);
+
+    try {
+      const response = await Axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/articles/addArticleToStaredList/${auth.userId}/${articleId}`
+      );
+      const data = response.data;
+      console.log(data.message);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // const getArticleByTags = (params) => {
@@ -221,7 +238,6 @@ const SpecificArticleByIdItem = (props) => {
           <div className="article-item__image center">
             <h2>{props.title}</h2>
             <img
-              
               src={props.images[0]}
               alt={props.title}
               style={{ width: "950px", height: "500px" }}
@@ -245,7 +261,6 @@ const SpecificArticleByIdItem = (props) => {
               {props.contents.map((c) => (
                 <div>
                   <img
-                    
                     src={props.images[props.contents.indexOf(c) + 1]}
                     // alt={props.title}
                     style={{ width: "400px", height: "250px" }}
@@ -302,6 +317,9 @@ const SpecificArticleByIdItem = (props) => {
                 <p className="tag-area">Tag: {props.tags}</p>
               </div>
             </Link>
+            <div>
+              <button onClick={starThisArticle}>Star</button>
+            </div>
             <h4>
               price:{" "}
               <span style={{ color: "rgb(20, 155, 20)", fontSize: "18px" }}>
@@ -393,9 +411,7 @@ const SpecificArticleByIdItem = (props) => {
         <ul className="same-authors-other-articles-list">
           {props.articlesExceptTheCurrentOne.map(function (elm, index) {
             return (
-              <a
-                href={`/get_specific_article_by_id/${elm.id}`}
-              >
+              <a href={`/get_specific_article_by_id/${elm.id}`}>
                 <li className="same-authors-other-articles-item" key={index}>
                   <h4>{elm.title}</h4>
                   <img
