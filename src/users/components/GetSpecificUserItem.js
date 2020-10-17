@@ -1,9 +1,26 @@
-import React from "react";
+import Axios from "axios";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../shared/components/FormElements/Button";
+import {AuthContext} from "../../shared/context/auth-context";
 import "./GetSpecificUserItem.css";
 
+
 const GetSpecificUserItem = (props) => {
+  const auth = useContext(AuthContext);
+
+  const followUser = async(event) => {
+    event.preventDefault();
+    let followingCandidateId = props.id;
+    try {
+      await Axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/users/followOtherUser/${auth.userId}/${followingCandidateId}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <li>
       {/* {props.id} */}
@@ -43,7 +60,9 @@ const GetSpecificUserItem = (props) => {
 
         <div className="follow-button-area">
           <div className="follow-button-container center">
-            <button className="follow-button">Follow</button>
+            <button className="follow-button" onClick={followUser}>
+              Follow
+            </button>
           </div>
         </div>
       </div>
