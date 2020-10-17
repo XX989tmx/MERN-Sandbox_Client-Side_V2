@@ -18,7 +18,6 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 
-
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const articleId = useParams().articleId;
@@ -103,17 +102,15 @@ const GetSpecificArticleById = () => {
     getArticleById();
   }, [sendRequest]);
 
-  const submitCommentHandler = async(event) => {
+  const submitCommentHandler = async (event) => {
     event.preventDefault();
     try {
       Axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/articles/addCommentsToArticle/${auth.userId}/${articleId}`,
         { comment: formState.inputs.comment.value }
       );
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
 
   return (
     <React.Fragment>
@@ -170,12 +167,6 @@ const GetSpecificArticleById = () => {
               />
               <div>
                 <div>
-                  <p>{Comments.length} comments</p>
-                  {Comments.map((v, i) => {
-                    return <p key={i}>{v.user.name} {v.comment}</p>;
-                  })}
-                </div>
-                <div>
                   {" "}
                   <form onSubmit={submitCommentHandler}>
                     <Input
@@ -189,6 +180,16 @@ const GetSpecificArticleById = () => {
                     />
                     <Button type="submit">Submit Comment</Button>
                   </form>
+                </div>
+                <div>
+                  <p>{Comments.length} comments</p>
+                  {Comments.map((v, i) => {
+                    return (
+                      <p key={i}>
+                        {v.user.name} {v.comment}
+                      </p>
+                    );
+                  })}
                 </div>
               </div>
               <div className="article-index-link">
