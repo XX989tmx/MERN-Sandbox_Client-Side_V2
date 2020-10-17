@@ -58,38 +58,64 @@ const GetSpecificUserItem = (props) => {
             <div className="profile-list-container">
               <ul className="profile-list-list">
                 <li className="profile-list-item">
-                  NickName {props.profile.nickname}
+                  <span className="profile-list-th"> NickName</span>
+                  <span className="profile-list-td">
+                    {props.profile.nickname}
+                  </span>
                 </li>
                 <li className="profile-list-item">
-                  State:{props.profile.state}
+                  <span className="profile-list-th">State</span>
+                  <span className="profile-list-td">{props.profile.state}</span>
                 </li>
                 <li className="profile-list-item">
-                  City: {props.profile.city}
+                  <span className="profile-list-th">City</span>
+                  <span className="profile-list-td">{props.profile.city}</span>
                 </li>
                 <li className="profile-list-item">
-                  About Me: {props.profile.introduce_yourself}
+                  <span className="profile-list-th">About Me</span>
+                  <span className="profile-list-td">
+                    {props.profile.introduce_yourself}
+                  </span>
                 </li>
                 <li className="profile-list-item-nested-list">
-                  Things I Love:{" "}
-                  <ul className="no-list-style">
-                    {props.profile.things_you_likes.map((v, i) => {
-                      return <li key={i}>{v}</li>;
-                    })}
-                  </ul>
+                  <span className="profile-list-th">Things I Love</span>
+                  <span className="profile-list-td">
+                    <ul className="no-list-style things-i-likes-list">
+                      {props.profile.things_you_likes.map((v, i) => {
+                        return (
+                          <li className="things-i-like-list-item" key={i}>
+                            {v},
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </span>
                 </li>
                 <li className="profile-list-item-nested-list">
-                  Things I Hate:{" "}
-                  <ul className="no-list-style">
-                    {props.profile.things_you_hates.map((v, i) => {
-                      return <li key={i}>{v}</li>;
-                    })}
-                  </ul>
+                  <p className="profile-list-th">Things I Hate</p>
+                  <span className="profile-list-td">
+                    <ul className="no-list-style things-i-hate-list">
+                      {props.profile.things_you_hates.map((v, i) => {
+                        return (
+                          <li className="things-i-hate-list-item" key={i}>
+                            {v},
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </span>
                 </li>
                 <li className="profile-list-item">
-                  School: {props.profile.school}
+                  <span className="profile-list-th">School</span>
+                  <span className="profile-list-td">
+                    {props.profile.school}
+                  </span>
                 </li>
                 <li className="profile-list-item">
-                  Company:{props.profile.company}
+                  <span className="profile-list-th">Company</span>
+                  <span className="profile-list-td">
+                    {props.profile.company}
+                  </span>
                 </li>
               </ul>
             </div>

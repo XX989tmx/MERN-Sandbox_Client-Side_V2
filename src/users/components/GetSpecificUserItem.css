@@ -116,3 +116,30 @@
   font-size: 16px;
   line-height: 20px;
 }
+.profile-list-th {
+    width: 107px;
+    display: inline-block;
+}
+.profile-list-td {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.things-i-likes-list {
+    margin: 0;
+    padding: 0;
+}
+.things-i-hate-list {
+    margin: 0;
+    padding: 0;
+}
+.things-i-like-list-item {
+    display: inline-block;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.things-i-hate-list-item {
+    display: inline-block;
+    margin-left: 3px;
+    margin-right: 3px;
+}
