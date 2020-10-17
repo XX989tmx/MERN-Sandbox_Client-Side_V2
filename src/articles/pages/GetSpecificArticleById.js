@@ -185,9 +185,24 @@ const GetSpecificArticleById = () => {
                   <p>{Comments.length} comments</p>
                   {Comments.map((v, i) => {
                     return (
-                      <p key={i}>
-                        {v.user.name} {v.comment}
-                      </p>
+                      <div key={i}>
+                        <span>
+                          <img
+                            style={{ width: "25px", height: "25px" }}
+                            src={v.user.image}
+                            alt=""
+                          />
+                        </span>
+                        <span style={{ paddingLeft: "10px", fontSize: "16px" }}>
+                          {v.user.name}
+                        </span>
+                        <span style={{ paddingLeft: "10px", fontSize: "16px" }}>
+                          {v.comment}
+                        </span>
+                        <span style={{ paddingLeft: "10px", fontSize: "13px" }}>
+                          {new Date(v.createdAt).toDateString()}
+                        </span>
+                      </div>
                     );
                   })}
                 </div>
