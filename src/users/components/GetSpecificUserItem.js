@@ -49,7 +49,48 @@ const GetSpecificUserItem = (props) => {
       </div>
 
       <div className="profile-profile-information-area">
-        <h4>Profile</h4>
+        {props.profile ? (
+          <div>
+            {" "}
+            <div className="profile-header-container center">
+              <p className=" profile-header">Profile</p>
+            </div>
+            <div className="profile-list-container">
+              <ul>
+                <li>NickName: {props.profile.nickname}</li>
+                <li>State:{props.profile.state}</li>
+                <li>City: {props.profile.city}</li>
+                <li>About Me: {props.profile.introduce_yourself}</li>
+                <li>
+                  Things I Love:{" "}
+                  <ul className="no-list-style">
+                    {props.profile.things_you_likes.map((v, i) => {
+                      return <li key={i}>{v}</li>;
+                    })}
+                  </ul>
+                </li>
+                <li>
+                  Things I Hate:{" "}
+                  <ul className="no-list-style">
+                    {props.profile.things_you_hates.map((v, i) => {
+                      return <li key={i}>{v}</li>;
+                    })}
+                  </ul>
+                </li>
+                <li>School: {props.profile.school}</li>
+                <li>Company:{props.profile.company}</li>
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <div>
+            {" "}
+            <h5>this user do not have profile information yet</h5>
+          </div>
+        )}
+      </div>
+
+      <div>
         {props.profile ? (
           <div>
             <p>NickName: {props.profile.nickname}</p>

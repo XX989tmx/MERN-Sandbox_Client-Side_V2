@@ -78,6 +78,26 @@
   padding: 10px;
 }
 .follow-button {
-    width: 160px;
-    height: 30px;
+  width: 160px;
+  height: 30px;
+}
+.profile-profile-information-area {
+  width: 530px;
+  height: 470px;
+}
+.profile-header-container {
+  width: 510px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.profile-header {
+  font-weight: 500;
+  font-size: 19px;
+}
+.profile-list-container {
+  width: 510px;
+  height: 445px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
