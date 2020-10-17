@@ -13,9 +13,11 @@ const GetSpecificUserItem = (props) => {
     event.preventDefault();
     let followingCandidateId = props.id;
     try {
-      await Axios.get(
+      const response = await Axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/users/followOtherUser/${auth.userId}/${followingCandidateId}`
       );
+      const data = response.data;
+      console.log(data.message);
     } catch (error) {
       console.log(error);
     }
