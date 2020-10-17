@@ -172,7 +172,7 @@ const GetSpecificArticleById = () => {
                 <div>
                   <p>{Comments.length} comments</p>
                   {Comments.map((v, i) => {
-                    return <p key={i}>{v.comment}</p>;
+                    return <p key={i}>{v.user.name} {v.comment}</p>;
                   })}
                 </div>
                 <div>
