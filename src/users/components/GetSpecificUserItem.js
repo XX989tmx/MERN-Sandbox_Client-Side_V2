@@ -56,12 +56,20 @@ const GetSpecificUserItem = (props) => {
               <p className=" profile-header">Profile</p>
             </div>
             <div className="profile-list-container">
-              <ul>
-                <li>NickName: {props.profile.nickname}</li>
-                <li>State:{props.profile.state}</li>
-                <li>City: {props.profile.city}</li>
-                <li>About Me: {props.profile.introduce_yourself}</li>
-                <li>
+              <ul className="profile-list-list">
+                <li className="profile-list-item">
+                  NickName {props.profile.nickname}
+                </li>
+                <li className="profile-list-item">
+                  State:{props.profile.state}
+                </li>
+                <li className="profile-list-item">
+                  City: {props.profile.city}
+                </li>
+                <li className="profile-list-item">
+                  About Me: {props.profile.introduce_yourself}
+                </li>
+                <li className="profile-list-item-nested-list">
                   Things I Love:{" "}
                   <ul className="no-list-style">
                     {props.profile.things_you_likes.map((v, i) => {
@@ -69,7 +77,7 @@ const GetSpecificUserItem = (props) => {
                     })}
                   </ul>
                 </li>
-                <li>
+                <li className="profile-list-item-nested-list">
                   Things I Hate:{" "}
                   <ul className="no-list-style">
                     {props.profile.things_you_hates.map((v, i) => {
@@ -77,8 +85,12 @@ const GetSpecificUserItem = (props) => {
                     })}
                   </ul>
                 </li>
-                <li>School: {props.profile.school}</li>
-                <li>Company:{props.profile.company}</li>
+                <li className="profile-list-item">
+                  School: {props.profile.school}
+                </li>
+                <li className="profile-list-item">
+                  Company:{props.profile.company}
+                </li>
               </ul>
             </div>
           </div>

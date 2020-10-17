@@ -97,7 +97,22 @@
 }
 .profile-list-container {
   width: 510px;
-  height: 445px;
+  height: 100%;
   margin-left: 10px;
   margin-right: 10px;
+}
+.profile-list-item {
+  height: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+.profile-list-item-nested-list {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
 }
