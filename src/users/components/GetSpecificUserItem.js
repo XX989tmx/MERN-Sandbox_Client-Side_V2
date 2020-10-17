@@ -128,7 +128,7 @@ const GetSpecificUserItem = (props) => {
         )}
       </div>
 
-      <div>
+      {/* <div>
         {props.profile ? (
           <div>
             <p>NickName: {props.profile.nickname}</p>
@@ -161,7 +161,7 @@ const GetSpecificUserItem = (props) => {
             <h5>this user do not have profile information yet</h5>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="profile-specific-users-articles-list-area">
         <h4>{props.name}'s Articles</h4>
