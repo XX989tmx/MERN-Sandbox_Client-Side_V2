@@ -4,12 +4,20 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import ArticleItem from "../components/ArticleItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import Button from "../../shared/components/FormElements/Button";
 
 import "./GetSpecificArticleById.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import SpecificArticleByIdItem from "../components/SpecificArticleByIdItem";
 import Axios from "axios";
 import { AuthContext } from "../../shared/context/auth-context";
+import Input from "../../shared/components/FormElements/Input";
+import { useForm } from "../../shared/hooks/form-hook";
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH,
+} from "../../shared/util/validators";
+
 
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -23,6 +31,14 @@ const GetSpecificArticleById = () => {
   const auth = useContext(AuthContext);
   const [authorId, setauthorId] = useState();
   const [StaredBy, setStaredBy] = useState([]);
+  const [Comments, setComments] = useState([]);
+
+  const [formState, inputHandler] = useForm(
+    {
+      comment: { value: "", isValid: false },
+    },
+    false
+  );
 
   const [
     articlesExceptTheCurrentOne,
@@ -53,6 +69,7 @@ const GetSpecificArticleById = () => {
         setimages(responseData.article.images);
         console.log(responseData.article);
         setStaredBy(responseData.article.staredBy);
+        setComments(responseData.article.comments);
       } catch (error) {
         console.log(error);
       }
@@ -73,18 +90,30 @@ const GetSpecificArticleById = () => {
           console.log(err);
         });
 
-        try {
-          await Axios.get(
-            process.env.REACT_APP_BACKEND_URL +
-              `/articles/${articleId}/addViewCount`
-          );
-        } catch (error) {
-          console.log(error);
-        }
+      try {
+        await Axios.get(
+          process.env.REACT_APP_BACKEND_URL +
+            `/articles/${articleId}/addViewCount`
+        );
+      } catch (error) {
+        console.log(error);
+      }
       // window.scrollTo(0, 0);
     };
     getArticleById();
   }, [sendRequest]);
+
+  const submitCommentHandler = async(event) => {
+    event.preventDefault();
+    try {
+      Axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/articles/addCommentsToArticle/${auth.userId}/${articleId}`,
+        { comment: formState.inputs.comment.value }
+      );
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <React.Fragment>
@@ -139,6 +168,29 @@ const GetSpecificArticleById = () => {
                 articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
                 StaredBy={StaredBy}
               />
+              <div>
+                <div>
+                  <p>{Comments.length} comments</p>
+                  {Comments.map((v, i) => {
+                    return <p key={i}>{v.comment}</p>;
+                  })}
+                </div>
+                <div>
+                  {" "}
+                  <form onSubmit={submitCommentHandler}>
+                    <Input
+                      id="comment"
+                      element="textarea"
+                      label="comment"
+                      placeholder="Write your comment here"
+                      validators={[VALIDATOR_MINLENGTH(5)]}
+                      errorText="Please enter a valid comment (at least 5 characters)."
+                      onInput={inputHandler}
+                    />
+                    <Button type="submit">Submit Comment</Button>
+                  </form>
+                </div>
+              </div>
               <div className="article-index-link">
                 <span>
                   <Link to={`/articles`}>Article Index</Link>
