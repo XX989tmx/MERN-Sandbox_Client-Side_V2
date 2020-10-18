@@ -1,0 +1,7 @@
+.add-profile-info-container {
+    width: 980px;
+    margin: auto;
+    min-height: 100vh;
+
+    padding: 10px 80px 40px 80px;
+}

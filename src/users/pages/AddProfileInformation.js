@@ -9,6 +9,7 @@ import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
 import Axios from "axios";
 import { AuthContext } from "../../shared/context/auth-context";
+import './AddProfileInformation.css';
 
 const AddProfileInformation = () => {
   const auth = useContext(AuthContext);
@@ -52,91 +53,93 @@ const AddProfileInformation = () => {
   };
 
   return (
-    <div>
-      <h2>add profile information</h2>
+    <div className="add-profile-info-container">
       <div>
-        <form onSubmit={profileInformationSubmitHandler}>
-          <Input
-            id="nickname"
-            element="input"
-            type="text"
-            label="nickname"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid nickname."
-            onInput={inputHandler}
-          />
-          <Input
-            id="introduce_yourself"
-            element="textarea"
-            label="introduce yourself"
-            placeholder="Write your introductory text"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid text (at least 5 characters)."
-            onInput={inputHandler}
-          />
-          <Input
-            id="state"
-            element="input"
-            type="text"
-            label="country"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid country."
-            onInput={inputHandler}
-          />
-          <Input
-            id="city"
-            element="input"
-            type="text"
-            label="City"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid City."
-            onInput={inputHandler}
-          />
-          <Input
-            id="things_you_likes"
-            element="input"
-            type="text"
-            label="Things You Likes"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="things_you_hates"
-            element="input"
-            type="text"
-            label="Things you Hates"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="school"
-            element="input"
-            type="text"
-            label="School"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="company"
-            element="input"
-            type="text"
-            label="Company"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Button type="submit">Submit</Button>
-        </form>
+        <h2>add profile information</h2>
+        <div>
+          <form onSubmit={profileInformationSubmitHandler}>
+            <Input
+              id="nickname"
+              element="input"
+              type="text"
+              label="nickname"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid nickname."
+              onInput={inputHandler}
+            />
+            <Input
+              id="introduce_yourself"
+              element="textarea"
+              label="introduce yourself"
+              placeholder="Write your introductory text"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid text (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="state"
+              element="input"
+              type="text"
+              label="country"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid country."
+              onInput={inputHandler}
+            />
+            <Input
+              id="city"
+              element="input"
+              type="text"
+              label="City"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid City."
+              onInput={inputHandler}
+            />
+            <Input
+              id="things_you_likes"
+              element="input"
+              type="text"
+              label="Things You Likes"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="things_you_hates"
+              element="input"
+              type="text"
+              label="Things you Hates"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="school"
+              element="input"
+              type="text"
+              label="School"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="company"
+              element="input"
+              type="text"
+              label="Company"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </div>
       </div>
     </div>
   );
