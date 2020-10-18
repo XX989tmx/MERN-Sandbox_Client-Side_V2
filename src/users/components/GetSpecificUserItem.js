@@ -253,6 +253,13 @@ const GetSpecificUserItem = (props) => {
           })}
         </ul>
       </div>
+
+      <div>
+        <h4>comments history of this user or link to comments history page</h4>
+      </div>
+      <div>
+        <h4>articles list this user have ever commented.</h4>
+      </div>
       {/* {props.videos} */}
     </li>
   );
