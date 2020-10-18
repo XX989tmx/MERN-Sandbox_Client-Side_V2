@@ -69,7 +69,7 @@ const MyProfileItem = (props) => {
                       </span>
                     </li>
                     <li className="profile-list-item">
-                      <span className="profile-list-th">State</span>
+                      <span className="profile-list-th">Country</span>
                       <span className="profile-list-td">
                         {props.profile.state}
                       </span>
@@ -133,6 +133,7 @@ const MyProfileItem = (props) => {
               <div>
                 {" "}
                 <h5>this user do not have profile information yet</h5>
+                <Link to={`/addProfileInformation`}>Create Profile</Link>
               </div>
             )}
           </div>
