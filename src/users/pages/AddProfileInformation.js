@@ -45,6 +45,7 @@ const AddProfileInformation = () => {
           company: formState.inputs.company.value,
         }
       );
+      history.push(`/myProfile/${auth.userId}`);
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +55,7 @@ const AddProfileInformation = () => {
     <div>
       <h2>add profile information</h2>
       <div>
-        <form action="">
+        <form onSubmit={profileInformationSubmitHandler}>
           <Input
             id="nickname"
             element="input"
