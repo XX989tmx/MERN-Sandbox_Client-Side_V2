@@ -35,14 +35,14 @@ const AddProfileInformation = () => {
         process.env.REACT_APP_BACKEND_URL +
           `/users/addProfileToUser/${auth.userId}`,
         {
-          nickname: formState.inputs.content4.value,
-          introduce_yourself: formState.inputs.content4.value,
-          state: formState.inputs.content4.value,
-          city: formState.inputs.content4.value,
-          things_you_likes: formState.inputs.content4.value,
-          things_you_hates: formState.inputs.content4.value,
-          school: formState.inputs.content4.value,
-          company: formState.inputs.content4.value,
+          nickname: formState.inputs.nickname.value,
+          introduce_yourself: formState.inputs.introduce_yourself.value,
+          state: formState.inputs.state.value,
+          city: formState.inputs.city.value,
+          things_you_likes: formState.inputs.things_you_likes.value,
+          things_you_hates: formState.inputs.things_you_hates.value,
+          school: formState.inputs.school.value,
+          company: formState.inputs.company.value,
         }
       );
     } catch (error) {
