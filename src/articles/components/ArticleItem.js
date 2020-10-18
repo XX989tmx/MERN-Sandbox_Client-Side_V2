@@ -285,8 +285,12 @@ const ArticleItem = (props) => {
                 </h4>
               </div>
               <div className="article-body-section3">
-                <Link
+                {/* <Link
                   to={`/${props.authorId}/articles`}
+                  style={{ textDecoration: "none" }}
+                > */}
+                <Link
+                  to={`/getSpecificUser/${props.authorId}`}
                   style={{ textDecoration: "none" }}
                 >
                   <div>

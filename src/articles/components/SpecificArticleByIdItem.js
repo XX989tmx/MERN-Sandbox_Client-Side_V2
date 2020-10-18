@@ -288,8 +288,12 @@ const SpecificArticleByIdItem = (props) => {
             <span>
               {/* 著者情報をonFloatでモーダルで表示させてもいい */}
               {/* <Button onClick={openModalHandler}> */}
-              <Link
+              {/* <Link
                 to={`/${props.authorId}/articles`}
+                style={{ textDecoration: "none" }}
+              ></Link> */}
+              <Link
+                to={`/getSpecificUser/${props.authorId}`}
                 style={{ textDecoration: "none" }}
               >
                 <span className="author-info">author: {props.authorName}</span>
