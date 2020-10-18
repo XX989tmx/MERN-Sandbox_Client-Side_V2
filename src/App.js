@@ -50,6 +50,7 @@ import CryptoSpecificCurrencyMarketPairs from "./cryptos/pages/CryptoSpecificCur
 import GetCryptoCurrencyByTag from "./cryptos/pages/GetCryptoCurrencyByTag";
 import GetSpecificUser from "./users/pages/GetSpecificUser";
 import ArticleCommentHistoryOfThisUser from "./users/pages/ArticleCommentHistoryOfThisUser";
+import MyProfile from "./users/pages/MyProfile";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -84,6 +85,9 @@ const App = () => {
         </Route>
         <Route path="/articleCommentHistory/:userId" exact>
           <ArticleCommentHistoryOfThisUser />
+        </Route>
+        <Route path="/myProfile/:userId" exact>
+          <MyProfile />
         </Route>
 
         {/* articles routes */}

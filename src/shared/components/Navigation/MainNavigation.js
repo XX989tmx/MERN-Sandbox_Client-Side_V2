@@ -128,6 +128,9 @@ const MainNavigation = () => {
                   <NavLink to={`/${auth.userId}/articles`}>MY ARTICLES</NavLink>
                 </li>
                 <li>
+                  <NavLink to={`/myProfile/${auth.userId}`}>MY Profile</NavLink>
+                </li>
+                <li>
                   <NavLink to="/articles/tagIndex">Tag Index</NavLink>
                 </li>
                 <li>
