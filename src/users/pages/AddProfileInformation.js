@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../../shared/components/FormElements/Button";
 import { useHistory } from "react-router-dom";
 import {
@@ -7,8 +7,11 @@ import {
 } from "../../shared/util/validators";
 import Input from "../../shared/components/FormElements/Input";
 import { useForm } from "../../shared/hooks/form-hook";
+import Axios from "axios";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const AddProfileInformation = () => {
+  const auth = useContext(AuthContext);
   const [formState, inputHandler] = useForm(
     {
       nickname: { value: "", isValid: false },
@@ -24,6 +27,28 @@ const AddProfileInformation = () => {
   );
 
   const history = useHistory();
+
+  const profileInformationSubmitHandler = async (event) => {
+    event.preventDefault();
+    try {
+      await Axios.post(
+        process.env.REACT_APP_BACKEND_URL +
+          `/users/addProfileToUser/${auth.userId}`,
+        {
+          nickname: formState.inputs.content4.value,
+          introduce_yourself: formState.inputs.content4.value,
+          state: formState.inputs.content4.value,
+          city: formState.inputs.content4.value,
+          things_you_likes: formState.inputs.content4.value,
+          things_you_hates: formState.inputs.content4.value,
+          school: formState.inputs.content4.value,
+          company: formState.inputs.content4.value,
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
