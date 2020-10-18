@@ -256,6 +256,10 @@ const GetSpecificUserItem = (props) => {
 
       <div>
         <h4>comments history of this user or link to comments history page</h4>
+        <Link to={`/articleCommentHistory/${props.id}`}>
+          {" "}
+          Comment History Of This User
+        </Link>
       </div>
       <div>
         <h4>articles list this user have ever commented.</h4>
