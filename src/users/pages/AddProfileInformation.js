@@ -60,53 +60,53 @@ const AddProfileInformation = () => {
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="city"
             element="input"
             type="text"
-            label="Title"
+            label="City"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid City."
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="things_you_likes"
             element="input"
             type="text"
-            label="Title"
+            label="Things You Likes"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid text."
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="things_you_hates"
             element="input"
             type="text"
-            label="Title"
+            label="Things you Hates"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid text."
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="school"
             element="input"
             type="text"
-            label="Title"
+            label="School"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid text."
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="company"
             element="input"
             type="text"
-            label="Title"
+            label="Company"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid text."
             onInput={inputHandler}
           />
           <Button type="submit">Submit</Button>
