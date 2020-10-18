@@ -23,38 +23,40 @@ const AddProfileInformation = () => {
     false
   );
 
+  const history = useHistory();
+
   return (
     <div>
       <h2>add profile information</h2>
       <div>
         <form action="">
           <Input
-            id="title"
+            id="nickname"
             element="input"
             type="text"
-            label="Title"
+            label="nickname"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid nickname."
             onInput={inputHandler}
           />
           <Input
-            id="content"
+            id="introduce_yourself"
             element="textarea"
-            label="content"
-            placeholder="Write your content here"
+            label="introduce yourself"
+            placeholder="Write your introductory text"
             validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid content (at least 5 characters)."
+            errorText="Please enter a valid text (at least 5 characters)."
             onInput={inputHandler}
           />
           <Input
-            id="title"
+            id="state"
             element="input"
             type="text"
-            label="Title"
+            label="country"
             placeholder="text"
             validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid title."
+            errorText="Please enter a valid country."
             onInput={inputHandler}
           />
           <Input
