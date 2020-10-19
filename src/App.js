@@ -52,6 +52,7 @@ import GetSpecificUser from "./users/pages/GetSpecificUser";
 import ArticleCommentHistoryOfThisUser from "./users/pages/ArticleCommentHistoryOfThisUser";
 import MyProfile from "./users/pages/MyProfile";
 import AddProfileInformation from "./users/pages/AddProfileInformation";
+import UpdateProfile from "./users/pages/UpdateProfile";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -92,6 +93,9 @@ const App = () => {
         </Route>
         <Route path="/addProfileInformation" exact>
           <AddProfileInformation />
+        </Route>
+        <Route path="/updateProfile/:userId/:profileId" exact>
+          <UpdateProfile />
         </Route>
 
         {/* articles routes */}
