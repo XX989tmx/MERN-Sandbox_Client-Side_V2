@@ -57,6 +57,11 @@ const UpdateProfile = () => {
     }
   };
 
+  const goBackToPreviousPage = async (event) => {
+    event.preventDefault();
+    history.go(-1);
+  };
+
   return (
     <React.Fragment>
       <div className="update-profile-container">
@@ -146,6 +151,9 @@ const UpdateProfile = () => {
               <Button type="submit">Submit</Button>
             </form>
           </div>
+        </div>
+        <div>
+          <button onClick={goBackToPreviousPage}>Go Back</button>
         </div>
       </div>
       <MoveToTopButton />
