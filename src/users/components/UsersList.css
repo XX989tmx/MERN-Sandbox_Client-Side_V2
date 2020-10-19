@@ -1,17 +1,18 @@
-
-
 /* For mobile phones: */
 
-
+.users-list {
+  margin: 0; /* To remove default bottom margin */
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .users-list {
-    height: 100%;
-    
-}
 }

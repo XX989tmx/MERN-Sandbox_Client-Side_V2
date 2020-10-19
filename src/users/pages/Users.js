@@ -53,7 +53,6 @@ const Users = () => {
           </div>
           {/* <div className="side-container"></div> */}
         </div>
-        
       )}
       {!isLoading && loadedUsers && <FooterMainNavigation />}
     </React.Fragment>
