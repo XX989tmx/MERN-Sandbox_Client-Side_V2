@@ -128,6 +128,12 @@ const MyProfileItem = (props) => {
                     </li>
                   </ul>
                 </div>
+                <div>
+                  <Link to={`/updateProfile/${props.id}/${props.profile.id}`}>
+                    {" "}
+                    <p>Update Profile</p>
+                  </Link>
+                </div>
               </div>
             ) : (
               <div>
