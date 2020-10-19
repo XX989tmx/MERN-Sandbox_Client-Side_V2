@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { useContext } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Button from "../../shared/components/FormElements/Button";
 import Input from "../../shared/components/FormElements/Input";
 import { AuthContext } from "../../shared/context/auth-context";
@@ -10,7 +10,9 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+
 const UpdateProfile = () => {
+  const profileId = useParams().profileId;
   const auth = useContext(AuthContext);
   const [formState, inputHandler] = useForm(
     {
@@ -30,13 +32,33 @@ const UpdateProfile = () => {
 
   const updateProfileSubmitHandler = async (event) => {
     event.preventDefault();
+
+    try {
+      await Axios.patch(
+        process.env.REACT_APP_BACKEND_URL +
+          `/users/updateProfile/${auth.userId}/${profileId}`,
+        {
+          nickname: formState.inputs.nickname.value,
+          introduce_yourself: formState.inputs.introduce_yourself.value,
+          state: formState.inputs.state.value,
+          city: formState.inputs.city.value,
+          things_you_likes: formState.inputs.things_you_likes.value,
+          things_you_hates: formState.inputs.things_you_hates.value,
+          school: formState.inputs.school.value,
+          company: formState.inputs.company.value,
+        }
+      );
+      history.push(`/myProfile/${auth.userId}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div>
       <h1>update profile</h1>
       <div>
-        <form>
+        <form onClick={updateProfileSubmitHandler}>
           <Input
             id="nickname"
             element="input"
