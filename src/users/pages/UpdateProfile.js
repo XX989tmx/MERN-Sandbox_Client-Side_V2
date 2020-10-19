@@ -10,6 +10,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import './UpdateProfile.css';
 
 const UpdateProfile = () => {
   const profileId = useParams().profileId;
@@ -55,91 +56,93 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div>
-      <h1>update profile</h1>
+    <div className="update-profile-container">
       <div>
-        <form onSubmit={updateProfileSubmitHandler}>
-          <Input
-            id="nickname"
-            element="input"
-            type="text"
-            label="nickname"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid nickname."
-            onInput={inputHandler}
-          />
-          <Input
-            id="introduce_yourself"
-            element="textarea"
-            label="introduce yourself"
-            placeholder="Write your introductory text"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid text (at least 5 characters)."
-            onInput={inputHandler}
-          />
-          <Input
-            id="state"
-            element="input"
-            type="text"
-            label="country"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid country."
-            onInput={inputHandler}
-          />
-          <Input
-            id="city"
-            element="input"
-            type="text"
-            label="City"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid City."
-            onInput={inputHandler}
-          />
-          <Input
-            id="things_you_likes"
-            element="input"
-            type="text"
-            label="Things You Likes"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="things_you_hates"
-            element="input"
-            type="text"
-            label="Things you Hates"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="school"
-            element="input"
-            type="text"
-            label="School"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Input
-            id="company"
-            element="input"
-            type="text"
-            label="Company"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid text."
-            onInput={inputHandler}
-          />
-          <Button type="submit">Submit</Button>
-        </form>
+        <h1>update profile</h1>
+        <div>
+          <form onSubmit={updateProfileSubmitHandler}>
+            <Input
+              id="nickname"
+              element="input"
+              type="text"
+              label="nickname"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid nickname."
+              onInput={inputHandler}
+            />
+            <Input
+              id="introduce_yourself"
+              element="textarea"
+              label="introduce yourself"
+              placeholder="Write your introductory text"
+              validators={[VALIDATOR_MINLENGTH(5)]}
+              errorText="Please enter a valid text (at least 5 characters)."
+              onInput={inputHandler}
+            />
+            <Input
+              id="state"
+              element="input"
+              type="text"
+              label="country"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid country."
+              onInput={inputHandler}
+            />
+            <Input
+              id="city"
+              element="input"
+              type="text"
+              label="City"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid City."
+              onInput={inputHandler}
+            />
+            <Input
+              id="things_you_likes"
+              element="input"
+              type="text"
+              label="Things You Likes"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="things_you_hates"
+              element="input"
+              type="text"
+              label="Things you Hates"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="school"
+              element="input"
+              type="text"
+              label="School"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Input
+              id="company"
+              element="input"
+              type="text"
+              label="Company"
+              placeholder="text"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a valid text."
+              onInput={inputHandler}
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </div>
       </div>
     </div>
   );
