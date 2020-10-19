@@ -1,5 +1,6 @@
 import React from "react";
 import ArticleCommentHistoryOfThisUserItem from "./ArticleCommentHistoryOfThisUserItem";
+import './ArticleCommentHistoryOfThisUserList.css';
 
 const ArticleCommentHistoryOfThisUserList = (props) => {
   return (
