@@ -11,6 +11,27 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 const UpdateProfile = () => {
+    const auth = useContext(AuthContext);
+    const [formState, inputHandler] = useForm(
+      {
+        nickname: { value: "", isValid: false },
+        introduce_yourself: { value: "", isValid: false },
+        state: { value: "", isValid: false },
+        city: { value: "", isValid: false },
+        things_you_likes: { value: "", isValid: false },
+        things_you_hates: { value: "", isValid: false },
+        school: { value: "", isValid: false },
+        company: { value: "", isValid: false },
+      },
+      false
+    );
+
+    const history = useHistory();
+
+    const updateProfileSubmitHandler = async(event) => {
+        event.preventDefault();
+    }
+
     return (
         <div>
             <h1>update profile</h1>
