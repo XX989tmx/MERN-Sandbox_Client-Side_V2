@@ -58,7 +58,7 @@ const UpdateProfile = () => {
     <div>
       <h1>update profile</h1>
       <div>
-        <form onClick={updateProfileSubmitHandler}>
+        <form onSubmit={updateProfileSubmitHandler}>
           <Input
             id="nickname"
             element="input"
