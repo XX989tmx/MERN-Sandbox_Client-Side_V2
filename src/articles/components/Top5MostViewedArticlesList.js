@@ -18,6 +18,7 @@ const Top5MostViewedArticlesList = (props) => {
             viewCount={v.viewCount}
             author={v.author}
             price={v.price}
+            date_created={v.date_created}
           />
         ))}
       </ul>

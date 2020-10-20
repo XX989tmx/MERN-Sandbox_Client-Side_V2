@@ -494,6 +494,7 @@ const Articles = () => {
           </div>
         </div>
         <div className="side-container">
+        <h4>Popular Articles</h4>
           <Top5MostViewedArticlesList
             Top5MostViewedArticles={Top5MostViewedArticles}
           />
