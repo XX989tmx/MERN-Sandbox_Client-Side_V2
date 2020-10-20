@@ -1,6 +1,15 @@
 .no-list-style {
   list-style: none;
 }
+.specific-user-upper-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.profile-profile-information-area-container {
+  padding: 2px 20px 10px 20px;
+  margin-left: 50px;
+}
 
 .user-profile-image {
   width: 260px;
@@ -18,7 +27,7 @@
 .user-profile-image-name-follow-related-info-container {
   padding: 20px;
   width: 321px;
-  height: 600px;
+  height: 500px;
 }
 .profile-name-area {
   padding: 1px 10px 1px 10px;
@@ -83,7 +92,7 @@
 }
 .profile-profile-information-area {
   width: 530px;
-  height: 100%;
+  height: 500px;
   padding-bottom: 20px;
 }
 .profile-header-container {

@@ -26,127 +26,138 @@ const GetSpecificUserItem = (props) => {
   return (
     <li>
       {/* {props.id} */}
+      <div className="specific-user-upper-section">
+        <div className="user-profile-image-name-follow-related-info-container">
+          <div className="profile-image-container">
+            <div className="profile-image-area">
+              <img className="user-profile-image" src={props.image} alt="" />
+            </div>
+          </div>
 
-      <div className="user-profile-image-name-follow-related-info-container">
-        <div className="profile-image-container">
-          <div className="profile-image-area">
-            <img className="user-profile-image" src={props.image} alt="" />
+          <div className="profile-name-area">
+            <div className="profile-name-wrapper">
+              <p> {props.name}</p>
+              {/* <p>{props.email}</p> */}
+            </div>
+          </div>
+
+          <div className="followers-following-information-container">
+            <div className="followers-left-box">
+              <div className="followers-text-container center">
+                <span className="followers-text ">Followers</span>
+              </div>
+              <div className="followers-count-container  center">
+                <span className="followers-count">
+                  {props.followedBy.length}
+                </span>
+              </div>
+            </div>
+            <div className="following-right-box">
+              <div className="following-text-container  center">
+                <span className="following-text">Following</span>
+              </div>
+              <div className="following-count-container  center">
+                <span className="following-count">
+                  {props.following.length}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="follow-button-area">
+            <div className="follow-button-container center">
+              <button className="follow-button" onClick={followUser}>
+                Follow
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="profile-name-area">
-          <div className="profile-name-wrapper">
-            <p> {props.name}</p>
-            {/* <p>{props.email}</p> */}
+        <div className="profile-profile-information-area-container">
+          <div className="profile-profile-information-area">
+            {props.profile ? (
+              <div>
+                {" "}
+                <div className="profile-header-container center">
+                  <p className=" profile-header">Profile</p>
+                </div>
+                <div className="profile-list-container">
+                  <ul className="profile-list-list">
+                    <li className="profile-list-item">
+                      <span className="profile-list-th"> NickName</span>
+                      <span className="profile-list-td">
+                        {props.profile.nickname}
+                      </span>
+                    </li>
+                    <li className="profile-list-item">
+                      <span className="profile-list-th">State</span>
+                      <span className="profile-list-td">
+                        {props.profile.state}
+                      </span>
+                    </li>
+                    <li className="profile-list-item">
+                      <span className="profile-list-th">City</span>
+                      <span className="profile-list-td">
+                        {props.profile.city}
+                      </span>
+                    </li>
+                    <li className="profile-list-item">
+                      <span className="profile-list-th">About Me</span>
+                      <span className="profile-list-td">
+                        {props.profile.introduce_yourself}
+                      </span>
+                    </li>
+                    <li className="profile-list-item-nested-list">
+                      <span className="profile-list-th">Things I Love</span>
+                      <span className="profile-list-td">
+                        <ul className="no-list-style things-i-likes-list">
+                          {props.profile.things_you_likes.map((v, i) => {
+                            return (
+                              <li className="things-i-like-list-item" key={i}>
+                                {v},
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </span>
+                    </li>
+                    <li className="profile-list-item-nested-list">
+                      <p className="profile-list-th">Things I Hate</p>
+                      <span className="profile-list-td">
+                        <ul className="no-list-style things-i-hate-list">
+                          {props.profile.things_you_hates.map((v, i) => {
+                            return (
+                              <li className="things-i-hate-list-item" key={i}>
+                                {v},
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </span>
+                    </li>
+                    <li className="profile-list-item">
+                      <span className="profile-list-th">School</span>
+                      <span className="profile-list-td">
+                        {props.profile.school}
+                      </span>
+                    </li>
+                    <li className="profile-list-item">
+                      <span className="profile-list-th">Company</span>
+                      <span className="profile-list-td">
+                        {props.profile.company}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <div>
+                {" "}
+                <h5>this user do not have profile information yet</h5>
+              </div>
+            )}
           </div>
         </div>
-
-        <div className="followers-following-information-container">
-          <div className="followers-left-box">
-            <div className="followers-text-container center">
-              <span className="followers-text ">Followers</span>
-            </div>
-            <div className="followers-count-container  center">
-              <span className="followers-count">{props.followedBy.length}</span>
-            </div>
-          </div>
-          <div className="following-right-box">
-            <div className="following-text-container  center">
-              <span className="following-text">Following</span>
-            </div>
-            <div className="following-count-container  center">
-              <span className="following-count">{props.following.length}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="follow-button-area">
-          <div className="follow-button-container center">
-            <button className="follow-button" onClick={followUser}>
-              Follow
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="profile-profile-information-area">
-        {props.profile ? (
-          <div>
-            {" "}
-            <div className="profile-header-container center">
-              <p className=" profile-header">Profile</p>
-            </div>
-            <div className="profile-list-container">
-              <ul className="profile-list-list">
-                <li className="profile-list-item">
-                  <span className="profile-list-th"> NickName</span>
-                  <span className="profile-list-td">
-                    {props.profile.nickname}
-                  </span>
-                </li>
-                <li className="profile-list-item">
-                  <span className="profile-list-th">State</span>
-                  <span className="profile-list-td">{props.profile.state}</span>
-                </li>
-                <li className="profile-list-item">
-                  <span className="profile-list-th">City</span>
-                  <span className="profile-list-td">{props.profile.city}</span>
-                </li>
-                <li className="profile-list-item">
-                  <span className="profile-list-th">About Me</span>
-                  <span className="profile-list-td">
-                    {props.profile.introduce_yourself}
-                  </span>
-                </li>
-                <li className="profile-list-item-nested-list">
-                  <span className="profile-list-th">Things I Love</span>
-                  <span className="profile-list-td">
-                    <ul className="no-list-style things-i-likes-list">
-                      {props.profile.things_you_likes.map((v, i) => {
-                        return (
-                          <li className="things-i-like-list-item" key={i}>
-                            {v},
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </span>
-                </li>
-                <li className="profile-list-item-nested-list">
-                  <p className="profile-list-th">Things I Hate</p>
-                  <span className="profile-list-td">
-                    <ul className="no-list-style things-i-hate-list">
-                      {props.profile.things_you_hates.map((v, i) => {
-                        return (
-                          <li className="things-i-hate-list-item" key={i}>
-                            {v},
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </span>
-                </li>
-                <li className="profile-list-item">
-                  <span className="profile-list-th">School</span>
-                  <span className="profile-list-td">
-                    {props.profile.school}
-                  </span>
-                </li>
-                <li className="profile-list-item">
-                  <span className="profile-list-th">Company</span>
-                  <span className="profile-list-td">
-                    {props.profile.company}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ) : (
-          <div>
-            {" "}
-            <h5>this user do not have profile information yet</h5>
-          </div>
-        )}
       </div>
 
       {/* <div>
