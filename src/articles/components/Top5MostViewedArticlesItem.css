@@ -8,12 +8,16 @@
 .top5-article-rank-text {
     font-weight: 600;
     background-color: #FFD620;
+    border: solid 1px black;
 }
 .top5-article-item-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;
+    border-radius: 1px;
+    /* box-shadow: 1px 1px 10px rgb(230, 229, 229); */
+    border: solid 1px rgb(223, 223, 223);
 }
 .top5-article-title {
     font-size: 17px;
@@ -25,5 +29,6 @@
 }
 .top5-article-price {
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 600;
+    color: #37AA37;
 }
