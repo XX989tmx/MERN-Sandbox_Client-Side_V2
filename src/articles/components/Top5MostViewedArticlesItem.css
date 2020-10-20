@@ -1,0 +1,29 @@
+.top5-article-rank-wrapper {
+    padding: 20px 10px 10px 10px;
+}
+.top5-article-information-wrapper {
+    padding: 10px;
+    margin-left: 10px;
+}
+.top5-article-rank-text {
+    font-weight: 600;
+    background-color: #FFD620;
+}
+.top5-article-item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.top5-article-title {
+    font-size: 17px;
+    font-weight: 500;
+}
+.top5-article-name {
+    font-size: 13px;
+    font-weight: 400;
+}
+.top5-article-price {
+    font-size: 13px;
+    font-weight: 400;
+}

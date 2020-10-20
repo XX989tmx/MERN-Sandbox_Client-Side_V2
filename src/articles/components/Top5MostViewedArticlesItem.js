@@ -1,16 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Top5MostViewedArticlesItem.css';
 
 const Top5MostViewedArticlesItem = (props) => {
   return (
     <Link to={`/get_specific_article_by_id/${props.id}`}>
       <li>
-        <div>
-          <span> Rank {props.index + 1}</span>
+        <div className="top5-article-item-container">
+          <div className="top5-article-rank-wrapper">
+            {" "}
+            <span className="top5-article-rank-text"> Rank {props.index + 1}</span>
+          </div>
           {/* <img src={props.images[0]}/> */}
-          {props.title}
-          {props.author.name}
-          {props.price}
+          <div className="top5-article-information-wrapper">
+            {" "}
+            <div>
+              {" "}
+              <span className="top5-article-title">{props.title}</span>
+              <br />
+              <div className="center">
+                {" "}
+                <span className="top5-article-name">{props.author.name}</span>
+                <br />
+                <span className="top5-article-price">{props.price}</span>
+                <br />
+              </div>
+            </div>
+          </div>
         </div>
       </li>
     </Link>

@@ -1,9 +1,10 @@
 import React from 'react';
 import Top5MostViewedArticlesItem from './Top5MostViewedArticlesItem';
+import './Top5MostViewedArticlesList.css';
 
 const Top5MostViewedArticlesList = (props) => {
     return (
-      <ul>
+      <ul className="top5-most-viewed-article-list">
         {props.Top5MostViewedArticles.map((v, i) => (
           <Top5MostViewedArticlesItem
             key={v.id}
