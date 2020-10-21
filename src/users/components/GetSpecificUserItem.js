@@ -27,6 +27,72 @@ const GetSpecificUserItem = (props) => {
     base: { padding: "10px", fontSize: "15px", lineHeight: "20px" },
     heading: { fontSize: "16px", lineHeight: "20px" },
     boxShadow: { boxShadow: "1px 1px 7px grey" },
+    specificUserArticlesSection: { marginTop: "5px", marginBottom: "5px" },
+    specificUsersFollowersAndFollowingSection: {
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      padding: "10px",
+      justifyContent: "space-evenly",
+      marginTop: "5px",
+      marginBottom: "5px",
+    },
+    profileFollowersListArea: { width: "400px", padding: "10px" },
+    followersUl: { margin: "0", padding: "0" },
+    followersLi: { marginBottom: "1px" },
+    followersFlexContainerDiv: {
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      padding: "6px",
+      width: "200px",
+      backgroundColor: "#3A3A39",
+      color: "white",
+    },
+    followersImageContainer: {
+      padding: "2px",
+      width: "54px",
+      height: "54px",
+    },
+    followersImage: {
+      width: "50px",
+      height: "50px",
+      borderRadius: "40px",
+    },
+    followersNameContainer: {
+      height: "54px",
+      width: "100px",
+      padding: "10px",
+    },
+    followersName: { fontWeight: "600" },
+    profileFollowingListArea: { width: "400px", padding: "10px" },
+    followingListUl: { margin: "0", padding: "0" },
+    followingListLi: { marginBottom: "1px" },
+    followingListFlexContainerDiv: {
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      padding: "6px",
+      width: "200px",
+      backgroundColor: "#3A3A39",
+      color: "white",
+    },
+    followingListImageContainer: {
+      padding: "2px",
+      width: "54px",
+      height: "54px",
+    },
+    followingListImage: {
+      width: "50px",
+      height: "50px",
+      borderRadius: "40px",
+    },
+    followingListNameContainer: {
+      height: "54px",
+      width: "100px",
+      padding: "10px",
+    },
+    followingListName: { fontWeight: "600" },
   };
 
   if (!props.profile) {
@@ -217,7 +283,10 @@ const GetSpecificUserItem = (props) => {
           </div>
         )}
       </div> */}
-      <div className="specific-user-articles-section">
+      <div
+        style={styles.specificUserArticlesSection}
+        className="specific-user-articles-section"
+      >
         <div className="profile-specific-users-articles-list-area">
           <h4>{props.name}'s Articles</h4>
           <ul className="specific-users-article-list no-list-style">
@@ -259,65 +328,33 @@ const GetSpecificUserItem = (props) => {
       </div>
 
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          padding: "10px",
-          justifyContent: "space-evenly",
-        }}
+        style={styles.specificUsersFollowersAndFollowingSection}
         className="specific-user-followers-and-following-section"
       >
         <div
-          style={{ width: "400px", padding: "10px" }}
+          style={styles.profileFollowersListArea}
           className="profile-followers-list-area"
         >
           <h4>People Following This User(Followers)</h4>
           <h4>{props.followedBy.length} Followers</h4>
-          <ul className="no-list-style" style={{ margin: "0", padding: "0" }}>
+          <ul className="no-list-style" style={styles.followersUl}>
             {" "}
             {props.followedBy.map((v, i) => {
               return (
-                <li style={{ marginBottom: "1px" }}>
+                <li style={styles.followersLi}>
                   {" "}
                   <a href={`/getSpecificUser/${v.id}`}>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        padding: "6px",
-                        width: "200px",
-                        backgroundColor: "#3A3A39",
-                        color: "white",
-                      }}
-                    >
-                      <div
-                        style={{
-                          padding: "2px",
-                          width: "54px",
-                          height: "54px",
-                        }}
-                      >
+                    <div style={styles.followersFlexContainerDiv}>
+                      <div style={styles.followersImageContainer}>
                         {" "}
                         <img
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            borderRadius: "40px",
-                          }}
+                          style={styles.followersImage}
                           src={v.image}
                           alt=""
                         />
                       </div>
-                      <div
-                        style={{
-                          height: "54px",
-                          width: "100px",
-                          padding: "10px",
-                        }}
-                      >
-                        <span style={{ fontWeight: "600" }} key={i}>
+                      <div style={styles.followersNameContainer}>
+                        <span style={styles.followersName} key={i}>
                           {v.name}
                         </span>
                       </div>
@@ -329,55 +366,29 @@ const GetSpecificUserItem = (props) => {
           </ul>
         </div>
         <div
-          style={{ width: "400px", padding: "10px" }}
+          style={styles.profileFollowingListArea}
           className="profile-following-list-area"
         >
           <h4>People This User Is Following(Following)</h4>
           <h4>{props.following.length} Following</h4>
-          <ul className="no-list-style" style={{ margin: "0", padding: "0" }}>
+          <ul className="no-list-style" style={styles.followingListUl}>
             {" "}
             {props.following.map((v, i) => {
               return (
-                <li style={{ marginBottom: "1px" }}>
+                <li style={styles.followingListLi}>
                   {" "}
                   <a href={`/getSpecificUser/${v.id}`}>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        padding: "6px",
-                        width: "200px",
-                        backgroundColor: "#3A3A39",
-                        color: "white",
-                      }}
-                    >
-                      <div
-                        style={{
-                          padding: "2px",
-                          width: "54px",
-                          height: "54px",
-                        }}
-                      >
+                    <div style={styles.followingListFlexContainerDiv}>
+                      <div style={styles.followingListImageContainer}>
                         {" "}
                         <img
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            borderRadius: "40px",
-                          }}
+                          style={styles.followingListImage}
                           src={v.image}
                           alt=""
                         />
                       </div>
-                      <div
-                        style={{
-                          height: "54px",
-                          width: "100px",
-                          padding: "10px",
-                        }}
-                      >
-                        <span style={{ fontWeight: "600" }} key={i}>
+                      <div style={styles.followingListNameContainer}>
+                        <span style={styles.followingListName} key={i}>
                           {v.name}
                         </span>
                       </div>
@@ -390,7 +401,10 @@ const GetSpecificUserItem = (props) => {
         </div>
       </div>
 
-      <div className="specific-user-stared-articles-section">
+      <div
+        style={{ marginTop: "5px", marginBottom: "5px" }}
+        className="specific-user-stared-articles-section"
+      >
         <div className="profile-specific-users-stared-articles-list-area">
           <h4>Articles This User Stared</h4>
           <h4>{props.staredArticles.length} Stared Articles</h4>
