@@ -182,7 +182,6 @@ const GetSpecificUserItem = (props) => {
           </div>
         </div>
       </div>
-      
 
       {/* <div>
         {props.profile ? (
@@ -259,25 +258,80 @@ const GetSpecificUserItem = (props) => {
         </div>
       </div>
 
-      <div className="specific-user-followers-and-following-section">
-        <div className="profile-followers-list-area">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          padding: "10px",
+          justifyContent: "space-evenly",
+        }}
+        className="specific-user-followers-and-following-section"
+      >
+        <div
+          style={{ width: "400px", padding: "10px" }}
+          className="profile-followers-list-area"
+        >
           <h4>People Following This User(Followers)</h4>
           <h4>{props.followedBy.length} Followers</h4>
-          <ul className="no-list-style">
+          <ul className="no-list-style" style={{ margin: "0", padding: "0" }}>
             {" "}
             {props.followedBy.map((v, i) => {
               return (
-                <li>
+                <li style={{ marginBottom: "1px" }}>
                   {" "}
                   <a href={`/getSpecificUser/${v.id}`}>
-                    <h5 key={i}>{v.name}</h5>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        padding: "6px",
+                        width: "200px",
+                        backgroundColor: "#3A3A39",
+                        color: "white",
+                      }}
+                    >
+                      <div
+                        style={{
+                          padding: "2px",
+                          width: "54px",
+                          height: "54px",
+                        }}
+                      >
+                        {" "}
+                        <img
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            borderRadius: "40px",
+                          }}
+                          src={v.image}
+                          alt=""
+                        />
+                      </div>
+                      <div
+                        style={{
+                          height: "54px",
+                          width: "100px",
+                          padding: "10px",
+                        }}
+                      >
+                        <span style={{ fontWeight: "600" }} key={i}>
+                          {v.name}
+                        </span>
+                      </div>
+                    </div>
                   </a>
                 </li>
               );
             })}
           </ul>
         </div>
-        <div className="profile-following-list-area">
+        <div
+          style={{ width: "400px", padding: "10px" }}
+          className="profile-following-list-area"
+        >
           <h4>People This User Is Following(Following)</h4>
           <h4>{props.following.length} Following</h4>
           <ul className="no-list-style">
