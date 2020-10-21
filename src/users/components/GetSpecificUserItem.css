@@ -89,6 +89,7 @@
 .follow-button {
   width: 160px;
   height: 30px;
+  cursor: pointer;
 }
 .profile-profile-information-area {
   width: 530px;

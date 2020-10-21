@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Radium from "radium";
 import Button from "../../shared/components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./GetSpecificUserItem.css";
@@ -22,14 +23,27 @@ const GetSpecificUserItem = (props) => {
     }
   };
 
+  const styles = {
+    heading: { fontSize: "16px", lineHeight: "20px" },
+    boxShadow: { boxShadow: "1px 1px 7px grey" },
+  };
+
   return (
     <li>
       {/* {props.id} */}
       <div className="specific-user-upper-section">
-        <div className="user-profile-image-name-follow-related-info-container">
+        <div
+          style={styles.boxShadow}
+          className="user-profile-image-name-follow-related-info-container"
+        >
           <div className="profile-image-container">
             <div className="profile-image-area">
-              <img className="user-profile-image" src={props.image} alt="" />
+              <img
+                style={styles.boxShadow}
+                className="user-profile-image"
+                src={props.image}
+                alt=""
+              />
             </div>
           </div>
 
@@ -72,7 +86,10 @@ const GetSpecificUserItem = (props) => {
           </div>
         </div>
 
-        <div className="profile-profile-information-area-container">
+        <div
+          style={styles.boxShadow}
+          className="profile-profile-information-area-container"
+        >
           <div className="profile-profile-information-area">
             {props.profile ? (
               <div>
@@ -152,7 +169,9 @@ const GetSpecificUserItem = (props) => {
             ) : (
               <div>
                 {" "}
-                <h5>this user do not have profile information yet</h5>
+                <h5 style={styles.heading}>
+                  this user do not have profile information yet
+                </h5>
               </div>
             )}
           </div>
@@ -324,7 +343,9 @@ const GetSpecificUserItem = (props) => {
           </Link>
         </div>
         <div>
-          <h4>articles list this user have ever commented.</h4>
+          <h4 style={styles.heading}>
+            articles list this user have ever commented.
+          </h4>
         </div>
       </div>
 
@@ -333,4 +354,4 @@ const GetSpecificUserItem = (props) => {
   );
 };
 
-export default GetSpecificUserItem;
+export default Radium(GetSpecificUserItem);
