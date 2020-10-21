@@ -171,7 +171,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   margin: 0;
   padding: 0;
 }
@@ -193,4 +193,8 @@
 .specific-user-date-text {
   font-size: 11px;
   color: rgb(175, 175, 175);
+}
+.specific-users-article-item {
+  margin-left: 4px;
+  margin-bottom: 4px;
 }

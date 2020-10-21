@@ -275,14 +275,36 @@ const GetSpecificUserItem = (props) => {
         <div className="profile-specific-users-stared-articles-list-area">
           <h4>Articles This User Stared</h4>
           <h4>{props.staredArticles.length} Stared Articles</h4>
-          <ul className="no-list-style">
+          <ul className="specific-users-article-list no-list-style">
             {" "}
             {props.staredArticles.map((v, i) => {
               return (
-                <li>
+                <li className="specific-users-article-item">
                   {" "}
                   <Link to={`/get_specific_article_by_id/${v.id}`}>
-                    <h5 key={i}>{v.title}</h5>
+                    <div className="specific-user-image-and-text-container">
+                      <div className="specific-user-image-area">
+                        {" "}
+                        <img
+                          className="specific-user-image"
+                          src={v.images[0]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="specific-user-text-area">
+                        <span className="specific-user-title-text" key={i}>
+                          {v.title}
+                        </span>
+                        <br />
+                        <span className="specific-user-price-text">
+                          {v.price}
+                        </span>
+                        <br />
+                        <span className="specific-user-date-text">
+                          {new Date(v.date_created).toDateString()}
+                        </span>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               );
