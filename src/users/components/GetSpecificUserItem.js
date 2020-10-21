@@ -2,14 +2,13 @@ import Axios from "axios";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../shared/components/FormElements/Button";
-import {AuthContext} from "../../shared/context/auth-context";
+import { AuthContext } from "../../shared/context/auth-context";
 import "./GetSpecificUserItem.css";
-
 
 const GetSpecificUserItem = (props) => {
   const auth = useContext(AuthContext);
 
-  const followUser = async(event) => {
+  const followUser = async (event) => {
     event.preventDefault();
     let followingCandidateId = props.id;
     try {
@@ -21,7 +20,7 @@ const GetSpecificUserItem = (props) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <li>
@@ -197,14 +196,36 @@ const GetSpecificUserItem = (props) => {
       <div className="specific-user-articles-section">
         <div className="profile-specific-users-articles-list-area">
           <h4>{props.name}'s Articles</h4>
-          <ul className="no-list-style">
+          <ul className="specific-users-article-list no-list-style">
             {props.articles.map((v, i) => {
               return (
-                <li>
+                <li className="specific-users-article-item">
                   {" "}
                   <Link to={`/get_specific_article_by_id/${v.id}`}>
                     {" "}
-                    <h5 key={i}>{v.title}</h5>
+                    <div className="specific-user-image-and-text-container">
+                      <div className="specific-user-image-area">
+                        {" "}
+                        <img
+                          className="specific-user-image"
+                          src={v.images[0]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="specific-user-text-area">
+                        <span className="specific-user-title-text" key={i}>
+                          {v.title}
+                        </span>
+                        <br />
+                        <span className="specific-user-price-text">
+                          {v.price}
+                        </span>
+                        <br />
+                        <span className="specific-user-date-text">
+                          {new Date(v.date_created).toDateString()}
+                        </span>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               );
