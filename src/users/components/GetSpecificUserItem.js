@@ -24,12 +24,17 @@ const GetSpecificUserItem = (props) => {
   };
 
   const styles = {
+    base: { padding: "10px", fontSize: "15px", lineHeight: "20px" },
     heading: { fontSize: "16px", lineHeight: "20px" },
     boxShadow: { boxShadow: "1px 1px 7px grey" },
   };
 
+  if (!props.profile) {
+    styles.heading.color = "#DE3029";
+  }
+
   return (
-    <li>
+    <li style={styles.base}>
       {/* {props.id} */}
       <div className="specific-user-upper-section">
         <div
@@ -177,6 +182,7 @@ const GetSpecificUserItem = (props) => {
           </div>
         </div>
       </div>
+      
 
       {/* <div>
         {props.profile ? (
@@ -343,9 +349,7 @@ const GetSpecificUserItem = (props) => {
           </Link>
         </div>
         <div>
-          <h4 style={styles.heading}>
-            articles list this user have ever commented.
-          </h4>
+          <h4>articles list this user have ever commented.</h4>
         </div>
       </div>
 
