@@ -194,87 +194,97 @@ const GetSpecificUserItem = (props) => {
           </div>
         )}
       </div> */}
-
-      <div className="profile-specific-users-articles-list-area">
-        <h4>{props.name}'s Articles</h4>
-        <ul className="no-list-style">
-          {props.articles.map((v, i) => {
-            return (
-              <li>
-                {" "}
-                <Link to={`/get_specific_article_by_id/${v.id}`}>
+      <div className="specific-user-articles-section">
+        <div className="profile-specific-users-articles-list-area">
+          <h4>{props.name}'s Articles</h4>
+          <ul className="no-list-style">
+            {props.articles.map((v, i) => {
+              return (
+                <li>
                   {" "}
-                  <h5 key={i}>{v.title}</h5>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                  <Link to={`/get_specific_article_by_id/${v.id}`}>
+                    {" "}
+                    <h5 key={i}>{v.title}</h5>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
 
-      <div className="profile-followers-list-area">
-        <h4>People Following This User(Followers)</h4>
-        <h4>{props.followedBy.length} Followers</h4>
-        <ul className="no-list-style">
-          {" "}
-          {props.followedBy.map((v, i) => {
-            return (
-              <li>
-                {" "}
-                <a href={`/getSpecificUser/${v.id}`}>
-                  <h5 key={i}>{v.name}</h5>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="profile-following-list-area">
-        <h4>People This User Is Following(Following)</h4>
-        <h4>{props.following.length} Following</h4>
-        <ul className="no-list-style">
-          {" "}
-          {props.following.map((v, i) => {
-            return (
-              <li>
-                {" "}
-                <a href={`/getSpecificUser/${v.id}`}>
-                  <h5 key={i}>{v.name}</h5>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      <div className="profile-specific-users-stared-articles-list-area">
-        <h4>Articles This User Stared</h4>
-        <h4>{props.staredArticles.length} Stared Articles</h4>
-        <ul className="no-list-style">
-          {" "}
-          {props.staredArticles.map((v, i) => {
-            return (
-              <li>
-                {" "}
-                <Link to={`/get_specific_article_by_id/${v.id}`}>
-                  <h5 key={i}>{v.title}</h5>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="specific-user-followers-and-following-section">
+        <div className="profile-followers-list-area">
+          <h4>People Following This User(Followers)</h4>
+          <h4>{props.followedBy.length} Followers</h4>
+          <ul className="no-list-style">
+            {" "}
+            {props.followedBy.map((v, i) => {
+              return (
+                <li>
+                  {" "}
+                  <a href={`/getSpecificUser/${v.id}`}>
+                    <h5 key={i}>{v.name}</h5>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="profile-following-list-area">
+          <h4>People This User Is Following(Following)</h4>
+          <h4>{props.following.length} Following</h4>
+          <ul className="no-list-style">
+            {" "}
+            {props.following.map((v, i) => {
+              return (
+                <li>
+                  {" "}
+                  <a href={`/getSpecificUser/${v.id}`}>
+                    <h5 key={i}>{v.name}</h5>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
 
-      <div>
-        <h4>comments history of this user or link to comments history page</h4>
-        <Link to={`/articleCommentHistory/${props.id}`}>
-          {" "}
-          Comment History Of This User
-        </Link>
+      <div className="specific-user-stared-articles-section">
+        <div className="profile-specific-users-stared-articles-list-area">
+          <h4>Articles This User Stared</h4>
+          <h4>{props.staredArticles.length} Stared Articles</h4>
+          <ul className="no-list-style">
+            {" "}
+            {props.staredArticles.map((v, i) => {
+              return (
+                <li>
+                  {" "}
+                  <Link to={`/get_specific_article_by_id/${v.id}`}>
+                    <h5 key={i}>{v.title}</h5>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>articles list this user have ever commented.</h4>
+
+      <div className="specific-users-article-comments-section">
+        <div>
+          <h4>
+            comments history of this user or link to comments history page
+          </h4>
+          <Link to={`/articleCommentHistory/${props.id}`}>
+            {" "}
+            Comment History Of This User
+          </Link>
+        </div>
+        <div>
+          <h4>articles list this user have ever commented.</h4>
+        </div>
       </div>
+
       {/* {props.videos} */}
     </li>
   );
