@@ -32,14 +32,37 @@ const MyProfileSideNavigation = () => {
   }, []);
 
   return (
-    <div style={{ width: "350px", height: "100%", border: "solid 1px black" }}>
-      <ul>
-        {NavigationLinkLists.map((v, i) => (
-          <li key={i}>
-            <NavLink to={v.link}>{v.title}</NavLink>
-          </li>
-        ))}
-      </ul>
+    <div
+      style={{
+        width: "350px",
+        height: "100%",
+        border: "solid 1px black",
+        backgroundColor: "#3A3A39",
+      }}
+    >
+      <div style={{ padding: "10px" }}>
+        {" "}
+        <ul
+          style={{
+            padding: "0",
+            listStyle: "none",
+
+            fontSize: "17px",
+            fontWeight: "600",
+            textAlign: "center",
+          }}
+        >
+          {NavigationLinkLists.map((v, i) => (
+            <li key={i}>
+              <div style={{ height: "40px" }}>
+                <NavLink to={v.link}>
+                  <span style={{ color: "white" }}>{v.title}</span>
+                </NavLink>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
