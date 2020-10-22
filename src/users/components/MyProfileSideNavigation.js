@@ -27,7 +27,7 @@ const MyProfileSideNavigation = () => {
         { title: "Analytics", link: `/myProfile/${auth.userId}` },
         { title: "Billing", link: `/myProfile/${auth.userId}` },
         { title: "My Videos", link: `/videos/video_management/${auth.userId}` },
-        { title: "My Comments", link: `/myProfile/${auth.userId}` },
+        { title: "My Comments", link: `/articleCommentHistory/${auth.userId}` },
         { title: "Stared Videos", link: `/myProfile/${auth.userId}` },
       ];
       setNavigationLinkLists(navigationLists);
