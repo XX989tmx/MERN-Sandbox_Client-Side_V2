@@ -4,9 +4,10 @@ import { useParams, useHistory } from "react-router-dom";
 import { useContext } from "react";
 import Axios from "axios";
 import { AuthContext } from "../../shared/context/auth-context";
-import './MyProfile.css';
+import "./MyProfile.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
+import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
 
 const MyProfile = () => {
   const userId = useParams().userId;
@@ -31,8 +32,23 @@ const MyProfile = () => {
 
   return (
     <React.Fragment>
-      <div className="my-profile-container">
-        <MyProfileList UserArray={UserArray} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          paddingLeft: "20%",
+        }}
+      >
+        <div className="my-profile-container">
+          <MyProfileList UserArray={UserArray} />
+        </div>
+        <div
+          style={{ padding: "20px", width: "400px" }}
+          className="my-profile-sidebar-area"
+        >
+          <MyProfileSideNavigation />
+        </div>
       </div>
       <MoveToTopButton />
       <FooterMainNavigation />
