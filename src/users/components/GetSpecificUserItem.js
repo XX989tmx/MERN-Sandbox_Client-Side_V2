@@ -163,9 +163,9 @@ const GetSpecificUserItem = (props) => {
 
           <div className="follow-button-area">
             <div className="follow-button-container center">
-              <button className="follow-button" onClick={followUser}>
+              <Button btnBlack onClick={followUser}>
                 Follow
-              </button>
+              </Button>
             </div>
           </div>
         </div>
