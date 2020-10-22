@@ -166,7 +166,7 @@ const GetSpecificArticleById = () => {
                 StaredBy={StaredBy}
               />
               <div>
-                <div>
+                <div style={{ padding: "10px", textAlign: "center" }}>
                   {" "}
                   <form onSubmit={submitCommentHandler}>
                     <Input
@@ -178,10 +178,12 @@ const GetSpecificArticleById = () => {
                       errorText="Please enter a valid comment (at least 5 characters)."
                       onInput={inputHandler}
                     />
-                    <Button type="submit">Submit Comment</Button>
+                    <Button btnBlack type="submit">
+                      Submit Comment
+                    </Button>
                   </form>
                 </div>
-                <div>
+                <div style={{ padding: "10px" }}>
                   <p>{Comments.length} comments</p>
                   {Comments.map((v, i) => {
                     return (
@@ -212,9 +214,8 @@ const GetSpecificArticleById = () => {
                               {new Date(v.createdAt).toDateString()}
                             </span>
                           </div>
-                          </Link>
-                        </div>
-                      
+                        </Link>
+                      </div>
                     );
                   })}
                 </div>
