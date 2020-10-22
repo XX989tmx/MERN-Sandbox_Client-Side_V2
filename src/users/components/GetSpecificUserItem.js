@@ -48,6 +48,10 @@ const GetSpecificUserItem = (props) => {
       width: "200px",
       backgroundColor: "#3A3A39",
       color: "white",
+      boxShadow: "1px 1px 7px grey",
+      marginTop: "3px",
+      marginBottom: "3px",
+      borderRadius: "5px",
     },
     followersImageContainer: {
       padding: "2px",
@@ -76,6 +80,10 @@ const GetSpecificUserItem = (props) => {
       width: "200px",
       backgroundColor: "#3A3A39",
       color: "white",
+      boxShadow: "1px 1px 7px grey",
+      marginTop: "3px",
+      marginBottom: "3px",
+      borderRadius: "5px",
     },
     followingListImageContainer: {
       padding: "2px",
