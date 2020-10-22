@@ -17,6 +17,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import ArticleCommentInput from "../components/ArticleCommentInput";
 
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -168,20 +169,10 @@ const GetSpecificArticleById = () => {
               <div>
                 <div style={{ padding: "10px", textAlign: "center" }}>
                   {" "}
-                  <form onSubmit={submitCommentHandler}>
-                    <Input
-                      id="comment"
-                      element="textarea"
-                      label="comment"
-                      placeholder="Write your comment here"
-                      validators={[VALIDATOR_MINLENGTH(5)]}
-                      errorText="Please enter a valid comment (at least 5 characters)."
-                      onInput={inputHandler}
-                    />
-                    <Button btnBlack type="submit">
-                      Submit Comment
-                    </Button>
-                  </form>
+                  <ArticleCommentInput
+                    submitCommentHandler={submitCommentHandler}
+                    inputHandler={inputHandler}
+                  />
                 </div>
                 <div style={{ padding: "10px" }}>
                   <p>{Comments.length} comments</p>
