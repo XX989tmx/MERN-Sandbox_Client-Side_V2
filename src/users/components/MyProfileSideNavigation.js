@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {AuthContext} from "../../shared/context/auth-context";
+
 const MyProfileSideNavigation = () => {
   const [NavigationLinkLists, setNavigationLinkLists] = useState([]);
+  const auth = useContext(AuthContext);
   useEffect(() => {
     (function (params) {
       let navigationLists = [
-        { title: "My Profile", link: `/myProfile/:userId` },
-        { title: "My Articles", link: `/:userId/articles` },
-        { title: "Setting", link: `/myProfile/:userId` },
-        { title: "Address", link: `/myProfile/:userId` },
+        { title: "My Profile", link: `/myProfile/${auth.userId}` },
+        { title: "My Articles", link: `/${auth.userId}/articles` },
+        { title: "Setting", link: `/myProfile/${auth.userId}` },
+        { title: "Address", link: `/myProfile/${auth.userId}` },
         {
           title: "Followers",
-          link: `/myProfile/:userId`,
+          link: `/myProfile/${auth.userId}`,
         },
-        { title: "Following", link: `/myProfile/:userId` },
-        { title: "Stared Articles", link: `/myProfile/:userId` },
+        { title: "Following", link: `/myProfile/${auth.userId}` },
+        { title: "Stared Articles", link: `/myProfile/${auth.userId}` },
         {
           title: "Library",
-          link: `/myProfile/:userId`,
+          link: `/myProfile/${auth.userId}`,
         },
-        { title: "Analytics", link: `/myProfile/:userId` },
-        { title: "Billing", link: `/myProfile/:userId` },
-        { title: "My Videos", link: `/videos/video_management/:userId` },
-        { title: "My Comments", link: `/myProfile/:userId` },
-        { title: "Stared Videos", link: `/myProfile/:userId` },
+        { title: "Analytics", link: `/myProfile/${auth.userId}` },
+        { title: "Billing", link: `/myProfile/${auth.userId}` },
+        { title: "My Videos", link: `/videos/video_management/${auth.userId}` },
+        { title: "My Comments", link: `/myProfile/${auth.userId}` },
+        { title: "Stared Videos", link: `/myProfile/${auth.userId}` },
       ];
       setNavigationLinkLists(navigationLists);
     })();
