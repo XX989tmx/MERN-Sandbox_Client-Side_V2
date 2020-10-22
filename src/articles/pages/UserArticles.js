@@ -117,26 +117,26 @@ const UserArticles = () => {
                 <ul>
                   <li>
                     <h5>
-                      Total Price of This Users articles:{" "}
+                      Total Price of Your articles:{" "}
                       <h3>{sumOfPriceOfThisUsersArticles}</h3>
                     </h5>
                   </li>
                   <li>
                     <h5>
-                      Average Price of This Users Articles:
+                      Average Price of Your Articles:
                       <h3>{averagePriceOfThisUsersArticles}</h3>
                     </h5>
                   </li>
                   <li>
                     <h5>
-                      Total Count of This Users Articles:
+                      Total Count of Your Articles:
                       <h3>{TotalCountOfThisUsersArticles}</h3>
                     </h5>
                   </li>
                 </ul>
               </div>
               <div>
-                <h5>image index(this user is using a following images)</h5>
+                <h5>image index(You are using a following images)</h5>
                 <ul className="image-index-list">
                   {" "}
                   {AllOfImagesOfThisUsersArticles.map(function (elm, index) {
