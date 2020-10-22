@@ -1,6 +1,6 @@
 .user-articles-container {
-  width: 100%;
-  margin: auto;
+  width: 1080px;
+  /* margin: auto; */
   /* height: 100vh; */
   /* display: flex; */
   min-height: 100vh;
@@ -24,16 +24,16 @@
 
 @media only screen and (min-width: 768px) {
   /* For tablets: */
-  .user-articles-container {
+  /* .user-articles-container {
     width: 769px;
     margin: auto;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
-  .user-articles-container {
+  /* .user-articles-container {
     width: 980px;
     margin: auto;
-  }
+  } */
 }
