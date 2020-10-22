@@ -18,6 +18,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 import ArticleCommentInput from "../components/ArticleCommentInput";
+import ArticleCommentSection from "../components/ArticleCommentSection";
 
 const GetSpecificArticleById = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -175,40 +176,7 @@ const GetSpecificArticleById = () => {
                   />
                 </div>
                 <div style={{ padding: "10px" }}>
-                  <p>{Comments.length} comments</p>
-                  {Comments.map((v, i) => {
-                    return (
-                      <div key={i}>
-                        <Link to={`/getSpecificUser/${v.user.id}`}>
-                          {" "}
-                          <div>
-                            <span>
-                              <img
-                                style={{ width: "25px", height: "25px" }}
-                                src={v.user.image}
-                                alt=""
-                              />
-                            </span>
-                            <span
-                              style={{ paddingLeft: "10px", fontSize: "16px" }}
-                            >
-                              {v.user.name}
-                            </span>
-                            <span
-                              style={{ paddingLeft: "10px", fontSize: "16px" }}
-                            >
-                              {v.comment}
-                            </span>
-                            <span
-                              style={{ paddingLeft: "10px", fontSize: "13px" }}
-                            >
-                              {new Date(v.createdAt).toDateString()}
-                            </span>
-                          </div>
-                        </Link>
-                      </div>
-                    );
-                  })}
+                  <ArticleCommentSection Comments={Comments} />
                 </div>
               </div>
               <div className="article-index-link">
