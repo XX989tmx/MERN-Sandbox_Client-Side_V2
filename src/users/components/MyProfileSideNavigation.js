@@ -54,9 +54,11 @@ const MyProfileSideNavigation = () => {
         >
           {NavigationLinkLists.map((v, i) => (
             <li key={i}>
-              <div style={{ height: "40px" }}>
+              <div >
                 <NavLink to={v.link}>
-                  <span style={{ color: "white" }}>{v.title}</span>
+                  <div style={{padding:'15px'}}>
+                    <span style={{ color: "white" }}>{v.title}</span>
+                  </div>
                 </NavLink>
               </div>
             </li>
