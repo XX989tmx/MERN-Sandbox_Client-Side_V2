@@ -5,6 +5,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import MyProfileSideNavigation from "../../users/components/MyProfileSideNavigation";
 
 import "./VideoManagement.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
@@ -39,15 +40,31 @@ const VideoManagement = () => {
         </div>
       )}
       {!isLoading && MyVideos && (
-        <div className="video-main-container">
-          <div>
-            <h4>Welcome Back {UserName}! Your Videos are all here</h4>
-            <p>To Update your Video, Click an Update Button</p>
-            <span>
-              <Link to={`/videos/main`}>Go Video Index</Link>
-            </span>
-            <VideoManagementList items={MyVideos} />
-            <MoveToTopButton />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            paddingLeft: "20%",
+          }}
+        >
+          {" "}
+          <div className="video-management-container">
+            <div>
+              <h4>Welcome Back {UserName}! Your Videos are all here</h4>
+              <p>To Update your Video, Click an Update Button</p>
+              <span>
+                <Link to={`/videos/main`}>Go Video Index</Link>
+              </span>
+              <VideoManagementList items={MyVideos} />
+              <MoveToTopButton />
+            </div>
+          </div>
+          <div
+            style={{ padding: "20px", width: "400px" }}
+            className="my-profile-sidebar-area"
+          >
+            <MyProfileSideNavigation />
           </div>
         </div>
       )}

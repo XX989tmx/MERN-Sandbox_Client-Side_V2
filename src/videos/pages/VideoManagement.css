@@ -1,0 +1,7 @@
+.video-management-container {
+    width: 1080px;
+  /* margin: auto; */
+  /* height: 100vh; */
+  /* display: flex; */
+  min-height: 100vh;
+}
