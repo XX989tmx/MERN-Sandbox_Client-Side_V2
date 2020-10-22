@@ -28,7 +28,7 @@ const GetSpecificUser = () => {
 
   return (
     <React.Fragment>
-      <div className="get-specific-user-container">
+      <div style={{backgroundColor:''}} className="get-specific-user-container">
         <GetSpecificUserList UserArray={UserArray} />
       </div>
       <MoveToTopButton />

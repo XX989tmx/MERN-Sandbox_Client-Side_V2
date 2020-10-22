@@ -104,7 +104,12 @@ const GetSpecificUserItem = (props) => {
       {/* {props.id} */}
       <div className="specific-user-upper-section">
         <div
-          style={styles.boxShadow}
+          style={{
+            boxShadow: "1px 1px 7px grey",
+            backgroundColor: "white",
+            borderRadius: "5px",
+            padding: "10px",
+          }}
           className="user-profile-image-name-follow-related-info-container"
         >
           <div className="profile-image-container">
@@ -158,7 +163,12 @@ const GetSpecificUserItem = (props) => {
         </div>
 
         <div
-          style={styles.boxShadow}
+          style={{
+            boxShadow: "1px 1px 7px grey",
+            backgroundColor: "white",
+            borderRadius: "5px",
+            padding: "10px",
+          }}
           className="profile-profile-information-area-container"
         >
           <div className="profile-profile-information-area">
@@ -284,7 +294,14 @@ const GetSpecificUserItem = (props) => {
         )}
       </div> */}
       <div
-        style={styles.specificUserArticlesSection}
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          backgroundColor: "white",
+          borderRadius: "5px",
+          padding: "10px",
+          boxShadow: "1px 1px 7px grey",
+        }}
         className="specific-user-articles-section"
       >
         <div className="profile-specific-users-articles-list-area">
@@ -328,7 +345,18 @@ const GetSpecificUserItem = (props) => {
       </div>
 
       <div
-        style={styles.specificUsersFollowersAndFollowingSection}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          padding: "10px",
+          justifyContent: "space-evenly",
+          marginTop: "10px",
+          marginBottom: "10px",
+          backgroundColor: "white",
+          borderRadius: "5px",
+          boxShadow: "1px 1px 7px grey",
+        }}
         className="specific-user-followers-and-following-section"
       >
         <div
@@ -402,7 +430,14 @@ const GetSpecificUserItem = (props) => {
       </div>
 
       <div
-        style={{ marginTop: "5px", marginBottom: "5px" }}
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          backgroundColor: "white",
+          borderRadius: "5px",
+          padding: "10px",
+          boxShadow: "1px 1px 7px grey",
+        }}
         className="specific-user-stared-articles-section"
       >
         <div className="profile-specific-users-stared-articles-list-area">
@@ -446,7 +481,15 @@ const GetSpecificUserItem = (props) => {
         </div>
       </div>
 
-      <div className="specific-users-article-comments-section">
+      <div
+        style={{
+          backgroundColor: "white",
+          borderRadius: "5px",
+          padding: "10px",
+          boxShadow: "1px 1px 7px grey",
+        }}
+        className="specific-users-article-comments-section"
+      >
         <div>
           <h4>
             comments history of this user or link to comments history page
