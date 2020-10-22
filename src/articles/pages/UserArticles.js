@@ -9,6 +9,8 @@ import MyProfileSideNavigation from "../../users/components/MyProfileSideNavigat
 import "./UserArticles.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import Axios from "axios";
+import ImageIndexOfUserArticle from "../components/ImageIndexOfUserArticle";
+import AnalyticsOfUserArticle from "../components/AnalyticsOfUserArticle";
 
 const UserArticles = () => {
   const [loadedArticles, setLoadedArticles] = useState();
@@ -113,44 +115,20 @@ const UserArticles = () => {
                 onDeleteArticle={articleDeletedHandler}
               />
               <div>
-                <h5>analytics</h5>
-                <ul>
-                  <li>
-                    <h5>
-                      Total Price of Your articles:{" "}
-                      <h3>{sumOfPriceOfThisUsersArticles}</h3>
-                    </h5>
-                  </li>
-                  <li>
-                    <h5>
-                      Average Price of Your Articles:
-                      <h3>{averagePriceOfThisUsersArticles}</h3>
-                    </h5>
-                  </li>
-                  <li>
-                    <h5>
-                      Total Count of Your Articles:
-                      <h3>{TotalCountOfThisUsersArticles}</h3>
-                    </h5>
-                  </li>
-                </ul>
+                <AnalyticsOfUserArticle
+                  sumOfPriceOfThisUsersArticles={sumOfPriceOfThisUsersArticles}
+                  averagePriceOfThisUsersArticles={
+                    averagePriceOfThisUsersArticles
+                  }
+                  TotalCountOfThisUsersArticles={TotalCountOfThisUsersArticles}
+                />
               </div>
               <div>
-                <h5>image index(You are using a following images)</h5>
-                <ul className="image-index-list">
-                  {" "}
-                  {AllOfImagesOfThisUsersArticles.map(function (elm, index) {
-                    return (
-                      <li className="image-index-items" key={index}>
-                        {" "}
-                        <img
-                          src={elm}
-                          style={{ width: "150px", height: "80px" }}
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
+                <ImageIndexOfUserArticle
+                  AllOfImagesOfThisUsersArticles={
+                    AllOfImagesOfThisUsersArticles
+                  }
+                />
               </div>
             </div>
             {/* <div className="side-container"></div> */}
