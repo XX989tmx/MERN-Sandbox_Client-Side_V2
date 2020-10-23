@@ -342,13 +342,15 @@ const CryptoConverter = () => {
         //   window.location.reload()
         // }, 15000);
 
-        const lastRefreshedDate = new Date(Date.now());
-        const lastRefreshedHour = lastRefreshedDate.getHours();
-        const lastRefreshedMinutes = lastRefreshedDate.getMinutes();
-        const lastRefreshedSeconds = lastRefreshedDate.getSeconds();
+        (function getLastRefreshedTimeString(params) {
+          const lastRefreshedDate = new Date(Date.now());
+          const lastRefreshedHour = lastRefreshedDate.getHours();
+          const lastRefreshedMinutes = lastRefreshedDate.getMinutes();
+          const lastRefreshedSeconds = lastRefreshedDate.getSeconds();
 
-        const lastRefreshedTimeString = `${lastRefreshedHour}:${lastRefreshedMinutes}:${lastRefreshedSeconds}`;
-        setLastRefreshedTimeString(lastRefreshedTimeString);
+          const lastRefreshedTimeString = `${lastRefreshedHour}:${lastRefreshedMinutes}:${lastRefreshedSeconds}`;
+          setLastRefreshedTimeString(lastRefreshedTimeString);
+        })();
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
@@ -709,7 +711,9 @@ const CryptoConverter = () => {
                     </form>
                   </div>
                   <div>
-                   {LastRefreshedTimeString && <span>Last Refreshed at: {LastRefreshedTimeString}</span>}
+                    {LastRefreshedTimeString && (
+                      <span>Last Refreshed at: {LastRefreshedTimeString}</span>
+                    )}
                   </div>
                   <div>
                     <ExternalLink
