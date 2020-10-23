@@ -21,6 +21,7 @@ import Top5MostViewedArticlesList from "../components/Top5MostViewedArticlesList
 import SortArticleSelector from "../components/SortArticleSelector";
 import PriceSortSelector from "../components/PriceSortSelector";
 import DownloadableOrNotSelector from "../components/DownloadableOrNotSelector";
+import CategorySelector from "../components/CategorySelector";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -371,18 +372,10 @@ const Articles = () => {
               </span> */}
 
               <span className="selector-item">
-                <label>
-                  Category
-                  <select
-                    className="selector"
-                    name="Category"
-                    id="categories"
-                    onChange={sortByCategory}
-                  >
-                    <option>sort</option>
-                    {categoryNames}
-                  </select>
-                </label>
+                <CategorySelector
+                  sortByCategory={sortByCategory}
+                  categoryNames={categoryNames}
+                />
               </span>
 
               <span className="selector-item">
