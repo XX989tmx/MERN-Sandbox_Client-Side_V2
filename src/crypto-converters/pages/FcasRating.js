@@ -195,37 +195,48 @@ const FcasRating = () => {
                 timezone={FcasRatingInfo.timezone}
               />
             </div>
-            <div>
-              <p>
-                Fundamental Crypto Asset Score (FCAS) is a comparative metric
-                used to assess the fundamental health of crypto projects. The
-                score is derived from the interactivity between primary project
-                life-cycle factors: User Activity/Utility, Developer Behavior,
-                and Market Maturity. Each crypto asset is given a composite
-                numerical score, 0-1000, and an associated rating as follows:
-              </p>
-            </div>
 
-            <div>
-              <img
-                src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
-                alt=""
-                style={{ width: "500px", height: "350px" }}
-              />
-              <ExternalLink
-                to="https://www.alphavantage.co/"
-                className="natural"
-                text="Data Provided By Alphavantage"
-              />
+            <div style={{marginTop:'20px',marginBottom:'20px'}}>
+              {" "}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div>
+                  <img
+                    src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
+                    alt=""
+                    style={{ width: "300px", height: "200px" }}
+                  />
+                </div>
+                <div style={{ width: "600px", paddingLeft: "20px" }}>
+                  <h4>What is FCAS?</h4>
+                  <p>
+                    Fundamental Crypto Asset Score (FCAS) is a comparative
+                    metric used to assess the fundamental health of crypto
+                    projects. The score is derived from the interactivity
+                    between primary project life-cycle factors: User
+                    Activity/Utility, Developer Behavior, and Market Maturity.
+                    Each crypto asset is given a composite numerical score,
+                    0-1000, and an associated rating as follows:
+                  </p>
+                </div>
+              </div>
             </div>
+            <ExternalLink
+              to="https://www.alphavantage.co/"
+              className="natural"
+              text="Data Provided By Alphavantage"
+            />
             <hr />
 
-
             <div>
-                <TableHeaderOfFcasRankList />
+              <TableHeaderOfFcasRankList />
             </div>
-            <hr/>
-
+            <hr />
 
             <div className="superb-list-container">
               <div>
