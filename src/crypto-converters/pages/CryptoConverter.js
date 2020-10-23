@@ -614,7 +614,7 @@ const CryptoConverter = () => {
             check Fiat Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
           </p> */}
-            <div className="currency-exchange-rate-input">
+            {/* <div className="currency-exchange-rate-input">
               <div className="currency-exchange-rate-input-form">
                 <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
                   <Input
@@ -649,8 +649,8 @@ const CryptoConverter = () => {
                   AskPrice={ExchangeRate.AskPrice}
                 />
               </div>
-            </div>
-            <hr />
+            </div> */}
+
             <div className="currency-exchange-rate-selector">
               <CurrencyToCurrencyConverterSelectorVer
                 exchangeRateSubmithandler={exchangeRateSubmithandler}
