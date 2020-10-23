@@ -154,7 +154,25 @@ const FcasRating = () => {
           <div>
             <h3 className="center">FCAS Rating Checker</h3>
             <div className="center">
-              <form onSubmit={getFcasRating}>
+              <div>
+                <select
+                  style={{
+                    height: "30px",
+                    boxShadow: "0px 1px 8px grey",
+                    fontWeight: "600",
+                  }}
+                  name="Code"
+                  id="Code"
+                  onChange={currencyNameSelector}
+                >
+                  <option value="default">Choose Currency Code</option>
+                  {Option}
+                </select>
+              </div>
+              <p style={{ color: "grey", textAlign: "center" }}>
+                if something does not work, please reload the page.
+              </p>
+              {/* <form onSubmit={getFcasRating}>
                 <Input
                   id="cryptoCode"
                   element="input"
@@ -163,22 +181,14 @@ const FcasRating = () => {
                   validators={[VALIDATOR_REQUIRE()]}
                   onInput={inputHandler}
                 />
-                <div>
-                  <select name="Code" id="Code" onChange={currencyNameSelector}>
-                    <option value="default">Currency Code</option>
-                    {Option}
-                  </select>
-                </div>
-                <p style={{ color: "grey", textAlign: "left" }}>
-                  if something does not work, please reload the page.
-                </p>
+                
                 <Button btnBlack>Get Fcas Score</Button>
-              </form>
+              </form> */}
               <div>
                 {/* <button>open currency code list modal</button> */}
-                <button onClick={currencyListDownloader}>
+                <Button btnBlack onClick={currencyListDownloader}>
                   download all currency code list
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -196,7 +206,7 @@ const FcasRating = () => {
               />
             </div>
 
-            <div style={{marginTop:'20px',marginBottom:'20px'}}>
+            <div style={{ marginTop: "20px", marginBottom: "20px" }}>
               {" "}
               <div
                 style={{
