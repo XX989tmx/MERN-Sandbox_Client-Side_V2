@@ -13,6 +13,7 @@ import ExchangeRateItem from "../components/ExchangeRateItem";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import ExternalLink from "../../shared/components/UIElements/ExternalLink";
+import CurrencyToBtcConverter from "../components/CurrencyToBtcConverter";
 
 const CryptoConverter = () => {
   // const [cryptoData, setCryptoData] = useState();
@@ -505,63 +506,10 @@ const CryptoConverter = () => {
               className="natural"
               text="Data Provided By Blockchain.com"
             />
-            <form className="center" onSubmit={cryptoConvertionSubmitHandler}>
-              {/* <input id="currency" type="text" label="Currency" />
-            <input id="value" type="text" label="Value" /> */}
-
-              {/* <Input
-              id="currency"
-              element="input"
-              label="Currency"
-              placeholder="Your Currency"
-              // autoFocus="true"
-              errorText="Please enter a valid currency."
-              validators={[VALIDATOR_REQUIRE()]}
-              onInput={inputHandler}
-            /> */}
-
-              <select name="currency" id="currency">
-                <option value="first" selected>
-                  choose your currency
-                </option>
-                <option value="JPY">JPY</option>
-                <option value="USD">USD</option>
-                <option value="AUD">AUD</option>
-                <option value="BRL">BRL</option>
-                <option value="CAD">CAD</option>
-                <option value="CHF">CHF</option>
-                <option value="CLP">CLP</option>
-                <option value="CNY">CNY</option>
-                <option value="DKK">DKK</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">EUR</option>
-                <option value="HKD">HKD</option>
-                <option value="INR">INR</option>
-                <option value="ISK">INR</option>
-                <option value="KRW">KRW</option>
-                <option value="NZD">NZD</option>
-                <option value="PLN">PLN</option>
-                <option value="RUB">RUB</option>
-                <option value="SEK">SEK</option>
-                <option value="SGD">SGD</option>
-                <option value="THB">THB</option>
-                <option value="TRY">TRY</option>
-                <option value="TWD">TWD</option>
-              </select>
-
-              <Input
-                id="value"
-                element="input"
-                label="Value"
-                placeholder="Value  $"
-                errorText="Please enter a valid value."
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-              />
-              <Button btnBlack type="submit">
-                Convert
-              </Button>
-            </form>
+          <div>
+            <CurrencyToBtcConverter cryptoConvertionSubmitHandler={cryptoConvertionSubmitHandler} inputHandler={inputHandler}/>
+          </div>
+            
 
             <div className="result-data-area center">
               {/* components: result data result data */}
