@@ -24,6 +24,7 @@ const CryptoConverter = () => {
   const [LastValue, setLastValue] = useState({});
   const [CurrencySymbol, setCurrencySymbol] = useState({});
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [LastRefreshedTimeString, setLastRefreshedTimeString] = useState();
 
   const [Month, setMonth] = useState();
   const [Day, setDay] = useState();
@@ -335,6 +336,19 @@ const CryptoConverter = () => {
           console.log(new String(twd).charAt(0));
           setTWDFirstCharacter(firstCharacterTWD);
         } catch (error) {}
+
+        // setTimeout(() => {
+
+        //   window.location.reload()
+        // }, 15000);
+
+        const lastRefreshedDate = new Date(Date.now());
+        const lastRefreshedHour = lastRefreshedDate.getHours();
+        const lastRefreshedMinutes = lastRefreshedDate.getMinutes();
+        const lastRefreshedSeconds = lastRefreshedDate.getSeconds();
+
+        const lastRefreshedTimeString = `${lastRefreshedHour}:${lastRefreshedMinutes}:${lastRefreshedSeconds}`;
+        setLastRefreshedTimeString(lastRefreshedTimeString);
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
@@ -687,16 +701,24 @@ const CryptoConverter = () => {
                   {/* components: GET Req for crypto & data pulled from backend */}
                   {/* <p>{cryptoData}</p>
                 <GetCryptoData props={cryptoData} /> */}
-                  <form>
-                    <Button btnBlack onClick={getRequesthandler}>
-                      Get Latest Data
-                    </Button>
-                  </form>
-                  <ExternalLink
-                    to="https://www.blockchain.com/"
-                    className="natural"
-                    text="Data Provided By Blockchain.com"
-                  />
+                  <div>
+                    <form>
+                      <Button btnBlack onClick={getRequesthandler}>
+                        Get Latest Data
+                      </Button>
+                    </form>
+                  </div>
+                  <div>
+                   {LastRefreshedTimeString && <span>Last Refreshed at: {LastRefreshedTimeString}</span>}
+                  </div>
+                  <div>
+                    <ExternalLink
+                      to="https://www.blockchain.com/"
+                      className="natural"
+                      text="Data Provided By Blockchain.com"
+                    />
+                  </div>
+
                   {/* <button draggable="true" onClick={goBackToTop}>
                 back to top page
               </button> */}
