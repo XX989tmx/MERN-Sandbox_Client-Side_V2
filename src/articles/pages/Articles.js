@@ -20,6 +20,7 @@ import Axios from "axios";
 import Top5MostViewedArticlesList from "../components/Top5MostViewedArticlesList";
 import SortArticleSelector from "../components/SortArticleSelector";
 import PriceSortSelector from "../components/PriceSortSelector";
+import DownloadableOrNotSelector from "../components/DownloadableOrNotSelector";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -350,21 +351,9 @@ const Articles = () => {
               </span>
 
               <span className="selector-item">
-                <label>
-                  downloadable
-                  <select
-                    className="selector"
-                    name="downloadable"
-                    id="downloadable"
-                    onChange={DownloadableHandler}
-                  >
-                    <option value="default" selected>
-                      sort
-                    </option>
-                    <option value="Downloadable">Downloadable</option>
-                    <option value="WebOnly">Web Only</option>
-                  </select>
-                </label>
+                <DownloadableOrNotSelector
+                  DownloadableHandler={DownloadableHandler}
+                />
               </span>
 
               {/* <span className="selector-item">
