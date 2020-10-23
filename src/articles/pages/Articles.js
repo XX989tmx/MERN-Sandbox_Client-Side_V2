@@ -19,6 +19,7 @@ import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavig
 import Axios from "axios";
 import Top5MostViewedArticlesList from "../components/Top5MostViewedArticlesList";
 import SortArticleSelector from "../components/SortArticleSelector";
+import PriceSortSelector from "../components/PriceSortSelector";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -345,25 +346,7 @@ const Articles = () => {
               </span>
 
               <span className="selector-item">
-                <label>
-                  price sort
-                  <select
-                    className="selector"
-                    name="price"
-                    id="price"
-                    onChange={sortByPrice}
-                  >
-                    <option value="default" selected>
-                      sort
-                    </option>
-                    <option value="0~499">~499</option>
-                    <option value="500~999">500~999</option>
-                    <option value="1000~1999">1000~1999</option>
-                    <option value="2000~4999">2000~4999</option>
-                    <option value="5000~9999">5000~9999</option>
-                    <option value="10000~">10000~</option>
-                  </select>
-                </label>
+                <PriceSortSelector sortByPrice={sortByPrice} />
               </span>
 
               <span className="selector-item">
