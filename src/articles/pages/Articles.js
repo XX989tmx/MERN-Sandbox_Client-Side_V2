@@ -22,6 +22,7 @@ import SortArticleSelector from "../components/SortArticleSelector";
 import PriceSortSelector from "../components/PriceSortSelector";
 import DownloadableOrNotSelector from "../components/DownloadableOrNotSelector";
 import CategorySelector from "../components/CategorySelector";
+import TagSelector from "../components/TagSelector";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -379,18 +380,7 @@ const Articles = () => {
               </span>
 
               <span className="selector-item">
-                <label>
-                  Tag
-                  <select
-                    className="selector"
-                    name="Tag"
-                    id="tags"
-                    onChange={sortByTag}
-                  >
-                    <option>sort</option>
-                    {tagnames}
-                  </select>
-                </label>
+                <TagSelector sortByTag={sortByTag} tagnames={tagnames} />
               </span>
 
               <span className="selector-item">
