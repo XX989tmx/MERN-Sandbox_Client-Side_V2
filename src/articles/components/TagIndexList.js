@@ -5,8 +5,8 @@ import './tagIndexList.css';
 const TagIndexList = (props) => {
   return (
     <ul class="list-group">
-      {props.TagIndexData.map((d) => (
-        <TagIndexItem tagName={d.tagName} count={d.count} />
+      {props.TagIndexData.map((d,i) => (
+        <TagIndexItem key={i} tagName={d.tagName} count={d.count} />
       ))}
     </ul>
   );
