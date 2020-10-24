@@ -53,6 +53,14 @@ import ArticleCommentHistoryOfThisUser from "./users/pages/ArticleCommentHistory
 import MyProfile from "./users/pages/MyProfile";
 import AddProfileInformation from "./users/pages/AddProfileInformation";
 import UpdateProfile from "./users/pages/UpdateProfile";
+import Followers from "./users/pages/Followers";
+import Following from "./users/pages/Following";
+import Setting from "./users/pages/Setting";
+import Library from "./users/pages/Library";
+import StaredArticles from "./users/pages/StaredArticles";
+import Billing from "./users/pages/Billing";
+import Address from "./users/pages/Address";
+import Analytics from "./users/pages/Analytics";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -96,6 +104,30 @@ const App = () => {
         </Route>
         <Route path="/updateProfile/:userId/:profileId" exact>
           <UpdateProfile />
+        </Route>
+        <Route path="/:userId/followers" exact>
+          <Followers />
+        </Route>
+        <Route path="/:userId/following" exact>
+          <Following />
+        </Route>
+        <Route path="/:userId/setting" exact>
+          <Setting />
+        </Route>
+        <Route path="/:userId/library" exact>
+          <Library />
+        </Route>
+        <Route path="/:userId/staredArticles" exact>
+          <StaredArticles />
+        </Route>
+        <Route path="/:userId/billing" exact>
+          <Billing />
+        </Route>
+        <Route path="/:userId/address" exact>
+          <Address />
+        </Route>
+        <Route path="/:userId/analytics" exact>
+          <Analytics />
         </Route>
 
         {/* articles routes */}
