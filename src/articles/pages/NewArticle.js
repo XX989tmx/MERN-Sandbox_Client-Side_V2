@@ -673,7 +673,7 @@ const NewArticle = () => {
               <h4 className="center">Article Caption Images</h4>
               <div className="caption-images-file-picker-area center">
                 <div className="caption-images-file-picker">
-                  <ImageUpload
+                  <ImageUpload 
                     id="image2"
                     onInput={inputHandler}
                     errorText="Please provide an image."
