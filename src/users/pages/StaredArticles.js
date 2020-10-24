@@ -2,6 +2,7 @@ import React from "react";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
+import StaredArticlesList from "../components/StaredArticlesList";
 
 const StaredArticles = () => {
   return (
@@ -22,6 +23,7 @@ const StaredArticles = () => {
           <div>
             {" "}
             <h1> Stared Articles</h1>
+            <StaredArticlesList />
           </div>
         </div>
         <div
