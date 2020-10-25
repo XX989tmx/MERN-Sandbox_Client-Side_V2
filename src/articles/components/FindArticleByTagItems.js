@@ -55,9 +55,7 @@ const FindArticleByTagItems = (props) => {
         const element = props.contents[index];
         contentArray.push(element.content);
         r = contentArray.join(",");
-      };
-
-
+      }
 
       const countWord = (value) => {
         return value.split(/\W+/).length;
@@ -294,14 +292,33 @@ const FindArticleByTagItems = (props) => {
                     <p className="categoryArea">Category: {props.categories}</p>
                   </div>
                 </Link>
-                <Link
-                  to={`/get_article_by_tags/${props.tags}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="margin-left13">
-                    <p className="tag-area">Tag: {props.tags}</p>
-                  </div>
-                </Link>
+
+                <div className="margin-left13">
+                  <span>Tag:</span>
+                  {props.tags.map((v, i) => {
+                    return (
+                      <Link
+                        to={`/get_article_by_tags/${v}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <span
+                          style={{
+                            color: "white",
+                            backgroundColor: "black",
+                            padding: "1px 2px 1px 2px",
+                            marginLeft: "10px",
+                            marginTop: "5px",
+                            fontWeight: "600",
+                            boxShadow: "1px 1px 9px grey",
+                          }}
+                          key={i}
+                        >
+                          {v}
+                        </span>{" "}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
               <div className="article-body-section4">
                 <h4>
