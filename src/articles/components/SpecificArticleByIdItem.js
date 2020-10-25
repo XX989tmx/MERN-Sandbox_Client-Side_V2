@@ -313,14 +313,34 @@ const SpecificArticleByIdItem = (props) => {
                 <p className="categoryArea">Category: {props.categories}</p>
               </div>
             </Link>
-            <Link
-              to={`/get_article_by_tags/${props.tags}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div>
-                <p className="tag-area">Tag: {props.tags}</p>
-              </div>
-            </Link>
+
+            <div>
+              <span>Tag: </span>
+              {props.tags.map((v, i) => {
+                return (
+                  <Link
+                    to={`/get_article_by_tags/${v}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <span
+                      style={{
+                        color: "white",
+                        backgroundColor: "black",
+                        padding: "1px 2px 1px 2px",
+                        marginLeft: "10px",
+                        marginTop: "5px",
+                        fontWeight: "600",
+                        boxShadow: "1px 1px 9px grey",
+                      }}
+                      key={i}
+                    >
+                      {v}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+
             <div>
               <h4>{props.StaredBy.length} Star</h4>
             </div>
