@@ -33,21 +33,21 @@ const FindArticleByCategoryItems = (props) => {
         setSunday(true);
       }
 
-        // const addAllCharacterOfContent = (
-        //   content,
-        //   content2,
-        //   content3,
-        //   content4
-        // ) => {
-        //   const TotalContent = content + content2 + content3 + content4;
-        //   return TotalContent;
-        // };
-        // const ContentAll = addAllCharacterOfContent(
-        //   props.content,
-        //   props.content2,
-        //   props.content3,
-        //   props.content4
-        // );
+      // const addAllCharacterOfContent = (
+      //   content,
+      //   content2,
+      //   content3,
+      //   content4
+      // ) => {
+      //   const TotalContent = content + content2 + content3 + content4;
+      //   return TotalContent;
+      // };
+      // const ContentAll = addAllCharacterOfContent(
+      //   props.content,
+      //   props.content2,
+      //   props.content3,
+      //   props.content4
+      // );
 
       let contentArray = [];
       let r;
@@ -55,7 +55,7 @@ const FindArticleByCategoryItems = (props) => {
         const element = props.contents[index];
         contentArray.push(element.content);
         r = contentArray.join(",");
-      };
+      }
 
       const countWord = (value) => {
         return value.split(/\W+/).length;
@@ -291,14 +291,33 @@ const FindArticleByCategoryItems = (props) => {
                     <p className="categoryArea">Category: {props.categories}</p>
                   </div>
                 </Link>
-                <Link
-                  to={`/get_article_by_tags/${props.tags}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="margin-left13">
-                    <p className="tag-area">Tag: {props.tags}</p>
-                  </div>
-                </Link>
+
+                <div className="margin-left13">
+                  <span>Tag: </span>
+                  {props.tags.map((v, i) => {
+                    return (
+                      <Link
+                        to={`/get_article_by_tags/${v}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <span
+                          style={{
+                            color: "white",
+                            backgroundColor: "black",
+                            padding: "1px 2px 1px 2px",
+                            marginLeft: "10px",
+                            marginTop: "5px",
+                            fontWeight: "600",
+                            boxShadow: "1px 1px 9px grey",
+                          }}
+                          key={i}
+                        >
+                          {v}
+                        </span>{" "}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
               <div className="article-body-section4">
                 <h4>
