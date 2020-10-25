@@ -34,6 +34,7 @@ const GetSpecificArticleById = () => {
   const [StaredBy, setStaredBy] = useState([]);
   const [Comments, setComments] = useState([]);
   const [ArticleTags, setArticleTags] = useState([]);
+  const [ArticleCategories, setArticleCategories] = useState([]);
 
   const [formState, inputHandler] = useForm(
     {
@@ -73,6 +74,7 @@ const GetSpecificArticleById = () => {
         setStaredBy(responseData.article.staredBy);
         setComments(responseData.article.comments);
         setArticleTags(responseData.article.tags);
+        setArticleCategories(responseData.article.categories);
       } catch (error) {
         console.log(error);
       }
@@ -158,7 +160,7 @@ const GetSpecificArticleById = () => {
                 authorName={ArticleAuthor.name}
                 authorEmail={ArticleAuthor.email}
                 authorId={ArticleAuthor._id}
-                categories={Article.categories}
+                categories={ArticleCategories}
                 tags={ArticleTags}
                 price={Article.price}
                 date_created={Article.date_created}

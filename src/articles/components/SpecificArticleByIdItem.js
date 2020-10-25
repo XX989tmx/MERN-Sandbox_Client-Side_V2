@@ -305,14 +305,33 @@ const SpecificArticleByIdItem = (props) => {
             </span>
             {/* <p>publishedDate: {props.publishedDate}</p> */}
 
-            <Link
-              to={`/get_article_by_categories/${props.categories}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div>
-                <p className="categoryArea">Category: {props.categories}</p>
-              </div>
-            </Link>
+            <div>
+              <span>Category:</span>
+              {props.categories.map((v, i) => {
+                return (
+                  <Link
+                    to={`/get_article_by_categories/${v}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <span
+                      style={{
+                        color: "black",
+                        backgroundColor: "#FFD620",
+                        border: "solid 1px black",
+                        padding: "1px 2px 1px 2px",
+                        marginLeft: "10px",
+                        marginTop: "5px",
+                        fontWeight: "600",
+                        boxShadow: "1px 1px 9px grey",
+                      }}
+                      key={i}
+                    >
+                      {v}
+                    </span>{" "}
+                  </Link>
+                );
+              })}
+            </div>
 
             <div>
               <span>Tag: </span>
