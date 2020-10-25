@@ -51,7 +51,11 @@ const NewArticle = () => {
 
       image5: { value: null, isValid: false },
       // address: { value: "", isValid: false },
-      categories: { value: "", isValid: false },
+      categories1: { value: "", isValid: false },
+      categories2: { value: "", isValid: false },
+      categories3: { value: "", isValid: false },
+      categories4: { value: "", isValid: false },
+      categories5: { value: "", isValid: false },
       tags1: { value: "", isValid: false },
       tags2: { value: "", isValid: false },
       tags3: { value: "", isValid: false },
@@ -131,7 +135,11 @@ const NewArticle = () => {
       formData.append("images", formState.inputs.image4.value);
       formData.append("images", formState.inputs.image5.value);
 
-      formData.append("categories", formState.inputs.categories.value);
+      formData.append("categories1", formState.inputs.categories1.value);
+      formData.append("categories2", formState.inputs.categories2.value);
+      formData.append("categories3", formState.inputs.categories3.value);
+      formData.append("categories4", formState.inputs.categories4.value);
+      formData.append("categories5", formState.inputs.categories5.value);
       formData.append("tags1", formState.inputs.tags1.value);
       formData.append("tags2", formState.inputs.tags2.value);
       formData.append("tags3", formState.inputs.tags3.value);
@@ -449,10 +457,54 @@ const NewArticle = () => {
               </div>
               <div className="detail-information-input-item">
                 <Input
-                  id="categories"
+                  id="categories1"
                   element="input"
-                  label="categories"
-                  placeholder="categories"
+                  label="categories1"
+                  placeholder="categories1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="categories2"
+                  element="input"
+                  label="categories2"
+                  placeholder="categories2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="categories3"
+                  element="input"
+                  label="categories3"
+                  placeholder="categories3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="categories4"
+                  element="input"
+                  label="categories4"
+                  placeholder="categories4"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="categories5"
+                  element="input"
+                  label="categories5"
+                  placeholder="categories5"
                   validators={[VALIDATOR_REQUIRE()]}
                   errorText="Please enter a valid address."
                   onInput={inputHandler}
@@ -725,7 +777,7 @@ const NewArticle = () => {
               <h4 className="center">Article Caption Images</h4>
               <div className="caption-images-file-picker-area center">
                 <div className="caption-images-file-picker">
-                  <ImageUpload 
+                  <ImageUpload
                     id="image2"
                     onInput={inputHandler}
                     errorText="Please provide an image."
