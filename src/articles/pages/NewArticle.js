@@ -52,7 +52,11 @@ const NewArticle = () => {
       image5: { value: null, isValid: false },
       // address: { value: "", isValid: false },
       categories: { value: "", isValid: false },
-      tags: { value: "", isValid: false },
+      tags1: { value: "", isValid: false },
+      tags2: { value: "", isValid: false },
+      tags3: { value: "", isValid: false },
+      tags4: { value: "", isValid: false },
+      tags5: { value: "", isValid: false },
       price: { value: null, isValid: false },
       downloadable: { value: null, isValid: false },
       referenceSiteName1: { value: "", isValid: false },
@@ -128,7 +132,11 @@ const NewArticle = () => {
       formData.append("images", formState.inputs.image5.value);
 
       formData.append("categories", formState.inputs.categories.value);
-      formData.append("tags", formState.inputs.tags.value);
+      formData.append("tags1", formState.inputs.tags1.value);
+      formData.append("tags2", formState.inputs.tags2.value);
+      formData.append("tags3", formState.inputs.tags3.value);
+      formData.append("tags4", formState.inputs.tags4.value);
+      formData.append("tags5", formState.inputs.tags5.value);
       formData.append("price", formState.inputs.price.value);
       formData.append("downloadable", formState.inputs.downloadable.value);
       formData.append(
@@ -452,10 +460,54 @@ const NewArticle = () => {
               </div>
               <div className="detail-information-input-item">
                 <Input
-                  id="tags"
+                  id="tags1"
                   element="input"
-                  label="tags"
-                  placeholder="tags"
+                  label="tags1"
+                  placeholder="tags1"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="tags2"
+                  element="input"
+                  label="tags2"
+                  placeholder="tags2"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="tags3"
+                  element="input"
+                  label="tags3"
+                  placeholder="tags3"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="tags4"
+                  element="input"
+                  label="tags4"
+                  placeholder="tags4"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div className="detail-information-input-item">
+                <Input
+                  id="tags5"
+                  element="input"
+                  label="tags5"
+                  placeholder="tags5"
                   validators={[VALIDATOR_REQUIRE()]}
                   errorText="Please enter a valid address."
                   onInput={inputHandler}
