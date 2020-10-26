@@ -7,7 +7,7 @@ const StaredArticlesList = (props) => {
       {props.StaredArticles.map((v, i) => (
         <StaredArticlesItem
           id={v.id}
-          key={v.id}
+          key={i}
           title={v.title}
           images={v.images}
           referenceSites={v.referenceSites}
