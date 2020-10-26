@@ -15,6 +15,7 @@ const StaredArticles = () => {
   const [SortArticleOptions, setSortArticleOptions] = useState([]);
   const [SortArticleValue, setSortArticleValue] = useState();
   const [TagNames, setTagNames] = useState([]);
+  const [CategoryNames, setCategoryNames] = useState([]);
   useEffect(() => {
     const fetch = async (params) => {
       async function fetchAndSetStaredArticlesData(params) {
@@ -54,6 +55,27 @@ const StaredArticles = () => {
         }
       }
       await fetchAndSetTagSelectorData();
+
+      async function fetchAndSetCategorySelectorData(params) {
+        let response;
+        try {
+          response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL + `/articles/categoryIndex`
+          );
+        } catch (error) {
+          console.log(error);
+        }
+        const data = response.data;
+        const categoryName = data.responseArray.map((v, i) => {
+          return (
+            <option key={i} value={v.categoryName}>
+              {v.categoryName}
+            </option>
+          );
+        });
+        setCategoryNames(categoryName);
+      }
+      await fetchAndSetCategorySelectorData();
 
       function SetSortArticleOptionsData(params) {
         const sortArticleOptions = [
@@ -152,6 +174,26 @@ const StaredArticles = () => {
     console.log(data);
   };
 
+  const CategorySortChangeHandler = async (event) => {
+    const categoryValue = event.target.value;
+    const query = categoryValue;
+    let response;
+    try {
+      response = await Axios.get(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/getStaredArticles/${
+            auth.userId
+          }/?q=category-search&category=${encodeURIComponent(query)}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    const data = response.data;
+    const staredArticles = data.staredArticles;
+    setStaredArticles(staredArticles);
+    console.log(data);
+  };
+
   return (
     <React.Fragment>
       {" "}
@@ -180,6 +222,12 @@ const StaredArticles = () => {
               <select name="" id="" onChange={TagSortChangeHandler}>
                 <option value="">Tag Sort</option>
                 {TagNames}
+              </select>
+            </div>
+            <div>
+              <select name="" id="" onChange={CategorySortChangeHandler}>
+                <option value="">Category Sort</option>
+                {CategoryNames}
               </select>
             </div>
             <StaredArticlesList StaredArticles={StaredArticles} />
