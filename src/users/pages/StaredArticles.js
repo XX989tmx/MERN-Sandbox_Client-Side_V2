@@ -55,55 +55,58 @@ const StaredArticles = () => {
       }
       await fetchAndSetTagSelectorData();
 
-      const sortArticleOptions = [
-        { value: "most-viewed", text: "Most Viewed" },
-        {
-          value: "least-viewed",
-          text: "Least Viewed",
-        },
-        {
-          value: "downloadable",
-          text: "Downloadable",
-        },
-        {
-          value: "web-only",
-          text: "Web Only",
-        },
-        {
-          value: "from-highest-price",
-          text: "Highest Price to Lowest",
-        },
-        {
-          value: "from-lowest-price",
-          text: "Lowest Price to Highest",
-        },
-        {
-          value: "from-highest-comment-count",
-          text: "Highest Comment Count to Lowest",
-        },
-        {
-          value: "from-lowest-comment-count",
-          text: "Lowest Comment count to Highest",
-        },
-        {
-          value: "from-highest-star-count",
-          text: "Highest Star Count to Lowest",
-        },
-        {
-          value: "from-lowest-star-count",
-          text: "Lowest Star Count to Highest",
-        },
-      ];
+      function SetSortArticleOptionsData(params) {
+        const sortArticleOptions = [
+          { value: "most-viewed", text: "Most Viewed" },
+          {
+            value: "least-viewed",
+            text: "Least Viewed",
+          },
+          {
+            value: "downloadable",
+            text: "Downloadable",
+          },
+          {
+            value: "web-only",
+            text: "Web Only",
+          },
+          {
+            value: "from-highest-price",
+            text: "Highest Price to Lowest",
+          },
+          {
+            value: "from-lowest-price",
+            text: "Lowest Price to Highest",
+          },
+          {
+            value: "from-highest-comment-count",
+            text: "Highest Comment Count to Lowest",
+          },
+          {
+            value: "from-lowest-comment-count",
+            text: "Lowest Comment count to Highest",
+          },
+          {
+            value: "from-highest-star-count",
+            text: "Highest Star Count to Lowest",
+          },
+          {
+            value: "from-lowest-star-count",
+            text: "Lowest Star Count to Highest",
+          },
+        ];
 
-      const sortArticleOption = sortArticleOptions.map((v, i) => {
-        return (
-          <option key={i} value={v.value}>
-            {" "}
-            {v.text}
-          </option>
-        );
-      });
-      setSortArticleOptions(sortArticleOption);
+        const sortArticleOption = sortArticleOptions.map((v, i) => {
+          return (
+            <option key={i} value={v.value}>
+              {" "}
+              {v.text}
+            </option>
+          );
+        });
+        setSortArticleOptions(sortArticleOption);
+      }
+      SetSortArticleOptionsData();
     };
     fetch();
   }, []);
