@@ -6,7 +6,7 @@ const MyProfileList = (props) => {
     <ul className="get-specific-user-list">
       {props.UserArray.map((v, i) => (
         <MyProfileItem
-          key={v.id}
+          key={i}
           id={v.id}
           articles={v.articles}
           email={v.email}

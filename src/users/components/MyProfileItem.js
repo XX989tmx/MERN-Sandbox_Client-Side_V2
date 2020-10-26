@@ -309,7 +309,7 @@ const MyProfileItem = (props) => {
             <ul className="specific-users-article-list no-list-style">
               {props.articles.map((v, i) => {
                 return (
-                  <li className="specific-users-article-item">
+                  <li key={i} className="specific-users-article-item">
                     {" "}
                     <Link to={`/get_specific_article_by_id/${v.id}`}>
                       {" "}
@@ -323,7 +323,7 @@ const MyProfileItem = (props) => {
                           />
                         </div>
                         <div className="specific-user-text-area">
-                          <span className="specific-user-title-text" key={i}>
+                          <span className="specific-user-title-text">
                             {v.title}
                           </span>
                           <br />
@@ -369,7 +369,7 @@ const MyProfileItem = (props) => {
               {" "}
               {props.followedBy.map((v, i) => {
                 return (
-                  <li style={styles.followersLi}>
+                  <li key={i} style={styles.followersLi}>
                     {" "}
                     <a href={`/getSpecificUser/${v.id}`}>
                       <div style={styles.followersFlexContainerDiv}>
@@ -382,9 +382,7 @@ const MyProfileItem = (props) => {
                           />
                         </div>
                         <div style={styles.followersNameContainer}>
-                          <span style={styles.followersName} key={i}>
-                            {v.name}
-                          </span>
+                          <span style={styles.followersName}>{v.name}</span>
                         </div>
                       </div>
                     </a>
@@ -403,7 +401,7 @@ const MyProfileItem = (props) => {
               {" "}
               {props.following.map((v, i) => {
                 return (
-                  <li style={styles.followingListLi}>
+                  <li key={i} style={styles.followingListLi}>
                     {" "}
                     <a href={`/getSpecificUser/${v.id}`}>
                       <div style={styles.followingListFlexContainerDiv}>
@@ -416,9 +414,7 @@ const MyProfileItem = (props) => {
                           />
                         </div>
                         <div style={styles.followingListNameContainer}>
-                          <span style={styles.followingListName} key={i}>
-                            {v.name}
-                          </span>
+                          <span style={styles.followingListName}>{v.name}</span>
                         </div>
                       </div>
                     </a>
@@ -447,7 +443,7 @@ const MyProfileItem = (props) => {
               {" "}
               {props.staredArticles.map((v, i) => {
                 return (
-                  <li className="specific-users-article-item">
+                  <li key={i} className="specific-users-article-item">
                     {" "}
                     <Link to={`/get_specific_article_by_id/${v.id}`}>
                       <div className="specific-user-image-and-text-container">
@@ -460,7 +456,7 @@ const MyProfileItem = (props) => {
                           />
                         </div>
                         <div className="specific-user-text-area">
-                          <span className="specific-user-title-text" key={i}>
+                          <span className="specific-user-title-text">
                             {v.title}
                           </span>
                           <br />
