@@ -243,6 +243,10 @@ const SpecificArticleByIdItem = (props) => {
               style={{ width: "950px", height: "500px" }}
             />
           </div>
+          <div>
+            <h4>Word Count: {props.WordCount} words</h4>
+            <h4>Estimated Reading Time: {props.EstimatedReadingTime} min</h4>
+          </div>
           <div className="article-items-table-of-contents">
             <ul className="article-items-table-of-contents-list">
               {props.contents.map((c, i) => (

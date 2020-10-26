@@ -35,6 +35,8 @@ const GetSpecificArticleById = () => {
   const [Comments, setComments] = useState([]);
   const [ArticleTags, setArticleTags] = useState([]);
   const [ArticleCategories, setArticleCategories] = useState([]);
+  const [WordCount, setWordCount] = useState();
+  const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
 
   const [formState, inputHandler] = useForm(
     {
@@ -75,6 +77,8 @@ const GetSpecificArticleById = () => {
         setComments(responseData.article.comments);
         setArticleTags(responseData.article.tags);
         setArticleCategories(responseData.article.categories);
+        setWordCount(responseData.article.wordCount);
+        setEstimatedReadingTime(responseData.article.estimatedReadingTime);
       } catch (error) {
         console.log(error);
       }
@@ -170,6 +174,8 @@ const GetSpecificArticleById = () => {
                 externalSites={externalSites}
                 articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
                 StaredBy={StaredBy}
+                WordCount={WordCount}
+                EstimatedReadingTime={EstimatedReadingTime}
               />
               <div>
                 <div style={{ padding: "10px", textAlign: "center" }}>
