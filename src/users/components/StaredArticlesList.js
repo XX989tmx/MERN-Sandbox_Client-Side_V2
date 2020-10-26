@@ -1,7 +1,18 @@
 import React from "react";
+import Card from "../../shared/components/UIElements/Card";
 import StaredArticlesItem from "./StaredArticlesItem";
 
 const StaredArticlesList = (props) => {
+  if (props.StaredArticles.length === 0) {
+    return (
+      <div>
+        <Card style={{ width: "300px", textAlign: "center", margin: "auto" }}>
+          <h2>No Stared Articles Found.</h2>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <div>
       {props.StaredArticles.map((v, i) => (
