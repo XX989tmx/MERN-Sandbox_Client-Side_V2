@@ -288,27 +288,26 @@ const FindArticleByTagItems = (props) => {
                   <span>Category:</span>
                   {props.categories.map((v, i) => {
                     return (
-                      <Link
-                        to={`/get_article_by_categories/${v}`}
-                        style={{ textDecoration: "none" }}
+                      <span
+                        style={{
+                          color: "black",
+                          backgroundColor: "#FFD620",
+                          border: "solid 1px black",
+                          padding: "1px 2px 1px 2px",
+                          marginLeft: "10px",
+                          marginTop: "5px",
+                          fontWeight: "600",
+                          boxShadow: "1px 1px 9px grey",
+                        }}
+                        key={i}
                       >
-                        <span
-                          style={{
-                            color: "black",
-                            backgroundColor: "#FFD620",
-                            border: "solid 1px black",
-                            padding: "1px 2px 1px 2px",
-                            marginLeft: "10px",
-                            marginTop: "5px",
-                            fontWeight: "600",
-                            boxShadow: "1px 1px 9px grey",
-                          }}
-                          key={i}
+                        <Link
+                          to={`/get_article_by_categories/${v}`}
+                          style={{ textDecoration: "none" }}
                         >
-                          {" "}
-                          {v}
-                        </span>
-                      </Link>
+                          <span>{v}</span>
+                        </Link>
+                      </span>
                     );
                   })}
                 </div>
@@ -317,25 +316,25 @@ const FindArticleByTagItems = (props) => {
                   <span>Tag:</span>
                   {props.tags.map((v, i) => {
                     return (
-                      <Link
-                        to={`/get_article_by_tags/${v}`}
-                        style={{ textDecoration: "none" }}
+                      <span
+                        style={{
+                          color: "white",
+                          backgroundColor: "black",
+                          padding: "1px 2px 1px 2px",
+                          marginLeft: "10px",
+                          marginTop: "5px",
+                          fontWeight: "600",
+                          boxShadow: "1px 1px 9px grey",
+                        }}
+                        key={i}
                       >
-                        <span
-                          style={{
-                            color: "white",
-                            backgroundColor: "black",
-                            padding: "1px 2px 1px 2px",
-                            marginLeft: "10px",
-                            marginTop: "5px",
-                            fontWeight: "600",
-                            boxShadow: "1px 1px 9px grey",
-                          }}
-                          key={i}
+                        <Link
+                          to={`/get_article_by_tags/${v}`}
+                          style={{ textDecoration: "none" }}
                         >
-                          {v}
-                        </span>{" "}
-                      </Link>
+                          <span> {v}</span>
+                        </Link>
+                      </span>
                     );
                   })}
                 </div>
