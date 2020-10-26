@@ -14,21 +14,46 @@ const StaredArticles = () => {
   const [StaredArticles, setStaredArticles] = useState([]);
   const [SortArticleOptions, setSortArticleOptions] = useState([]);
   const [SortArticleValue, setSortArticleValue] = useState();
+  const [TagNames, setTagNames] = useState([]);
   useEffect(() => {
     const fetch = async (params) => {
-      try {
-        const response = await Axios.get(
-          process.env.REACT_APP_BACKEND_URL +
-            `/articles/getStaredArticles/${auth.userId}`
-        );
-        console.log(response.data);
-        const data = response.data;
-        const staredArticles = data.staredArticles;
-        console.log(staredArticles);
-        setStaredArticles(staredArticles);
-      } catch (error) {
-        console.log(error);
+      async function fetchAndSetStaredArticlesData(params) {
+        try {
+          const response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/getStaredArticles/${auth.userId}`
+          );
+          console.log(response.data);
+          const data = response.data;
+          const staredArticles = data.staredArticles;
+          console.log(staredArticles);
+          setStaredArticles(staredArticles);
+        } catch (error) {
+          console.log(error);
+        }
       }
+      await fetchAndSetStaredArticlesData();
+
+      async function fetchAndSetTagSelectorData(params) {
+        let response;
+        try {
+          response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL + `/articles/tagIndex`
+          );
+          const data = response.data;
+          const tagName = data.responseArray.map((v, i) => {
+            return (
+              <option key={i} value={v.tagName}>
+                {v.tagName}
+              </option>
+            );
+          });
+          setTagNames(tagName);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      await fetchAndSetTagSelectorData();
 
       const sortArticleOptions = [
         { value: "most-viewed", text: "Most Viewed" },
@@ -104,6 +129,26 @@ const StaredArticles = () => {
     console.log(data);
   };
 
+  const TagSortChangeHandler = async (event) => {
+    const tagValue = event.target.value;
+    const query = tagValue;
+    let response;
+    try {
+      response = await Axios.get(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/getStaredArticles/${
+            auth.userId
+          }/?q=tag-search&tag=${encodeURIComponent(query)}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    const data = response.data;
+    const staredArticles = data.staredArticles;
+    setStaredArticles(staredArticles);
+    console.log(data);
+  };
+
   return (
     <React.Fragment>
       {" "}
@@ -126,6 +171,12 @@ const StaredArticles = () => {
               <select name="" onChange={sortArticleChangeHandler}>
                 <option value="">Sort Article</option>
                 {SortArticleOptions}
+              </select>
+            </div>
+            <div>
+              <select name="" id="" onChange={TagSortChangeHandler}>
+                <option value="">Tag Sort</option>
+                {TagNames}
               </select>
             </div>
             <StaredArticlesList StaredArticles={StaredArticles} />
