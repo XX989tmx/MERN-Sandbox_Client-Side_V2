@@ -35,6 +35,8 @@ const StaredArticlesList = (props) => {
           viewCount={v.viewCount}
           comments={v.comments}
           staredBy={v.staredBy}
+          wordCount={v.wordCount}
+          estimatedReadingTime={v.estimatedReadingTime}
         />
       ))}
     </div>
