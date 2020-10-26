@@ -467,16 +467,19 @@ const SpecificArticleByIdItem = (props) => {
         <ul className="same-authors-other-articles-list">
           {props.articlesExceptTheCurrentOne.map(function (elm, index) {
             return (
-              <a href={`/get_specific_article_by_id/${elm.id}`}>
-                <li className="same-authors-other-articles-item" key={index}>
-                  <h4>{elm.title}</h4>
-                  <img
-                    style={{ width: "140px", height: "80px" }}
-                    src={elm.images[0]}
-                  />
-                  <h6>{elm.price}</h6>
-                </li>
-              </a>
+              <li className="same-authors-other-articles-item" key={index}>
+                <a href={`/get_specific_article_by_id/${elm.id}`}>
+                  <div>
+                    {" "}
+                    <h4>{elm.title}</h4>
+                    <img
+                      style={{ width: "140px", height: "80px" }}
+                      src={elm.images[0]}
+                    />
+                    <h6>{elm.price}</h6>
+                  </div>
+                </a>
+              </li>
             );
           })}
         </ul>
