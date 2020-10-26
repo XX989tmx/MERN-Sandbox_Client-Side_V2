@@ -7,7 +7,7 @@ const GetSpecificUserList = (props) => {
     <ul className="get-specific-user-list">
       {props.UserArray.map((v, i) => (
         <GetSpecificUserItem
-          key={v.id}
+          key={i}
           id={v.id}
           articles={v.articles}
           email={v.email}
