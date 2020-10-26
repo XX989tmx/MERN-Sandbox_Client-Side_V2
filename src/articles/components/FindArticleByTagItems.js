@@ -49,22 +49,22 @@ const FindArticleByTagItems = (props) => {
       //   props.content4
       // );
 
-      let contentArray = [];
-      let r;
-      for (let index = 0; index < props.contents.length; index++) {
-        const element = props.contents[index];
-        contentArray.push(element.content);
-        r = contentArray.join(",");
-      }
+      // let contentArray = [];
+      // let r;
+      // for (let index = 0; index < props.contents.length; index++) {
+      //   const element = props.contents[index];
+      //   contentArray.push(element.content);
+      //   r = contentArray.join(",");
+      // }
 
-      const countWord = (value) => {
-        return value.split(/\W+/).length;
-      };
-      setWordCount(countWord(new String(r)));
+      // const countWord = (value) => {
+      //   return value.split(/\W+/).length;
+      // };
+      // setWordCount(countWord(new String(r)));
 
-      setEstimatedReadingTime(
-        new Number(estimatedReadingTime(new String(r))).toFixed(1)
-      );
+      // setEstimatedReadingTime(
+      //   new Number(estimatedReadingTime(new String(r))).toFixed(1)
+      // );
     };
     onLoad();
   }, []);
@@ -255,10 +255,10 @@ const FindArticleByTagItems = (props) => {
                 </div>
               </div>
               <div className="article-body-section2">
-                <p>Word Count: {WordCount}</p>
+                <p>Word Count: {props.wordCount}</p>
 
                 <h4 className="estimated-reading-time-tag">
-                  Estimated Reading Time: {EstimatedReadingTime} min
+                  Estimated Reading Time: {props.estimatedReadingTime} min
                 </h4>
               </div>
               <div className="article-body-section3">
