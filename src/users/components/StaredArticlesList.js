@@ -20,6 +20,7 @@ const StaredArticlesList = (props) => {
           id={v.id}
           key={i}
           title={v.title}
+          contents={v.contents}
           images={v.images}
           referenceSites={v.referenceSites}
           author_name={v.author.name}
