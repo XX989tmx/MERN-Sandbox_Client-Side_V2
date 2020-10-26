@@ -245,21 +245,21 @@ const SpecificArticleByIdItem = (props) => {
           </div>
           <div className="article-items-table-of-contents">
             <ul className="article-items-table-of-contents-list">
-              {props.contents.map((c) => (
-                <HashLink
-                  to={`/get_specific_article_by_id/${props.id}#${c.id}`}
-                >
-                  <li>
+              {props.contents.map((c, i) => (
+                <li key={i}>
+                  <HashLink
+                    to={`/get_specific_article_by_id/${props.id}#${c.id}`}
+                  >
                     {`${props.contents.indexOf(c) + 1} `} {c.heading}
-                  </li>
-                </HashLink>
+                  </HashLink>
+                </li>
               ))}
             </ul>
           </div>
           <div className="article-item__article_content">
             <article>
-              {props.contents.map((c) => (
-                <div>
+              {props.contents.map((c, i) => (
+                <div key={i}>
                   <img
                     src={props.images[props.contents.indexOf(c) + 1]}
                     // alt={props.title}
@@ -305,7 +305,7 @@ const SpecificArticleByIdItem = (props) => {
             </span>
             {/* <p>publishedDate: {props.publishedDate}</p> */}
 
-            <div style={{marginTop:'10px'}}>
+            <div style={{ marginTop: "10px" }}>
               {" "}
               <div style={{ padding: "10px" }}>
                 {" "}
@@ -313,26 +313,27 @@ const SpecificArticleByIdItem = (props) => {
                   <span>Category:</span>
                   {props.categories.map((v, i) => {
                     return (
-                      <Link
-                        to={`/get_article_by_categories/${v}`}
-                        style={{ textDecoration: "none" }}
+                      <span
+                        style={{
+                          color: "black",
+                          backgroundColor: "#FFD620",
+                          border: "solid 1px black",
+                          padding: "1px 2px 1px 2px",
+                          marginLeft: "10px",
+                          marginTop: "5px",
+                          fontWeight: "600",
+                          boxShadow: "1px 1px 9px grey",
+                        }}
+                        key={i}
                       >
-                        <span
-                          style={{
-                            color: "black",
-                            backgroundColor: "#FFD620",
-                            border: "solid 1px black",
-                            padding: "1px 2px 1px 2px",
-                            marginLeft: "10px",
-                            marginTop: "5px",
-                            fontWeight: "600",
-                            boxShadow: "1px 1px 9px grey",
-                          }}
-                          key={i}
+                        <Link
+                          to={`/get_article_by_categories/${v}`}
+                          style={{ textDecoration: "none" }}
                         >
-                          {v}
-                        </span>{" "}
-                      </Link>
+                          {" "}
+                          <span> {v}</span>
+                        </Link>
+                      </span>
                     );
                   })}
                 </div>
@@ -343,25 +344,26 @@ const SpecificArticleByIdItem = (props) => {
                   <span>Tag: </span>
                   {props.tags.map((v, i) => {
                     return (
-                      <Link
-                        to={`/get_article_by_tags/${v}`}
-                        style={{ textDecoration: "none" }}
+                      <span
+                        style={{
+                          color: "white",
+                          backgroundColor: "black",
+                          padding: "1px 2px 1px 2px",
+                          marginLeft: "10px",
+                          marginTop: "5px",
+                          fontWeight: "600",
+                          boxShadow: "1px 1px 9px grey",
+                        }}
+                        key={i}
                       >
-                        <span
-                          style={{
-                            color: "white",
-                            backgroundColor: "black",
-                            padding: "1px 2px 1px 2px",
-                            marginLeft: "10px",
-                            marginTop: "5px",
-                            fontWeight: "600",
-                            boxShadow: "1px 1px 9px grey",
-                          }}
-                          key={i}
+                        <Link
+                          to={`/get_article_by_tags/${v}`}
+                          style={{ textDecoration: "none" }}
                         >
-                          {v}
-                        </span>
-                      </Link>
+                          {" "}
+                          <span> {v}</span>
+                        </Link>
+                      </span>
                     );
                   })}
                 </div>
@@ -409,8 +411,8 @@ const SpecificArticleByIdItem = (props) => {
           <div>
             <h5>References</h5>
             <ul>
-              {props.referenceSites.map((s) => (
-                <li>
+              {props.referenceSites.map((s, i) => (
+                <li key={i}>
                   <a target="_blank" href={s.link}>
                     {s.name}
                   </a>
@@ -421,8 +423,8 @@ const SpecificArticleByIdItem = (props) => {
           <div>
             <h5>External Links</h5>
             <ul>
-              {props.externalSites.map((e) => (
-                <li>
+              {props.externalSites.map((e, i) => (
+                <li key={i}>
                   <a target="_blank" href={e.link}>
                     {e.name}
                   </a>
