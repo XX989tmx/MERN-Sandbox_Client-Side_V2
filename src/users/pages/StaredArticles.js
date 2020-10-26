@@ -212,6 +212,7 @@ const StaredArticles = () => {
           <div>
             {" "}
             <h1> Stared Articles</h1>
+            <h4>{StaredArticles.length} stared articles.</h4>
             <div>
               <select name="" onChange={sortArticleChangeHandler}>
                 <option value="">Sort Article</option>
