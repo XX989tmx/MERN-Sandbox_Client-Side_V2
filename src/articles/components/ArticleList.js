@@ -44,6 +44,8 @@ const ArticleList = (props) => {
           onDelete={props.onDeleteArticle}
           wordCount={article.wordCount}
           estimatedReadingTime={article.estimatedReadingTime}
+          viewCount={article.viewCount}
+          staredBy={article.staredBy}
         />
       ))}
     </ul>

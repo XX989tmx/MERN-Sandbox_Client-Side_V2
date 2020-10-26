@@ -402,6 +402,10 @@ const ArticleItem = (props) => {
                     </span>
                   )}
                 </div>
+                <div>
+                  <span>{props.viewCount} viewed</span>
+                  <span>{props.staredBy.length} Star</span>
+                </div>
                 <div className="date-created-box">
                   <p className="date-created-tag">
                     Date Created: {new Date(props.date_created).toDateString()}
