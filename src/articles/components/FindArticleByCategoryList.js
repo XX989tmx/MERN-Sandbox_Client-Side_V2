@@ -23,6 +23,8 @@ const FindArticleByCategoryList = (props) => {
           categories={item.categories}
           date_created={item.date_created}
           downloadable={item.downloadable}
+          wordCount={item.wordCount}
+          estimatedReadingTime={item.estimatedReadingTime}
         />
       ))}
     </ul>

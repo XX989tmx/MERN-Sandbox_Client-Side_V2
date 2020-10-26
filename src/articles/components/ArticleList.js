@@ -42,6 +42,8 @@ const ArticleList = (props) => {
           downloadable={article.downloadable}
           // publishedDate={article.publishedDate}
           onDelete={props.onDeleteArticle}
+          wordCount={article.wordCount}
+          estimatedReadingTime={article.estimatedReadingTime}
         />
       ))}
     </ul>
