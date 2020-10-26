@@ -308,25 +308,26 @@ const StaredArticlesItem = (props) => {
                   <span>Category:</span>
                   {props.categories.map((v, i) => {
                     return (
-                      <span
-                        style={{
-                          color: "black",
-                          backgroundColor: "#FFD620",
-                          border: "solid 1px black",
-                          padding: "1px 2px 1px 2px",
-                          marginLeft: "10px",
-                          marginTop: "5px",
-                          fontWeight: "600",
-                          boxShadow: "1px 1px 9px grey",
-                        }}
-                        key={i}
-                      >
+                      <span key={i}>
                         <Link
                           to={`/get_article_by_categories/${v}`}
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
-                          <span>{v}</span>
+                          <span
+                            style={{
+                              color: "black",
+                              backgroundColor: "#FFD620",
+                              border: "solid 1px black",
+                              padding: "1px 2px 1px 2px",
+                              marginLeft: "10px",
+                              marginTop: "5px",
+                              fontWeight: "600",
+                              boxShadow: "1px 1px 9px grey",
+                            }}
+                          >
+                            {v}
+                          </span>
                         </Link>
                       </span>
                     );
@@ -337,24 +338,26 @@ const StaredArticlesItem = (props) => {
                   <span> Tag:</span>
                   {props.tags.map((v, i) => {
                     return (
-                      <span
-                        style={{
-                          color: "white",
-                          backgroundColor: "black",
-                          padding: "1px 2px 1px 2px",
-                          marginLeft: "10px",
-                          marginTop: "5px",
-                          fontWeight: "600",
-                          boxShadow: "1px 1px 9px grey",
-                        }}
-                        key={i}
-                      >
+                      <span key={i}>
                         {" "}
                         <Link
                           to={`/get_article_by_tags/${v}`}
                           style={{ textDecoration: "none" }}
                         >
-                          <span> {v}</span>
+                          <span
+                            style={{
+                              color: "white",
+                              backgroundColor: "black",
+                              padding: "1px 2px 1px 2px",
+                              marginLeft: "10px",
+                              marginTop: "5px",
+                              fontWeight: "600",
+                              boxShadow: "1px 1px 9px grey",
+                            }}
+                          >
+                            {" "}
+                            {v}
+                          </span>
                         </Link>
                       </span>
                     );
