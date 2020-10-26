@@ -412,6 +412,7 @@ const SpecificArticleByIdItem = (props) => {
                 Not Downloadable
               </span>
             )}
+            <span>{props.ViewCount} viewed</span>
             <p style={{ fontSize: "14px", color: "grey" }}>
               Date Created: {new Date(props.date_created).toDateString()}
             </p>

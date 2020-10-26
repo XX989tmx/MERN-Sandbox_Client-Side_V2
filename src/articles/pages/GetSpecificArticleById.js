@@ -37,6 +37,7 @@ const GetSpecificArticleById = () => {
   const [ArticleCategories, setArticleCategories] = useState([]);
   const [WordCount, setWordCount] = useState();
   const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
+  const [ViewCount, setViewCount] = useState();
 
   const [formState, inputHandler] = useForm(
     {
@@ -79,6 +80,7 @@ const GetSpecificArticleById = () => {
         setArticleCategories(responseData.article.categories);
         setWordCount(responseData.article.wordCount);
         setEstimatedReadingTime(responseData.article.estimatedReadingTime);
+        setViewCount(responseData.article.viewCount);
       } catch (error) {
         console.log(error);
       }
@@ -176,6 +178,7 @@ const GetSpecificArticleById = () => {
                 StaredBy={StaredBy}
                 WordCount={WordCount}
                 EstimatedReadingTime={EstimatedReadingTime}
+                ViewCount={ViewCount}
               />
               <div>
                 <div style={{ padding: "10px", textAlign: "center" }}>
