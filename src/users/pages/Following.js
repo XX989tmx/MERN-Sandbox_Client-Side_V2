@@ -1,9 +1,37 @@
 import React from "react";
+import Axios from "axios";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
+import FollowingList from "../components/FollowingList";
+import { useState } from "react";
+import {AuthContext} from "../../shared/context/auth-context";
+import { useContext } from "react";
+import { useEffect } from "react";
 
 const Following = () => {
+  const auth = useContext(AuthContext);
+  const [Following, setFollowing] = useState([]);
+  useEffect(() => {
+    const fetch = async (params) => {
+      async function getAndSetFollowingData(params) {
+        let response;
+        try {
+          response = await Axios.get(
+            `${process.env.REACT_APP_BACKEND_URL}/users/getUsersYouAreFollowing/${auth.userId}`
+          );
+        } catch (error) {
+          console.log(error);
+        }
+        const data = response.data;
+        console.log(data);
+        const peopleYouAreFollowing = data.peopleYouAreFollowing;
+        setFollowing(peopleYouAreFollowing);
+      }
+      await getAndSetFollowingData();
+    };
+    fetch();
+  }, []);
   return (
     <React.Fragment>
       {" "}
@@ -22,6 +50,7 @@ const Following = () => {
           <div>
             {" "}
             <h1> Following</h1>
+            <FollowingList Following={Following}/>
           </div>
         </div>
         <div
