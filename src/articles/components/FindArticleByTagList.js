@@ -25,6 +25,8 @@ const FindArticleByTagList = (props) => {
           downloadable={item.downloadable}
           wordCount={item.wordCount}
           estimatedReadingTime={item.estimatedReadingTime}
+          viewCount={item.viewCount}
+          staredBy={item.staredBy}
         />
       ))}
     </ul>
