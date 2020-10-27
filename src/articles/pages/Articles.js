@@ -12,6 +12,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 import { dateOptions } from "../data/article-date-sort-data";
+import articlePopulalitySortData from "../data/article-populality-sort-data";
 
 import "./Articles.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
@@ -23,6 +24,7 @@ import PriceSortSelector from "../components/PriceSortSelector";
 import DownloadableOrNotSelector from "../components/DownloadableOrNotSelector";
 import CategorySelector from "../components/CategorySelector";
 import TagSelector from "../components/TagSelector";
+import popularitySortOptions from "../data/article-populality-sort-data";
 
 const Articles = () => {
   const [AllArticles, setAllArticles] = useState([]);
@@ -43,6 +45,7 @@ const Articles = () => {
   // const [TagNames, setTagNames] = useState();
   // const [CategoryNames, setCategoryNames] = useState();
   const [Top5MostViewedArticles, setTop5MostViewedArticles] = useState([]);
+  const [PopularitySortOptions, setPopularitySortOptions] = useState([]);
 
   useEffect(() => {
     const allArticles = async (params) => {
@@ -99,6 +102,16 @@ const Articles = () => {
           );
         });
         setDateSelector(dateSelector);
+      } catch (error) {}
+      try {
+        const popularitySortOption = popularitySortOptions.map((v, i) => {
+          return (
+            <option key={i} value={v.value}>
+              {v.text}
+            </option>
+          );
+        });
+        setPopularitySortOptions(popularitySortOption);
       } catch (error) {}
       try {
         const response = await Axios.get(
@@ -311,6 +324,23 @@ const Articles = () => {
     } catch (error) {}
   };
 
+  const popularitySortHandler = async (event) => {
+    const query = event.target.value;
+    let response;
+    try {
+      response = await Axios.get(
+        `${
+          process.env.REACT_APP_BACKEND_URL
+        }/articles/popularitySort?q=${encodeURIComponent(query)}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    const data = response.data;
+    const sortedArticles = data.sortedArticles;
+    setAllArticles(sortedArticles);
+  };
+
   return (
     <React.Fragment>
       {/* {isLoading && (
@@ -356,6 +386,13 @@ const Articles = () => {
                 <DownloadableOrNotSelector
                   DownloadableHandler={DownloadableHandler}
                 />
+              </span>
+
+              <span>
+                <select name="" id="" onChange={popularitySortHandler}>
+                  <option value="">Popularity Sort</option>
+                  {PopularitySortOptions}
+                </select>
               </span>
 
               {/* <span className="selector-item">
