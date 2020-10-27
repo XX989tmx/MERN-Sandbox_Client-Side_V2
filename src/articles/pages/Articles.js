@@ -326,9 +326,9 @@ const Articles = () => {
 
   const popularitySortHandler = async (event) => {
     const query = event.target.value;
-    let response;
+    let responseData;
     try {
-      response = await Axios.get(
+      responseData = await sendRequest(
         `${
           process.env.REACT_APP_BACKEND_URL
         }/articles/popularitySort?q=${encodeURIComponent(query)}`
@@ -336,8 +336,7 @@ const Articles = () => {
     } catch (error) {
       console.log(error);
     }
-    const data = response.data;
-    const sortedArticles = data.sortedArticles;
+    const sortedArticles = responseData.sortedArticles;
     setAllArticles(sortedArticles);
   };
 
