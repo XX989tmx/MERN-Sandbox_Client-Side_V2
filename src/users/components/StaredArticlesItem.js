@@ -396,8 +396,20 @@ const StaredArticlesItem = (props) => {
                   )}
                 </div>
                 <div>
-                  <span>{props.viewCount} viewed</span>
-                  <span>{props.staredBy.length} star</span>
+                  <span style={{ marginLeft: "10px" }}>
+                    {" "}
+                    <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                      {props.viewCount}
+                    </span>{" "}
+                    <span style={{ fontSize: "13px" }}> viewed</span>
+                  </span>
+                  <span style={{ marginLeft: "10px" }}>
+                    {" "}
+                    <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                      {props.staredBy.length}
+                    </span>{" "}
+                    <span style={{ fontSize: "10px" }}> star</span>
+                  </span>
                 </div>
                 <div className="date-created-box">
                   <p className="date-created-tag">
