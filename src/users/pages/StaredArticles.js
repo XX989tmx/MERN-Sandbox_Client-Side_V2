@@ -213,23 +213,33 @@ const StaredArticles = () => {
             {" "}
             <h1> Stared Articles</h1>
             <h4>{StaredArticles.length} stared articles.</h4>
-            <div>
-              <select name="" onChange={sortArticleChangeHandler}>
-                <option value="">Sort Article</option>
-                {SortArticleOptions}
-              </select>
-            </div>
-            <div>
-              <select name="" id="" onChange={TagSortChangeHandler}>
-                <option value="">Tag Sort</option>
-                {TagNames}
-              </select>
-            </div>
-            <div>
-              <select name="" id="" onChange={CategorySortChangeHandler}>
-                <option value="">Category Sort</option>
-                {CategoryNames}
-              </select>
+            <div style={{ padding: "10px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ marginLeft: "13px" }}>
+                  <select name="" onChange={sortArticleChangeHandler}>
+                    <option value="">Sort Article</option>
+                    {SortArticleOptions}
+                  </select>
+                </div>
+                <div style={{ marginLeft: "13px" }}>
+                  <select name="" id="" onChange={TagSortChangeHandler}>
+                    <option value="">Tag Sort</option>
+                    {TagNames}
+                  </select>
+                </div>
+                <div style={{ marginLeft: "13px" }}>
+                  <select name="" id="" onChange={CategorySortChangeHandler}>
+                    <option value="">Category Sort</option>
+                    {CategoryNames}
+                  </select>
+                </div>
+              </div>
             </div>
             <StaredArticlesList StaredArticles={StaredArticles} />
           </div>
