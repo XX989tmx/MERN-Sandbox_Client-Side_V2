@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {AuthContext} from "../../shared/context/auth-context";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const MyProfileSideNavigation = () => {
   const [NavigationLinkLists, setNavigationLinkLists] = useState([]);
@@ -38,9 +38,13 @@ const MyProfileSideNavigation = () => {
     <div
       style={{
         width: "350px",
-        height: "100%",
+        maxHeight: "100vh",
         border: "solid 1px black",
         backgroundColor: "#3A3A39",
+        position: "sticky",
+        top: "100px",
+        borderRadius: "10px",
+        boxShadow: "0px 1px 9px grey",
       }}
     >
       <div style={{ padding: "10px" }}>
@@ -57,9 +61,9 @@ const MyProfileSideNavigation = () => {
         >
           {NavigationLinkLists.map((v, i) => (
             <li key={i}>
-              <div >
+              <div>
                 <NavLink to={v.link}>
-                  <div style={{padding:'15px'}}>
+                  <div style={{ padding: "15px" }}>
                     <span style={{ color: "white" }}>{v.title}</span>
                   </div>
                 </NavLink>
