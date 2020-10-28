@@ -238,12 +238,27 @@ const MyProfileItem = (props) => {
                       </li>
                     </ul>
                   </div>
-                  <div>
-                    <Button btnBlack
-                      to={`/updateProfile/${props.id}/${props.profile.id}`}
+                  <div style={{ padding: "10px", marginTop: "20px" }}>
+                    {" "}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                        alignContent: "center",
+                      }}
                     >
-                      Update Profile
-                    </Button>
+                      <span>
+                        {" "}
+                        <Button
+                          btnBlack
+                          to={`/updateProfile/${props.id}/${props.profile.id}`}
+                        >
+                          Update Profile
+                        </Button>
+                      </span>
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -252,7 +267,9 @@ const MyProfileItem = (props) => {
                   <h5 style={styles.heading}>
                     You do not have profile information yet
                   </h5>
-                  <Button btnBlack to={`/addProfileInformation`}>Create Profile</Button>
+                  <Button btnBlack to={`/addProfileInformation`}>
+                    Create Profile
+                  </Button>
                 </div>
               )}
             </div>
