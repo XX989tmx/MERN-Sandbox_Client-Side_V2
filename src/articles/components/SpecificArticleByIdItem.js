@@ -308,7 +308,6 @@ const SpecificArticleByIdItem = (props) => {
               {/* </Button> */}
             </span>
             {/* <p>publishedDate: {props.publishedDate}</p> */}
-
             <div style={{ marginTop: "10px" }}>
               {" "}
               <div style={{ padding: "10px" }}>
@@ -377,7 +376,6 @@ const SpecificArticleByIdItem = (props) => {
                 </div>
               </div>
             </div>
-
             <div>
               <h4>{props.StaredBy.length} Star</h4>
             </div>
@@ -412,7 +410,13 @@ const SpecificArticleByIdItem = (props) => {
                 Not Downloadable
               </span>
             )}
-            <span>{props.ViewCount} viewed</span>
+            <span style={{ marginLeft: "10px" }}>
+              {" "}
+              <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                {props.ViewCount}
+              </span>{" "}
+              <span style={{ fontSize: "13px" }}> viewed</span>
+            </span>
             <p style={{ fontSize: "14px", color: "grey" }}>
               Date Created: {new Date(props.date_created).toDateString()}
             </p>
