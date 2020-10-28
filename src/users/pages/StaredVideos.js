@@ -25,7 +25,7 @@ const StaredVideos = () => {
           </div>
         </div>
         <div
-          style={{ padding: "20px", width: "400px" }}
+          style={{ padding: "20px", width: "370px" }}
           className="my-profile-sidebar-area"
         >
           <MyProfileSideNavigation />

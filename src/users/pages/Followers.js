@@ -46,11 +46,11 @@ const Followers = () => {
           <div>
             {" "}
             <h1> Followers</h1>
-            <FollowersList Followers={Followers}/>
+            <FollowersList Followers={Followers} />
           </div>
         </div>
         <div
-          style={{ padding: "20px", width: "400px" }}
+          style={{ padding: "20px", width: "370px" }}
           className="my-profile-sidebar-area"
         >
           <MyProfileSideNavigation />
