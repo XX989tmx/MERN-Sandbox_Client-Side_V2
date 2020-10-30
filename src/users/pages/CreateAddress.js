@@ -13,6 +13,7 @@ import {
 import CountryListSelector from "../components/CountryListSelector";
 import { useState } from "react";
 import TodoufukenArray from "../components/TodoufukenArray";
+import Axios from "axios";
 
 const CreateAddress = () => {
   const [ZipCode1, setZipCode1] = useState("");
@@ -37,16 +38,14 @@ const CreateAddress = () => {
 
   useEffect(() => {
     const fetch = (params) => {
-     
-        const todoufukenOptions = TodoufukenArray.map((v, i) => {
-          return (
-            <option key={i} value={v}>
-              {v}
-            </option>
-          );
-        });
-        setTodoufukenOption(todoufukenOptions);
-      
+      const todoufukenOptions = TodoufukenArray.map((v, i) => {
+        return (
+          <option key={i} value={v}>
+            {v}
+          </option>
+        );
+      });
+      setTodoufukenOption(todoufukenOptions);
     };
 
     fetch();
@@ -76,7 +75,36 @@ const CreateAddress = () => {
   };
 
   const addressInformationSubmitHandler = async (event) => {
-      
+    event.preventDefault();
+    const zipCodeValue = ZipCode1 + ZipCode2;
+    console.log(zipCodeValue);
+    const countryValue = Country;
+    console.log(countryValue);
+    const todoufukenValue = TodoufukenValue;
+    console.log(todoufukenValue);
+    const data = {
+      zip_code: zipCodeValue,
+      country: countryValue,
+      todoufuken: todoufukenValue,
+      name: formState.inputs.name.value,
+      address_info1: formState.inputs.address_info1.value,
+      address_info2: formState.inputs.address_info2.value,
+      phone_number: formState.inputs.phone_number.value,
+      email: formState.inputs.email.value,
+      company: formState.inputs.company.value,
+    };
+    console.log(data);
+    let response;
+    try {
+      response = await Axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/users/createAddress/${auth.userId}`,
+        data
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
+    history.push(`/${auth.userId}/address`);
   };
 
   return (
