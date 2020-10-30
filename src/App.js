@@ -132,7 +132,7 @@ const App = () => {
         <Route path="/:userId/createAddress" exact>
           <CreateAddress />
         </Route>
-        <Route path="/:userId/updateAddress" exact>
+        <Route path="/:userId/updateAddress/:addressId" exact>
           <UpdateAddress />
         </Route>
         <Route path="/:userId/analytics" exact>

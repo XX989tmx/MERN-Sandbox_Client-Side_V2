@@ -49,7 +49,7 @@ const AddressItem = (props) => {
           </div>
         </div>
         <div style={{ height: "10%" }}>
-          <Link to={`/${auth.userId}/updateAddress`}>
+          <Link to={`/${auth.userId}/updateAddress/${props.id}`}>
             <Button>Update</Button>
           </Link>
 
