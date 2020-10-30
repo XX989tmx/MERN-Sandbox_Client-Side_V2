@@ -14,6 +14,7 @@ import CountryListSelector from "../components/CountryListSelector";
 import { useState } from "react";
 import TodoufukenArray from "../components/TodoufukenArray";
 import Axios from "axios";
+import { EmailRounded } from "@material-ui/icons";
 
 const CreateAddress = () => {
   const [ZipCode1, setZipCode1] = useState("");
@@ -118,23 +119,32 @@ const CreateAddress = () => {
 
           <div className="address-form-area">
             <form action="" onSubmit={addressInformationSubmitHandler}>
-              <CountryListSelector
-                countryListChangeHandler={countryListChangeHandler}
-              />
-              <Input
-                id="name"
-                element="input"
-                type="text"
-                label="name"
-                placeholder="Your name"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid name."
-                onInput={inputHandler}
-              />{" "}
-              <span>required</span>
+              <div>
+                {" "}
+                <span>Country and Region</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <CountryListSelector
+                  countryListChangeHandler={countryListChangeHandler}
+                />
+              </div>
+              <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                <span>Name</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>{" "}
+                <Input
+                  id="name"
+                  element="input"
+                  type="text"
+                  placeholder="Your name"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid name."
+                  onInput={inputHandler}
+                />{" "}
+              </div>
+
               <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                 {" "}
-                <span>zip code</span>
+                <span>Zip Code</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
                 <div>
                   <input
                     id="zip_code1"
@@ -154,9 +164,10 @@ const CreateAddress = () => {
                     style={{ width: "200px", height: "30px" }}
                   />
                 </div>
-                <span>required</span>
               </div>
               <div style={{ marginTop: "20px", marginBottom: "10px" }}>
+                <span>Todoufuken</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
                 <select
                   name=""
                   id="todoufukenSelector"
@@ -172,61 +183,75 @@ const CreateAddress = () => {
                   {TodoufukenOption}
                 </select>
               </div>
-              <Input
-                id="address_info1"
-                element="input"
-                type="text"
-                label="address_info1"
-                placeholder="shinzyukuku example chyou 9-99-99"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />
-              <span>required</span>
-              <Input
-                id="address_info2"
-                element="input"
-                type="text"
-                label="address_info2"
-                placeholder="example building 789"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid address."
-                onInput={inputHandler}
-              />{" "}
-              <span>optional</span>
-              <Input
-                id="phone_number"
-                element="input"
-                type="number"
-                label="phone_number"
-                placeholder="99999999999 (do not use -)"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid phone number."
-                onInput={inputHandler}
-              />
-              <span>required</span>
-              <Input
-                id="email"
-                element="input"
-                type="email"
-                label="email"
-                placeholder="example@gmail.com"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid phone email."
-                onInput={inputHandler}
-              />
-              <span>required</span>
-              <Input
-                id="company"
-                element="input"
-                type="company"
-                label="company"
-                placeholder="Your Company"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a valid company name."
-                onInput={inputHandler}
-              />{" "}
-              <span>optional</span>
+              <div>
+                <span>Address1</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <Input
+                  id="address_info1"
+                  element="input"
+                  type="text"
+                  placeholder="shinzyukuku example chyou 9-99-99"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div>
+                {" "}
+                <span>Address2</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <Input
+                  id="address_info2"
+                  element="input"
+                  type="text"
+                  placeholder="example building 789"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid address."
+                  onInput={inputHandler}
+                />{" "}
+              </div>
+              <div>
+                {" "}
+                <span>Phone Number</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <Input
+                  id="phone_number"
+                  element="input"
+                  type="number"
+                  placeholder="99999999999 (do not use -)"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid phone number."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div>
+                {" "}
+                <span>Email</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <Input
+                  id="email"
+                  element="input"
+                  type="email"
+                  placeholder="example@gmail.com"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid phone email."
+                  onInput={inputHandler}
+                />
+              </div>
+              <div>
+                {" "}
+                <span>Company</span>{" "}
+                <span style={{ color: "red" }}>(*Required)</span>
+                <Input
+                  id="company"
+                  element="input"
+                  type="company"
+                  placeholder="Your Company"
+                  validators={[VALIDATOR_REQUIRE()]}
+                  errorText="Please enter a valid company name."
+                  onInput={inputHandler}
+                />{" "}
+              </div>
               <Button btnBlack type="submit">
                 Submit
               </Button>
