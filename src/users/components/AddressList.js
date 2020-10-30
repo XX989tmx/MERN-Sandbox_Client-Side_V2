@@ -17,6 +17,7 @@ const AddressList = (props) => {
           phone_number={v.phone_number}
           email={v.email}
           company={v.company}
+          
         />
       ))}
     </ul>

@@ -4,17 +4,31 @@ import { Link } from "react-router-dom";
 import Button from "../../shared/components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 import Modal from "../../shared/components/UIElements/Modal";
-
+import Axios from "axios";
+import { useParams, useHistory } from "react-router-dom";
 const AddressItem = (props) => {
   const auth = useContext(AuthContext);
   const [ShowDeleteAddressModal, setShowDeleteAddressModal] = useState(false);
-
+  const addressId = useParams().addressId;
+  const history = useHistory();
   const openDeleteAddressModalHandler = (params) => {
     setShowDeleteAddressModal(true);
   };
 
   const closeDeleteAddressModalHandler = (params) => {
     setShowDeleteAddressModal(false);
+  };
+
+  const deleteAddressSubmitHandler = async (event) => {
+    // event.preventDefault();
+    try {
+      await Axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/users/deleteAddress/${auth.userId}/${props.id}`
+      );
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <React.Fragment>
@@ -27,7 +41,9 @@ const AddressItem = (props) => {
             <Button btnBlack onClick={closeDeleteAddressModalHandler}>
               Cancel
             </Button>
-            <Button danger>Delete</Button>
+            <Button danger onClick={deleteAddressSubmitHandler}>
+              Delete
+            </Button>
           </React.Fragment>
         }
       >

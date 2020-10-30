@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
@@ -10,6 +11,7 @@ import { Link } from "react-router-dom";
 const Address = () => {
   const auth = useContext(AuthContext);
   const [Addresses, setAddresses] = useState([]);
+  const addressId = useParams().addressId;
   useEffect(() => {
     const fetch = async (params) => {
       let response;
@@ -28,6 +30,8 @@ const Address = () => {
     };
     fetch();
   }, []);
+
+  
 
   return (
     <React.Fragment>
@@ -55,7 +59,10 @@ const Address = () => {
             <h4>update address</h4>
             <h4>delete address</h4>
             <div>
-              <AddressList Addresses={Addresses} />
+              <AddressList
+                Addresses={Addresses}
+                
+              />
             </div>
           </div>
         </div>
