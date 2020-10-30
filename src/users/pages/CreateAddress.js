@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
@@ -10,8 +10,16 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import CountryListSelector from "../components/CountryListSelector";
+import { useState } from "react";
+import TodoufukenArray from "../components/TodoufukenArray";
 
 const CreateAddress = () => {
+  const [ZipCode1, setZipCode1] = useState("");
+  const [ZipCode2, setZipCode2] = useState("");
+  const [Country, setCountry] = useState("");
+  const [TodoufukenOption, setTodoufukenOption] = useState([]);
+  const [TodoufukenValue, setTodoufukenValue] = useState("");
   const auth = useContext(AuthContext);
   const [formState, inputHandler] = useForm(
     {
@@ -27,12 +35,59 @@ const CreateAddress = () => {
 
   const history = useHistory();
 
+  useEffect(() => {
+    const fetch = (params) => {
+     
+        const todoufukenOptions = TodoufukenArray.map((v, i) => {
+          return (
+            <option key={i} value={v}>
+              {v}
+            </option>
+          );
+        });
+        setTodoufukenOption(todoufukenOptions);
+      
+    };
+
+    fetch();
+  }, []);
+
+  const zipCode1ChangeHandler = (event) => {
+    const zipCode1 = event.target.value;
+    console.log(zipCode1);
+    setZipCode1(zipCode1);
+  };
+
+  const zipCode2ChangeHandler = (event) => {
+    const zipCode2 = event.target.value;
+    console.log(zipCode2);
+    setZipCode2(zipCode2);
+  };
+
+  const countryListChangeHandler = (event) => {
+    console.log(event.target.value);
+    setCountry(event.target.value);
+  };
+
+  const todoufukenChangeHandler = (event) => {
+    const todoufukenV = event.target.value;
+    console.log(todoufukenV);
+    setTodoufukenValue(todoufukenV);
+  };
+
+  const addressInformationSubmitHandler = async (event) => {
+      
+  };
+
   return (
     <div>
       <h1>create address</h1>
 
       <div className="address-form-area">
-        <form action="">
+        <form action="" onSubmit={addressInformationSubmitHandler}>
+          <CountryListSelector
+            countryListChangeHandler={countryListChangeHandler}
+          />
           <Input
             id="name"
             element="input"
@@ -47,10 +102,30 @@ const CreateAddress = () => {
           <div>
             {" "}
             <span>zip code</span>
-            <input type="text" />
+            <input
+              id="zip_code1"
+              type="text"
+              value={ZipCode1}
+              onChange={zipCode1ChangeHandler}
+            />
             -
-            <input type="text" />
+            <input
+              id="zip_code2"
+              type="text"
+              value={ZipCode2}
+              onChange={zipCode2ChangeHandler}
+            />
             <span>required</span>
+          </div>
+          <div>
+            <select
+              name=""
+              id="todoufukenSelector"
+              onChange={todoufukenChangeHandler}
+            >
+              <option value="">chose todoufuken</option>
+              {TodoufukenOption}
+            </select>
           </div>
           <Input
             id="address_info1"
