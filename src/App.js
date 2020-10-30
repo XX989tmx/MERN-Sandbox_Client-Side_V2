@@ -62,6 +62,8 @@ import Billing from "./users/pages/Billing";
 import Address from "./users/pages/Address";
 import Analytics from "./users/pages/Analytics";
 import StaredVideos from "./users/pages/StaredVideos";
+import CreateAddress from "./users/pages/CreateAddress";
+import UpdateAddress from "./users/pages/UpdateAddress";
 
 const Articles = React.lazy(() => import("./articles/pages/Articles"));
 const Users = React.lazy(() => import("./users/pages/Users"));
@@ -126,6 +128,12 @@ const App = () => {
         </Route>
         <Route path="/:userId/address" exact>
           <Address />
+        </Route>
+        <Route path="/:userId/createAddress" exact>
+          <CreateAddress />
+        </Route>
+        <Route path="/:userId/updateAddress" exact>
+          <UpdateAddress />
         </Route>
         <Route path="/:userId/analytics" exact>
           <Analytics />

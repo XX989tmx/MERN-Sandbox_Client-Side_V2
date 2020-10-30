@@ -5,6 +5,7 @@ import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
 import Axios from "axios";
 import { AuthContext } from "../../shared/context/auth-context";
 import AddressList from "../components/AddressList";
+import { Link } from "react-router-dom";
 
 const Address = () => {
   const auth = useContext(AuthContext);
@@ -48,7 +49,9 @@ const Address = () => {
             <h1> Address</h1>
             <h4>default address</h4>
             <h4>check all address</h4>
-            <h4>add address</h4>
+            <Link to={`/${auth.userId}/createAddress`}>
+              <h4>create address</h4>
+            </Link>
             <h4>update address</h4>
             <h4>delete address</h4>
             <div>
