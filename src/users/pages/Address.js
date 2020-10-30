@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
+import Axios from "axios";
+import { AuthContext } from "../../shared/context/auth-context";
+import AddressList from "../components/AddressList";
 
 const Address = () => {
+  const auth = useContext(AuthContext);
+  const [Addresses, setAddresses] = useState([]);
+  useEffect(() => {
+    const fetch = async (params) => {
+      let response;
+      try {
+        response = await Axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/users/getAllAddress/${auth.userId}`
+        );
+      } catch (error) {
+        console.log(error);
+      }
+      const data = response.data;
+      console.log(data);
+      const addresses = data.user.addresses;
+      setAddresses(addresses);
+      console.log(addresses);
+    };
+    fetch();
+  }, []);
+
   return (
     <React.Fragment>
       {" "}
@@ -27,6 +51,9 @@ const Address = () => {
             <h4>add address</h4>
             <h4>update address</h4>
             <h4>delete address</h4>
+            <div>
+              <AddressList Addresses={Addresses} />
+            </div>
           </div>
         </div>
         <div
