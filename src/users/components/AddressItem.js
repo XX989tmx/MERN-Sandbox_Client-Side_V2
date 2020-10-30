@@ -1,8 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../shared/components/FormElements/Button";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const AddressItem = (props) => {
+  const auth = useContext(AuthContext);
   return (
     <li>
       <div
@@ -46,7 +49,10 @@ const AddressItem = (props) => {
           </div>
         </div>
         <div style={{ height: "10%" }}>
-          <Button>Update</Button>
+          <Link to={`/${auth.userId}/updateAddress`}>
+            <Button>Update</Button>
+          </Link>
+
           <Button>Delete</Button>
         </div>
       </div>
