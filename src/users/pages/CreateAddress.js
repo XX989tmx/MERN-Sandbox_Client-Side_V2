@@ -108,112 +108,123 @@ const CreateAddress = () => {
   };
 
   return (
-    <div>
-      <h1>create address</h1>
+    <React.Fragment>
+      <div
+        className="create-address-container"
+        style={{ width: "960px", height: "100vh", margin: "auto" }}
+      >
+        <div style={{ padding: "10px 180px 10px 180px" }}>
+          <h1>create address</h1>
 
-      <div className="address-form-area">
-        <form action="" onSubmit={addressInformationSubmitHandler}>
-          <CountryListSelector
-            countryListChangeHandler={countryListChangeHandler}
-          />
-          <Input
-            id="name"
-            element="input"
-            type="text"
-            label="name"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid name."
-            onInput={inputHandler}
-          />{" "}
-          <span>required</span>
-          <div>
-            {" "}
-            <span>zip code</span>
-            <input
-              id="zip_code1"
-              type="text"
-              value={ZipCode1}
-              onChange={zipCode1ChangeHandler}
-            />
-            -
-            <input
-              id="zip_code2"
-              type="text"
-              value={ZipCode2}
-              onChange={zipCode2ChangeHandler}
-            />
-            <span>required</span>
+          <div className="address-form-area">
+            <form action="" onSubmit={addressInformationSubmitHandler}>
+              <CountryListSelector
+                countryListChangeHandler={countryListChangeHandler}
+              />
+              <Input
+                id="name"
+                element="input"
+                type="text"
+                label="name"
+                placeholder="Your name"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid name."
+                onInput={inputHandler}
+              />{" "}
+              <span>required</span>
+              <div>
+                {" "}
+                <span>zip code</span>
+                <input
+                  id="zip_code1"
+                  type="text"
+                  placeholder="000"
+                  value={ZipCode1}
+                  onChange={zipCode1ChangeHandler}
+                />
+                -
+                <input
+                  id="zip_code2"
+                  type="text"
+                  placeholder="0000"
+                  value={ZipCode2}
+                  onChange={zipCode2ChangeHandler}
+                />
+                <span>required</span>
+              </div>
+              <div>
+                <select
+                  name=""
+                  id="todoufukenSelector"
+                  onChange={todoufukenChangeHandler}
+                >
+                  <option value="">chose todoufuken</option>
+                  {TodoufukenOption}
+                </select>
+              </div>
+              <Input
+                id="address_info1"
+                element="input"
+                type="text"
+                label="address_info1"
+                placeholder="shinzyukuku example chyou 9-99-99"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />
+              <span>required</span>
+              <Input
+                id="address_info2"
+                element="input"
+                type="text"
+                label="address_info2"
+                placeholder="example building 789"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid address."
+                onInput={inputHandler}
+              />{" "}
+              <span>optional</span>
+              <Input
+                id="phone_number"
+                element="input"
+                type="number"
+                label="phone_number"
+                placeholder="99999999999 (do not use -)"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid phone number."
+                onInput={inputHandler}
+              />
+              <span>required</span>
+              <Input
+                id="email"
+                element="input"
+                type="email"
+                label="email"
+                placeholder="example@gmail.com"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid phone email."
+                onInput={inputHandler}
+              />
+              <span>required</span>
+              <Input
+                id="company"
+                element="input"
+                type="company"
+                label="company"
+                placeholder="Your Company"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a valid company name."
+                onInput={inputHandler}
+              />{" "}
+              <span>optional</span>
+              <Button type="submit">Submit</Button>
+            </form>
           </div>
-          <div>
-            <select
-              name=""
-              id="todoufukenSelector"
-              onChange={todoufukenChangeHandler}
-            >
-              <option value="">chose todoufuken</option>
-              {TodoufukenOption}
-            </select>
-          </div>
-          <Input
-            id="address_info1"
-            element="input"
-            type="text"
-            label="address_info1"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />
-          <span>required</span>
-          <Input
-            id="address_info2"
-            element="input"
-            type="text"
-            label="address_info2"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid address."
-            onInput={inputHandler}
-          />{" "}
-          <span>optional</span>
-          <Input
-            id="phone_number"
-            element="input"
-            type="number"
-            label="phone_number"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid phone number."
-            onInput={inputHandler}
-          />
-          <span>required</span>
-          <Input
-            id="email"
-            element="input"
-            type="email"
-            label="email"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid phone email."
-            onInput={inputHandler}
-          />
-          <span>required</span>
-          <Input
-            id="company"
-            element="input"
-            type="company"
-            label="company"
-            placeholder="text"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a valid company name."
-            onInput={inputHandler}
-          />{" "}
-          <span>optional</span>
-          <Button type="submit">Submit</Button>
-        </form>
+        </div>
       </div>
-    </div>
+      <MoveToTopButton />
+      <FooterMainNavigation />
+    </React.Fragment>
   );
 };
 
