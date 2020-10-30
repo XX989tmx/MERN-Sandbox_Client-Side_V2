@@ -132,31 +132,41 @@ const CreateAddress = () => {
                 onInput={inputHandler}
               />{" "}
               <span>required</span>
-              <div>
+              <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                 {" "}
                 <span>zip code</span>
-                <input
-                  id="zip_code1"
-                  type="text"
-                  placeholder="000"
-                  value={ZipCode1}
-                  onChange={zipCode1ChangeHandler}
-                />
-                -
-                <input
-                  id="zip_code2"
-                  type="text"
-                  placeholder="0000"
-                  value={ZipCode2}
-                  onChange={zipCode2ChangeHandler}
-                />
+                <div>
+                  <input
+                    id="zip_code1"
+                    type="text"
+                    placeholder="000"
+                    value={ZipCode1}
+                    onChange={zipCode1ChangeHandler}
+                    style={{ width: "200px", height: "30px" }}
+                  />
+                  -
+                  <input
+                    id="zip_code2"
+                    type="text"
+                    placeholder="0000"
+                    value={ZipCode2}
+                    onChange={zipCode2ChangeHandler}
+                    style={{ width: "200px", height: "30px" }}
+                  />
+                </div>
                 <span>required</span>
               </div>
-              <div>
+              <div style={{ marginTop: "20px", marginBottom: "10px" }}>
                 <select
                   name=""
                   id="todoufukenSelector"
                   onChange={todoufukenChangeHandler}
+                  style={{
+                    width: "600px",
+                    height: "30px",
+                    color: "black",
+                    boxShadow: "0px 1px 7px grey",
+                  }}
                 >
                   <option value="">chose todoufuken</option>
                   {TodoufukenOption}
@@ -217,7 +227,9 @@ const CreateAddress = () => {
                 onInput={inputHandler}
               />{" "}
               <span>optional</span>
-              <Button type="submit">Submit</Button>
+              <Button btnBlack type="submit">
+                Submit
+              </Button>
             </form>
           </div>
         </div>
