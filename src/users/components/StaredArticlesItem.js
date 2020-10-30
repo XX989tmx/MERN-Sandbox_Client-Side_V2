@@ -9,6 +9,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { estimatedReadingTime } from "../../shared/util/estimatedReadingTime";
+import Axios from "axios";
 
 const StaredArticlesItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -23,7 +24,10 @@ const StaredArticlesItem = (props) => {
   const [DiscountedAmount, setDiscountedAmount] = useState();
   const [WordCount, setWordCount] = useState();
   const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
-
+  const [
+    ShowDeleteStaredArticleModal,
+    setShowDeleteStaredArticleModal,
+  ] = useState(false);
   useEffect(() => {
     const onLoad = (params) => {
       if (new Date(Date.now()).toDateString().split(" ")[0] === "Sun") {
@@ -121,9 +125,44 @@ const StaredArticlesItem = (props) => {
     } catch (err) {}
   };
 
+  const openDeleteStaredArticleModalHandler = (params) => {
+    setShowDeleteStaredArticleModal(true);
+  };
+
+  const closeDeleteStaredArticleModalHandler = (params) => {
+    setShowDeleteStaredArticleModal(false);
+  };
+
+  const removeArticleFromStaredListSSubmitHandler = async (params) => {
+    try {
+      await Axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/articles/deleteArticleFromStaredList/${auth.userId}/${props.id}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
+      <Modal
+        show={ShowDeleteStaredArticleModal}
+        onCancel={closeDeleteStaredArticleModalHandler}
+        header="Remove article from Stared list"
+        footer={
+          <React.Fragment>
+            <Button btnBlack onClick={closeDeleteStaredArticleModalHandler}>
+              Cancel
+            </Button>
+            <Button danger onClick={removeArticleFromStaredListSSubmitHandler}>
+              Remove
+            </Button>
+          </React.Fragment>
+        }
+      >
+        <p>Are you sure you want to delete this article from stared list?</p>
+      </Modal>
       <Modal
         show={showModal}
         onCancel={closeModalHandler}
@@ -444,6 +483,12 @@ const StaredArticlesItem = (props) => {
               {auth.isLoggedIn && (
                 <Button btnGreen onClick={openSubscriptionRequestHandler}>
                   Download This Article
+                </Button>
+              )}
+
+              {auth.isLoggedIn && (
+                <Button danger onClick={openDeleteStaredArticleModalHandler}>
+                  Remove
                 </Button>
               )}
             </div>
