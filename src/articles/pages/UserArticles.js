@@ -6,6 +6,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import MyProfileSideNavigation from "../../users/components/MyProfileSideNavigation";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 import "./UserArticles.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import Axios from "axios";
@@ -36,10 +37,13 @@ const UserArticles = () => {
     setAllOfImagesOfThisUsersArticles,
   ] = useState([]);
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   const userId = useParams().userId;
 
   useEffect(() => {
     const fetchArticles = async () => {
+      setIsLoading(true);
       try {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/articles/user/${userId}`
@@ -52,6 +56,11 @@ const UserArticles = () => {
         const articleCountNotification = `${authorName} has ${articleCount} articles `;
         setarticleCountNotification(articleCountNotification);
       } catch (err) {}
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
+      setIsLoading(false);
       Axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/articles/averagePriceOfThisUsersArticles/${userId}`
       )
@@ -89,60 +98,62 @@ const UserArticles = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      {isLoading && (
-        <div className="center">
-          <LoadingSpinner />
-        </div>
-      )}
-      {!isLoading && loadedArticles && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            paddingLeft: "20%",
-          }}
-        >
-          {" "}
-          <div className="user-articles-container">
-            <div className="main-container">
-              <h3 className="center">
-                {new String(ArticleAuthor.name).toUpperCase()}'s Articles
-              </h3>
-              <h4>{articleCountNotification}</h4>
-              <ArticleList
-                items={loadedArticles}
-                onDeleteArticle={articleDeletedHandler}
-              />
-              <div>
-                <AnalyticsOfUserArticle
-                  sumOfPriceOfThisUsersArticles={sumOfPriceOfThisUsersArticles}
-                  averagePriceOfThisUsersArticles={
-                    averagePriceOfThisUsersArticles
-                  }
-                  TotalCountOfThisUsersArticles={TotalCountOfThisUsersArticles}
-                />
-              </div>
-              <div>
-                <ImageIndexOfUserArticle
-                  AllOfImagesOfThisUsersArticles={
-                    AllOfImagesOfThisUsersArticles
-                  }
-                />
-              </div>
-            </div>
-            {/* <div className="side-container"></div> */}
-          </div>
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && loadedArticles && (
+        <div>
           <div
-            style={{ padding: "20px", width: "400px" }}
-            className="my-profile-sidebar-area"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              paddingLeft: "20%",
+            }}
           >
-            <MyProfileSideNavigation />
+            {" "}
+            <div className="user-articles-container">
+              <div className="main-container">
+                <h3 className="center">
+                  {new String(ArticleAuthor.name).toUpperCase()}'s Articles
+                </h3>
+                <h4>{articleCountNotification}</h4>
+                <ArticleList
+                  items={loadedArticles}
+                  onDeleteArticle={articleDeletedHandler}
+                />
+                <div>
+                  <AnalyticsOfUserArticle
+                    sumOfPriceOfThisUsersArticles={
+                      sumOfPriceOfThisUsersArticles
+                    }
+                    averagePriceOfThisUsersArticles={
+                      averagePriceOfThisUsersArticles
+                    }
+                    TotalCountOfThisUsersArticles={
+                      TotalCountOfThisUsersArticles
+                    }
+                  />
+                </div>
+                <div>
+                  <ImageIndexOfUserArticle
+                    AllOfImagesOfThisUsersArticles={
+                      AllOfImagesOfThisUsersArticles
+                    }
+                  />
+                </div>
+              </div>
+              {/* <div className="side-container"></div> */}
+            </div>
+            <div
+              style={{ padding: "20px", width: "400px" }}
+              className="my-profile-sidebar-area"
+            >
+              <MyProfileSideNavigation />
+            </div>
           </div>
+          <FooterMainNavigation />
+          <MoveToTopButton />
         </div>
       )}
-      {!isLoading && loadedArticles && <FooterMainNavigation />}
-      <MoveToTopButton />
     </React.Fragment>
   );
 };
