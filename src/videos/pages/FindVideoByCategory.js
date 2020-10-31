@@ -7,6 +7,7 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 import "./FindVideoByCategory.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const FindVideoByCategory = () => {
   const categories = useParams().categories;
@@ -50,11 +51,12 @@ const FindVideoByCategory = () => {
             {/* <div className="main-container"> */}
             <div>
               <VideoList items={CategorySortedVideos} />
-              <MoveToTopButton />
             </div>
             {/* </div> */}
             {/* <div className="side-container"></div> */}
           </div>
+          <MoveToTopButton />
+          <FooterMainNavigation />
         </div>
       )}
     </React.Fragment>
