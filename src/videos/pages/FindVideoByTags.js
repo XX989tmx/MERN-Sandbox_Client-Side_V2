@@ -7,6 +7,7 @@ import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton"
 import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 import "./FindVideoByTags.css";
+import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 
 const FindVideoByTags = () => {
   const tags = useParams().tags;
@@ -51,9 +52,10 @@ const FindVideoByTags = () => {
                 component作り使う
               </p> */}
               <VideoList items={tagSortedVideos} />
-              <MoveToTopButton />
             </div>
           </div>
+          <MoveToTopButton />
+          <FooterMainNavigation />
         </div>
       )}
     </React.Fragment>

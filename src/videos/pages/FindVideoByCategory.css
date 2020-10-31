@@ -1,6 +1,6 @@
 .findVideoByCategory-container {
-    margin: auto;
-    width: 80%;
-    height: 100vh;
-    padding-top: 50px;
+  margin: auto;
+  width: 80%;
+  min-height: 100vh;
+  padding-top: 50px;
 }
