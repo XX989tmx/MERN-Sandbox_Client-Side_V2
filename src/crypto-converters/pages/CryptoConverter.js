@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { useForm } from "../../shared/hooks/form-hook";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 import "./CryptoConverter.css";
 import GetCryptoData from "../components/GetCryptoData";
@@ -79,6 +80,8 @@ const CryptoConverter = () => {
     ""
   );
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   const [formState, inputHandler] = useForm(
     {
       // currency: { value: "", isValid: false },
@@ -129,6 +132,7 @@ const CryptoConverter = () => {
   // get request for getting crypto data
   useEffect(() => {
     const getRequestForCryptoData = async (params) => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           process.env.REACT_APP_BACKEND_URL +
@@ -352,6 +356,8 @@ const CryptoConverter = () => {
           setLastRefreshedTimeString(lastRefreshedTimeString);
         })();
 
+        setIsLoading(false);
+
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.AUD;
         // responseData.priceDifferenceBetweenPreviousAndLatest.BRL;
@@ -514,115 +520,121 @@ const CryptoConverter = () => {
 
   return (
     <React.Fragment>
-      <div className="cryptoConverter-container">
-        <div className="main-container">
-          <div className="post-form-area center">
-            <h3 className="center">Currency To Bitcoin Converter</h3>
-            <ExternalLink
-              to="https://www.blockchain.com/"
-              className="natural"
-              text="Data Provided By Blockchain.com"
-            />
-            <div>
-              <CurrencyToBtcConverter
-                cryptoConvertionSubmitHandler={cryptoConvertionSubmitHandler}
-                inputHandler={inputHandler}
-              />
-            </div>
-
-            <div className="result-data-area center">
-              {/* components: result data result data */}
-              <p>Your input value is worth :</p>
-              <h1 className="center">{cryptoPostData} BTC</h1>
-            </div>
-
-            <div>
-              {(fcasRating === "Attractive" && (
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && (
+        <div>
+          {" "}
+          <div className="cryptoConverter-container">
+            <div className="main-container">
+              <div className="post-form-area center">
+                <h3 className="center">Currency To Bitcoin Converter</h3>
+                <ExternalLink
+                  to="https://www.blockchain.com/"
+                  className="natural"
+                  text="Data Provided By Blockchain.com"
+                />
                 <div>
-                  <h3>
-                    fcasRating:
-                    <span style={{ backgroundColor: "#73EFBB" }}>
-                      {fcasRating}
-                    </span>
-                  </h3>
-                  <h3>fcasScore: {fcasScore}</h3>
+                  <CurrencyToBtcConverter
+                    cryptoConvertionSubmitHandler={
+                      cryptoConvertionSubmitHandler
+                    }
+                    inputHandler={inputHandler}
+                  />
                 </div>
-              )) ||
-                (fcasRating === "Superb" && (
-                  <div>
-                    <h3>
-                      fcasRating:
-                      <span style={{ backgroundColor: "#00E685" }}>
-                        {fcasRating}
-                      </span>
-                    </h3>
-                    <h3>fcasScore: {fcasScore}</h3>
-                  </div>
-                )) ||
-                (fcasRating === "Basic" && (
-                  <div>
-                    <h3>
-                      fcasRating:
-                      <span style={{ backgroundColor: "#BFEFDB" }}>
-                        {fcasRating}
-                      </span>
-                    </h3>
-                    <h3>fcasScore: {fcasScore}</h3>
-                  </div>
-                )) ||
-                (fcasRating === "Caution" && (
-                  <div>
-                    <h3>
-                      fcasRating:
-                      <span style={{ backgroundColor: "#FFAC70" }}>
-                        {fcasRating}
-                      </span>
-                    </h3>
-                    <h3>fcasScore: {fcasScore}</h3>
-                  </div>
-                )) ||
-                (fcasRating === "Fragile" && (
-                  <div>
-                    <h3>
-                      fcasRating:
-                      <span style={{ backgroundColor: "#FF4D4D" }}>
-                        {fcasRating}
-                      </span>
-                    </h3>
-                    <h3>fcasScore: {fcasScore}</h3>
-                  </div>
-                ))}
-              {/* <h3>fcasRating: {fcasRating}</h3>
+
+                <div className="result-data-area center">
+                  {/* components: result data result data */}
+                  <p>Your input value is worth :</p>
+                  <h1 className="center">{cryptoPostData} BTC</h1>
+                </div>
+
+                <div>
+                  {(fcasRating === "Attractive" && (
+                    <div>
+                      <h3>
+                        fcasRating:
+                        <span style={{ backgroundColor: "#73EFBB" }}>
+                          {fcasRating}
+                        </span>
+                      </h3>
+                      <h3>fcasScore: {fcasScore}</h3>
+                    </div>
+                  )) ||
+                    (fcasRating === "Superb" && (
+                      <div>
+                        <h3>
+                          fcasRating:
+                          <span style={{ backgroundColor: "#00E685" }}>
+                            {fcasRating}
+                          </span>
+                        </h3>
+                        <h3>fcasScore: {fcasScore}</h3>
+                      </div>
+                    )) ||
+                    (fcasRating === "Basic" && (
+                      <div>
+                        <h3>
+                          fcasRating:
+                          <span style={{ backgroundColor: "#BFEFDB" }}>
+                            {fcasRating}
+                          </span>
+                        </h3>
+                        <h3>fcasScore: {fcasScore}</h3>
+                      </div>
+                    )) ||
+                    (fcasRating === "Caution" && (
+                      <div>
+                        <h3>
+                          fcasRating:
+                          <span style={{ backgroundColor: "#FFAC70" }}>
+                            {fcasRating}
+                          </span>
+                        </h3>
+                        <h3>fcasScore: {fcasScore}</h3>
+                      </div>
+                    )) ||
+                    (fcasRating === "Fragile" && (
+                      <div>
+                        <h3>
+                          fcasRating:
+                          <span style={{ backgroundColor: "#FF4D4D" }}>
+                            {fcasRating}
+                          </span>
+                        </h3>
+                        <h3>fcasScore: {fcasScore}</h3>
+                      </div>
+                    ))}
+                  {/* <h3>fcasRating: {fcasRating}</h3>
             <h3>fcasScore: {fcasScore}</h3> */}
-            </div>
+                </div>
 
-            <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
-            <p style={{ color: "grey" }}>
-              if something does not work, please reload the page.
-            </p>
-            <div style={{ marginLeft: "10px" }}>
-              <Link to="/crypto_converter/fcasRating">
-                See Other Crypto's FCAS Rating
-              </Link>
-            </div>
-            <div style={{ marginLeft: "10px" }}>
-              <Link to="/crypto_converter/historical_data">
-                See Bitcoin's Historical Price Data
-              </Link>
-            </div>
-          </div>
-          <hr />
+                <div>{/* <h1>{Hours}:{Minutes}:{Seconds}</h1> */}</div>
+                <p style={{ color: "grey" }}>
+                  if something does not work, please reload the page.
+                </p>
+                <div style={{ marginLeft: "10px" }}>
+                  <Link to="/crypto_converter/fcasRating">
+                    See Other Crypto's FCAS Rating
+                  </Link>
+                </div>
+                <div style={{ marginLeft: "10px" }}>
+                  <Link to="/crypto_converter/historical_data">
+                    See Bitcoin's Historical Price Data
+                  </Link>
+                </div>
+              </div>
+              <hr />
 
-          <div className="center" style={{ marginTop: "60px" }}>
-            <h3 style={{ paddingTop: "10px", paddingBottom: "10px" }}>
-              Currency Exchange Rate Converter
-            </h3>
-            <ExternalLink
-              className="natural"
-              to="https://www.alphavantage.co/"
-              text="Data Provided By alphavantage"
-            />
-            {/* <p>
+              <div className="center" style={{ marginTop: "60px" }}>
+                <h3 style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+                  Currency Exchange Rate Converter
+                </h3>
+                <ExternalLink
+                  className="natural"
+                  to="https://www.alphavantage.co/"
+                  text="Data Provided By alphavantage"
+                />
+                {/* <p>
             check Crypto Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
           </p>
@@ -630,7 +642,7 @@ const CryptoConverter = () => {
             check Fiat Currency's Currency Code List, 'show list on Modal with
             onClick. make this p tag to button??'
           </p> */}
-            {/* <div className="currency-exchange-rate-input">
+                {/* <div className="currency-exchange-rate-input">
               <div className="currency-exchange-rate-input-form">
                 <form onSubmit={getExchangeRateBothCurrencyAndCryptoHandler}>
                   <Input
@@ -667,754 +679,758 @@ const CryptoConverter = () => {
               </div>
             </div> */}
 
-            <div className="currency-exchange-rate-selector">
-              <CurrencyToCurrencyConverterSelectorVer
-                exchangeRateSubmithandler={exchangeRateSubmithandler}
-                userInputCurrencyAmountChangeHandler={
-                  userInputCurrencyAmountChangeHandler
-                }
-                userInputCurrencyAmount={userInputCurrencyAmount}
-                FromCurrency1={FromCurrency1}
-                FromCurrencyChangehandler1={FromCurrencyChangehandler1}
-                FiatCurrencyCodeOptions={FiatCurrencyCodeOptions}
-                FromCurrency2={FromCurrency2}
-                FromCurrencyChangehandler2={FromCurrencyChangehandler2}
-                CryptoCurrencyCodeOptions={CryptoCurrencyCodeOptions}
-                ToCurrency1={ToCurrency1}
-                ToCurrencyChangehandler1={ToCurrencyChangehandler1}
-                FiatCurrencyCodeOptions={FiatCurrencyCodeOptions}
-                ToCurrency2={ToCurrency2}
-                ToCurrencyChangehandler2={ToCurrencyChangehandler2}
-                userInputCurrencyAmount={userInputCurrencyAmount}
-                ExchangeRate={ExchangeRate}
-                Result={Result}
-              />
-            </div>
-          </div>
+                <div className="currency-exchange-rate-selector">
+                  <CurrencyToCurrencyConverterSelectorVer
+                    exchangeRateSubmithandler={exchangeRateSubmithandler}
+                    userInputCurrencyAmountChangeHandler={
+                      userInputCurrencyAmountChangeHandler
+                    }
+                    userInputCurrencyAmount={userInputCurrencyAmount}
+                    FromCurrency1={FromCurrency1}
+                    FromCurrencyChangehandler1={FromCurrencyChangehandler1}
+                    FiatCurrencyCodeOptions={FiatCurrencyCodeOptions}
+                    FromCurrency2={FromCurrency2}
+                    FromCurrencyChangehandler2={FromCurrencyChangehandler2}
+                    CryptoCurrencyCodeOptions={CryptoCurrencyCodeOptions}
+                    ToCurrency1={ToCurrency1}
+                    ToCurrencyChangehandler1={ToCurrencyChangehandler1}
+                    FiatCurrencyCodeOptions={FiatCurrencyCodeOptions}
+                    ToCurrency2={ToCurrency2}
+                    ToCurrencyChangehandler2={ToCurrencyChangehandler2}
+                    userInputCurrencyAmount={userInputCurrencyAmount}
+                    ExchangeRate={ExchangeRate}
+                    Result={Result}
+                  />
+                </div>
+              </div>
 
-          <div className="crypto-get-area">
-            <div className="crypto-get-area">
-              <hr />
+              <div className="crypto-get-area">
+                <div className="crypto-get-area">
+                  <hr />
 
-              <div className="currency-crypto-table-area center">
-                <h3 className="center">Exchange Rate Index</h3>
-                <p>1 BTC to Currency</p>
-                <div className="center">
-                  {/* components: GET Req for crypto & data pulled from backend */}
-                  {/* <p>{cryptoData}</p>
+                  <div className="currency-crypto-table-area center">
+                    <h3 className="center">Exchange Rate Index</h3>
+                    <p>1 BTC to Currency</p>
+                    <div className="center">
+                      {/* components: GET Req for crypto & data pulled from backend */}
+                      {/* <p>{cryptoData}</p>
                 <GetCryptoData props={cryptoData} /> */}
-                  <div>
-                    <form>
-                      <Button btnBlack onClick={getRequesthandler}>
-                        Get Latest Data
-                      </Button>
-                    </form>
-                  </div>
-                  <div>
-                    {LastRefreshedTimeString && (
-                      <span>Last Refreshed at: {LastRefreshedTimeString}</span>
-                    )}
-                  </div>
-                  <div>
-                    <ExternalLink
-                      to="https://www.blockchain.com/"
-                      className="natural"
-                      text="Data Provided By Blockchain.com"
-                    />
-                  </div>
+                      <div>
+                        <form>
+                          <Button btnBlack onClick={getRequesthandler}>
+                            Get Latest Data
+                          </Button>
+                        </form>
+                      </div>
+                      <div>
+                        {LastRefreshedTimeString && (
+                          <span>
+                            Last Refreshed at: {LastRefreshedTimeString}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <ExternalLink
+                          to="https://www.blockchain.com/"
+                          className="natural"
+                          text="Data Provided By Blockchain.com"
+                        />
+                      </div>
 
-                  {/* <button draggable="true" onClick={goBackToTop}>
+                      {/* <button draggable="true" onClick={goBackToTop}>
                 back to top page
               </button> */}
-                  {/* <div className="back-to-top">
+                      {/* <div className="back-to-top">
                 <button onClick={goBackToTop}>goBackToTop</button>
               </div> */}
+                    </div>
+                    <table className="currency-crypto-table">
+                      <tr>
+                        <th scope="col">Flag</th>
+                        <th scope="col">Exchange Code</th>
+                        <th scope="col">Currency name</th>
+                        <th scope="col">Value equal to 1 BTC</th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇯🇵</span>
+                        </th>
+                        <th scope="row">JPY</th>
+                        <th scope="row">Japansease Yen</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_JPY}
+                          {LastValue.last_JPY}
+                        </th>
+
+                        <th>
+                          {" "}
+                          {(JPYFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.JPY
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (JPYFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.JPY
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇺🇸</span>
+                        </th>
+                        <th scope="row">USD</th>
+                        <th scope="row">US Dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_USD}
+                          {LastValue.last_USD}
+                        </th>
+                        <th>
+                          {(USDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.USD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (USDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.USD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇦🇺</span>
+                        </th>
+                        <th scope="row">AUD</th>
+                        <th scope="row">Australian dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_AUD}
+                          {LastValue.last_AUD}
+                        </th>
+                        <th>
+                          {(AUDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.AUD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (AUDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.AUD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇧🇷</span>
+                        </th>
+                        <th scope="row">BRL</th>
+                        <th scope="row">Brazilian Real</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_BRL}
+                          {LastValue.last_BRL}
+                        </th>
+                        <th>
+                          {(BRLFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.BRL
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (BRLFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.BRL
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇨🇦</span>
+                        </th>
+                        <th scope="row">CAD</th>
+                        <th scope="row">Canadian Dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_CAD}
+                          {LastValue.last_CAD}
+                        </th>
+                        <th>
+                          {(CADFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.CAD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (CADFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.CAD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇨🇭</span>
+                        </th>
+                        <th scope="row">CHF</th>
+                        <th scope="row">Swiss franc</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_CHF}
+                          {LastValue.last_CHF}
+                        </th>
+                        <th>
+                          {(CHFFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.CHF
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (CHFFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.CHF
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇨🇱</span>
+                        </th>
+                        <th scope="row">CLP</th>
+                        <th scope="row">Chilean Peso</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_CLP}
+                          {LastValue.last_CLP}
+                        </th>
+                        <th>
+                          {(CLPFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.CLP
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (CLPFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.CLP
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇨🇳</span>
+                        </th>
+                        <th scope="row">CNY</th>
+                        <th scope="row">Renminbi</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_CNY}
+                          {LastValue.last_CNY}
+                        </th>
+                        <th>
+                          {(CNYFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.CNY
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (CNYFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.CNY
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇩🇰</span>
+                        </th>
+                        <th scope="row">DKK</th>
+                        <th scope="row">Danish krone</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_DKK}
+                          {LastValue.last_DKK}
+                        </th>
+                        <th>
+                          {(DKKFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.DKK
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (DKKFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.DKK
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇪🇺</span>
+                        </th>
+                        <th scope="row">EUR</th>
+                        <th scope="row">Euro</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_EUR}
+                          {LastValue.last_EUR}
+                        </th>
+                        <th>
+                          {(EURFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.EUR
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (EURFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.EUR
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇬🇧</span>
+                        </th>
+                        <th scope="row">GBP</th>
+                        <th scope="row">British pound sterling</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_GBP}
+                          {LastValue.last_GBP}
+                        </th>
+                        <th>
+                          {(GBPFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.GBP
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (GBPFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.GBP
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇭🇰</span>
+                        </th>
+                        <th scope="row">HKD</th>
+                        <th scope="row">Hong Kong Dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_HKD}
+                          {LastValue.last_HKD}
+                        </th>
+                        <th>
+                          {(HKDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.HKD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (HKDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.HKD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇮🇳</span>
+                        </th>
+                        <th scope="row">INR</th>
+                        <th scope="row">Indian rupee</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_INR}
+                          {LastValue.last_INR}
+                        </th>
+                        <th>
+                          {(INRFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.INR
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (INRFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.INR
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇮🇸</span>
+                        </th>
+                        <th scope="row">ISK</th>
+                        <th scope="row">Icelandic króna</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_ISK}
+                          {LastValue.last_ISK}
+                        </th>
+                        <th>
+                          {(ISKFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.ISK
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (ISKFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.ISK
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇰🇷</span>
+                        </th>
+                        <th scope="row">KRW</th>
+                        <th scope="row">South Korean Won</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_KRW}
+                          {LastValue.last_KRW}
+                        </th>
+                        <th>
+                          {(KRWFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.KRW
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (KRWFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.KRW
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇳🇿</span>
+                        </th>
+                        <th scope="row">NZD</th>
+                        <th scope="row">New Zealand dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_NZD}
+                          {LastValue.last_NZD}
+                        </th>
+                        <th>
+                          {(NZDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.NZD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (NZDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.NZD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇵🇱</span>
+                        </th>
+                        <th scope="row">PLN</th>
+                        <th scope="row">Polish zloty</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_PLN}
+                          {LastValue.last_PLN}
+                        </th>
+                        <th>
+                          {(PLNFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.PLN
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (PLNFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.PLN
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇷🇺</span>
+                        </th>
+                        <th scope="row">RUB</th>
+                        <th scope="row">Russian ruble</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_RUB}
+                          {LastValue.last_RUB}
+                        </th>
+                        <th>
+                          {(RUBFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.RUB
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (RUBFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.RUB
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇸🇪</span>
+                        </th>
+                        <th scope="row">SEK</th>
+                        <th scope="row">Swedish krona</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_SEK}
+                          {LastValue.last_SEK}
+                        </th>{" "}
+                        <th>
+                          {(SEKFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.SEK
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (SEKFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.SEK
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇸🇬</span>
+                        </th>
+                        <th scope="row">SGD</th>
+                        <th scope="row">Singapore dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_SGD}
+                          {LastValue.last_SGD}
+                        </th>
+                        <th>
+                          {(SGDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.SGD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (SGDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.SGD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇹🇭</span>
+                        </th>
+                        <th scope="row">THB</th>
+                        <th scope="row">Thai Baht</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_THB}
+                          {LastValue.last_THB}
+                        </th>
+                        <th>
+                          {(THBFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.THB
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (THBFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.THB
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇹🇷</span>
+                        </th>
+                        <th scope="row">TRY</th>
+                        <th scope="row">Turkish Lira</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_TRY}
+                          {LastValue.last_TRY}
+                        </th>
+                        <th>
+                          {(TRYFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.TRY
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (TRYFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.TRY
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="col">
+                          <span>🇹🇼</span>
+                        </th>
+                        <th scope="row">TWD</th>
+                        <th scope="row">New Taiwan dollar</th>
+                        <th scope="row">
+                          {CurrencySymbol.symbol_TWD}
+                          {LastValue.last_TWD}
+                        </th>
+                        <th>
+                          {(TWDFirstCharacter === "-" && (
+                            <span style={{ color: "red" }}>
+                              {new Number(
+                                PriceDiffBetweenPreviousAndLatest.TWD
+                              ).toFixed(2)}
+                            </span>
+                          )) ||
+                            (TWDFirstCharacter !== "-" && (
+                              <span style={{ color: "green" }}>
+                                +
+                                {new Number(
+                                  PriceDiffBetweenPreviousAndLatest.TWD
+                                ).toFixed(2)}
+                              </span>
+                            ))}
+                        </th>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
-                <table className="currency-crypto-table">
-                  <tr>
-                    <th scope="col">Flag</th>
-                    <th scope="col">Exchange Code</th>
-                    <th scope="col">Currency name</th>
-                    <th scope="col">Value equal to 1 BTC</th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇯🇵</span>
-                    </th>
-                    <th scope="row">JPY</th>
-                    <th scope="row">Japansease Yen</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_JPY}
-                      {LastValue.last_JPY}
-                    </th>
-
-                    <th>
-                      {" "}
-                      {(JPYFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.JPY
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (JPYFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.JPY
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇺🇸</span>
-                    </th>
-                    <th scope="row">USD</th>
-                    <th scope="row">US Dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_USD}
-                      {LastValue.last_USD}
-                    </th>
-                    <th>
-                      {(USDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.USD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (USDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.USD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇦🇺</span>
-                    </th>
-                    <th scope="row">AUD</th>
-                    <th scope="row">Australian dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_AUD}
-                      {LastValue.last_AUD}
-                    </th>
-                    <th>
-                      {(AUDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.AUD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (AUDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.AUD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇧🇷</span>
-                    </th>
-                    <th scope="row">BRL</th>
-                    <th scope="row">Brazilian Real</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_BRL}
-                      {LastValue.last_BRL}
-                    </th>
-                    <th>
-                      {(BRLFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.BRL
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (BRLFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.BRL
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇨🇦</span>
-                    </th>
-                    <th scope="row">CAD</th>
-                    <th scope="row">Canadian Dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_CAD}
-                      {LastValue.last_CAD}
-                    </th>
-                    <th>
-                      {(CADFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.CAD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (CADFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.CAD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇨🇭</span>
-                    </th>
-                    <th scope="row">CHF</th>
-                    <th scope="row">Swiss franc</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_CHF}
-                      {LastValue.last_CHF}
-                    </th>
-                    <th>
-                      {(CHFFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.CHF
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (CHFFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.CHF
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇨🇱</span>
-                    </th>
-                    <th scope="row">CLP</th>
-                    <th scope="row">Chilean Peso</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_CLP}
-                      {LastValue.last_CLP}
-                    </th>
-                    <th>
-                      {(CLPFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.CLP
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (CLPFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.CLP
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇨🇳</span>
-                    </th>
-                    <th scope="row">CNY</th>
-                    <th scope="row">Renminbi</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_CNY}
-                      {LastValue.last_CNY}
-                    </th>
-                    <th>
-                      {(CNYFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.CNY
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (CNYFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.CNY
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇩🇰</span>
-                    </th>
-                    <th scope="row">DKK</th>
-                    <th scope="row">Danish krone</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_DKK}
-                      {LastValue.last_DKK}
-                    </th>
-                    <th>
-                      {(DKKFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.DKK
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (DKKFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.DKK
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇪🇺</span>
-                    </th>
-                    <th scope="row">EUR</th>
-                    <th scope="row">Euro</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_EUR}
-                      {LastValue.last_EUR}
-                    </th>
-                    <th>
-                      {(EURFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.EUR
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (EURFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.EUR
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇬🇧</span>
-                    </th>
-                    <th scope="row">GBP</th>
-                    <th scope="row">British pound sterling</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_GBP}
-                      {LastValue.last_GBP}
-                    </th>
-                    <th>
-                      {(GBPFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.GBP
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (GBPFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.GBP
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇭🇰</span>
-                    </th>
-                    <th scope="row">HKD</th>
-                    <th scope="row">Hong Kong Dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_HKD}
-                      {LastValue.last_HKD}
-                    </th>
-                    <th>
-                      {(HKDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.HKD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (HKDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.HKD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇮🇳</span>
-                    </th>
-                    <th scope="row">INR</th>
-                    <th scope="row">Indian rupee</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_INR}
-                      {LastValue.last_INR}
-                    </th>
-                    <th>
-                      {(INRFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.INR
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (INRFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.INR
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇮🇸</span>
-                    </th>
-                    <th scope="row">ISK</th>
-                    <th scope="row">Icelandic króna</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_ISK}
-                      {LastValue.last_ISK}
-                    </th>
-                    <th>
-                      {(ISKFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.ISK
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (ISKFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.ISK
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇰🇷</span>
-                    </th>
-                    <th scope="row">KRW</th>
-                    <th scope="row">South Korean Won</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_KRW}
-                      {LastValue.last_KRW}
-                    </th>
-                    <th>
-                      {(KRWFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.KRW
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (KRWFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.KRW
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇳🇿</span>
-                    </th>
-                    <th scope="row">NZD</th>
-                    <th scope="row">New Zealand dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_NZD}
-                      {LastValue.last_NZD}
-                    </th>
-                    <th>
-                      {(NZDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.NZD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (NZDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.NZD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇵🇱</span>
-                    </th>
-                    <th scope="row">PLN</th>
-                    <th scope="row">Polish zloty</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_PLN}
-                      {LastValue.last_PLN}
-                    </th>
-                    <th>
-                      {(PLNFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.PLN
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (PLNFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.PLN
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇷🇺</span>
-                    </th>
-                    <th scope="row">RUB</th>
-                    <th scope="row">Russian ruble</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_RUB}
-                      {LastValue.last_RUB}
-                    </th>
-                    <th>
-                      {(RUBFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.RUB
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (RUBFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.RUB
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇸🇪</span>
-                    </th>
-                    <th scope="row">SEK</th>
-                    <th scope="row">Swedish krona</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_SEK}
-                      {LastValue.last_SEK}
-                    </th>{" "}
-                    <th>
-                      {(SEKFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.SEK
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (SEKFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.SEK
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇸🇬</span>
-                    </th>
-                    <th scope="row">SGD</th>
-                    <th scope="row">Singapore dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_SGD}
-                      {LastValue.last_SGD}
-                    </th>
-                    <th>
-                      {(SGDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.SGD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (SGDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.SGD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇹🇭</span>
-                    </th>
-                    <th scope="row">THB</th>
-                    <th scope="row">Thai Baht</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_THB}
-                      {LastValue.last_THB}
-                    </th>
-                    <th>
-                      {(THBFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.THB
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (THBFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.THB
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇹🇷</span>
-                    </th>
-                    <th scope="row">TRY</th>
-                    <th scope="row">Turkish Lira</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_TRY}
-                      {LastValue.last_TRY}
-                    </th>
-                    <th>
-                      {(TRYFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.TRY
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (TRYFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.TRY
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-
-                  <tr>
-                    <th scope="col">
-                      <span>🇹🇼</span>
-                    </th>
-                    <th scope="row">TWD</th>
-                    <th scope="row">New Taiwan dollar</th>
-                    <th scope="row">
-                      {CurrencySymbol.symbol_TWD}
-                      {LastValue.last_TWD}
-                    </th>
-                    <th>
-                      {(TWDFirstCharacter === "-" && (
-                        <span style={{ color: "red" }}>
-                          {new Number(
-                            PriceDiffBetweenPreviousAndLatest.TWD
-                          ).toFixed(2)}
-                        </span>
-                      )) ||
-                        (TWDFirstCharacter !== "-" && (
-                          <span style={{ color: "green" }}>
-                            +
-                            {new Number(
-                              PriceDiffBetweenPreviousAndLatest.TWD
-                            ).toFixed(2)}
-                          </span>
-                        ))}
-                    </th>
-                  </tr>
-                </table>
               </div>
+              <MoveToTopButton />
             </div>
+            {/* <div className="side-container"></div> */}
           </div>
-          <MoveToTopButton />
+          <FooterMainNavigation />
         </div>
-        {/* <div className="side-container"></div> */}
-      </div>
-      <FooterMainNavigation />
+      )}
     </React.Fragment>
   );
 };
