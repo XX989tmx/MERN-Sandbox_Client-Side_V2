@@ -56,6 +56,10 @@ const FindArticleByTag = () => {
         // console.log(responseData.countByTag);
         // setCountByTag(responseData.countByTag);
       } catch (error) {}
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       setIsLoading(false);
     };
     getArticlesByTags();
