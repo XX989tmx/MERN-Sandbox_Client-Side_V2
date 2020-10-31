@@ -95,6 +95,10 @@ const FcasRating = () => {
           data._5ArraySortedBasedOnFcasScore.FragileRatedCryptoArray
         );
 
+        function moveToTop(params) {
+          window.scrollTo(0, 0);
+        }
+        moveToTop();
         setIsLoading(false);
       } catch (error) {
         console.log(error);
