@@ -22,7 +22,10 @@ const TagIndex = () => {
         );
         // console.log(responseData);
         setTagIndexData(responseData.responseArray);
-
+        function moveToTop(params) {
+          window.scrollTo(0, 0);
+        }
+        moveToTop();
         setIsLoading(false);
         // console.log(responseData.responseArray);
         // console.log(responseData.responseArray[0].tagName);
