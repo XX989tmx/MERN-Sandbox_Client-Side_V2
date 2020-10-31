@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import GetSpecificUserList from "../components/GetSpecificUserList";
 import { useParams, useHistory } from "react-router-dom";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 import "./GetSpecificUser.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 const GetSpecificUser = () => {
   const userId = useParams().userId;
   const [UserArray, setUserArray] = useState([]);
+  const [IsLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetch = async (params) => {
+      setIsLoading(true);
       try {
         const response = await Axios.get(
           process.env.REACT_APP_BACKEND_URL + `/users/getSpecificUser/${userId}`
@@ -19,6 +22,9 @@ const GetSpecificUser = () => {
         const user = data.result;
         console.log(user);
         setUserArray(user);
+        if (!!user) {
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -28,11 +34,20 @@ const GetSpecificUser = () => {
 
   return (
     <React.Fragment>
-      <div style={{backgroundColor:''}} className="get-specific-user-container">
-        <GetSpecificUserList UserArray={UserArray} />
-      </div>
-      <MoveToTopButton />
-      <FooterMainNavigation />
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && UserArray && (
+        <div>
+          {" "}
+          <div
+            style={{ backgroundColor: "" }}
+            className="get-specific-user-container"
+          >
+            <GetSpecificUserList UserArray={UserArray} />
+          </div>
+          <MoveToTopButton />
+          <FooterMainNavigation />
+        </div>
+      )}
     </React.Fragment>
   );
 };

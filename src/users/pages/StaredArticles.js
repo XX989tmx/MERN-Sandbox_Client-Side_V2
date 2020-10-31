@@ -334,7 +334,7 @@ const StaredArticles = () => {
           style={{
             width: "100%",
             minHeight: "100vh",
-            backgroundColor: "grey",
+            backgroundColor: "white",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
