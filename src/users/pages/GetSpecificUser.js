@@ -22,6 +22,11 @@ const GetSpecificUser = () => {
         const user = data.result;
         console.log(user);
         setUserArray(user);
+
+        function moveToTop(params) {
+          window.scrollTo(0, 0);
+        }
+        moveToTop();
         if (!!user) {
           setIsLoading(false);
         }
