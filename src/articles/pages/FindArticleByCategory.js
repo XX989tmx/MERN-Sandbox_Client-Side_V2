@@ -5,6 +5,7 @@ import { AuthContext } from "../../shared/context/auth-context";
 import FindArticleByCategoryList from "../components/FindArticleByCategoryList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 import "./FindArticleByCategory.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
@@ -17,8 +18,11 @@ const FindArticleByCategory = () => {
   const [CountByCategory, setCountByCategory] = useState();
   const [searchResultInfo, setsearchResultInfo] = useState();
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const getArticlesByCategories = async () => {
+      setIsLoading(true);
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL +
           `/articles/get_article_by_categories/${categories}`
@@ -36,39 +40,39 @@ const FindArticleByCategory = () => {
         singleOrPlural = "article";
       } else {
         singleOrPlural = "articles";
-      };
+      }
       const result = `${articleCount} ${singleOrPlural} found in '${categories}' category`;
       setsearchResultInfo(result);
+      setIsLoading(false);
     };
     getArticlesByCategories();
   }, [sendRequest]);
 
   return (
     <React.Fragment>
-      {isLoading && (
-        <div className="center">
-          <LoadingSpinner />
-        </div>
-      )}
-      {!isLoading && CategorySortedArticle && (
-        <div className="findArticleByCategory-container">
-          <div className="main-container">
-            <div>
-              {/* <h5>{CountByCategory} related articles found.</h5> */}
-              <h4>{searchResultInfo}</h4>
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && CategorySortedArticle && (
+        <div>
+          {" "}
+          <div className="findArticleByCategory-container">
+            <div className="main-container">
               <div>
-                <span>
-                  <Link to={`/articles`}>Article Index</Link>
-                </span>
+                {/* <h5>{CountByCategory} related articles found.</h5> */}
+                <h4>{searchResultInfo}</h4>
+                <div>
+                  <span>
+                    <Link to={`/articles`}>Article Index</Link>
+                  </span>
+                </div>
+                <FindArticleByCategoryList items={CategorySortedArticle} />
+                <MoveToTopButton />
               </div>
-              <FindArticleByCategoryList items={CategorySortedArticle} />
-              <MoveToTopButton />
             </div>
+            {/* <div className="side-container"></div> */}
           </div>
-          {/* <div className="side-container"></div> */}
+          <FooterMainNavigation />
         </div>
       )}
-      {!isLoading && CategorySortedArticle && <FooterMainNavigation />}
     </React.Fragment>
   );
 };
