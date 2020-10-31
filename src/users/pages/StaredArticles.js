@@ -16,6 +16,9 @@ const StaredArticles = () => {
   const [SortArticleValue, setSortArticleValue] = useState();
   const [TagNames, setTagNames] = useState([]);
   const [CategoryNames, setCategoryNames] = useState([]);
+
+  const [ReloadStatus, setReloadStatus] = useState(false);
+
   useEffect(() => {
     const fetch = async (params) => {
       async function fetchAndSetStaredArticlesData(params) {
@@ -133,6 +136,127 @@ const StaredArticles = () => {
     fetch();
   }, []);
 
+  useEffect(() => {
+    const fetch = async (params) => {
+      async function fetchAndSetStaredArticlesData(params) {
+        try {
+          const response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL +
+              `/articles/getStaredArticles/${auth.userId}`
+          );
+          console.log(response.data);
+          const data = response.data;
+          const staredArticles = data.staredArticles;
+          console.log(staredArticles);
+          setStaredArticles(staredArticles);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      await fetchAndSetStaredArticlesData();
+
+      async function fetchAndSetTagSelectorData(params) {
+        let response;
+        try {
+          response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL + `/articles/tagIndex`
+          );
+          const data = response.data;
+          const tagName = data.responseArray.map((v, i) => {
+            return (
+              <option key={i} value={v.tagName}>
+                {v.tagName}
+              </option>
+            );
+          });
+          setTagNames(tagName);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      await fetchAndSetTagSelectorData();
+
+      async function fetchAndSetCategorySelectorData(params) {
+        let response;
+        try {
+          response = await Axios.get(
+            process.env.REACT_APP_BACKEND_URL + `/articles/categoryIndex`
+          );
+        } catch (error) {
+          console.log(error);
+        }
+        const data = response.data;
+        const categoryName = data.responseArray.map((v, i) => {
+          return (
+            <option key={i} value={v.categoryName}>
+              {v.categoryName}
+            </option>
+          );
+        });
+        setCategoryNames(categoryName);
+      }
+      await fetchAndSetCategorySelectorData();
+
+      function SetSortArticleOptionsData(params) {
+        const sortArticleOptions = [
+          { value: "most-viewed", text: "Most Viewed" },
+          {
+            value: "least-viewed",
+            text: "Least Viewed",
+          },
+          {
+            value: "downloadable",
+            text: "Downloadable",
+          },
+          {
+            value: "web-only",
+            text: "Web Only",
+          },
+          {
+            value: "from-highest-price",
+            text: "Highest Price to Lowest",
+          },
+          {
+            value: "from-lowest-price",
+            text: "Lowest Price to Highest",
+          },
+          {
+            value: "from-highest-comment-count",
+            text: "Highest Comment Count to Lowest",
+          },
+          {
+            value: "from-lowest-comment-count",
+            text: "Lowest Comment count to Highest",
+          },
+          {
+            value: "from-highest-star-count",
+            text: "Highest Star Count to Lowest",
+          },
+          {
+            value: "from-lowest-star-count",
+            text: "Lowest Star Count to Highest",
+          },
+        ];
+
+        const sortArticleOption = sortArticleOptions.map((v, i) => {
+          return (
+            <option key={i} value={v.value}>
+              {" "}
+              {v.text}
+            </option>
+          );
+        });
+        setSortArticleOptions(sortArticleOption);
+      }
+      SetSortArticleOptionsData();
+    };
+    fetch();
+  }, [ReloadStatus]);
+
+  const reloadStateHandler = (params) => {
+    setReloadStatus((prev) => !prev);
+  };
+
   const sortArticleChangeHandler = async (event) => {
     console.log(event.target.value);
     const sortArticleValue = event.target.value;
@@ -241,7 +365,10 @@ const StaredArticles = () => {
                 </div>
               </div>
             </div>
-            <StaredArticlesList StaredArticles={StaredArticles} />
+            <StaredArticlesList
+              StaredArticles={StaredArticles}
+              reloadStateHandler={reloadStateHandler}
+            />
           </div>
         </div>
         <div

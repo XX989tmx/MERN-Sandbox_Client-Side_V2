@@ -37,6 +37,7 @@ const StaredArticlesList = (props) => {
           staredBy={v.staredBy}
           wordCount={v.wordCount}
           estimatedReadingTime={v.estimatedReadingTime}
+          reloadStateHandler={props.reloadStateHandler}
         />
       ))}
     </div>

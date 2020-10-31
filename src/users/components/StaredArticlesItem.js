@@ -135,9 +135,12 @@ const StaredArticlesItem = (props) => {
 
   const removeArticleFromStaredListSSubmitHandler = async (params) => {
     try {
-      await Axios.delete(
+      const response = await Axios.delete(
         `${process.env.REACT_APP_BACKEND_URL}/articles/deleteArticleFromStaredList/${auth.userId}/${props.id}`
       );
+      if (!!response) {
+        props.reloadStateHandler();
+      }
     } catch (error) {
       console.log(error);
     }
