@@ -43,6 +43,10 @@ const FindArticleByCategory = () => {
       }
       const result = `${articleCount} ${singleOrPlural} found in '${categories}' category`;
       setsearchResultInfo(result);
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       setIsLoading(false);
     };
     getArticlesByCategories();
