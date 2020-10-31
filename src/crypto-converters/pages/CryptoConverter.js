@@ -356,6 +356,10 @@ const CryptoConverter = () => {
           setLastRefreshedTimeString(lastRefreshedTimeString);
         })();
 
+        function moveToTop(params) {
+          window.scrollTo(0, 0);
+        }
+        moveToTop();
         setIsLoading(false);
 
         // responseData.priceDifferenceBetweenPreviousAndLatest.USD;
