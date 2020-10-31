@@ -90,6 +90,10 @@ const GetSpecificArticleById = () => {
       } catch (error) {
         console.log(error);
       }
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       setIsLoading(false);
       Axios.get(
         process.env.REACT_APP_BACKEND_URL +
@@ -155,6 +159,10 @@ const GetSpecificArticleById = () => {
       } catch (error) {
         console.log(error);
       }
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       setIsLoading(false);
       Axios.get(
         process.env.REACT_APP_BACKEND_URL +
@@ -181,7 +189,6 @@ const GetSpecificArticleById = () => {
       } catch (error) {
         console.log(error);
       }
-      // window.scrollTo(0, 0);
     };
     getArticleById();
   }, [ReloadStatus]);
