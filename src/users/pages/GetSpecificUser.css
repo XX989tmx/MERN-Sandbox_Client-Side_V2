@@ -1,8 +1,8 @@
 .get-specific-user-container {
-
+  padding-top: 15px;
   width: 1080px;
   margin: auto;
   /* height: 100vh; */
   min-height: 100vh;
-  background-color:rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
 }
