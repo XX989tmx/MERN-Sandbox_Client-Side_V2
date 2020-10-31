@@ -265,7 +265,10 @@ const GetSpecificArticleById = () => {
                   />
                 </div>
                 <div style={{ padding: "10px" }}>
-                  <ArticleCommentSection Comments={Comments} />
+                  <ArticleCommentSection
+                    Comments={Comments}
+                    reloadStateHandler={reloadStateHandler}
+                  />
                 </div>
               </div>
               <div className="article-index-link">

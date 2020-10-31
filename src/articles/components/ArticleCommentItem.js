@@ -17,10 +17,13 @@ const ArticleCommentItem = (props) => {
     };
     console.log(props.id);
     try {
-      await Axios.post(
+      const response = await Axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/articles/flagArticleComment/${auth.userId}/${props.id}`,
         data
       );
+      if (!!response) {
+        props.reloadStateHandler();
+      }
     } catch (error) {
       console.log(error);
     }

@@ -12,6 +12,7 @@ const ArticleCommentList = (props) => {
           article={v.article}
           comment={v.comment}
           createdAt={v.createdAt}
+          reloadStateHandler={props.reloadStateHandler}
         />
       ))}
     </div>

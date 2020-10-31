@@ -5,7 +5,10 @@ const ArticleCommentSection = (props) => {
   return (
     <div>
       <p>{props.Comments.length} comments</p>
-      <ArticleCommentList Comments={props.Comments} />
+      <ArticleCommentList
+        Comments={props.Comments}
+        reloadStateHandler={props.reloadStateHandler}
+      />
     </div>
   );
 };
