@@ -254,6 +254,7 @@ const GetSpecificArticleById = () => {
                 WordCount={WordCount}
                 EstimatedReadingTime={EstimatedReadingTime}
                 ViewCount={ViewCount}
+                reloadStateHandler={reloadStateHandler}
               />
               <div>
                 <div style={{ padding: "10px", textAlign: "center" }}>

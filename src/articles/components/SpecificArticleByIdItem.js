@@ -94,6 +94,9 @@ const SpecificArticleByIdItem = (props) => {
       const response = await Axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/articles/addArticleToStaredList/${auth.userId}/${articleId}`
       );
+      if (!!response) {
+        props.reloadStateHandler();
+      }
       const data = response.data;
       console.log(data.message);
     } catch (error) {
