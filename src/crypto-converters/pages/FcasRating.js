@@ -7,6 +7,7 @@ import Button from "../../shared/components/FormElements/Button";
 import FcasRatingItem from "../components/FcasRatingItem";
 import download from "downloadjs";
 import { v4 as uuidv4 } from "uuid";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 import "./FcasRating.css";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
@@ -44,8 +45,11 @@ const FcasRating = () => {
   const [CautionRatedCryptoArray, setCautionRatedCryptoArray] = useState([]);
   const [FragileRatedCryptoArray, setFragileRatedCryptoArray] = useState([]);
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const onLoad = async (params) => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           process.env.REACT_APP_BACKEND_URL +
@@ -90,6 +94,8 @@ const FcasRating = () => {
         setFragileRatedCryptoArray(
           data._5ArraySortedBasedOnFcasScore.FragileRatedCryptoArray
         );
+
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -149,30 +155,34 @@ const FcasRating = () => {
 
   return (
     <React.Fragment>
-      <div className="fcasRating-container">
-        <div className="main-container">
-          <div>
-            <h3 className="center">FCAS Rating Checker</h3>
-            <div className="center">
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && (
+        <div>
+          {" "}
+          <div className="fcasRating-container">
+            <div className="main-container">
               <div>
-                <select
-                  style={{
-                    height: "30px",
-                    boxShadow: "0px 1px 8px grey",
-                    fontWeight: "600",
-                  }}
-                  name="Code"
-                  id="Code"
-                  onChange={currencyNameSelector}
-                >
-                  <option value="default">Choose Currency Code</option>
-                  {Option}
-                </select>
-              </div>
-              <p style={{ color: "grey", textAlign: "center" }}>
-                if something does not work, please reload the page.
-              </p>
-              {/* <form onSubmit={getFcasRating}>
+                <h3 className="center">FCAS Rating Checker</h3>
+                <div className="center">
+                  <div>
+                    <select
+                      style={{
+                        height: "30px",
+                        boxShadow: "0px 1px 8px grey",
+                        fontWeight: "600",
+                      }}
+                      name="Code"
+                      id="Code"
+                      onChange={currencyNameSelector}
+                    >
+                      <option value="default">Choose Currency Code</option>
+                      {Option}
+                    </select>
+                  </div>
+                  <p style={{ color: "grey", textAlign: "center" }}>
+                    if something does not work, please reload the page.
+                  </p>
+                  {/* <form onSubmit={getFcasRating}>
                 <Input
                   id="cryptoCode"
                   element="input"
@@ -184,130 +194,135 @@ const FcasRating = () => {
                 
                 <Button btnBlack>Get Fcas Score</Button>
               </form> */}
-              <div>
-                {/* <button>open currency code list modal</button> */}
-                <Button btnBlack onClick={currencyListDownloader}>
-                  download all currency code list
-                </Button>
-              </div>
-            </div>
+                  <div>
+                    {/* <button>open currency code list modal</button> */}
+                    <Button btnBlack onClick={currencyListDownloader}>
+                      download all currency code list
+                    </Button>
+                  </div>
+                </div>
 
-            <div>
-              <FcasRatingItem
-                symbol={FcasRatingInfo.symbol}
-                name={FcasRatingInfo.name}
-                fcasRating={FcasRatingInfo.fcasRating}
-                fcasScore={FcasRatingInfo.fcasScore}
-                developlerScore={FcasRatingInfo.developlerScore}
-                marketMaturityScore={FcasRatingInfo.marketMaturityScore}
-                utilityScore={FcasRatingInfo.utilityScore}
-                lastRefreshed={FcasRatingInfo.lastRefreshed}
-                timezone={FcasRatingInfo.timezone}
-              />
-            </div>
-
-            <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-              {" "}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                }}
-              >
                 <div>
-                  <img
-                    src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
-                    alt=""
-                    style={{ width: "300px", height: "200px" }}
+                  <FcasRatingItem
+                    symbol={FcasRatingInfo.symbol}
+                    name={FcasRatingInfo.name}
+                    fcasRating={FcasRatingInfo.fcasRating}
+                    fcasScore={FcasRatingInfo.fcasScore}
+                    developlerScore={FcasRatingInfo.developlerScore}
+                    marketMaturityScore={FcasRatingInfo.marketMaturityScore}
+                    utilityScore={FcasRatingInfo.utilityScore}
+                    lastRefreshed={FcasRatingInfo.lastRefreshed}
+                    timezone={FcasRatingInfo.timezone}
                   />
                 </div>
-                <div style={{ width: "600px", paddingLeft: "20px" }}>
-                  <h4>What is FCAS?</h4>
-                  <p>
-                    Fundamental Crypto Asset Score (FCAS) is a comparative
-                    metric used to assess the fundamental health of crypto
-                    projects. The score is derived from the interactivity
-                    between primary project life-cycle factors: User
-                    Activity/Utility, Developer Behavior, and Market Maturity.
-                    Each crypto asset is given a composite numerical score,
-                    0-1000, and an associated rating as follows:
-                  </p>
+
+                <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                  {" "}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <div>
+                      <img
+                        src="https://test-images-b.s3.amazonaws.com/crypto_rating.png"
+                        alt=""
+                        style={{ width: "300px", height: "200px" }}
+                      />
+                    </div>
+                    <div style={{ width: "600px", paddingLeft: "20px" }}>
+                      <h4>What is FCAS?</h4>
+                      <p>
+                        Fundamental Crypto Asset Score (FCAS) is a comparative
+                        metric used to assess the fundamental health of crypto
+                        projects. The score is derived from the interactivity
+                        between primary project life-cycle factors: User
+                        Activity/Utility, Developer Behavior, and Market
+                        Maturity. Each crypto asset is given a composite
+                        numerical score, 0-1000, and an associated rating as
+                        follows:
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <ExternalLink
-              to="https://www.alphavantage.co/"
-              className="natural"
-              text="Data Provided By Alphavantage"
-            />
-            <hr />
+                <ExternalLink
+                  to="https://www.alphavantage.co/"
+                  className="natural"
+                  text="Data Provided By Alphavantage"
+                />
+                <hr />
 
-            <div>
-              <TableHeaderOfFcasRankList />
-            </div>
-            <hr />
+                <div>
+                  <TableHeaderOfFcasRankList />
+                </div>
+                <hr />
 
-            <div className="superb-list-container">
-              <div>
-                <span className="superb-heading">Superb</span>
-              </div>
-              <div className="crypto-list-array-components-area">
-                <SuperbList SuperbRatedCryptoArray={SuperbRatedCryptoArray} />
+                <div className="superb-list-container">
+                  <div>
+                    <span className="superb-heading">Superb</span>
+                  </div>
+                  <div className="crypto-list-array-components-area">
+                    <SuperbList
+                      SuperbRatedCryptoArray={SuperbRatedCryptoArray}
+                    />
+                  </div>
+                </div>
+                <hr />
+                <div className="attractive-list-container">
+                  <div>
+                    {" "}
+                    <span className="attractive-heading">Attractive</span>
+                  </div>
+                  <div className="crypto-list-array-components-area">
+                    <AttractiveList
+                      AttractiveRatedCryptoArray={AttractiveRatedCryptoArray}
+                    />
+                  </div>
+                </div>
+                <hr />
+                <div className="basic-list-container">
+                  <div>
+                    <span className="basic-heading">Basic</span>
+                  </div>
+                  <div className="crypto-list-array-components-area">
+                    <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
+                  </div>
+                </div>
+                <hr />
+                <div className="caution-list-container">
+                  <div>
+                    <span className="caution-heading">Caution</span>
+                  </div>
+                  <div className="crypto-list-array-components-area">
+                    <CautionList
+                      CautionRatedCryptoArray={CautionRatedCryptoArray}
+                    />
+                  </div>
+                </div>
+                <hr />
+                <div className="fragile-list-container">
+                  <div>
+                    {" "}
+                    <span className="fragile-heading">Fragile</span>
+                  </div>
+                  <div className="crypto-list-array-components-area">
+                    <FragileList
+                      FragileRatedCryptoArray={FragileRatedCryptoArray}
+                    />
+                  </div>
+                </div>
+                <hr />
+                <Link to={"/crypto_converter"}>Go Back</Link>
+                <MoveToTopButton />
               </div>
             </div>
-            <hr />
-            <div className="attractive-list-container">
-              <div>
-                {" "}
-                <span className="attractive-heading">Attractive</span>
-              </div>
-              <div className="crypto-list-array-components-area">
-                <AttractiveList
-                  AttractiveRatedCryptoArray={AttractiveRatedCryptoArray}
-                />
-              </div>
-            </div>
-            <hr />
-            <div className="basic-list-container">
-              <div>
-                <span className="basic-heading">Basic</span>
-              </div>
-              <div className="crypto-list-array-components-area">
-                <BasicList BasicRatedCryptoArray={BasicRatedCryptoArray} />
-              </div>
-            </div>
-            <hr />
-            <div className="caution-list-container">
-              <div>
-                <span className="caution-heading">Caution</span>
-              </div>
-              <div className="crypto-list-array-components-area">
-                <CautionList
-                  CautionRatedCryptoArray={CautionRatedCryptoArray}
-                />
-              </div>
-            </div>
-            <hr />
-            <div className="fragile-list-container">
-              <div>
-                {" "}
-                <span className="fragile-heading">Fragile</span>
-              </div>
-              <div className="crypto-list-array-components-area">
-                <FragileList
-                  FragileRatedCryptoArray={FragileRatedCryptoArray}
-                />
-              </div>
-            </div>
-            <hr />
-            <Link to={"/crypto_converter"}>Go Back</Link>
-            <MoveToTopButton />
+            {/* <div className="side-container"></div> */}
           </div>
+          <FooterMainNavigation />
         </div>
-        {/* <div className="side-container"></div> */}
-      </div>
-      <FooterMainNavigation />
+      )}
     </React.Fragment>
   );
 };
