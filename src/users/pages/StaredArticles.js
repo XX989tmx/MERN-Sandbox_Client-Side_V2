@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { reactRouterDom } from "react-router-dom";
+import ReactLoaderSpinner from "react-loader-spinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MyProfileSideNavigation from "../components/MyProfileSideNavigation";
@@ -19,9 +20,12 @@ const StaredArticles = () => {
 
   const [ReloadStatus, setReloadStatus] = useState(false);
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetch = async (params) => {
       async function fetchAndSetStaredArticlesData(params) {
+        setIsLoading(true);
         try {
           const response = await Axios.get(
             process.env.REACT_APP_BACKEND_URL +
@@ -32,6 +36,10 @@ const StaredArticles = () => {
           const staredArticles = data.staredArticles;
           console.log(staredArticles);
           setStaredArticles(staredArticles);
+
+          if (!!staredArticles) {
+            setIsLoading(false);
+          }
         } catch (error) {
           console.log(error);
         }
@@ -321,65 +329,102 @@ const StaredArticles = () => {
   return (
     <React.Fragment>
       {" "}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          paddingLeft: "20%",
-        }}
-      >
+      {IsLoading && (
         <div
-          style={{ width: "1080px", minHeight: "100vh" }}
-          className="address-container"
+          style={{
+            width: "100%",
+            minHeight: "100vh",
+            backgroundColor: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
+          {" "}
           <div>
             {" "}
-            <h1> Stared Articles</h1>
-            <h4>{StaredArticles.length} stared articles.</h4>
-            <div style={{ padding: "10px" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                }}
-              >
-                <div style={{ marginLeft: "13px" }}>
-                  <select name="" onChange={sortArticleChangeHandler}>
-                    <option value="">Sort Article</option>
-                    {SortArticleOptions}
-                  </select>
-                </div>
-                <div style={{ marginLeft: "13px" }}>
-                  <select name="" id="" onChange={TagSortChangeHandler}>
-                    <option value="">Tag Sort</option>
-                    {TagNames}
-                  </select>
-                </div>
-                <div style={{ marginLeft: "13px" }}>
-                  <select name="" id="" onChange={CategorySortChangeHandler}>
-                    <option value="">Category Sort</option>
-                    {CategoryNames}
-                  </select>
-                </div>
-              </div>
+            <div>
+              <ReactLoaderSpinner
+                type="Grid"
+                color="#00BFFF"
+                height={50}
+                width={50}
+              />
             </div>
-            <StaredArticlesList
-              StaredArticles={StaredArticles}
-              reloadStateHandler={reloadStateHandler}
-            />
+            <div>
+              <span style={{ color: "#00BFFF" }}>Loading...</span>
+            </div>
           </div>
         </div>
-        <div
-          style={{ padding: "20px", width: "370px" }}
-          className="my-profile-sidebar-area"
-        >
-          <MyProfileSideNavigation />
+      )}
+      {!IsLoading && StaredArticles && (
+        <div>
+          {" "}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              paddingLeft: "20%",
+            }}
+          >
+            <div
+              style={{ width: "1080px", minHeight: "100vh" }}
+              className="address-container"
+            >
+              <div>
+                {" "}
+                <h1> Stared Articles</h1>
+                <h4>{StaredArticles.length} stared articles.</h4>
+                <div style={{ padding: "10px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <div style={{ marginLeft: "13px" }}>
+                      <select name="" onChange={sortArticleChangeHandler}>
+                        <option value="">Sort Article</option>
+                        {SortArticleOptions}
+                      </select>
+                    </div>
+                    <div style={{ marginLeft: "13px" }}>
+                      <select name="" id="" onChange={TagSortChangeHandler}>
+                        <option value="">Tag Sort</option>
+                        {TagNames}
+                      </select>
+                    </div>
+                    <div style={{ marginLeft: "13px" }}>
+                      <select
+                        name=""
+                        id=""
+                        onChange={CategorySortChangeHandler}
+                      >
+                        <option value="">Category Sort</option>
+                        {CategoryNames}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <StaredArticlesList
+                  StaredArticles={StaredArticles}
+                  reloadStateHandler={reloadStateHandler}
+                />
+              </div>
+            </div>
+            <div
+              style={{ padding: "20px", width: "370px" }}
+              className="my-profile-sidebar-area"
+            >
+              <MyProfileSideNavigation />
+            </div>
+          </div>
+          <MoveToTopButton />
+          <FooterMainNavigation />
         </div>
-      </div>
-      <MoveToTopButton />
-      <FooterMainNavigation />
+      )}
     </React.Fragment>
   );
 };
