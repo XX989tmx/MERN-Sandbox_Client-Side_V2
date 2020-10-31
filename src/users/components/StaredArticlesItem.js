@@ -161,7 +161,9 @@ const StaredArticlesItem = (props) => {
           </React.Fragment>
         }
       >
-        <p>Are you sure you want to delete this article from stared list?</p>
+        <p style={{ fontSize: "15px", fontWeight: "500", lineHeight: "20px" }}>
+          Are you sure you want to delete this article from stared list?
+        </p>
       </Modal>
       <Modal
         show={showModal}
