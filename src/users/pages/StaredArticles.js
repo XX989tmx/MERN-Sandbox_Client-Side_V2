@@ -151,6 +151,7 @@ const StaredArticles = () => {
   useEffect(() => {
     const fetch = async (params) => {
       async function fetchAndSetStaredArticlesData(params) {
+        setIsLoading(true)
         try {
           const response = await Axios.get(
             process.env.REACT_APP_BACKEND_URL +
@@ -161,6 +162,14 @@ const StaredArticles = () => {
           const staredArticles = data.staredArticles;
           console.log(staredArticles);
           setStaredArticles(staredArticles);
+
+          function moveToTop(params) {
+            window.scrollTo(0, 0);
+          }
+          moveToTop();
+          if (!!staredArticles) {
+            setIsLoading(false);
+          }
         } catch (error) {
           console.log(error);
         }
