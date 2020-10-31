@@ -26,6 +26,10 @@ const CategoryIndex = () => {
         // console.log(responseData.responseArray[0].categoryName);
         // console.log(responseData.responseArray[0].count);
       } catch (error) {}
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       setIsLoading(false);
     };
     getCategoryIndex();
