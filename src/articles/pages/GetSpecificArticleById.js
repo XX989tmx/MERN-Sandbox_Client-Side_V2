@@ -5,6 +5,7 @@ import ArticleItem from "../components/ArticleItem";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
 import Button from "../../shared/components/FormElements/Button";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 import "./GetSpecificArticleById.css";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
@@ -39,6 +40,8 @@ const GetSpecificArticleById = () => {
   const [EstimatedReadingTime, setEstimatedReadingTime] = useState();
   const [ViewCount, setViewCount] = useState();
 
+  const [IsLoading, setIsLoading] = useState(false);
+
   const [formState, inputHandler] = useForm(
     {
       comment: { value: "", isValid: false },
@@ -55,6 +58,7 @@ const GetSpecificArticleById = () => {
 
   useEffect(() => {
     const getArticleById = async (params) => {
+      setIsLoading(true);
       let authorId;
       try {
         const responseData = await sendRequest(
@@ -86,6 +90,7 @@ const GetSpecificArticleById = () => {
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false);
       Axios.get(
         process.env.REACT_APP_BACKEND_URL +
           `/articles/get_same_authors_articles/${articleId}/${authorId}`,
@@ -118,6 +123,7 @@ const GetSpecificArticleById = () => {
 
   useEffect(() => {
     const getArticleById = async (params) => {
+      setIsLoading(true);
       let authorId;
       try {
         const responseData = await sendRequest(
@@ -149,6 +155,7 @@ const GetSpecificArticleById = () => {
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false);
       Axios.get(
         process.env.REACT_APP_BACKEND_URL +
           `/articles/get_same_authors_articles/${articleId}/${authorId}`,
@@ -201,16 +208,13 @@ const GetSpecificArticleById = () => {
 
   return (
     <React.Fragment>
-      {isLoading && (
-        <div className="center">
-          <LoadingSpinner />
-        </div>
-      )}
-      {!isLoading && Article && (
-        <div className="getSpecificArticleById-container">
-          <div className="main-container">
-            <div>
-              {/* <ArticleItem
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && Article && (
+        <div>
+          <div className="getSpecificArticleById-container">
+            <div className="main-container">
+              <div>
+                {/* <ArticleItem
                 key={Article.id}
                 id={Article.id}
                 image={Article.image}
@@ -225,65 +229,67 @@ const GetSpecificArticleById = () => {
                 date_created={Article.date_created}
                 downloadable={Article.downloadable}
               /> */}
-              <SpecificArticleByIdItem
-                key={Article.id}
-                id={Article.id}
-                images={images}
-                title={Article.title}
-                // heading={Article.heading}
-                // content={Article.content}
-                // heading2={Article.heading2}
-                // content2={Article.content2}
-                // heading3={Article.heading3}
-                // content3={Article.content3}
-                // heading4={Article.heading4}
-                // content4={Article.content4}
-                authorName={ArticleAuthor.name}
-                authorEmail={ArticleAuthor.email}
-                authorId={ArticleAuthor._id}
-                categories={ArticleCategories}
-                tags={ArticleTags}
-                price={Article.price}
-                date_created={Article.date_created}
-                downloadable={Article.downloadable}
-                referenceSites={referenceSites}
-                contents={contents}
-                externalSites={externalSites}
-                articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
-                StaredBy={StaredBy}
-                WordCount={WordCount}
-                EstimatedReadingTime={EstimatedReadingTime}
-                ViewCount={ViewCount}
-                reloadStateHandler={reloadStateHandler}
-              />
-              <div>
-                <div style={{ padding: "10px", textAlign: "center" }}>
-                  {" "}
-                  <ArticleCommentInput
-                    submitCommentHandler={submitCommentHandler}
-                    inputHandler={inputHandler}
-                    reloadStateHandler={reloadStateHandler}
-                  />
+                <SpecificArticleByIdItem
+                  key={Article.id}
+                  id={Article.id}
+                  images={images}
+                  title={Article.title}
+                  // heading={Article.heading}
+                  // content={Article.content}
+                  // heading2={Article.heading2}
+                  // content2={Article.content2}
+                  // heading3={Article.heading3}
+                  // content3={Article.content3}
+                  // heading4={Article.heading4}
+                  // content4={Article.content4}
+                  authorName={ArticleAuthor.name}
+                  authorEmail={ArticleAuthor.email}
+                  authorId={ArticleAuthor._id}
+                  categories={ArticleCategories}
+                  tags={ArticleTags}
+                  price={Article.price}
+                  date_created={Article.date_created}
+                  downloadable={Article.downloadable}
+                  referenceSites={referenceSites}
+                  contents={contents}
+                  externalSites={externalSites}
+                  articlesExceptTheCurrentOne={articlesExceptTheCurrentOne}
+                  StaredBy={StaredBy}
+                  WordCount={WordCount}
+                  EstimatedReadingTime={EstimatedReadingTime}
+                  ViewCount={ViewCount}
+                  reloadStateHandler={reloadStateHandler}
+                />
+                <div>
+                  <div style={{ padding: "10px", textAlign: "center" }}>
+                    {" "}
+                    <ArticleCommentInput
+                      submitCommentHandler={submitCommentHandler}
+                      inputHandler={inputHandler}
+                      reloadStateHandler={reloadStateHandler}
+                    />
+                  </div>
+                  <div style={{ padding: "10px" }}>
+                    <ArticleCommentSection
+                      Comments={Comments}
+                      reloadStateHandler={reloadStateHandler}
+                    />
+                  </div>
                 </div>
-                <div style={{ padding: "10px" }}>
-                  <ArticleCommentSection
-                    Comments={Comments}
-                    reloadStateHandler={reloadStateHandler}
-                  />
+                <div className="article-index-link">
+                  <span>
+                    <Link to={`/articles`}>Article Index</Link>
+                  </span>
                 </div>
+                <MoveToTopButton />
               </div>
-              <div className="article-index-link">
-                <span>
-                  <Link to={`/articles`}>Article Index</Link>
-                </span>
-              </div>
-              <MoveToTopButton />
             </div>
+            {/* <div className="side-container"></div> */}
           </div>
-          {/* <div className="side-container"></div> */}
+
+          <FooterMainNavigation />
         </div>
       )}
-      {!isLoading && Article && <FooterMainNavigation />}
     </React.Fragment>
   );
 };
