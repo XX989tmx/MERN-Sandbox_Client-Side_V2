@@ -46,6 +46,8 @@ const GetSpecificArticleById = () => {
     false
   );
 
+  const [ReloadStatus, setReloadStatus] = useState(false);
+
   const [
     articlesExceptTheCurrentOne,
     setarticlesExceptTheCurrentOne,
@@ -114,14 +116,87 @@ const GetSpecificArticleById = () => {
     getArticleById();
   }, [sendRequest]);
 
+  useEffect(() => {
+    const getArticleById = async (params) => {
+      let authorId;
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL +
+            `/articles/get_specific_article_by_id/${articleId}`
+        );
+        // console.log(responseData);
+        // console.log(responseData.article);
+        // console.log(responseData.article.author);
+        // console.log(responseData.article.author.name);
+        setArticle(responseData.article);
+        setArticleAuthor(responseData.article.author);
+        console.log(responseData.article.author.id);
+        authorId = responseData.article.author.id;
+        setauthorId(responseData.article.author.id);
+        setreferenceSites(responseData.article.referenceSites);
+        setcontents(responseData.article.contents);
+        // console.log(responseData.article.referenceSites);
+        setexternalSites(responseData.article.externalSites);
+        setimages(responseData.article.images);
+        console.log(responseData.article);
+        setStaredBy(responseData.article.staredBy);
+        setComments(responseData.article.comments);
+        setArticleTags(responseData.article.tags);
+        setArticleCategories(responseData.article.categories);
+        setWordCount(responseData.article.wordCount);
+        setEstimatedReadingTime(responseData.article.estimatedReadingTime);
+        setViewCount(responseData.article.viewCount);
+      } catch (error) {
+        console.log(error);
+      }
+      Axios.get(
+        process.env.REACT_APP_BACKEND_URL +
+          `/articles/get_same_authors_articles/${articleId}/${authorId}`,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      )
+        .then((response) => {
+          console.log(response.data);
+          setarticlesExceptTheCurrentOne(
+            response.data.articlesExceptTheCurrentOne
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      try {
+        await Axios.get(
+          process.env.REACT_APP_BACKEND_URL +
+            `/articles/${articleId}/addViewCount`
+        );
+      } catch (error) {
+        console.log(error);
+      }
+      // window.scrollTo(0, 0);
+    };
+    getArticleById();
+  }, [ReloadStatus]);
+
+  const reloadStateHandler = (params) => {
+    setReloadStatus((prev) => !prev);
+  };
+
   const submitCommentHandler = async (event) => {
     event.preventDefault();
     try {
-      Axios.post(
+      const response = await Axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/articles/addCommentsToArticle/${auth.userId}/${articleId}`,
         { comment: formState.inputs.comment.value }
       );
-    } catch (error) {}
+
+      if (!!response) {
+        reloadStateHandler();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -186,6 +261,7 @@ const GetSpecificArticleById = () => {
                   <ArticleCommentInput
                     submitCommentHandler={submitCommentHandler}
                     inputHandler={inputHandler}
+                    reloadStateHandler={reloadStateHandler}
                   />
                 </div>
                 <div style={{ padding: "10px" }}>
