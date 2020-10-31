@@ -37,6 +37,10 @@ const StaredArticles = () => {
           console.log(staredArticles);
           setStaredArticles(staredArticles);
 
+          function moveToTop(params) {
+            window.scrollTo(0, 0);
+          }
+          moveToTop();
           if (!!staredArticles) {
             setIsLoading(false);
           }
