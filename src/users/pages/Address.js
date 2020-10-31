@@ -29,6 +29,11 @@ const Address = () => {
       console.log(data);
       const addresses = data.user.addresses;
       setAddresses(addresses);
+
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
       if (!!addresses) {
         setIsLoading(false);
       }
