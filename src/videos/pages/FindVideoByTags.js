@@ -4,41 +4,47 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import VideoList from "../components/VideoList";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
-import './FindVideoByTags.css';
+import "./FindVideoByTags.css";
 
 const FindVideoByTags = () => {
-const tags = useParams().tags;
-const [tagSortedVideos, setTagSortedVideos] = useState([]);
-const [videoCount, setVideoCount] = useState();
-const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const tags = useParams().tags;
+  const [tagSortedVideos, setTagSortedVideos] = useState([]);
+  const [videoCount, setVideoCount] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [IsLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-      const getVideoByTags = async (params) => {
-        try {
-          const responseData = await sendRequest(
-            process.env
-              .REACT_APP_BACKEND_URL + `/videos/get_video_by_tags/${tags}`
-          );
-         console.log(responseData);
-         setTagSortedVideos(responseData.tagMatchedVideos);
-         console.log(responseData.countByTag);
-         setVideoCount(responseData.countByTag);
-        } catch (error) {}
-        // window.scrollTo(0, 0);
-      };
-      getVideoByTags();
-    }, [sendRequest]);
+  useEffect(() => {
+    const getVideoByTags = async (params) => {
+      setIsLoading(true);
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL +
+            `/videos/get_video_by_tags/${tags}`
+        );
+        console.log(responseData);
+        setTagSortedVideos(responseData.tagMatchedVideos);
+        console.log(responseData.countByTag);
+        setVideoCount(responseData.countByTag);
+      } catch (error) {}
+      function moveToTop(params) {
+        window.scrollTo(0, 0);
+      }
+      moveToTop();
+      setIsLoading(false);
+      // window.scrollTo(0, 0);
+    };
+    getVideoByTags();
+  }, [sendRequest]);
 
-    return (
-      <React.Fragment>
-        {isLoading && (
-          <div className="center">
-            <LoadingSpinner />
-          </div>
-        )}
-        {!isLoading && tagSortedVideos && <div className="findVideoByTags-container">
-          
+  return (
+    <React.Fragment>
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && tagSortedVideos && (
+        <div>
+          {" "}
+          <div className="findVideoByTags-container">
             <div>
               {/* <p>
                 videoMainPageのlist&itemsコンポーネント再利用。問題起きたらFindVideoByTags用のchild
@@ -48,10 +54,10 @@ const { isLoading, error, sendRequest, clearError } = useHttpClient();
               <MoveToTopButton />
             </div>
           </div>
-          
-        }
-      </React.Fragment>
-    );
-}
+        </div>
+      )}
+    </React.Fragment>
+  );
+};
 
 export default FindVideoByTags;
