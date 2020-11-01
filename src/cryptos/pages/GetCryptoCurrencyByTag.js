@@ -5,12 +5,15 @@ import GetCryptoCurrencyByTagList from "../components/GetCryptoCurrencyByTagList
 import { useParams, useHistory, Link } from "react-router-dom";
 import FooterMainNavigation from "../../shared/components/Footer/FooterMainNavigation";
 import MoveToTopButton from "../../shared/components/UIElements/MoveToTopButton";
+import MyLoadingSpinner from "../../shared/components/UIElements/MyLoadingSpinner";
 
 const GetCryptoCurrencyByTag = () => {
   const [tagSortedCrypto, settagSortedCrypto] = useState([]);
   const [Tag, setTag] = useState();
   const tag = useParams().tag;
+  const [IsLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     const fetch = (params) => {
       Axios.get(
         process.env.REACT_APP_BACKEND_URL + `/cryptos/currencies/tag/${tag}`
@@ -19,6 +22,11 @@ const GetCryptoCurrencyByTag = () => {
           console.log(response.data);
           console.log(response.data.cryptos);
           settagSortedCrypto(response.data.crypto);
+          function moveToTop(params) {
+            window.scrollTo(0, 0);
+          }
+          moveToTop();
+          setIsLoading(false);
         })
         .catch((err) => {});
     };
@@ -30,13 +38,19 @@ const GetCryptoCurrencyByTag = () => {
 
   return (
     <React.Fragment>
-      <div className="crypto-index-container">
-        <h2>{Tag} Tag Related Cryptos</h2>
-        <CryptoIndexTableHeader />
-        <GetCryptoCurrencyByTagList tagSortedCrypto={tagSortedCrypto} />
-      </div>
-      <MoveToTopButton />
-      <FooterMainNavigation />
+      {IsLoading && <MyLoadingSpinner />}
+      {!IsLoading && tagSortedCrypto && (
+        <div>
+          {" "}
+          <div className="crypto-index-container">
+            <h2>{Tag} Tag Related Cryptos</h2>
+            <CryptoIndexTableHeader />
+            <GetCryptoCurrencyByTagList tagSortedCrypto={tagSortedCrypto} />
+          </div>
+          <MoveToTopButton />
+          <FooterMainNavigation />
+        </div>
+      )}
     </React.Fragment>
   );
 };
