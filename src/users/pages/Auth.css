@@ -4,6 +4,10 @@
   height: 100vh;
 }
 
+.auth-background-area {
+  background-color: rgb(85, 85, 85);
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablets: */
   .auth-container {
